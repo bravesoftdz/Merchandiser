@@ -114,8 +114,8 @@ IncludeVerInfo=1
 AutoIncBuild=0
 MajorVer=2
 MinorVer=6
-Release=1
-Build=63
+Release=2
+Build=1
 Debug=0
 PreRelease=0
 Special=0
@@ -126,20 +126,15 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=CeBe Soft
 FileDescription=
-FileVersion=2.6.1.63
+FileVersion=2.6.2.1
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
-ProductName=
+ProductName=Gain Profit
 ProductVersion=2.5
 Comments=
-LastCompiledTime=27/02/2014 19:34:04
-[Excluded Packages]
-C:\Program Files\Borland\Delphi7\KOMPONEN_TAMBAHAN\Smart IDE\EngineIDEFramework70.bpl=IDE Framework
-C:\Program Files\Borland\Delphi7\KOMPONEN_TAMBAHAN\Smart IDE\EngineIDECommon70.bpl=IDE Component
-C:\Program Files\Borland\Delphi7\KOMPONEN_TAMBAHAN\Smart IDE\EngineIDEConnector70.bpl=IDE Component
-c:\program files\borland\delphi7\Projects\Bpl\Package1.bpl=TscExcelExport run-time package
+LastCompiledTime=
 [HistoryLists\hlConditionals]
 Count=1
 Item0=madExcept
