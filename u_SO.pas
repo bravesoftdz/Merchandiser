@@ -97,7 +97,6 @@ type
     procedure edInputKeyPress(Sender: TObject; var Key: Char);
     procedure edInputKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure edInputChange(Sender: TObject);
     procedure btnAutoClick(Sender: TObject);
     procedure ed_kd_SOChange(Sender: TObject);
   private
@@ -202,26 +201,6 @@ procedure TF_SO.kode_baru;
 var tgl,y,y_temp: string;
 a,b: integer;
 begin
-
-// metode lama
-{
-fungsi.SQLExec(dm.Q_temp,'select count(kd_koreksi) as jumlah from tb_koreksi_global '+
-'where tgl_koreksi = date(now()) and kd_perusahaan= "'+sb.Panels[5].Text+'"',true);
-  b:=dm.Q_temp.fieldbyname('jumlah').AsInteger;
-
-tgl:=formatdatetime('yyyyMMdd', date());
-
-fungsi.SQLExec(dm.Q_temp,'select count(distinct kd_koreksi) as jumlah from tb_koreksi_temp',true);
-  a:=dm.Q_temp.fieldbyname('jumlah').AsInteger + 1 + b;
-
-
-  if a<10      then y:= 'SO-'+tgl+'-000' else
-  if a<100     then y:= 'SO-'+tgl+'-00' else
-  if a<1000    then y:= 'SO-'+tgl+'-0'else
-  if a<10000   then y:= 'SO-'+tgl+'-';
-  ed_kd_SO.Text:=y+inttostr(a);
-fungsi.SQLExec(dm.Q_show,'select * from tb_koreksi_temp where kd_koreksi="'+ed_kd_SO.Text+'"',true);
-}
 tgl:=formatdatetime('yyyyMMdd', date());
 
 fungsi.SQLExec(dm.Q_temp,'select kd_koreksi from tb_koreksi_global '+
@@ -306,14 +285,7 @@ if rb_pilihan.ItemIndex=0 then
 semua:= 'Y' else
 begin
 semua:='N';
-{
-fungsi.SQLExec(dm.Q_temp,'select no_rak from tb_planogram where no_rak='+se_rak.Text+'',true);
-  if dm.Q_temp.Eof then
-  begin
-  showmessage('No Rak ini tidak ada dalam Planogram');
-  exit;
-  end;
-}end;
+end;
 
 fungsi.SQLExec(dm.Q_Exe,'call sp_persiapan_SO("'+sb.Panels[5].Text+'","'+ed_kd_SO.Text+'","'+semua+'",'+se_rak.Text+')',false);
 
@@ -411,20 +383,14 @@ end;
 
 procedure TF_SO.b_updateClick(Sender: TObject);
 begin
-
-fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_gross_margin where kd_perusahaan="'+
-sb.Panels[5].Text+'" and tanggal=date(now())',True);
-
-if dm.Q_temp.RecordCount = 0 then
-begin
-fungsi.SQLExec(dm.Q_exe,'call sp_mutasi_repair("'+sb.Panels[5].Text+'",date(now()))',false);
-end;  
-
 dm.db_conn.StartTransaction;
 try
-fungsi.SQLExec(dm.Q_Exe,'UPDATE tb_koreksi_temp,tb_mutasi SET tb_koreksi_temp.qty_oh=tb_mutasi.stok_ahir '+
-'WHERE tb_koreksi_temp.kd_barang=tb_mutasi.kd_barang AND tb_mutasi.kd_perusahaan="'+sb.Panels[5].Text
-+'" AND tb_mutasi.tgl=date(now())',false);
+fungsi.SQLExec(dm.Q_exe,'call sp_mutasi_repair("'+sb.Panels[5].Text+'",date(now()))',false);
+
+fungsi.SQLExec(dm.Q_Exe,'UPDATE tb_koreksi_temp,tb_barang SET '+
+'tb_koreksi_temp.qty_oh=tb_barang.stok_OH '+
+'WHERE tb_koreksi_temp.kd_barang=tb_barang.kd_barang AND tb_barang.kd_perusahaan="'+
+sb.Panels[5].Text+'" AND tb_barang.kd_perusahaan=tb_koreksi_temp.kd_perusahaan',false);
 
 fungsi.SQLExec(dm.Q_koreksi,'select * from vw_so_temp where kd_koreksi='+quotedstr(ed_kd_koreksi.text)+'',true);
 
@@ -531,14 +497,7 @@ begin
    end;
 
   dm.db_conn.StartTransaction;
-  try {
-  fungsi.SQLExec(dm.Q_Exe,'INSERT IGNORE INTO tb_koreksi_temp(kd_perusahaan,kd_koreksi, '+
-  'Rak,Shelving,urut,kd_barang,barcode,n_barang,qty_oh,harga_pokok) '+
-  'SELECT kd_perusahaan,'+quotedstr(ed_kd_so.Text)+',no_rak,no_shelving,no_urut, '+
-  'kd_barang,barcode3,n_barang,a_stok,hpp_aktif FROM vw_so WHERE '+
-  '(kd_perusahaan='+quotedstr(sb.Panels[5].Text)+' AND (kd_barang = "'+
-  kd_brg+'"))', false);
-}
+  try 
   fungsi.SQLExec(dm.Q_Exe,'INSERT IGNORE INTO tb_koreksi_temp(kd_perusahaan,kd_koreksi, '+
   'Rak,Shelving,urut,kd_barang,barcode,n_barang,qty_oh,harga_pokok) '+
   'SELECT kd_perusahaan,'+quotedstr(ed_kd_so.Text)+',no_rak,no_shelving,no_urut, '+
@@ -559,7 +518,6 @@ except on e:exception do begin
   end;
 end;
 end;
-//if key= vk_f2 then sb_cariClick(Sender);
 end;
 
 procedure TF_SO.sb_cariClick(Sender: TObject);
@@ -624,19 +582,7 @@ kode:= edInput.Text;
     if b_update.Enabled = False then
     b_koreksi.Enabled:= True; 
 
-//    t_koreksi.DataController.FocusedRowIndex:= t_koreksi.DataController.FocusedRowIndex+1;
   end;
-{
-  if t_koreksi.DataController.FocusedRowIndex =0 then
-  tambah:= 1 else tambah:=2;
-
-    if b_update.Enabled = False then  b_koreksi.Enabled:= True;
-  sb_ahir.Enabled:= False;
-
-  t_koreksi.DataController.FocusedRowIndex:=
-  t_koreksi.DataController.FocusedRowIndex+tambah;
-
-}
     t_koreksi.DataController.FocusedRowIndex:=    t_koreksi.DataController.FocusedRowIndex+1;
  end;
 
@@ -660,11 +606,6 @@ begin
   t_koreksi.DataController.FocusedRowIndex:=
   t_koreksi.DataController.FocusedRowIndex+1;
 end;
-end;
-
-procedure TF_SO.edInputChange(Sender: TObject);
-begin
-//t_koreksi.DataController.Search.Locate(t_koreksin_barang.Index,edInput.Text)
 end;
 
 procedure TF_SO.btnAutoClick(Sender: TObject);

@@ -1,7 +1,7 @@
 object F_SO: TF_SO
   Left = 256
   Top = 143
-  Width = 1087
+  Width = 1040
   Height = 570
   Caption = 'Stock Opname'
   Color = clBtnFace
@@ -22,8 +22,8 @@ object F_SO: TF_SO
   object grid: TcxGrid
     Left = 0
     Top = 305
-    Width = 1071
-    Height = 206
+    Width = 1024
+    Height = 205
     Align = alClient
     TabOrder = 2
     object t_data: TcxGridDBTableView
@@ -216,7 +216,7 @@ object F_SO: TF_SO
   object sCoolBar1: TsPanel
     Left = 0
     Top = 0
-    Width = 1071
+    Width = 1024
     Height = 97
     Align = alTop
     BorderWidth = 5
@@ -269,7 +269,7 @@ object F_SO: TF_SO
       Reflected = True
     end
     object sBitBtn1: TsSpeedButton
-      Left = 919
+      Left = 872
       Top = 6
       Width = 146
       Height = 85
@@ -340,7 +340,7 @@ object F_SO: TF_SO
   object p_persiapan: TsPanel
     Left = 0
     Top = 97
-    Width = 1071
+    Width = 1024
     Height = 96
     Align = alTop
     PopupMenu = pm_daftar
@@ -501,7 +501,7 @@ object F_SO: TF_SO
   object p_penyesuaian: TsPanel
     Left = 0
     Top = 193
-    Width = 1071
+    Width = 1024
     Height = 112
     Align = alTop
     PopupMenu = pm_daftar
@@ -618,10 +618,9 @@ object F_SO: TF_SO
     object edInput: TsEdit
       Left = 1
       Top = 90
-      Width = 1069
+      Width = 1022
       Height = 21
       TabOrder = 5
-      OnChange = edInputChange
       OnKeyDown = edInputKeyDown
       OnKeyPress = edInputKeyPress
       Align = alBottom
@@ -639,8 +638,8 @@ object F_SO: TF_SO
   end
   object sb: TsStatusBar
     Left = 0
-    Top = 511
-    Width = 1071
+    Top = 510
+    Width = 1024
     Height = 21
     Panels = <
       item
