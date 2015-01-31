@@ -49,6 +49,7 @@ type
     b_print: TsButton;
     b_new: TsButton;
     b_simpan: TsButton;
+    t_view_barcode: TcxGridColumn;
     procedure WMMDIACTIVATE(var msg : TWMMDIACTIVATE) ; message WM_MDIACTIVATE;
     procedure bersih;
     procedure tampil_data;
@@ -140,6 +141,7 @@ begin
   TableView.DataController.SetValue(h, 2, dm.Q_temp.FieldByName('qty_return').AsString);
   TableView.DataController.SetValue(h, 3, dm.Q_temp.fieldbyname('harga_pokok').AsString);
   TableView.DataController.SetValue(h, 4, dm.Q_temp.fieldbyname('diskon').AsString);
+  TableView.DataController.SetValue(h, 5, dm.Q_temp.fieldbyname('barcode').AsString);
   dm.Q_temp.Next;
   end;
 end;
@@ -207,7 +209,7 @@ end;
   isi_sql:=isi_sql +'("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
   +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+TableView.DataController.GetDisplayText(x,0)+'","'+
   TableView.DataController.GetDisplayText(x,1)+'","'+floattostr(TableView.DataController.GetValue(x,2))+'","'+
-  floattostr(TableView.DataController.GetValue(x,4))+'",0),';
+  floattostr(TableView.DataController.GetValue(x,4))+'",0,"'+TableView.DataController.GetDisplayText(x,5)+'",date(now())),';
   end;
   delete(isi_sql,length(isi_sql),1);
 
@@ -215,12 +217,12 @@ end;
 dm.db_conn.StartTransaction;
 try
 fungsi.SQLExec(dm.Q_exe,'insert into tb_return_global(kd_perusahaan,kd_return,tgl_return,'+
-'kd_suplier,disk_rp,nilai_faktur,pengguna,faktur_receipt) values ("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
+'kd_suplier,disk_rp,nilai_faktur,pengguna,faktur_receipt,simpan_pada) values ("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
 +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+ed_supplier.Text+'",0,"'+ed_nilai_faktur.Text
-+'","'+f_utama.Sb.Panels[3].Text+'","'+ed_fak_receipt.Text+'")',false);
++'","'+f_utama.Sb.Panels[3].Text+'","'+ed_fak_receipt.Text+'",now())',false);
 
   fungsi.SQLExec(dm.Q_exe,'insert into tb_return_rinci(kd_perusahaan,kd_return,tgl_return,'+
-  'kd_barang,n_barang,qty_return,harga_pokok,diskon) values  '+isi_sql, false);
+  'kd_barang,n_barang,qty_return,harga_pokok,diskon,barcode,tgl_simpan) values  '+isi_sql, false);
 
 dm.db_conn.Commit;
 showmessage('penyimpanan sukses...');
@@ -314,6 +316,8 @@ begin
       TableView.DataController.SetValue(x, 3, TmpStr);
       Readln(F, TmpStr);
       TableView.DataController.SetValue(x, 4, TmpStr);
+      Readln(F, TmpStr);
+      TableView.DataController.SetValue(x, 5, TmpStr);
     end;
   CloseFile(F);
   tableview.DataController.ChangeFocusedRowIndex(tableview.DataController.RecordCount);

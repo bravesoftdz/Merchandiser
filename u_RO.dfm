@@ -1,6 +1,6 @@
 object f_RO: Tf_RO
-  Left = 262
-  Top = 188
+  Left = 4
+  Top = 161
   Width = 1009
   Height = 473
   Caption = 'Receip Order (Penerimaan Barang)'
@@ -26,7 +26,7 @@ object f_RO: Tf_RO
     Left = 843
     Top = 0
     Width = 150
-    Height = 435
+    Height = 434
     Align = alRight
     TabOrder = 1
     SkinData.SkinSection = 'PANEL'
@@ -56,7 +56,7 @@ object f_RO: Tf_RO
     end
     object sPanel2: TsPanel
       Left = 1
-      Top = 392
+      Top = 391
       Width = 148
       Height = 42
       Align = alBottom
@@ -116,7 +116,7 @@ object f_RO: Tf_RO
     Left = 0
     Top = 0
     Width = 843
-    Height = 435
+    Height = 434
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
@@ -124,7 +124,7 @@ object f_RO: Tf_RO
       Left = 1
       Top = 137
       Width = 841
-      Height = 225
+      Height = 224
       Align = alClient
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
@@ -226,6 +226,11 @@ object f_RO: Tf_RO
           HeaderAlignmentHorz = taRightJustify
           Options.IncSearch = False
           Width = 81
+        end
+        object t_view_barcode: TcxGridColumn
+          Caption = 'Barcode'
+          Visible = False
+          Options.Editing = False
         end
       end
       object Level: TcxGridLevel
@@ -459,7 +464,7 @@ object f_RO: Tf_RO
     end
     object panel3: TsPanel
       Left = 1
-      Top = 362
+      Top = 361
       Width = 841
       Height = 72
       Align = alBottom

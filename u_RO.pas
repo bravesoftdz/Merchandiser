@@ -47,6 +47,7 @@ type
     b_simpan: TsButton;
     b_new: TsButton;
     b_print: TsButton;
+    t_view_barcode: TcxGridColumn;
     procedure WMMDIACTIVATE(var msg : TWMMDIACTIVATE) ; message WM_MDIACTIVATE;
     procedure bersih;
     procedure tampil_data;
@@ -137,6 +138,7 @@ begin
   TableView.DataController.SetValue(h, 1, dm.Q_temp.fieldbyname('n_barang').AsString);
   TableView.DataController.SetValue(h, 2, dm.Q_temp.FieldByName('qty_receipt').AsString);
   TableView.DataController.SetValue(h, 4, dm.Q_temp.fieldbyname('harga_pokok').AsString);
+  TableView.DataController.SetValue(h, 5, dm.Q_temp.fieldbyname('barcode').AsString);
   harga:= dm.Q_temp.fieldbyname('harga_pokok').AsFloat /dm.Q_temp.FieldByName('qty_receipt').AsFloat;
   TableView.DataController.SetValue(h, 3,harga);
   dm.Q_temp.Next;
@@ -205,19 +207,19 @@ plus_PPN:='Y';
   isi_sql:=isi_sql +'("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
   +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+TableView.DataController.GetDisplayText(x,0)+'","'+
   TableView.DataController.GetDisplayText(x,1)+'","'+floattostr(TableView.DataController.GetValue(x,2))+'","'+
-  floattostr(TableView.DataController.GetValue(x,4))+'",0),';
+  floattostr(TableView.DataController.GetValue(x,4))+'",0,"'+TableView.DataController.GetDisplayText(x,5)+'",date(now())),';
   end;
   delete(isi_sql,length(isi_sql),1);
 
 dm.db_conn.StartTransaction;
 try
 fungsi.SQLExec(dm.Q_exe,'insert into tb_receipt_global(kd_perusahaan,kd_receipt,tgl_receipt,'+
-'kd_suplier,jatuh_tempo,tunai,plus_PPN,PPN,disk_rp,nilai_faktur,pengguna) values ("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
+'kd_suplier,jatuh_tempo,tunai,plus_PPN,PPN,disk_rp,nilai_faktur,pengguna,simpan_pada) values ("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
 +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+ed_supplier.Text+'",7,"'+tunai+'","'+plus_PPN+'",0,0,"'+
-ed_nilai_faktur.Text+'","'+f_utama.Sb.Panels[3].Text+'")',false);
+ed_nilai_faktur.Text+'","'+f_utama.Sb.Panels[3].Text+'",now())',false);
 
   fungsi.SQLExec(dm.Q_exe,'insert into tb_receipt_rinci(kd_perusahaan,kd_receipt,tgl_receipt,'+
-  'kd_barang,n_barang,qty_receipt,harga_pokok,diskon) values '+isi_sql, false);
+  'kd_barang,n_barang,qty_receipt,harga_pokok,diskon,barcode,tgl_simpan) values '+isi_sql, false);
 
 dm.db_conn.Commit;
 showmessage('penyimpanan data berhasil...');
@@ -306,6 +308,8 @@ begin
       TableView.DataController.SetValue(x, 3, TmpStr);
       Readln(F, TmpStr);
       TableView.DataController.SetValue(x, 4, TmpStr);
+      Readln(F, TmpStr);
+      TableView.DataController.SetValue(x, 5, TmpStr);
     end;
   CloseFile(F);
   

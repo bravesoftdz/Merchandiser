@@ -1,6 +1,6 @@
 object f_return: Tf_return
-  Left = 194
-  Top = 99
+  Left = 10
+  Top = 112
   Width = 1005
   Height = 520
   Caption = 'Return Barang'
@@ -26,7 +26,7 @@ object f_return: Tf_return
     Left = 839
     Top = 0
     Width = 150
-    Height = 482
+    Height = 481
     Align = alRight
     TabOrder = 1
     SkinData.SkinSection = 'PANEL'
@@ -56,7 +56,7 @@ object f_return: Tf_return
     end
     object sPanel2: TsPanel
       Left = 1
-      Top = 440
+      Top = 439
       Width = 148
       Height = 41
       Align = alBottom
@@ -116,7 +116,7 @@ object f_return: Tf_return
     Left = 0
     Top = 0
     Width = 839
-    Height = 482
+    Height = 481
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
@@ -124,7 +124,7 @@ object f_return: Tf_return
       Left = 1
       Top = 137
       Width = 837
-      Height = 272
+      Height = 271
       Align = alClient
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
@@ -226,6 +226,11 @@ object f_return: Tf_return
           HeaderAlignmentHorz = taRightJustify
           Options.IncSearch = False
           Width = 81
+        end
+        object t_view_barcode: TcxGridColumn
+          Caption = 'Barcode'
+          Visible = False
+          Options.Editing = False
         end
       end
       object Level: TcxGridLevel
@@ -500,7 +505,7 @@ object f_return: Tf_return
     end
     object panel3: TsPanel
       Left = 1
-      Top = 409
+      Top = 408
       Width = 837
       Height = 72
       Align = alBottom

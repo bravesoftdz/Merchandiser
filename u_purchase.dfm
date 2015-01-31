@@ -27,7 +27,7 @@ object f_purchase: Tf_purchase
     Left = 839
     Top = 0
     Width = 150
-    Height = 543
+    Height = 542
     Align = alRight
     TabOrder = 1
     SkinData.SkinSection = 'PANEL'
@@ -67,7 +67,7 @@ object f_purchase: Tf_purchase
     end
     object sPanel2: TsPanel
       Left = 1
-      Top = 468
+      Top = 467
       Width = 148
       Height = 74
       Align = alBottom
@@ -139,7 +139,7 @@ object f_purchase: Tf_purchase
     Left = 0
     Top = 0
     Width = 839
-    Height = 543
+    Height = 542
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
@@ -147,7 +147,7 @@ object f_purchase: Tf_purchase
       Left = 1
       Top = 170
       Width = 837
-      Height = 300
+      Height = 299
       Align = alClient
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
@@ -253,6 +253,11 @@ object f_purchase: Tf_purchase
           GroupSummaryAlignment = taRightJustify
           HeaderAlignmentHorz = taRightJustify
           Options.IncSearch = False
+        end
+        object t_view_barcode: TcxGridColumn
+          Caption = 'Barcode'
+          Visible = False
+          Options.Editing = False
         end
       end
       object Level: TcxGridLevel
@@ -545,7 +550,7 @@ object f_purchase: Tf_purchase
     end
     object panel3: TsPanel
       Left = 1
-      Top = 470
+      Top = 469
       Width = 837
       Height = 72
       Align = alBottom
