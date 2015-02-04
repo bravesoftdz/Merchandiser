@@ -177,7 +177,8 @@ begin
 dm.db_conn.StartTransaction;
 try
 fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set jumlah_setor_real="'+ed_set_real.Text
-+'", selisih="'+ed_selisih.Text+'",status=''offline'' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" and user="'+ed_kd_kasir.Text
++'", tgl_logout=now(),selisih="'+ed_selisih.Text+'",status=''offline'' where kd_perusahaan="'+
+f_utama.sb.Panels[5].Text+'" and user="'+ed_kd_kasir.Text
 +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and status="online"',false);
 
 //fungsi.SQLExec(dm.Q_Exe,'call sp_tutup_toko("'+f_utama.sb.Panels[5].Text+'",date(now()))',false);
