@@ -32,7 +32,7 @@ object F_Utama: TF_Utama
   end
   object sb: TsStatusBar
     Left = 0
-    Top = 576
+    Top = 575
     Width = 949
     Height = 21
     Panels = <
@@ -97,7 +97,7 @@ object F_Utama: TF_Utama
       Width = 139
       Height = 58
       Cursor = crHandPoint
-      Caption = 'Inventory'#13#10'Toko'
+      Caption = 'Barang'#13#10'Toko'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -228,7 +228,7 @@ object F_Utama: TF_Utama
     Left = 0
     Top = 389
     Width = 949
-    Height = 187
+    Height = 186
     AllowPanning = pmNone
     AllowZoom = False
     BackWall.Brush.Color = clWhite
@@ -267,25 +267,6 @@ object F_Utama: TF_Utama
       YValues.Order = loNone
       YValues.ValueSource = 'uang_receipt'
     end
-    object Series2: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
-      Marks.Visible = False
-      DataSource = dm.Q_mutasi_toko
-      SeriesColor = clBlue
-      Title = 'Sales'
-      XLabelsSource = 'tgl'
-      BarStyle = bsRectGradient
-      XValues.DateTime = False
-      XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
-      XValues.Order = loAscending
-      YValues.DateTime = False
-      YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
-      YValues.Order = loNone
-      YValues.ValueSource = 'uang_sales'
-    end
     object Series5: TBarSeries
       Marks.ArrowLength = 20
       Marks.Style = smsValue
@@ -303,6 +284,41 @@ object F_Utama: TF_Utama
       YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'uang_return'
+    end
+    object Series2: TBarSeries
+      Marks.ArrowLength = 20
+      Marks.Style = smsValue
+      Marks.Visible = False
+      DataSource = dm.Q_mutasi_toko
+      SeriesColor = clBlue
+      Title = 'Jual'
+      XLabelsSource = 'tgl'
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Bar'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+      YValues.ValueSource = 'uang_sales'
+    end
+    object Series1: TBarSeries
+      Marks.ArrowLength = 20
+      Marks.Visible = False
+      DataSource = dm.Q_mutasi_toko
+      SeriesColor = clAqua
+      Title = 'Return Jual'
+      XLabelsSource = 'tgl'
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Bar'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+      YValues.ValueSource = 'uang_return_jual'
     end
     object Series6: TBarSeries
       Marks.ArrowLength = 20
@@ -378,13 +394,32 @@ object F_Utama: TF_Utama
       TabOrder = 0
       OnChange = cb_periodeChange
     end
-    object s_mg_today: TBarSeries
+    object s_mg_jual: TBarSeries
+      Marks.ArrowLength = 20
+      Marks.Style = smsValue
+      Marks.Visible = False
+      DataSource = dm.Q_gross
+      SeriesColor = clGreen
+      Title = 'Penjualan'
+      XLabelsSource = 'tanggal'
+      BarStyle = bsRectGradient
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Bar'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+      YValues.ValueSource = 'sales'
+    end
+    object s_mg_laba: TBarSeries
       Marks.ArrowLength = 20
       Marks.Style = smsValue
       Marks.Visible = False
       DataSource = dm.Q_gross
       SeriesColor = clRed
-      Title = 'Margin Hari ini'
+      Title = 'Margin'
       XLabelsSource = 'tanggal'
       BarStyle = bsRectGradient
       XValues.DateTime = False
@@ -396,25 +431,6 @@ object F_Utama: TF_Utama
       YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'gm_rp'
-    end
-    object s_mg_until: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
-      Marks.Visible = False
-      DataSource = dm.Q_gross
-      SeriesColor = clGreen
-      Title = 'Margin s/d Hari ini'
-      XLabelsSource = 'tanggal'
-      BarStyle = bsRectGradient
-      XValues.DateTime = False
-      XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
-      XValues.Order = loAscending
-      YValues.DateTime = False
-      YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
-      YValues.Order = loNone
-      YValues.ValueSource = 'sdh_gm_rp'
     end
   end
   object tc_child: TsTabControl
@@ -521,10 +537,6 @@ object F_Utama: TF_Utama
   object spd: TsSavePictureDialog
     Left = 320
     Top = 206
-  end
-  object MadExceptionHandler1: TMadExceptionHandler
-    Left = 8
-    Top = 166
   end
   object Q_time: TmySQLQuery
     Database = dm.db_conn

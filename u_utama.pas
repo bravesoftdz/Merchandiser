@@ -25,9 +25,9 @@ type
     LaporanReturnBarang1: TMenuItem;
     dbc_mutasi: TDBChart;
     DBC_margin: TDBChart;
-    s_mg_today: TBarSeries;
+    s_mg_laba: TBarSeries;
     Series2: TBarSeries;
-    s_mg_until: TBarSeries;
+    s_mg_jual: TBarSeries;
     Series4: TBarSeries;
     Series5: TBarSeries;
     Series6: TBarSeries;
@@ -42,7 +42,6 @@ type
     DaftarPelanggan1: TMenuItem;
     DaftarSupplier1: TMenuItem;
     RealCard1: TMenuItem;
-    MadExceptionHandler1: TMadExceptionHandler;
     sLabel1: TsLabel;
     ExportImportData1: TMenuItem;
     ReceiptOrderRO1: TMenuItem;
@@ -59,6 +58,7 @@ type
     mniLaporanSO: TMenuItem;
     mniStockOpnameSO2: TMenuItem;
     mniDaftarSO1: TMenuItem;
+    Series1: TBarSeries;
     procedure sb_inventoryClick(Sender: TObject);
     procedure sb_tokoClick(Sender: TObject);
     procedure sb_tutup_kasirClick(Sender: TObject);
@@ -99,6 +99,7 @@ type
 var
   F_Utama: TF_Utama;
   fungsi:TFungsi;
+  periode,bulan,tahun : string;
 
 implementation
 
@@ -156,8 +157,15 @@ end;
 
 procedure TF_Utama.segarkan;
 begin
-fungsi.SQLExec(dm.Q_mutasi_toko,'select * from vw_mutasi_toko where periode="'+cb_periode.Text+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
-fungsi.SQLExec(dm.Q_gross,'select * from vw_gross_margin where periode="'+cb_periode.Text+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+  periode:= cb_periode.Text;
+  bulan:= Copy(periode,6,2);
+  tahun:= Copy(periode,1,4);
+
+fungsi.SQLExec(dm.Q_mutasi_toko,'select * from tb_mutasi_bulan where month(tgl)="'+
+bulan+'" and year(tgl)="'+tahun+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+
+fungsi.SQLExec(dm.Q_gross,'select * from tb_gross_margin where month(tanggal)="'+
+bulan+'" and year(tanggal)="'+tahun+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
 dbc_margin.RefreshData;
 dbc_mutasi.RefreshData;
 end;
@@ -184,39 +192,7 @@ f_setor.ShowModal;
 end;
 
 procedure TF_Utama.FormClose(Sender: TObject; var Action: TCloseAction);
-//var dir_zip,dir_simpan : string;
 begin
-{
-dir_zip:= 'CP_'+f_utama.sb.Panels[5].text+'_'+formatdatetime('yyyy-MM-dd',Date());
-dir_simpan:=dm.a_path+'DATA_KIRIM\'+dir_zip;
-
-if  (sb.Panels[8].Text <> 'PUSAT') and (not(FileExists(dir_simpan+'.zip'))) then
-begin
-  if (MessageDlg('Data utuk hari ini belum disimpan, '+#13+#10+'Data di simpan pada '+
-  'waktu tutup toko.'+#13+#10+''+#13+#10+'Apakah data akan di simpan???',
-  mtWarning, [mbYes, mbNo], 0) = mrYes) then
-  begin
-  Application.CreateForm(TF_kirim_data, F_kirim_data);
-  F_kirim_data.ShowModal;
-  action:=canone;
-  exit;
-  end;
-end;
-
-fungsi.SQLExec(dm.Q_show,'select * from tb_login_kasir where tanggal=date(now()) and status=''online'' and kd_jaga="'+
-sb.Panels[3].Text+'" and kd_perusahaan="'+sb.Panels[5].Text+'"',true);
-
-if not(dm.Q_show.Eof) then
-begin
-showmessage('tidak dapat menutup program karena ada kasir yang belum Setor....');
-application.CreateForm(tF_Setor, F_setor);
-f_setor.ShowModal;
-action:=canone;
-exit;
-end;
-
-}
-
 fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
 'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
   if not(dm.Q_temp.Eof) then
@@ -257,7 +233,6 @@ begin
 fungsi.SQLExec(dm.Q_laporan,'select * from vw_jual_harian where tgl_transaksi=date(now()) and kd_perusahaan="'+sb.Panels[5].Text+'"',true);
 dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_jual_item_harian.fr3');
 dm.laporan.ShowReport;
-//dm.laporan.PreviewPages.SaveToFile(dm.a_path+'jual_item.fp3');
 end;
 
 procedure TF_Utama.DBC_marginDblClick(Sender: TObject);
@@ -346,11 +321,11 @@ for x:= 1 to dm.Q_temp.RecordCount do
     dm.Q_temp.Next;
   end;
 
-cb_periode.ItemIndex:= cb_periode.IndexOf(dm.Q_temp.fieldbyname('sekarang').AsString);
+cb_periode.ItemIndex:= cb_periode.Items.Count-1;
 segarkan;
 
-s_mg_today.DataSource:=dm.Q_gross;
-s_mg_until.DataSource:=dm.Q_gross;
+s_mg_jual.DataSource:=dm.Q_gross;
+s_mg_laba.DataSource:=dm.Q_gross;
 
 Series2.DataSource:=dm.Q_mutasi_toko;
 Series2.DataSource:=dm.Q_mutasi_toko;

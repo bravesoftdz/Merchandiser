@@ -1,11 +1,6 @@
 program POS_server;
 
 uses
-  madExcept,
-  madLinkDisAsm,
-  madListHardware,
-  madListProcesses,
-  madListModules,
   Forms,
   u_inventory in 'u_inventory.pas' {F_Inventory},
   u_dm in 'u_dm.pas' {dm: TDataModule},
