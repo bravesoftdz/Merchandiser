@@ -120,6 +120,9 @@ sm.SkinDirectory:=a_path+'\tools\skins';
  showmessage('koneksi tidak berhasil');
  application.Terminate;
  end;
+
+ WinExec(PAnsiChar('tools/cekVersi.exe '+
+ fungsi.program_versi+' POS_server'),SW_SHOWNOACTIVATE);
 end;
 
 procedure Tdm.smAfterChange(Sender: TObject);
