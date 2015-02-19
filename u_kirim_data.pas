@@ -181,7 +181,7 @@ zipp.FileName:=dir_simpan+'.zip';
 
  try
   sg_load.Visible:=True;
-  sg_load.MaxValue:= 18;
+  sg_load.MaxValue:= 16;
   sg_load.Suffix:=' %';
 
   fungsi.SQLExec(dm.Q_Exe,'replace into tb_export_import(kd_perusahaan, data, ket, tanggal) values ("'+
@@ -259,30 +259,20 @@ zipp.FileName:=dir_simpan+'.zip';
   zipp.AddFiles(dir_zip+'\tb_return_rinci.cbT',0);
   sg_load.Progress:=13;
 
-  namafile:= dir_simpan+'\tb_return_jual.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
-  zipp.AddFiles(dir_zip+'\tb_return_jual.cbT',0);
+  namafile:= dir_simpan+'\tb_return_jual_global.cbT';
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual_global where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return_jual='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  zipp.AddFiles(dir_zip+'\tb_return_jual_global.cbT',0);
   sg_load.Progress:=14;
-{
-  namafile:= dir_simpan+'\tb_mutasi_bulan.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_mutasi_bulan	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
-  zipp.AddFiles(dir_zip+'\tb_mutasi_bulan.cbT',0);
+
+  namafile:= dir_simpan+'\tb_return_jual_rinci.cbT';
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual_rinci where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return_jual='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  zipp.AddFiles(dir_zip+'\tb_return_jual_rinci.cbT',0);
   sg_load.Progress:=15;
 
-  namafile:= dir_simpan+'\tb_mutasi.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_mutasi	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
-  zipp.AddFiles(dir_zip+'\tb_mutasi.cbT',0);
-  sg_load.Progress:=16;
-
-  namafile:= dir_simpan+'\tb_gross_margin.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_gross_margin where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tanggal='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
-  zipp.AddFiles(dir_zip+'\tb_gross_margin.cbT',0);
-  sg_load.Progress:=17;
-}
   namafile:= dir_simpan+'\tb_export_import.cbT';
   fungsi.savetofile(dm.Q_Exe,'select * from tb_export_import where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and date(tanggal)='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_export_import.cbT',0);
-  sg_load.Progress:=18;
+  sg_load.Progress:=16;
 
   if DirectoryExists(dir_simpan) then
   fungsi.hapusdir(dir_simpan);
