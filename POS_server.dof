@@ -113,7 +113,7 @@ RootDir=C:\Program Files\Borland\Delphi7\Bin\
 IncludeVerInfo=1
 AutoIncBuild=0
 MajorVer=2
-MinorVer=8
+MinorVer=9
 Release=1
 Build=0
 Debug=0
@@ -126,7 +126,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=CeBe Soft
 FileDescription=
-FileVersion=2.8.1.0
+FileVersion=2.9.1.0
 InternalName=
 LegalCopyright=
 LegalTrademarks=
