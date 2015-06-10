@@ -307,6 +307,11 @@ begin
   ExportImportData1.Enabled:= False;
 end;
 
+if dm.Q_temp.fieldbyname('onserver').AsString = 'Y' then
+begin
+  ExportImportData1.Enabled :=False;
+end;  
+
 sb.Panels[9].Text:= 'Versi : '+fungsi.program_versi;
 
 panel_auto_width;
