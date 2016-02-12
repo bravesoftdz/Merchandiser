@@ -181,8 +181,6 @@ fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set jumlah_setor_real="'+ed_set_r
 f_utama.sb.Panels[5].Text+'" and user="'+ed_kd_kasir.Text
 +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and status="online"',false);
 
-//fungsi.SQLExec(dm.Q_Exe,'call sp_tutup_toko("'+f_utama.sb.Panels[5].Text+'",date(now()))',false);
-
 dm.db_conn.Commit;
 showmessage('penyimpanan data sukses');
 b_refreshClick(Self);
@@ -196,7 +194,7 @@ end;
 procedure TF_Setor.b_cetakClick(Sender: TObject);
 begin
 fungsi.SQLExec(dm.Q_laporan,'select * from tb_login_kasir inner join tb_user on '+
-'tb_user.kd_user=tb_login_kasir.`user` AND tb_user.kd_perusahaan = tb_login_kasir.kd_perusahaan '+
+'tb_user.kd_user=tb_login_kasir.`user` '+
 'where status=''offline'' and tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'" and tb_login_kasir.kd_jaga="'+
 f_utama.sb.Panels[3].Text+'" and tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
 laporan.LoadFromFile(dm.a_path + 'laporan\p_setor_kasir.fr3');
@@ -216,9 +214,12 @@ ed_selisih.Clear;
 ed_set_real.ReadOnly:= true;
 B_simpan.Enabled:= false;
 
-fungsi.SQLExec(dm.Q_show,'select * FROM tb_login_kasir INNER JOIN tb_user ON tb_user.kd_user = tb_login_kasir.`user` AND '+
-'tb_user.kd_perusahaan = tb_login_kasir.kd_perusahaan where tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'" and tb_login_kasir.kd_jaga="'+
-f_utama.sb.Panels[3].Text+'" and tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" order by tanggal DESC',true);
+fungsi.SQLExec(dm.Q_show,'SELECT * FROM tb_login_kasir INNER JOIN tb_user ' +
+'ON tb_user.kd_user = tb_login_kasir.`user` WHERE '+
+'tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'" AND ' +
+'tb_login_kasir.kd_jaga="'+f_utama.sb.Panels[3].Text+'" AND ' +
+'tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+'ORDER BY tanggal DESC',true);
 
 if dm.Q_show.Eof then
 begin
@@ -226,7 +227,6 @@ begin
   ed_Kd_kasir.Enabled:= False;
   ed_set_Real.Enabled:= False;
   b_cetak.Enabled:= False;
-//  ShowMessage('tidak ada transaksi mulai dari tanggal '+de_trans.Text);
 end else
 begin
   b_cetak.Enabled:= True;
@@ -242,7 +242,7 @@ begin
   if view.Name = 'mm_kasir_user' then
   begin
     fungsi.SQLExec(dm.Q_temp,'select * from tb_login_kasir inner join tb_user '+
-    'on tb_user.kd_user=tb_login_kasir.user and tb_user.kd_perusahaan = tb_login_kasir.kd_perusahaan '+
+    'on tb_user.kd_user=tb_login_kasir.user '+
     'where tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
     'and tb_login_kasir.user="'+View.TagStr+'" and tb_login_kasir.kd_jaga="'+
     f_utama.sb.Panels[3].Text+'" and tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'"',true);
