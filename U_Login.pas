@@ -43,7 +43,7 @@ type
 var
   F_Login: TF_Login;
   fungsi:Tfungsi;
-  status:string;
+  status,userPassword,userRealName:string;
 
 implementation
 
@@ -117,25 +117,44 @@ end;
 
 procedure TF_Login.ed_kd_opKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
+var
+  sql : string;
 begin
 if key=vk_return then
 begin
-PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
-  FUNGSI.SQLExec(DM.Q_Show,'select * from tb_user where kd_user="'+ed_kd_op.Text+'" and toko=''Y'' and kd_perusahaan="'+sb.Panels[0].Text+'"',true);
+  PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
+  sql:= 'SELECT tb_user.n_user, tb_user.`password` FROM tb_user INNER JOIN ' +
+        'tb_user_company ON tb_user.kd_user = tb_user_company.kd_user WHERE ' +
+        'tb_user.kd_user="'+ed_kd_op.Text+'" AND tb_user_company.toko="Y" ' +
+        'AND tb_user_company.kd_perusahaan="'+sb.Panels[0].Text+'"';
+  fungsi.SQLExec(DM.Q_Show,sql,true);
   if dm.Q_show.Eof then
-    Begin
+  Begin
     messagedlg('Kode ini tidak terdaftar...',mtError,[mbOk],0);
     ed_kd_op.SetFocus;
-    End else
+  End else
+  begin
+    userPassword := dm.Q_show.FieldByName('password').AsString;
+    userRealName := dm.Q_show.fieldbyname('n_user').AsString;
+
+    sql:= 'SELECT user_id FROM tb_checkinout WHERE ISNULL(checkout_time) ' +
+          'AND user_id="'+ed_kd_op.Text+'"';
+    fungsi.SQLExec(DM.Q_Show,sql,true);
+    if dm.Q_show.Eof then
+    begin
+      messagedlg('Tidak Dapat Login '#10#13'USER belum Check IN....',mtError,[mbOk],0);
+      ed_kd_op.SetFocus;
+    end
+    else
     begin
       ed_pass.Enabled:= true;
       Ed_Pass.SetFocus;
-      Ed_N_op.Text:= dm.Q_show.fieldbyname('n_user').AsString;
+      Ed_N_op.Text:= userRealName;
     end;
+  end;
 end;
 
 if key=vk_escape then close;
-
 end;
 
 procedure TF_Login.ed_n_opEnter(Sender: TObject);
@@ -157,7 +176,7 @@ begin
 fungsi.SQLExec(dm.Q_temp,'select md5("'+ed_pass.Text+'")as passs',true);
 passs:=dm.Q_temp.fieldbyname('passs').AsString;
 
-  if compareText(dm.Q_show.FieldByName('password').AsString,passs)<>0 then
+  if compareText(userPassword,passs)<>0 then
   begin
     messagedlg('Password salah..',mtError,[mbOk],0);
     ed_pass.Clear;
@@ -182,7 +201,7 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
      n_operator:= ed_n_op.Text;
      pilihan:=2;
     end;
-close;
+    close;
   end;
 end;
 dm.db_Conn.Commit;
