@@ -7,7 +7,7 @@ uses
   Dialogs, ComCtrls, ToolWin, sToolBar, acCoolBar, sStatusBar, Buttons,
   sSpeedButton, sTrackBar, StdCtrls, sLabel, ExtCtrls, sPanel, sMemo, Menus,
   TeEngine, Series, TeeProcs, Chart, DbChart, ImgList, U_fungsi, acAlphaImageList,
-  sSplitter, ExtDlgs, sDialogs,inifiles, madExceptVcl, sEdit, sButton,
+  sSplitter, ExtDlgs, sDialogs,inifiles, sEdit, sButton,
   sComboBox,shellapi, sTabControl, DB, mySQLDbTables;
 
 type
@@ -59,6 +59,7 @@ type
     mniStockOpnameSO2: TMenuItem;
     mniDaftarSO1: TMenuItem;
     Series1: TBarSeries;
+    Barcode1: TMenuItem;
     procedure sb_inventoryClick(Sender: TObject);
     procedure sb_tokoClick(Sender: TObject);
     procedure sb_tutup_kasirClick(Sender: TObject);
@@ -90,6 +91,7 @@ type
     procedure PO1Click(Sender: TObject);
     procedure DaftarPO1Click(Sender: TObject);
     procedure mniDaftarSO1Click(Sender: TObject);
+    procedure Barcode1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -105,7 +107,7 @@ implementation
 
 uses U_Login, u_inventory, u_setor, U_toko, u_dm,acselectskin,
   u_kirim_data, u_lap, u_planogram, u_RO, u_list_receipt, u_return,
-  u_list_return, u_list_purchase, u_purchase, u_hari, u_list_SO;
+  u_list_return, u_list_purchase, u_purchase, u_hari, u_list_SO, u_barcode;
 
 {$R *.dfm}
 
@@ -474,6 +476,12 @@ application.CreateForm(tf_list_SO, f_list_SO);
 
 f_list_SO.segarkan;
 f_list_SO.Show;
+end;
+
+procedure TF_Utama.Barcode1Click(Sender: TObject);
+begin
+Application.CreateForm(Tf_barcode, f_barcode);
+f_barcode.ShowModal;
 end;
 
 end.

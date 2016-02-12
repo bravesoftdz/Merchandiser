@@ -519,8 +519,12 @@ object F_Utama: TF_Utama
       OnClick = Planogram1Click
     end
     object RealCard1: TMenuItem
-      Caption = 'Real Card / Barcode'
+      Caption = 'Real Card'
       OnClick = RealCard1Click
+    end
+    object Barcode1: TMenuItem
+      Caption = 'Barcode'
+      OnClick = Barcode1Click
     end
     object N3: TMenuItem
       Caption = '-'
