@@ -24,7 +24,6 @@ type
     sButton1: TsButton;
     sButton2: TsButton;
     sb: TsStatusBar;
-    procedure persiapan_mutasi;
     procedure FormShow(Sender: TObject);
     procedure ed_kd_opKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -106,27 +105,6 @@ begin
   end;
 end;
 
-procedure TF_Login.persiapan_mutasi;
-begin
-sg_login.Enabled:= False;
-
-dm.db_conn.StartTransaction;
-try
-fungsi.SQLExec(dm.Q_Exe,'call sp_persiapan_mutasi("'+sb.Panels[0].Text+'")',false);
-dm.db_conn.Commit;
-
-  sg_login.Enabled:=true;
-  ed_kd_op.SetFocus;
-
-showmessage('proses persiapan mutasi berhasil');
-except on e:exception do begin
-  dm.db_conn.Rollback;
-  showmessage('proses persiapan mutasi gagal '#10#13'' +e.Message);
-  application.terminate;
-  end;
-end;
-end;
-
 procedure TF_Login.FormShow(Sender: TObject);
 begin
 pilihan:=0;
@@ -135,13 +113,6 @@ fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.P
 sb.Panels[1].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;
 
 sb.Panels[2].Text:=dm.db_conn.DatabaseName+'@'+dm.db_conn.Host;
-{
-fungsi.SQLExec(dm.Q_show,'select aktif_terahir,date(now()) as sekarang from tb_company where kd_perusahaan="'+sb.Panels[0].Text+'"',true);
-
-if dm.Q_show.fieldbyname('aktif_terahir').AsDateTime <> dm.Q_show.fieldbyname('sekarang').AsDateTime then
-begin
-persiapan_mutasi;
-end;  }
 end;
 
 procedure TF_Login.ed_kd_opKeyDown(Sender: TObject; var Key: Word;
