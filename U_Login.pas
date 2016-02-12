@@ -171,38 +171,16 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
 
      fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
      sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
-{      fungsi.SQLExec(dm.Q_temp,'select * from tb_login_jaga where kd_perusahaan="'+
-      sb.Panels[0].Text+'" and `user`="'+ed_kd_op.Text+'" and tanggal= date(now()) and status=''jaga''',true);
-      if dm.Q_temp.Eof then
-         begin
-          fungsi.SQLExec(dm.q_exe,'insert into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+sb.Panels[0].Text+'","'+ed_kd_op.Text
-          +'", "'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
-         end else
-         begin
-          fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set mode=''online'' where tanggal=date(now()) and user= "'+
-          ed_kd_op.Text+'" and status=''jaga'' and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
-         end;
-}     kd_operator:=ed_kd_op.Text;
-      n_operator:= ed_n_op.Text;
-      pilihan:=1;
+     kd_operator:=ed_kd_op.Text;
+     n_operator:= ed_n_op.Text;
+     pilihan:=1;
     end else
     begin
      fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
      sb.Panels[0].Text+'","'+ed_kd_op.Text+'", "'+ed_n_op.Text+'",date(now()),''SO'',''online'',"'+ip_kasir+'")',false);
-{      fungsi.SQLExec(dm.Q_temp,'select * from tb_login_jaga where kd_perusahaan="'+
-      sb.Panels[0].Text+'" and `user`="'+ed_kd_op.Text+'" and tanggal= date(now()) and status=''SO''',true);
-      if dm.Q_temp.Eof then
-         begin
-          fungsi.SQLExec(dm.q_exe,'insert into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+sb.Panels[0].Text+'","'+ed_kd_op.Text
-          +'", "'+ed_n_op.Text+'",date(now()),''SO'',''online'',"'+ip_kasir+'")',false);
-         end else
-         begin
-          fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set mode=''online'' where tanggal=date(now()) and user= "'+
-          ed_kd_op.Text+'" and status=''SO'' and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
-         end;
-}     kd_operator:=ed_kd_op.Text;
-      n_operator:= ed_n_op.Text;
-      pilihan:=2;
+     kd_operator:=ed_kd_op.Text;
+     n_operator:= ed_n_op.Text;
+     pilihan:=2;
     end;
 close;
   end;
