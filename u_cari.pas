@@ -49,7 +49,7 @@ var
   fungsi:tfungsi;
 implementation
 
-uses u_dm, u_lap, u_SO, u_purchase;
+uses u_dm, u_lap, u_SO, u_purchase, u_barcode;
 
 {$R *.dfm}
 
@@ -157,6 +157,10 @@ try
       if asal='f_lap' then
       begin
       f_lap.ed_cari.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
+      end else
+      if asal='f_barcode' then
+      begin
+      f_Barcode.ed_PID.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
       end else
       if asal='f_SO' then
       begin
