@@ -21,7 +21,8 @@ uses
   u_list_purchase in 'u_list_purchase.pas' {f_List_purchase},
   u_purchase in 'u_purchase.pas' {f_purchase},
   u_hari in 'u_hari.pas' {f_hari},
-  u_list_SO in 'u_list_SO.pas' {f_list_SO};
+  u_list_SO in 'u_list_SO.pas' {f_list_SO},
+  u_barcode in 'u_barcode.pas' {f_Barcode};
 
 {$R *.res}
 
