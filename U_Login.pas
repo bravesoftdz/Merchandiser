@@ -24,6 +24,7 @@ type
     sButton1: TsButton;
     sButton2: TsButton;
     sb: TsStatusBar;
+    procedure cek_update;
     procedure FormShow(Sender: TObject);
     procedure ed_kd_opKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -33,6 +34,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ed_passKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -230,6 +232,37 @@ begin
 PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
 b_loginClick(Sender);
 end;
+end;
+
+procedure TF_Login.cek_update;
+var
+  versiDB,versiAPP,URLDownload:string;
+  fileName, UrlDownloadLocal:string;
+begin
+  versiAPP := fungsi.program_versi;
+
+  fungsi.SQLExec(dm.Q_Show,'select versi_terbaru, URLdownload from  app_versi where kode="pos_server.exe"',true);
+  versiDB           := dm.Q_Show.FieldByName('versi_terbaru').AsString;
+  URLDownload       := dm.Q_Show.FieldByName('URLdownload').AsString;
+  fileName          := Copy(URLDownload,LastDelimiter('/',URLDownload) + 1,Length(URLDownload));
+  UrlDownloadLocal  := dm.db_conn.Host + '/GainProfit/' + fileName;
+
+  if versiAPP < versiDB then
+  begin
+    ShowMessage('APLIKASI POS Server TIDAK DAPAT DIJALANKAN' + #13#10 +
+    'aplikasi terbaru dengan versi : '+ versiDB + #13#10 +
+    'SUDAH DIRILIS...'+ #13#10#13#10 +
+    'Download Applikasi Terbaru!!!' );
+
+    WinExec(PChar('rundll32 url.dll,FileProtocolHandler '+ UrlDownloadLocal),
+    SW_MAXIMIZE);
+    Application.Terminate;
+  end;  
+end;
+
+procedure TF_Login.FormCreate(Sender: TObject);
+begin
+cek_update;
 end;
 
 end.
