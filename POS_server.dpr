@@ -28,7 +28,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'POS Server 2.0';
+  Application.Title := 'POS Server';
   Application.CreateForm(Tdm, dm);
   tf_login.Execute;
   if pilihan=1 then
