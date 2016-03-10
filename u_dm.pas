@@ -96,9 +96,10 @@ begin
   AppPath := GetAppData(CSIDL_COMMON_APPDATA);
   if not (DirectoryExists(AppPath)) then
     CreateDir(AppPath);
-  sm.SkinDirectory := a_path + '\tools\skins';
 
-  appINI := TIniFile.Create(a_path + '\tools\gain.ini');
+  sm.SkinDirectory := AppPath + 'skins';
+
+  appINI := TIniFile.Create(AppPath + 'gain.ini');
   try
     kd_comp := appINI.ReadString('toko', 'kd_perusahaan', '');
     sm.SkinName := appINI.ReadString('toko', 'nama_skin', 'Acryl (internal)');
@@ -139,7 +140,7 @@ procedure Tdm.smAfterChange(Sender: TObject);
 var
   appINI: TIniFile;
 begin
-  appINI := TIniFile.Create(dm.a_path + '\tools\gain.ini');
+  appINI := TIniFile.Create(AppPath + 'gain.ini');
   try
     appINI.WriteString('toko', 'nama_skin', dm.sm.SkinName);
     appINI.WriteInteger('toko', 'hue_skin', dm.sm.HueOffset);
