@@ -16,6 +16,7 @@ object F_Login: TF_Login
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -70,6 +71,19 @@ object F_Login: TF_Login
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Rockwell'
+      Font.Style = []
+    end
+    object l_1: TsLabel
+      Left = 8
+      Top = 232
+      Width = 216
+      Height = 16
+      Caption = 'Tekan F2 untuk merubah Perusahaan'
+      ParentFont = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
       Font.Style = []
     end
     object ed_kd_op: TsEdit
@@ -229,6 +243,7 @@ object F_Login: TF_Login
       item
         Width = 150
       end>
+    OnClick = sbClick
     SkinData.SkinSection = 'STATUSBAR'
   end
 end

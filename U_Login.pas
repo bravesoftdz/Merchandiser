@@ -24,6 +24,7 @@ type
     sButton1: TsButton;
     sButton2: TsButton;
     sb: TsStatusBar;
+    l_1: TsLabel;
     procedure cek_update;
     procedure FormShow(Sender: TObject);
     procedure ed_kd_opKeyDown(Sender: TObject; var Key: Word;
@@ -35,6 +36,9 @@ type
     procedure ed_passKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
+    procedure sbClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -49,7 +53,7 @@ var
 
 implementation
 
-uses u_dm, u_utama, u_SO;
+uses u_dm, u_utama, u_SO, u_cari;
 
 {$R *.dfm}
 
@@ -263,6 +267,27 @@ end;
 procedure TF_Login.FormCreate(Sender: TObject);
 begin
 cek_update;
+end;
+
+procedure TF_Login.sbClick(Sender: TObject);
+begin
+application.CreateForm(tf_cari, f_cari);
+u_cari.tipe_cari:=1;
+u_cari.asal:='f_login';
+f_cari.Ed_cari.Visible:= true;
+fungsi.SQLExec(dm.q_cari,'select kd_perusahaan, n_perusahaan from tb_company',true);
+f_cari.clm1.caption:='Kode';
+f_cari.clm2.caption:='Nama Perusahaan';
+f_cari.ShowModal;
+sb.Panels[0].Text:= dm.q_cari.fieldbyname('kd_perusahaan').AsString;
+sb.Panels[1].Text:= dm.q_cari.fieldbyname('n_perusahaan').AsString;
+end;
+
+procedure TF_Login.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if key = vk_f2 then
+    sbClick(self);
 end;
 
 end.
