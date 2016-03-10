@@ -25,6 +25,7 @@ type
     sButton2: TsButton;
     sb: TsStatusBar;
     l_1: TsLabel;
+    procedure simpanKodePerusahaan;
     procedure cek_update;
     procedure FormShow(Sender: TObject);
     procedure ed_kd_opKeyDown(Sender: TObject; var Key: Word;
@@ -207,6 +208,7 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
      n_operator:= ed_n_op.Text;
      pilihan:=2;
     end;
+    simpanKodePerusahaan;
     close;
   end;
 end;
@@ -288,6 +290,14 @@ procedure TF_Login.FormKeyDown(Sender: TObject; var Key: Word;
 begin
 if key = vk_f2 then
     sbClick(self);
+end;
+
+procedure TF_Login.simpanKodePerusahaan;
+var appINI : TIniFile;
+begin
+  appINI := TIniFile.Create(dm.AppPath +'gain.ini') ;
+  appINI.WriteString('toko','kd_perusahaan',sb.Panels[0].Text);
+  appINI.Free;
 end;
 
 end.
