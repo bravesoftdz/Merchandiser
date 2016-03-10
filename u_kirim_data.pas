@@ -131,11 +131,11 @@ end;
 
 procedure TF_kirim_data.cek_dir_kirim;
 begin
-if not DirectoryExists(dm.AppPath+'DATA_KIRIM') then
-  MkDir(dm.AppPath+'DATA_KIRIM');
+if not DirectoryExists(dm.DocPath+'DATA_KIRIM') then
+  MkDir(dm.DocPath+'DATA_KIRIM');
 
 dir_zip:= 'CP_'+f_utama.sb.Panels[5].text+'_'+formatdatetime('yyyy-MM-dd',edt_kirim.Date);
-dir_simpan:=dm.AppPath+'DATA_KIRIM\'+dir_zip;
+dir_simpan:=dm.DocPath+'DATA_KIRIM\'+dir_zip;
 
 if not DirectoryExists(dir_simpan) then
     MkDir(dir_simpan);
@@ -143,11 +143,11 @@ end;
 
 procedure TF_kirim_data.cek_dir_terima;
 begin
-if not DirectoryExists(dm.AppPath+'DATA_TERIMA') then
-  MkDir(dm.AppPath+'DATA_TERIMA');
+if not DirectoryExists(dm.DocPath+'DATA_TERIMA') then
+  MkDir(dm.DocPath+'DATA_TERIMA');
 
-dir_load:= dm.AppPath+'DATA_TERIMA\';
-file_load:=dm.AppPath+'DATA_TERIMA\PC_'+f_utama.sb.Panels[5].text+'_'+formatdatetime('yyyy-MM-dd',edt_terima.Date)+'.zip';
+dir_load:= dm.DocPath+'DATA_TERIMA\';
+file_load:=dm.DocPath+'DATA_TERIMA\PC_'+f_utama.sb.Panels[5].text+'_'+formatdatetime('yyyy-MM-dd',edt_terima.Date)+'.zip';
 end;
 
 procedure TF_kirim_data.b_kirimClick(Sender: TObject);
@@ -176,7 +176,7 @@ DeleteFile(dir_simpan+'.zip');
 
 zipp:= TAbZipper.Create(Self);
 zipp.AutoSave:=True;
-zipp.BaseDirectory:= dm.AppPath+'DATA_KIRIM\';
+zipp.BaseDirectory:= dm.DocPath+'DATA_KIRIM\';
 zipp.FileName:=dir_simpan+'.zip';
 
  try
