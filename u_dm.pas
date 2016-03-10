@@ -97,6 +97,10 @@ begin
   if not (DirectoryExists(AppPath)) then
     CreateDir(AppPath);
 
+  DocPath := GetAppData(CSIDL_PERSONAL);
+  if not (DirectoryExists(DocPath)) then
+    CreateDir(DocPath);
+
   sm.SkinDirectory := AppPath + 'skins';
 
   appINI := TIniFile.Create(AppPath + 'gain.ini');
