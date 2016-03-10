@@ -48,7 +48,7 @@ type
   private
     { Private declarations }
   public
-    a_path, AppPath: string;
+    a_path, AppPath, DocPath: string;
     { Public declarations }
   end;
 
