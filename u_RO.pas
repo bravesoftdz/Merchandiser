@@ -277,11 +277,11 @@ var
   Tmp, x: Integer;
   TmpStr: string;
 begin
+od.InitialDir:= dm.DocPath;
 if od.Execute then
 begin
   try
     bersih;
-  od.InitialDir:= dm.a_path;
   fungsi.amankan(od.FileName,od.FileName,321);
   AssignFile(F, od.FileName);
   Reset(F);

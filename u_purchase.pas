@@ -389,6 +389,7 @@ var
   F: TextFile;
   x: Integer;
 begin
+sd.InitialDir:= dm.DocPath;
 if sd.Execute then
 begin
   AssignFile(F, sd.FileName);
@@ -419,6 +420,7 @@ var
   Tmp, x: Integer;
   TmpStr: string;
 begin
+od.InitialDir:= dm.DocPath;
 if od.Execute then
 begin
   try
