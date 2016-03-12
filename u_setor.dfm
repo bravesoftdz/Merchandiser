@@ -32,63 +32,53 @@ object F_Setor: TF_Setor
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datajumlah_setor_oh
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datajumlah_setor_real
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_dataselisih
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_dataprice_oh
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datakredit
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datatransaksi
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_dataTr_barang
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_dataQty_barang
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datareturn_jual
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datavoid
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = t_datadiscount
         end>
       DataController.Summary.SummaryGroups = <>
       OptionsBehavior.CellHints = True
       OptionsBehavior.IncSearch = True
       OptionsData.Editing = False
       OptionsData.Inserting = False
+      OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
       object t_datauser: TcxGridDBColumn
@@ -109,88 +99,6 @@ object F_Setor: TF_Setor
         Caption = 'Kondisi'
         DataBinding.FieldName = 'status'
         Width = 45
-      end
-      object t_datajumlah_setor_oh: TcxGridDBColumn
-        Caption = 'Setor OH'
-        DataBinding.FieldName = 'jumlah_setor_oh'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-      end
-      object t_datajumlah_setor_real: TcxGridDBColumn
-        Caption = 'Setor Real'
-        DataBinding.FieldName = 'jumlah_setor_real'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-      end
-      object t_dataselisih: TcxGridDBColumn
-        Caption = 'Selisih'
-        DataBinding.FieldName = 'selisih'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-      end
-      object t_dataprice_oh: TcxGridDBColumn
-        Caption = 'Tunai'
-        DataBinding.FieldName = 'price_oh'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-      end
-      object t_datakredit: TcxGridDBColumn
-        Caption = 'Kredit'
-        DataBinding.FieldName = 'kredit'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-      end
-      object t_datareturn_jual: TcxGridDBColumn
-        Caption = 'Return'
-        DataBinding.FieldName = 'return_jual'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-        Width = 40
-      end
-      object t_datadiscount: TcxGridDBColumn
-        Caption = 'Disk'
-        DataBinding.FieldName = 'discount'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-      end
-      object t_datatransaksi: TcxGridDBColumn
-        Caption = 'Trs.'
-        DataBinding.FieldName = 'transaksi'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-        Width = 32
-      end
-      object t_dataTr_barang: TcxGridDBColumn
-        Caption = 'Trs. Brg'
-        DataBinding.FieldName = 'Tr_barang'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-        Width = 50
-      end
-      object t_dataQty_barang: TcxGridDBColumn
-        Caption = 'Qty'
-        DataBinding.FieldName = 'Qty_barang'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-        Width = 36
-      end
-      object t_datavoid: TcxGridDBColumn
-        Caption = 'Void'
-        DataBinding.FieldName = 'void'
-        PropertiesClassName = 'TcxCurrencyEditProperties'
-        Properties.DisplayFormat = '###,###,##0;(###,###,##0);0'
-        Properties.EditFormat = '###,###,##0;(###,###,##0);0'
-        Width = 33
       end
       object t_datakomp: TcxGridDBColumn
         DataBinding.FieldName = 'komp'

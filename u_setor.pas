@@ -26,17 +26,6 @@ type
     t_datauser: TcxGridDBColumn;
     t_datatanggal: TcxGridDBColumn;
     t_datastatus: TcxGridDBColumn;
-    t_datatransaksi: TcxGridDBColumn;
-    t_dataTr_barang: TcxGridDBColumn;
-    t_dataQty_barang: TcxGridDBColumn;
-    t_datareturn_jual: TcxGridDBColumn;
-    t_datavoid: TcxGridDBColumn;
-    t_datadiscount: TcxGridDBColumn;
-    t_datakredit: TcxGridDBColumn;
-    t_dataprice_oh: TcxGridDBColumn;
-    t_datajumlah_setor_oh: TcxGridDBColumn;
-    t_datajumlah_setor_real: TcxGridDBColumn;
-    t_dataselisih: TcxGridDBColumn;
     t_datakomp: TcxGridDBColumn;
     t_datan_user: TcxGridDBColumn;
     gb_1: TsGroupBox;
