@@ -262,8 +262,7 @@ begin
     +' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" and `user`="'
     + dm.Q_show.fieldbyname('user').AsString+'" and kd_jaga="'
     + f_utama.sb.Panels[3].Text+'" ORDER BY `status`,tanggal DESC limit 1',true);
-    ShowMessage(dm.Q_temp.SQL.Text);
-  
+    
     dm.db_conn.StartTransaction;
     try
       fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set status="online" where kd_perusahaan="'+
