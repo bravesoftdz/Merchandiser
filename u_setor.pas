@@ -248,30 +248,39 @@ end;
                     
 procedure TF_Setor.mnigetonline1Click(Sender: TObject);
 begin
-    fungsi.SQLExec(dm.Q_temp,'select `status`,tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
-    'and user="'+dm.Q_show.fieldbyname('user').AsString+'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  order by `status` DESC limit 1',true);
-    if dm.Q_temp.FieldByName('status').AsString = 'online' then
-      begin
-        ShowMessage('data terahir untuk user masih aktif....');
-      end else
-      begin
-        dm.db_conn.StartTransaction;
-        try
-          fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set status=''online'' where kd_perusahaan="'+
-          f_utama.sb.Panels[5].Text+'" and user="'+dm.Q_show.fieldbyname('user').AsString
-          +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and tanggal="'+
-          formatdatetime('yyyy-MM-dd hh:mm:ss',dm.Q_show.fieldbyname('tanggal').AsDateTime)+'"',false);
+  fungsi.SQLExec(dm.Q_temp,'select count(tanggal) as total from tb_login_kasir'
+  +' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '
+  +' and `user`="'+dm.Q_show.fieldbyname('user').AsString+'" '
+  +' and kd_jaga="'+f_utama.sb.Panels[3].Text+'" AND `status` = "online"',true);
 
-          dm.db_conn.Commit;
-          showmessage('Penggantian status Berhasil...');
-          b_refreshClick(Self);
-        except on e:exception do
-         begin
-          dm.db_conn.Rollback;
-          showmessage('penyimpanan data gagal '#10#13'' +e.Message);
-         end;
-        end;
-      end;
+  if dm.Q_temp.FieldByName('total').AsInteger <> 0 then
+  begin
+    ShowMessage('data terahir untuk user masih aktif....');
+  end else
+  begin
+    fungsi.SQLExec(dm.Q_temp,'select `user`,tanggal from tb_login_kasir'
+    +' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" and `user`="'
+    + dm.Q_show.fieldbyname('user').AsString+'" and kd_jaga="'
+    + f_utama.sb.Panels[3].Text+'" ORDER BY `status`,tanggal DESC limit 1',true);
+    ShowMessage(dm.Q_temp.SQL.Text);
+  
+    dm.db_conn.StartTransaction;
+    try
+      fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set status="online" where kd_perusahaan="'+
+      f_utama.sb.Panels[5].Text+'" and user="'+dm.Q_temp.fieldbyname('user').AsString
+      +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and tanggal="'+
+      formatdatetime('yyyy-MM-dd hh:mm:ss',dm.Q_temp.fieldbyname('tanggal').AsDateTime)+'"',false);
+
+      dm.db_conn.Commit;
+      showmessage('Penggantian status Berhasil...');
+      b_refreshClick(Self);
+    except on e:exception do
+    begin
+      dm.db_conn.Rollback;
+      showmessage('penyimpanan data gagal '#10#13'' +e.Message);
+    end;
+    end;
+  end;
 end;
 
 end.
