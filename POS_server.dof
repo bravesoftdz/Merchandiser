@@ -124,15 +124,15 @@ DLL=0
 Locale=1057
 CodePage=1252
 [Version Info Keys]
-CompanyName=CeBe Soft
+CompanyName=Gain-Profit
 FileDescription=
 FileVersion=2.9.2.0
-InternalName=
+InternalName=Merchandiser
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
-ProductName=Gain Profit
-ProductVersion=2.5
+ProductName=
+ProductVersion=
 Comments=
 LastCompiledTime=
 [HistoryLists\hlConditionals]
