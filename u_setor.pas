@@ -95,19 +95,6 @@ begin
 if key=vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
-
-    dm.db_conn.StartTransaction;
-    try
-      fungsi.SQLExec(dm.Q_exe,'call sp_setor_kasir("'+f_utama.sb.Panels[5].Text+'","'+
-      ed_Kd_kasir.Text+'","'+f_utama.Sb.Panels[3].Text+'")',False);
-      dm.db_Conn.Commit;
-    except on e:exception do
-     begin
-      dm.db_conn.Rollback;
-      showmessage('proses update data gagal... '#10#13'' +e.Message);
-     end;
-    end;
-
     fungsi.SQLExec(dm.Q_temp,'select * from tb_login_kasir inner join tb_user on '+
     'tb_user.kd_user=tb_login_kasir.user where tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
     'and tb_login_kasir.user="'+ed_kd_kasir.Text+'" and tb_login_kasir.kd_jaga="'+f_utama.sb.Panels[3].Text+'" and status=''online''',true);
