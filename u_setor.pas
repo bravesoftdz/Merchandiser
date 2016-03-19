@@ -30,35 +30,28 @@ type
     t_datan_user: TcxGridDBColumn;
     gb_1: TsGroupBox;
     l_1: TsLabel;
-    l_2: TsLabel;
     l_3: TsLabel;
-    l_4: TsLabel;
     ed_Kd_kasir: TsEdit;
-    ed_set_OC: TsCurrencyEdit;
     ed_set_Real: TsCurrencyEdit;
-    ed_selisih: TsCurrencyEdit;
     b_simpan: TsBitBtn;
     b_cetak: TsBitBtn;
     p1: TsPanel;
     l_5: TsLabel;
     b_refresh: TsBitBtn;
-    l_10: TsLabel;
-    l_11: TsLabel;
-    l_12: TsLabel;
-    l_13: TsLabel;
-    ed_return: TsCurrencyEdit;
-    ed_Total: TsCurrencyEdit;
-    ed_Kredit: TsCurrencyEdit;
-    ed_disc: TsCurrencyEdit;
     de_trans: TsDateEdit;
     pm1: TPopupMenu;
     mnigetonline1: TMenuItem;
     mniN1: TMenuItem;
     mniRefresh1: TMenuItem;
+    sLabel1: TsLabel;
+    edNama: TsEdit;
+    sLabel2: TsLabel;
+    edWaktu: TsEdit;
+    edIP: TsEdit;
+    sLabel3: TsLabel;
     procedure FormShow(Sender: TObject);
     procedure ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure ed_set_RealChange(Sender: TObject);
     procedure ed_set_RealKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure b_simpanClick(Sender: TObject);
@@ -125,23 +118,14 @@ if key=vk_return then
         ed_kd_kasir.SetFocus;
       end else
       begin
-        ed_set_oc.Value:= dm.Q_temp.fieldbyname('jumlah_setor_oh').AsInteger;
-
-        Ed_Disc.Value:= dm.Q_temp.fieldbyname('discount').AsInteger;
-        Ed_Kredit.Value:= dm.Q_temp.fieldbyname('kredit').AsInteger;
-        Ed_Total.Value:= dm.Q_temp.fieldbyname('price_oh').AsInteger;
-        ed_return.Value:= dm.Q_temp.FieldByName('return_jual').AsInteger;
-
+        edNama.Text := dm.Q_temp.fieldbyname('n_user').AsString;
+        edWaktu.Text:= dm.Q_temp.fieldbyname('tanggal').AsString;
+        edIP.Text   := dm.Q_temp.fieldbyname('komp').AsString;
         ed_set_real.ReadOnly:= false;
         ed_set_real.SetFocus;
         b_simpan.Enabled:=true;
       end;
   end;
-end;
-
-procedure TF_Setor.ed_set_RealChange(Sender: TObject);
-begin
-ed_selisih.Value:= ed_set_real.Value-ed_set_oc.Value;
 end;
 
 procedure TF_Setor.ed_set_RealKeyDown(Sender: TObject; var Key: Word;
@@ -158,8 +142,12 @@ procedure TF_Setor.b_simpanClick(Sender: TObject);
 begin
 dm.db_conn.StartTransaction;
 try
+fungsi.SQLExec(dm.Q_exe,'call sp_setor_kasir("'+f_utama.sb.Panels[5].Text+'","'+
+ed_Kd_kasir.Text+'","'+f_utama.Sb.Panels[3].Text+'")',False);
+dm.db_Conn.Commit;
+
 fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set jumlah_setor_real="'+ed_set_real.Text
-+'", tgl_logout=now(),selisih="'+ed_selisih.Text+'",status=''offline'' where kd_perusahaan="'+
++'", tgl_logout=now(),status=''offline'' where kd_perusahaan="'+
 f_utama.sb.Panels[5].Text+'" and user="'+ed_kd_kasir.Text
 +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and status="online"',false);
 
@@ -185,14 +173,8 @@ end;
 
 procedure TF_Setor.b_refreshClick(Sender: TObject);
 begin
-ed_disc.Clear;
-ed_Kredit.Clear;
-ed_Total.Clear;
-ed_return.Clear;
 ed_kd_kasir.Clear;
 ed_set_real.Clear;
-ed_set_oc.Clear;
-ed_selisih.Clear;
 ed_set_real.ReadOnly:= true;
 B_simpan.Enabled:= false;
 

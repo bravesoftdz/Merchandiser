@@ -117,7 +117,7 @@ object F_Setor: TF_Setor
     TabOrder = 1
     SkinData.SkinSection = 'GROUPBOX'
     object l_1: TsLabel
-      Left = 280
+      Left = 8
       Top = 16
       Width = 56
       Height = 19
@@ -129,22 +129,9 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object l_2: TsLabel
-      Left = 280
-      Top = 43
-      Width = 67
-      Height = 19
-      Caption = 'Setor OH'
-      ParentFont = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 1184274
-      Font.Height = -16
-      Font.Name = 'Rockwell'
-      Font.Style = []
-    end
     object l_3: TsLabel
-      Left = 280
-      Top = 69
+      Left = 368
+      Top = 48
       Width = 75
       Height = 19
       Caption = 'Setor Real'
@@ -155,12 +142,12 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object l_4: TsLabel
-      Left = 280
-      Top = 96
-      Width = 46
+    object sLabel1: TsLabel
+      Left = 8
+      Top = 48
+      Width = 44
       Height = 19
-      Caption = 'Selisih'
+      Caption = 'Nama'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 1184274
@@ -168,62 +155,128 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object l_10: TsLabel
+    object sLabel2: TsLabel
       Left = 8
+      Top = 80
+      Width = 92
+      Height = 19
+      Caption = 'Waktu Login'
+      ParentFont = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 1184274
+      Font.Height = -16
+      Font.Name = 'Rockwell'
+      Font.Style = []
+    end
+    object sLabel3: TsLabel
+      Left = 368
       Top = 16
-      Width = 68
+      Width = 58
       Height = 19
-      Caption = 'Disk (Rp)'
+      Caption = 'IP Login'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Rockwell'
-      Font.Style = []
-    end
-    object l_11: TsLabel
-      Left = 8
-      Top = 43
-      Width = 85
-      Height = 19
-      Caption = 'Total Kredit'
-      ParentFont = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Rockwell'
-      Font.Style = []
-    end
-    object l_12: TsLabel
-      Left = 8
-      Top = 69
-      Width = 83
-      Height = 19
-      Caption = 'Total Bayar'
-      ParentFont = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Rockwell'
-      Font.Style = []
-    end
-    object l_13: TsLabel
-      Left = 8
-      Top = 96
-      Width = 85
-      Height = 19
-      Caption = 'Return (Rp)'
-      ParentFont = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = 1184274
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = []
     end
     object ed_Kd_kasir: TsEdit
-      Left = 360
+      Left = 112
       Top = 16
-      Width = 145
+      Width = 249
+      Height = 25
+      CharCase = ecUpperCase
+      Color = clWhite
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Rockwell'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnKeyDown = ed_Kd_kasirKeyDown
+      SkinData.SkinSection = 'EDIT'
+      BoundLabel.Indent = 0
+      BoundLabel.Font.Charset = DEFAULT_CHARSET
+      BoundLabel.Font.Color = clWindowText
+      BoundLabel.Font.Height = -11
+      BoundLabel.Font.Name = 'MS Sans Serif'
+      BoundLabel.Font.Style = []
+      BoundLabel.Layout = sclLeft
+      BoundLabel.MaxWidth = 0
+      BoundLabel.UseSkinColor = True
+    end
+    object ed_set_Real: TsCurrencyEdit
+      Left = 464
+      Top = 44
+      Width = 177
+      Height = 24
+      AutoSize = False
+      Color = clWhite
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Rockwell'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 1
+      OnKeyDown = ed_set_RealKeyDown
+      BoundLabel.Indent = 0
+      BoundLabel.Font.Charset = DEFAULT_CHARSET
+      BoundLabel.Font.Color = clWindowText
+      BoundLabel.Font.Height = -11
+      BoundLabel.Font.Name = 'MS Sans Serif'
+      BoundLabel.Font.Style = []
+      BoundLabel.Layout = sclLeft
+      BoundLabel.MaxWidth = 0
+      BoundLabel.UseSkinColor = True
+      SkinData.SkinSection = 'EDIT'
+      GlyphMode.Blend = 0
+      GlyphMode.Grayed = False
+      DisplayFormat = '###,###,##0;-###,###,##0;0'
+    end
+    object b_simpan: TsBitBtn
+      Left = 408
+      Top = 84
+      Width = 113
+      Height = 40
+      Cancel = True
+      Caption = '&Simpan'
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      OnClick = b_simpanClick
+      SkinData.SkinSection = 'BUTTON'
+    end
+    object b_cetak: TsBitBtn
+      Left = 528
+      Top = 84
+      Width = 113
+      Height = 40
+      Caption = '&Cetak'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      OnClick = b_cetakClick
+      SkinData.SkinSection = 'BUTTON'
+    end
+    object edNama: TsEdit
+      Left = 112
+      Top = 48
+      Width = 249
       Height = 25
       CharCase = ecUpperCase
       Color = clWhite
@@ -247,12 +300,12 @@ object F_Setor: TF_Setor
       BoundLabel.MaxWidth = 0
       BoundLabel.UseSkinColor = True
     end
-    object ed_set_OC: TsCurrencyEdit
-      Left = 360
-      Top = 42
-      Width = 145
-      Height = 24
-      AutoSize = False
+    object edWaktu: TsEdit
+      Left = 112
+      Top = 80
+      Width = 249
+      Height = 25
+      CharCase = ecUpperCase
       Color = clWhite
       Enabled = False
       Font.Charset = DEFAULT_CHARSET
@@ -262,6 +315,8 @@ object F_Setor: TF_Setor
       Font.Style = []
       ParentFont = False
       TabOrder = 5
+      OnKeyDown = ed_Kd_kasirKeyDown
+      SkinData.SkinSection = 'EDIT'
       BoundLabel.Indent = 0
       BoundLabel.Font.Charset = DEFAULT_CHARSET
       BoundLabel.Font.Color = clWindowText
@@ -271,17 +326,13 @@ object F_Setor: TF_Setor
       BoundLabel.Layout = sclLeft
       BoundLabel.MaxWidth = 0
       BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '###,###,##0;-###,###,##0;0'
     end
-    object ed_set_Real: TsCurrencyEdit
-      Left = 360
-      Top = 68
-      Width = 145
-      Height = 24
-      AutoSize = False
+    object edIP: TsEdit
+      Left = 464
+      Top = 16
+      Width = 177
+      Height = 25
+      CharCase = ecUpperCase
       Color = clWhite
       Enabled = False
       Font.Charset = DEFAULT_CHARSET
@@ -290,10 +341,9 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
       ParentFont = False
-      ReadOnly = True
       TabOrder = 6
-      OnChange = ed_set_RealChange
-      OnKeyDown = ed_set_RealKeyDown
+      OnKeyDown = ed_Kd_kasirKeyDown
+      SkinData.SkinSection = 'EDIT'
       BoundLabel.Indent = 0
       BoundLabel.Font.Charset = DEFAULT_CHARSET
       BoundLabel.Font.Color = clWindowText
@@ -303,189 +353,6 @@ object F_Setor: TF_Setor
       BoundLabel.Layout = sclLeft
       BoundLabel.MaxWidth = 0
       BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '###,###,##0;-###,###,##0;0'
-    end
-    object ed_selisih: TsCurrencyEdit
-      Left = 360
-      Top = 94
-      Width = 145
-      Height = 24
-      AutoSize = False
-      Color = clWhite
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -15
-      Font.Name = 'Rockwell'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 7
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '###,###,##0;-###,###,##0;0'
-    end
-    object b_simpan: TsBitBtn
-      Left = 528
-      Top = 16
-      Width = 113
-      Height = 40
-      Cancel = True
-      Caption = '&Simpan'
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -20
-      Font.Name = 'Arial'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 8
-      OnClick = b_simpanClick
-      SkinData.SkinSection = 'BUTTON'
-    end
-    object b_cetak: TsBitBtn
-      Left = 528
-      Top = 68
-      Width = 113
-      Height = 40
-      Caption = '&Cetak'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -20
-      Font.Name = 'Arial'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 9
-      OnClick = b_cetakClick
-      SkinData.SkinSection = 'BUTTON'
-    end
-    object ed_return: TsCurrencyEdit
-      Left = 120
-      Top = 94
-      Width = 145
-      Height = 24
-      AutoSize = False
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Rockwell'
-      Font.Style = []
-      ParentFont = False
-      ReadOnly = True
-      TabOrder = 3
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '0'
-    end
-    object ed_Total: TsCurrencyEdit
-      Left = 120
-      Top = 68
-      Width = 145
-      Height = 24
-      AutoSize = False
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Rockwell'
-      Font.Style = []
-      ParentFont = False
-      ReadOnly = True
-      TabOrder = 2
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '###,###,##0;-###,###,##0;0'
-    end
-    object ed_Kredit: TsCurrencyEdit
-      Left = 120
-      Top = 43
-      Width = 145
-      Height = 24
-      AutoSize = False
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Rockwell'
-      Font.Style = []
-      ParentFont = False
-      ReadOnly = True
-      TabOrder = 1
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '###,###,##0;-###,###,##0;0'
-    end
-    object ed_disc: TsCurrencyEdit
-      Left = 120
-      Top = 16
-      Width = 145
-      Height = 24
-      AutoSize = False
-      Enabled = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Rockwell'
-      Font.Style = []
-      ParentFont = False
-      ReadOnly = True
-      TabOrder = 0
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
-      SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
-      DisplayFormat = '###,###,##0;-###,###,##0;0'
     end
   end
   object p1: TsPanel
