@@ -248,6 +248,8 @@ end;
                     
 procedure TF_Setor.mnigetonline1Click(Sender: TObject);
 begin
+  ShowMessage('Menu ini untuk sementara tidak dapat dijalankan...');
+{
   fungsi.SQLExec(dm.Q_temp,'select count(tanggal) as total from tb_login_kasir'
   +' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '
   +' and `user`="'+dm.Q_show.fieldbyname('user').AsString+'" '
@@ -280,6 +282,7 @@ begin
     end;
     end;
   end;
+}
 end;
 
 end.
