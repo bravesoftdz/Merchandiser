@@ -295,6 +295,7 @@ end;
 procedure TF_Login.simpanKodePerusahaan;
 var appINI : TIniFile;
 begin
+  kd_comp := sb.Panels[0].Text;
   appINI := TIniFile.Create(dm.AppPath +'gain.ini') ;
   appINI.WriteString('toko','kd_perusahaan',sb.Panels[0].Text);
   appINI.Free;
