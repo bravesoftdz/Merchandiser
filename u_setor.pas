@@ -94,14 +94,7 @@ fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan
     de_trans.Date := dm.Q_temp.FieldByName('tanggal').AsDateTime;
 
   b_refreshClick(Self);
-{
-fungsi.SQLExec(dm.Q_temp,'select Sum(void) as sum_void, '+
-'Sum(discount) as sum_discount,Sum(return_jual) as sum_return_jual, Sum(kredit) as sum_kredit,Sum(price_oh) as sum_price_oh, '+
-'Sum(jumlah_setor_oh) as sum_jumlah_setor_oh,Sum(jumlah_setor_real) as sum_jumlah_setor_real, '+
-'Sum(selisih) as sum_selisih from tb_login_kasir inner join tb_user on '+
-'tb_user.kd_user=tb_login_kasir.user where status=''online'' and tb_login_kasir.kd_jaga="'+f_utama.sb.Panels[3].Text+'" and tb_login_kasir.kd_perusahaan="'+
-f_utama.sb.Panels[5].Text+'"',true);
-}end;
+end;
 
 procedure TF_Setor.ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
