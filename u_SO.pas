@@ -385,8 +385,6 @@ procedure TF_SO.b_updateClick(Sender: TObject);
 begin
 dm.db_conn.StartTransaction;
 try
-fungsi.SQLExec(dm.Q_exe,'call sp_mutasi_repair("'+sb.Panels[5].Text+'",date(now()))',false);
-
 fungsi.SQLExec(dm.Q_Exe,'UPDATE tb_koreksi_temp,tb_barang SET '+
 'tb_koreksi_temp.qty_oh=tb_barang.stok_OH '+
 'WHERE tb_koreksi_temp.kd_barang=tb_barang.kd_barang AND tb_barang.kd_perusahaan="'+
