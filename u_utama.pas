@@ -60,6 +60,8 @@ type
     mniDaftarSO1: TMenuItem;
     Series1: TBarSeries;
     Barcode1: TMenuItem;
+    N5: TMenuItem;
+    DaftarRencanaSO1: TMenuItem;
     procedure sb_inventoryClick(Sender: TObject);
     procedure sb_tokoClick(Sender: TObject);
     procedure sb_tutup_kasirClick(Sender: TObject);
@@ -92,6 +94,7 @@ type
     procedure DaftarPO1Click(Sender: TObject);
     procedure mniDaftarSO1Click(Sender: TObject);
     procedure Barcode1Click(Sender: TObject);
+    procedure DaftarRencanaSO1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -107,7 +110,8 @@ implementation
 
 uses U_Login, u_inventory, u_setor, U_toko, u_dm,acselectskin,
   u_kirim_data, u_lap, u_planogram, u_RO, u_list_receipt, u_return,
-  u_list_return, u_list_purchase, u_purchase, u_hari, u_list_SO, u_barcode;
+  u_list_return, u_list_purchase, u_purchase, u_hari, u_list_SO, u_barcode,
+  u_list_so_plan;
 
 {$R *.dfm}
 
@@ -482,6 +486,15 @@ procedure TF_Utama.Barcode1Click(Sender: TObject);
 begin
 Application.CreateForm(Tf_barcode, f_barcode);
 f_barcode.ShowModal;
+end;
+
+procedure TF_Utama.DaftarRencanaSO1Click(Sender: TObject);
+begin
+if f_list_so_plan = nil then
+application.CreateForm(Tf_list_so_plan, f_list_so_plan);
+
+f_list_so_plan.segarkan;
+f_list_so_plan.Show;
 end;
 
 end.
