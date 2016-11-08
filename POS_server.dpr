@@ -23,7 +23,8 @@ uses
   u_hari in 'u_hari.pas' {f_hari},
   u_list_SO in 'u_list_SO.pas' {f_list_SO},
   u_barcode in 'u_barcode.pas' {f_Barcode},
-  u_list_so_plan in 'u_list_so_plan.pas' {f_list_so_plan};
+  u_list_so_plan in 'u_list_so_plan.pas' {f_list_so_plan},
+  u_stok_opname in 'u_stok_opname.pas' {f_stok_opname};
 
 {$R *.res}
 
