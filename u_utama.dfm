@@ -505,6 +505,7 @@ object F_Utama: TF_Utama
       Caption = 'Stock Opname (SO)'
       object mniStockOpnameSO2: TMenuItem
         Caption = 'Stock Opname (SO)'
+        OnClick = mniStockOpnameSO2Click
       end
       object DaftarRencanaSO1: TMenuItem
         Caption = 'Daftar Rencana SO'

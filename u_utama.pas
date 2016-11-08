@@ -95,6 +95,7 @@ type
     procedure mniDaftarSO1Click(Sender: TObject);
     procedure Barcode1Click(Sender: TObject);
     procedure DaftarRencanaSO1Click(Sender: TObject);
+    procedure mniStockOpnameSO2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -111,7 +112,7 @@ implementation
 uses U_Login, u_inventory, u_setor, U_toko, u_dm,acselectskin,
   u_kirim_data, u_lap, u_planogram, u_RO, u_list_receipt, u_return,
   u_list_return, u_list_purchase, u_purchase, u_hari, u_list_SO, u_barcode,
-  u_list_so_plan;
+  u_list_so_plan, u_stok_opname;
 
 {$R *.dfm}
 
@@ -494,6 +495,13 @@ application.CreateForm(Tf_list_so_plan, f_list_so_plan);
 
 f_list_so_plan.segarkan;
 f_list_so_plan.Show;
+end;
+
+procedure TF_Utama.mniStockOpnameSO2Click(Sender: TObject);
+begin
+  //Stock Opname
+  application.CreateForm(Tf_stok_opname, f_stok_opname);
+  f_stok_opname.Show;
 end;
 
 end.
