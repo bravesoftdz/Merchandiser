@@ -15,10 +15,10 @@ type
   Tf_list_so_plan = class(TForm)
     grid: TcxGrid;
     grid_data: TcxGridDBTableView;
-    clmn_dataColumn1: TcxGridDBColumn;
-    clmn_dataColumn2: TcxGridDBColumn;
-    clmn_dataColumn3: TcxGridDBColumn;
-    clmn_dataColumn4: TcxGridDBColumn;
+    tvKodeKoreksi: TcxGridDBColumn;
+    tvDibuatPada: TcxGridDBColumn;
+    tvQtyReal: TcxGridDBColumn;
+    tvTotalHpp: TcxGridDBColumn;
     l_data: TcxGridLevel;
     sPanel1: TsPanel;
     sknprvdr1: TsSkinProvider;

@@ -37,17 +37,17 @@ object f_list_so_plan: Tf_list_so_plan
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = clmn_dataColumn3
+          Column = tvQtyReal
         end
         item
           Format = '###,###,##0;(###,###,##0);0'
           Kind = skSum
-          Column = clmn_dataColumn4
+          Column = tvTotalHpp
         end
         item
           Format = '0 Data'
           Kind = skCount
-          Column = clmn_dataColumn1
+          Column = tvKodeKoreksi
         end>
       DataController.Summary.SummaryGroups = <>
       OptionsBehavior.CellHints = True
@@ -57,19 +57,17 @@ object f_list_so_plan: Tf_list_so_plan
       OptionsView.ColumnAutoWidth = True
       OptionsView.Footer = True
       OptionsView.GroupByBox = False
-      object clmn_dataColumn1: TcxGridDBColumn
+      object tvKodeKoreksi: TcxGridDBColumn
         Caption = 'Kode Koreksi'
         DataBinding.FieldName = 'kd_koreksi'
+        Width = 191
       end
-      object clmn_dataColumn2: TcxGridDBColumn
-        Caption = 'Dibuat Pada'
-        DataBinding.FieldName = 'create_at'
-      end
-      object clmn_dataColumn3: TcxGridDBColumn
+      object tvQtyReal: TcxGridDBColumn
         Caption = 'Qty Real'
         DataBinding.FieldName = 'qty_real'
+        Width = 123
       end
-      object clmn_dataColumn4: TcxGridDBColumn
+      object tvTotalHpp: TcxGridDBColumn
         Caption = 'Total Hpp'
         DataBinding.FieldName = 'total_hpp'
         PropertiesClassName = 'TcxCurrencyEditProperties'
@@ -77,6 +75,12 @@ object f_list_so_plan: Tf_list_so_plan
         Properties.DisplayFormat = '###,###,##0;-###,###,##0;0'
         Properties.EditFormat = '###,###,##0;'
         HeaderAlignmentHorz = taRightJustify
+        Width = 168
+      end
+      object tvDibuatPada: TcxGridDBColumn
+        Caption = 'Dibuat Pada'
+        DataBinding.FieldName = 'create_at'
+        Width = 202
       end
     end
     object l_data: TcxGridLevel
