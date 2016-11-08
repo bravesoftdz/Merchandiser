@@ -49,7 +49,7 @@ var
   fungsi:tfungsi;
 implementation
 
-uses u_dm, u_lap, u_SO, u_purchase, u_barcode;
+uses u_dm, u_lap, u_SO, u_purchase, u_barcode, u_stok_opname;
 
 {$R *.dfm}
 
@@ -69,11 +69,16 @@ end;
 function cari_kondisi(sql:string):string;
 var  nPos   : integer;
 begin
-  nPos:= Pos('where', sql );
+  nPos:= Pos('where', LowerCase(sql) );
   if nPos<> 0 then
   delete(sql,1,npos+5) else
   sql:='';
   
+  nPos:= Pos('limit', LowerCase(sql) );
+  if nPos<> 0 then
+  delete(sql,nPos,50) else
+  sql:='';
+
   result:= sql;
 end;
 
@@ -154,6 +159,10 @@ try
    case tipe_cari of
       1 : //kode Barang
       begin
+      if asal='f_stok' then
+      begin
+      f_stok_opname.ed_code.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
+      end else
       if asal='f_lap' then
       begin
       f_lap.ed_cari.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
