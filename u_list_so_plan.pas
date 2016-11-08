@@ -47,7 +47,7 @@ var
 
 implementation
 
-uses u_dm, u_utama;
+uses u_dm, u_utama, u_stok_opname;
 
 {$R *.dfm}
 
@@ -73,7 +73,8 @@ procedure Tf_list_so_plan.segarkan;
 begin
 fungsi.SQLExec(QList,'SELECT kd_koreksi, sum(harga_pokok) as harga_pokok, '+
                      'sum(qty_real) as qty_real, sum(harga_pokok * qty_real) AS total_hpp, '+
-                     'create_at FROM tb_koreksi_temp GROUP BY kd_perusahaan, kd_koreksi',true);
+                     'create_at FROM tb_koreksi_temp WHERE kd_perusahaan = "'+ F_Utama.sb.Panels[5].Text +
+                     '" GROUP BY kd_koreksi',true);
 end;
 
 
@@ -89,7 +90,9 @@ procedure Tf_list_so_plan.t_dataCellDblClick(Sender: TcxCustomGridTableView;
   ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
   AShift: TShiftState; var AHandled: Boolean);
 begin
-// todo: waktu data di double click
+  Application.CreateForm(Tf_stok_opname,f_stok_opname);
+  f_stok_opname.ed_kodeSO.Text:= QList.FieldByName('kd_koreksi').AsString;
+  f_stok_opname.Show;
 end;
 
 procedure Tf_list_so_plan.FormShow(Sender: TObject);
