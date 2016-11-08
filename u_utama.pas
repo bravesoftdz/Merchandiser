@@ -309,7 +309,6 @@ begin
   laporanpo.Enabled:= False;
   LaporanTerimaBarang1.Enabled:= False;
   LaporanReturnBarang1.Enabled:= False;
-  mniLaporanSO.Enabled:= False;
   ExportImportData1.Enabled:= False;
 end;
 
