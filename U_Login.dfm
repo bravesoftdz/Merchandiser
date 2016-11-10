@@ -1,7 +1,8 @@
 object F_Login: TF_Login
   Left = 469
   Top = 201
-  BorderStyle = bsDialog
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = 'Login Server POS'
   ClientHeight = 292
   ClientWidth = 405
