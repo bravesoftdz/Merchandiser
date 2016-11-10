@@ -9,7 +9,6 @@ uses
   U_Login in 'U_Login.pas' {F_Login},
   u_setor in 'u_setor.pas' {F_Setor},
   u_utama in 'u_utama.pas' {F_Utama},
-  u_SO in 'u_SO.pas' {F_SO},
   u_cari in 'u_cari.pas' {f_cari},
   u_kirim_data in 'u_kirim_data.pas' {F_kirim_data},
   u_lap in 'u_lap.pas' {f_lap},
@@ -32,12 +31,6 @@ begin
   Application.Initialize;
   Application.Title := 'POS Server';
   Application.CreateForm(Tdm, dm);
-  tf_login.Execute;
-  if pilihan=1 then
-  Application.CreateForm(TF_utama, F_utama) else
-  if pilihan=2 then
-  Application.CreateForm(Tf_so, f_so) else
-  if pilihan=0 then
-  application.Terminate;   
+  Application.CreateForm(TF_Utama, F_Utama);
   Application.Run;
 end.
