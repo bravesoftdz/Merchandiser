@@ -21,7 +21,6 @@ type
     de_mulai: TsDateEdit;
     de_sampai: TsDateEdit;
     sLabel2: TsLabel;
-    b_design: TsButton;
     cb_macam: TsComboBox;
     sLabel3: TsLabel;
     sSkinProvider1: TsSkinProvider;
@@ -43,7 +42,6 @@ type
       Shift: TShiftState);
     procedure cb_karepClick(Sender: TObject);
     procedure de_sampaiChange(Sender: TObject);
-    procedure b_designClick(Sender: TObject);
     procedure sb_cariClick(Sender: TObject);
     procedure BukaDataBarang1Click(Sender: TObject);
     procedure HapusBarangini1Click(Sender: TObject);
@@ -139,28 +137,6 @@ procedure Tf_lap.de_sampaiChange(Sender: TObject);
 begin
 if de_sampai.Date<de_mulai.Date then
    de_sampai.Date:= de_mulai.Date;
-end;
-
-procedure Tf_lap.b_designClick(Sender: TObject);
-begin
-if cb_karep.Checked=true then
-  begin
-    if lb_data.Items.Count = 0 then Exit;
-  fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'" and kd_barang in('+lb_data.Items.CommaText+') and kd_macam_harga="'+cb_macam.Text+'"',true);
-  end else
-if rbHarga.Checked = True then
-  begin
-  fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'" and date(update_pada)>="'+formatdatetime('yyyy-MM-dd', de_mulai.Date)
-  +'" and date(update_pada)<="'+formatdatetime('yyyy-MM-dd', de_sampai.Date)+'" and kd_macam_harga="'+cb_macam.Text+'"',true);
-  end else
-  begin
-  fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'" and no_rak='+edRak.Text+' ',true);
-  end;  
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_barcode.fr3');
-  dm.laporan.ShowReport;
 end;
 
 procedure Tf_lap.sb_cariClick(Sender: TObject);

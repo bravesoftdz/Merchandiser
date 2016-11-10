@@ -44,7 +44,7 @@ object f_lap: Tf_lap
     Left = 384
     Top = 8
     Width = 153
-    Height = 41
+    Height = 105
     Caption = '&Real Card'
     TabOrder = 0
     OnClick = b_previewClick
@@ -218,16 +218,6 @@ object f_lap: Tf_lap
       GlyphMode.Grayed = False
     end
   end
-  object b_design: TsButton
-    Left = 384
-    Top = 56
-    Width = 153
-    Height = 41
-    Caption = '&Barcode'
-    TabOrder = 6
-    OnClick = b_designClick
-    SkinData.SkinSection = 'BUTTON'
-  end
   object cb_macam: TsComboBox
     Left = 416
     Top = 360
@@ -255,7 +245,7 @@ object f_lap: Tf_lap
     ItemHeight = 16
     ItemIndex = 0
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 6
     Text = 'HETK'
     Items.Strings = (
       'HETK'
@@ -268,7 +258,7 @@ object f_lap: Tf_lap
     Height = 20
     Caption = 'Berdasarkan Perubahan Harga'
     Checked = True
-    TabOrder = 8
+    TabOrder = 7
     TabStop = True
     SkinData.SkinSection = 'RADIOBUTTON'
   end
@@ -278,7 +268,7 @@ object f_lap: Tf_lap
     Width = 102
     Height = 20
     Caption = 'berdasarkan Rak'
-    TabOrder = 9
+    TabOrder = 8
     SkinData.SkinSection = 'RADIOBUTTON'
   end
   object gb_Rak: TsGroupBox
@@ -286,7 +276,7 @@ object f_lap: Tf_lap
     Top = 40
     Width = 145
     Height = 73
-    TabOrder = 10
+    TabOrder = 9
     SkinData.SkinSection = 'GROUPBOX'
     object l_1: TsLabel
       Left = 8
