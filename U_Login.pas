@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, sLabel, Mask, sMaskEdit, sCustomComboEdit, sTooledit,
   ComCtrls, acProgressBar, sButton, sGauge, UFungsi, sGroupBox, sEdit,
-  Buttons, sBitBtn, sRichEdit, sRadioButton, sStatusBar,inifiles,Winsock,TlHelp32;
+  Buttons, sBitBtn, sRichEdit, sRadioButton, sStatusBar, inifiles;
 
 type
   TF_Login = class(TForm)
@@ -18,9 +18,6 @@ type
     ed_n_op: TsEdit;
     ed_pass: TsEdit;
     b_login: TsButton;
-    gb_pilihan: TsGroupBox;
-    rb_jaga: TsRadioButton;
-    rb_so: TsRadioButton;
     sButton1: TsButton;
     sButton2: TsButton;
     sb: TsStatusBar;
@@ -43,7 +40,6 @@ type
   private
     { Private declarations }
   public
-    class function Execute : boolean;
     { Public declarations }
   end;
 
@@ -54,67 +50,13 @@ var
 
 implementation
 
-uses u_dm, u_utama, u_SO, u_cari;
+uses u_dm, u_utama, u_cari;
 
 {$R *.dfm}
 
-//===========================================
-//procedure untuk mendapatkan Local Host dan Local IP
-//=============================================
-function GetIPFromHost
-(var HostName, IPaddr, WSAErr: string): Boolean; 
-type 
-  Name = array[0..100] of Char; 
-  PName = ^Name; 
-var 
-  HEnt: pHostEnt; 
-  HName: PName; 
-  WSAData: TWSAData; 
-  i: Integer; 
-begin 
-  Result := False;     
-  if WSAStartup($0101, WSAData) <> 0 then begin 
-    WSAErr := 'Winsock is not responding."'; 
-    Exit; 
-  end; 
-  IPaddr := ''; 
-  New(HName); 
-  if GetHostName(HName^, SizeOf(Name)) = 0 then
-  begin 
-    HostName := StrPas(HName^); 
-    HEnt := GetHostByName(HName^); 
-    for i := 0 to HEnt^.h_length - 1 do 
-     IPaddr :=
-      Concat(IPaddr,
-      IntToStr(Ord(HEnt^.h_addr_list^[i])) + '.'); 
-    SetLength(IPaddr, Length(IPaddr) - 1); 
-    Result := True; 
-  end
-  else begin 
-   case WSAGetLastError of
-    WSANOTINITIALISED:WSAErr:='WSANotInitialised'; 
-    WSAENETDOWN      :WSAErr:='WSAENetDown'; 
-    WSAEINPROGRESS   :WSAErr:='WSAEInProgress';
-   end;
-  end;
-  Dispose(HName);
-  WSACleanup;
-end;
-//=================================================
-
-class function TF_Login.Execute: boolean;
-begin
-  with TF_Login.Create(nil) do
-  try
-    Result := ShowModal = mrOk;
-  finally
-    Free;
-  end;
-end;
-
 procedure TF_Login.FormShow(Sender: TObject);
 begin
-pilihan:=0;
+dm.Login := False;
 sb.Panels[0].Text:=kd_comp;
 fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.Panels[0].text+'"',true);
 sb.Panels[1].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;
@@ -177,7 +119,7 @@ procedure TF_Login.b_loginClick(Sender: TObject);
 var passs:string;
   Host, IP, Err,ip_kasir: string;
 begin
-  if GetIPFromHost(Host, IP, Err) then ip_kasir := IP //masupin local IP ke edit1
+  if fungsi.GetIPFromHost(Host, IP, Err) then ip_kasir := IP //masupin local IP ke edit1
    else MessageDlg(Err, mtError, [mbOk], 0);
 
 dm.db_conn.StartTransaction;
@@ -194,25 +136,16 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
     ed_pass.SetFocus;
   end else
   begin
-    if rb_jaga.Checked=true then
-    begin
-     fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-     ed_kd_op.Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
+    fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
+    ed_kd_op.Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
 
-     fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
-     sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
-     kd_operator:=ed_kd_op.Text;
-     n_operator:= ed_n_op.Text;
-     pilihan:=1;
-    end else
-    begin
-     fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
-     sb.Panels[0].Text+'","'+ed_kd_op.Text+'", "'+ed_n_op.Text+'",date(now()),''SO'',''online'',"'+ip_kasir+'")',false);
-     kd_operator:=ed_kd_op.Text;
-     n_operator:= ed_n_op.Text;
-     pilihan:=2;
-    end;
+    fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
+    sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
+    kd_operator:=ed_kd_op.Text;
+    n_operator:= ed_n_op.Text;
+
     simpanKodePerusahaan;
+    dm.Login:= True;
     close;
   end;
 end;
@@ -229,8 +162,8 @@ end;
 
 procedure TF_Login.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-action:= cafree;
-f_login:=nil;
+  action:= cafree;
+  f_login:=nil;
 end;
 
 

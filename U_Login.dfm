@@ -3,7 +3,7 @@ object F_Login: TF_Login
   Top = 201
   BorderStyle = bsDialog
   Caption = 'Login Server POS'
-  ClientHeight = 277
+  ClientHeight = 292
   ClientWidth = 405
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,7 +24,7 @@ object F_Login: TF_Login
     Left = 0
     Top = 0
     Width = 405
-    Height = 256
+    Height = 271
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -36,7 +36,7 @@ object F_Login: TF_Login
     SkinData.SkinSection = 'GROUPBOX'
     object sLabel2: TsLabel
       Left = 8
-      Top = 88
+      Top = 16
       Width = 111
       Height = 19
       Caption = 'Kode Operator'
@@ -49,7 +49,7 @@ object F_Login: TF_Login
     end
     object sLabel3: TsLabel
       Left = 8
-      Top = 120
+      Top = 80
       Width = 117
       Height = 19
       Caption = 'Nama Operator'
@@ -62,7 +62,7 @@ object F_Login: TF_Login
     end
     object sLabel4: TsLabel
       Left = 8
-      Top = 152
+      Top = 136
       Width = 70
       Height = 19
       Caption = 'Password'
@@ -75,7 +75,7 @@ object F_Login: TF_Login
     end
     object l_1: TsLabel
       Left = 8
-      Top = 232
+      Top = 240
       Width = 216
       Height = 16
       Caption = 'Tekan F2 untuk merubah Perusahaan'
@@ -87,9 +87,9 @@ object F_Login: TF_Login
       Font.Style = []
     end
     object ed_kd_op: TsEdit
-      Left = 136
-      Top = 80
-      Width = 233
+      Left = 56
+      Top = 40
+      Width = 337
       Height = 27
       CharCase = ecUpperCase
       Font.Charset = DEFAULT_CHARSET
@@ -98,7 +98,7 @@ object F_Login: TF_Login
       Font.Name = 'Rockwell'
       Font.Style = []
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 0
       OnChange = ed_kd_opChange
       OnKeyDown = ed_kd_opKeyDown
       SkinData.SkinSection = 'EDIT'
@@ -113,9 +113,9 @@ object F_Login: TF_Login
       BoundLabel.UseSkinColor = True
     end
     object ed_n_op: TsEdit
-      Left = 136
-      Top = 112
-      Width = 233
+      Left = 56
+      Top = 104
+      Width = 337
       Height = 27
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -124,7 +124,7 @@ object F_Login: TF_Login
       Font.Style = []
       ParentFont = False
       ReadOnly = True
-      TabOrder = 2
+      TabOrder = 1
       OnEnter = ed_n_opEnter
       SkinData.SkinSection = 'EDIT'
       BoundLabel.Indent = 0
@@ -138,9 +138,9 @@ object F_Login: TF_Login
       BoundLabel.UseSkinColor = True
     end
     object ed_pass: TsEdit
-      Left = 136
-      Top = 144
-      Width = 233
+      Left = 56
+      Top = 160
+      Width = 337
       Height = 27
       Enabled = False
       Font.Charset = DEFAULT_CHARSET
@@ -150,7 +150,7 @@ object F_Login: TF_Login
       Font.Style = []
       ParentFont = False
       PasswordChar = '@'
-      TabOrder = 3
+      TabOrder = 2
       OnKeyDown = ed_passKeyDown
       SkinData.SkinSection = 'EDIT'
       BoundLabel.Indent = 0
@@ -164,8 +164,8 @@ object F_Login: TF_Login
       BoundLabel.UseSkinColor = True
     end
     object b_login: TsButton
-      Left = 232
-      Top = 192
+      Left = 256
+      Top = 208
       Width = 137
       Height = 49
       Caption = '&Login'
@@ -175,38 +175,9 @@ object F_Login: TF_Login
       Font.Name = 'Rockwell'
       Font.Style = []
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 3
       OnClick = b_loginClick
       SkinData.SkinSection = 'BUTTON'
-    end
-    object gb_pilihan: TsGroupBox
-      Left = 8
-      Top = 16
-      Width = 369
-      Height = 57
-      Caption = '| Jenis Login |'
-      TabOrder = 0
-      SkinData.SkinSection = 'GROUPBOX'
-      object rb_jaga: TsRadioButton
-        Left = 16
-        Top = 24
-        Width = 130
-        Height = 23
-        Caption = '&Penjaga Toko'
-        Checked = True
-        TabOrder = 0
-        TabStop = True
-        SkinData.SkinSection = 'RADIOBUTTON'
-      end
-      object rb_so: TsRadioButton
-        Left = 200
-        Top = 24
-        Width = 139
-        Height = 23
-        Caption = '&Stock Opname'
-        TabOrder = 1
-        SkinData.SkinSection = 'RADIOBUTTON'
-      end
     end
   end
   object sButton1: TsButton
@@ -229,7 +200,7 @@ object F_Login: TF_Login
   end
   object sb: TsStatusBar
     Left = 0
-    Top = 256
+    Top = 271
     Width = 405
     Height = 21
     Panels = <

@@ -295,6 +295,11 @@ begin
   DecimalSeparator:= '.';
   ThousandSeparator := ',';
 
+Application.CreateForm(TF_Login, F_Login);
+F_Login.ShowModal;
+
+if dm.Login = False then Close;
+
 sb.Panels[3].Text:=kd_operator;
 sb.Panels[4].Text:=n_operator;
 sb.Panels[5].Text:=kd_comp;

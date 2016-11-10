@@ -3,7 +3,8 @@ unit UFungsi;
 interface
 
 uses
-  Classes, mySQLDbTables, DB, sysutils, ShellAPI, windows, WinInet;
+  Classes, mySQLDbTables, DB, sysutils, ShellAPI, windows, WinInet, Winsock,
+  TlHelp32;
 
 type
   TQueryTread = class(TThread)
@@ -24,6 +25,7 @@ type
     {private declaration}
   public
     function CariDanGanti(sSrc, sLookFor, sReplaceWith: string): string;
+    function GetIPFromHost(var HostName, IPaddr, WSAErr: string): Boolean;
     function GetVersiApp: string;
     procedure Amankan(pathin, pathout: string; Chave: Word);
     procedure HapusDir(const DirName: string);
@@ -84,6 +86,49 @@ begin
     nPos := Pos(sLookFor, sSrc);
   end;
   Result := sSrc;
+end;
+
+function Tfungsi.GetIPFromHost(var HostName, IPaddr, WSAErr: string): Boolean;
+type
+  Name = array[0..100] of Char;
+
+  PName = ^Name;
+var
+  HEnt: pHostEnt;
+  HName: PName;
+  WSAData: TWSAData;
+  i: Integer;
+begin
+  Result := False;
+  if WSAStartup($0101, WSAData) <> 0 then
+  begin
+    WSAErr := 'Winsock is not responding."';
+    Exit;
+  end;
+  IPaddr := '';
+  New(HName);
+  if GetHostName(HName^, SizeOf(Name)) = 0 then
+  begin
+    HostName := StrPas(HName^);
+    HEnt := GetHostByName(HName^);
+    for i := 0 to HEnt^.h_length - 1 do
+      IPaddr := Concat(IPaddr, IntToStr(Ord(HEnt^.h_addr_list^[i])) + '.');
+    SetLength(IPaddr, Length(IPaddr) - 1);
+    Result := True;
+  end
+  else
+  begin
+    case WSAGetLastError of
+      WSANOTINITIALISED:
+        WSAErr := 'WSANotInitialised';
+      WSAENETDOWN:
+        WSAErr := 'WSAENetDown';
+      WSAEINPROGRESS:
+        WSAErr := 'WSAEInProgress';
+    end;
+  end;
+  Dispose(HName);
+  WSACleanup;
 end;
 
 function Tfungsi.GetVersiApp: string;
