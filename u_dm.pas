@@ -49,12 +49,12 @@ type
     { Private declarations }
   public
     a_path, AppPath, DocPath: string;
+    Login : Boolean;
     { Public declarations }
   end;
 
 var
   dm: Tdm;
-  pilihan: integer;
   kd_comp, kd_operator, n_operator: string;
   metu_kabeh: Boolean;
   Mgs: TMsg;
