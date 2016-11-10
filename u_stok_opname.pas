@@ -258,7 +258,7 @@ procedure Tf_stok_opname.BtnAutoClick(Sender: TObject);
 var
   a: integer;
 begin
-  fungsi.SQLExec(dm.Q_temp,'select MAX(RIGHT(kd_koreksi,4)) + 1 AS ahir from tb_koreksi_temp '+
+  fungsi.SQLExec(dm.Q_temp,'select IFNULL(MAX(RIGHT(kd_koreksi,4)),0) + 1 AS ahir from tb_koreksi_temp '+
   'where kd_perusahaan= "'+f_utama.sb.Panels[5].Text+'"',true);
 
   a := dm.Q_temp.FieldbyName('ahir').AsInteger;
