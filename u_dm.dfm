@@ -12721,16 +12721,6 @@ object dm: Tdm
     Left = 216
     Top = 248
   end
-  object Q_cari: TmySQLQuery
-    Database = db_conn
-    Left = 56
-    Top = 8
-  end
-  object ds_cari: TDataSource
-    DataSet = Q_cari
-    Left = 104
-    Top = 8
-  end
   object frxbrcdbjct1: TfrxBarCodeObject
     Left = 280
     Top = 120

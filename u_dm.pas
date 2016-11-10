@@ -30,8 +30,6 @@ type
     q_stock_out: TmySQLQuery;
     im: TsAlphaImageList;
     Q_koreksi: TmySQLQuery;
-    Q_cari: TmySQLQuery;
-    ds_cari: TDataSource;
     frxbrcdbjct1: TfrxBarCodeObject;
     Q_list_receipt: TmySQLQuery;
     ds_list_receipt: TDataSource;
