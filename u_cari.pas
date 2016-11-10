@@ -49,7 +49,7 @@ var
   
 implementation
 
-uses u_dm, u_lap, u_SO, u_purchase, u_barcode, u_stok_opname;
+uses u_dm, u_lap, u_purchase, u_barcode, u_stok_opname;
 
 {$R *.dfm}
 
@@ -170,10 +170,6 @@ try
       if asal='f_barcode' then
       begin
       f_Barcode.ed_PID.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
-      end else
-      if asal='f_SO' then
-      begin
-      F_SO.ED_INPUT.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
       end else
       if asal='f_purchase' then
       begin
