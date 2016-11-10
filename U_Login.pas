@@ -207,16 +207,23 @@ end;
 
 procedure TF_Login.sbClick(Sender: TObject);
 begin
-application.CreateForm(tf_cari, f_cari);
-u_cari.tipe_cari:=1;
-u_cari.asal:='f_login';
-f_cari.Ed_cari.Visible:= true;
-fungsi.SQLExec(dm.q_cari,'select kd_perusahaan, n_perusahaan from tb_company',true);
-f_cari.clm1.caption:='Kode';
-f_cari.clm2.caption:='Nama Perusahaan';
-f_cari.ShowModal;
-sb.Panels[0].Text:= dm.q_cari.fieldbyname('kd_perusahaan').AsString;
-sb.Panels[1].Text:= dm.q_cari.fieldbyname('n_perusahaan').AsString;
+  application.CreateForm(tf_cari, f_cari);
+  with F_cari do
+  try
+    _SQLi:= 'select kd_perusahaan, n_perusahaan from tb_company';
+    tblcap[0]:= 'Kode';
+    tblCap[1]:= 'Nama Perusahaan';
+    if ShowModal = mrOk then
+    begin
+      sb.Panels[0].Text:= TblVal[0];
+      sb.Panels[1].Text:= TblVal[1];
+      ed_kd_op.Clear;
+      ed_pass.Enabled:=False;
+      ed_kd_op.SetFocus;
+    end;
+  finally
+  close;
+  end;
 end;
 
 procedure TF_Login.FormKeyDown(Sender: TObject; var Key: Word;

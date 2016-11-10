@@ -188,13 +188,19 @@ procedure Tf_stok_opname.Sb_cariClick(Sender: TObject);
 begin
   ed_code.SetFocus;
   application.CreateForm(tf_cari, f_cari);
-  u_cari.tipe_cari:=1;
-  u_cari.asal:='f_stok';
-  fungsi.SQLExec(dm.q_cari,'select kd_barang, n_barang from tb_barang where kd_perusahaan="'+
-    F_Utama.sb.Panels[5].Text+'" limit 50',true);
-  f_cari.clm1.caption:='PID';
-  f_cari.clm2.caption:='Deskripsi';
-  f_cari.ShowModal;
+  with F_cari do
+  try
+    _SQLi:= 'select kd_barang, n_barang from tb_barang ' +
+            'where kd_perusahaan="'+F_Utama.sb.Panels[5].Text+'"';
+    tblcap[0]:= 'Kode';
+    tblCap[1]:= 'Deskripsi';
+    if ShowModal = mrOk then
+    begin
+      ed_code.Text:= TblVal[0];
+    end;
+  finally
+  close;
+  end;
 end;
 
 procedure Tf_stok_opname.BtnSimpanClick(Sender: TObject);

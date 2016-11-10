@@ -14,7 +14,6 @@ object f_cari: Tf_cari
   KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
@@ -55,9 +54,8 @@ object f_cari: Tf_cari
     LookAndFeel.Kind = lfOffice11
     object t_data: TcxGridDBTableView
       OnDblClick = t_dataDblClick
-      OnKeyDown = t_dataKeyDown
       NavigatorButtons.ConfirmDelete = False
-      DataController.DataSource = dm.ds_cari
+      DataController.DataSource = ds_cari
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
@@ -68,24 +66,29 @@ object f_cari: Tf_cari
       OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
       OptionsView.Indicator = True
+      Styles.Inactive = dm.cxstyl1
       object clm1: TcxGridDBColumn
         Tag = 1
+        Visible = False
         Width = 55
         IsCaptionAssigned = True
       end
       object clm2: TcxGridDBColumn
         Tag = 2
+        Visible = False
         SortIndex = 0
         SortOrder = soAscending
         IsCaptionAssigned = True
       end
       object clm3: TcxGridDBColumn
         Tag = 3
+        Visible = False
         Width = 335
         IsCaptionAssigned = True
       end
       object clm4: TcxGridDBColumn
         Tag = 4
+        Visible = False
         Width = 79
         IsCaptionAssigned = True
       end
@@ -94,14 +97,14 @@ object f_cari: Tf_cari
       GridView = t_data
     end
   end
-  object b_pilih: TsButton
+  object BtnPilih: TsButton
     Left = 504
     Top = 320
     Width = 75
     Height = 25
     Caption = '&Pilih'
     TabOrder = 2
-    OnClick = b_pilihClick
+    OnClick = BtnPilihClick
     SkinData.SkinSection = 'BUTTON'
   end
   object sSkinProvider1: TsSkinProvider
@@ -114,5 +117,15 @@ object f_cari: Tf_cari
     TitleButtons = <>
     Left = 352
     Top = 32
+  end
+  object ds_cari: TDataSource
+    DataSet = Q_cari
+    Left = 104
+    Top = 8
+  end
+  object Q_cari: TmySQLQuery
+    Database = dm.db_conn
+    Left = 56
+    Top = 8
   end
 end

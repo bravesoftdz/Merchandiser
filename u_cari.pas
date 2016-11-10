@@ -4,15 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, UFungsi, StdCtrls, sEdit, sButton, ExtCtrls,
-  DBCtrls, sSkinProvider, cxCustomData, cxGraphics,
-  cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
+  Dialogs, UFungsi, StdCtrls, sEdit, sButton, ExtCtrls, DBCtrls, sSkinProvider,
+  cxCustomData, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, cxStyles,
-  cxFilter, cxData;
+  cxGridTableView, cxGridDBTableView, cxGrid, cxStyles, cxFilter, cxData,
+  mySQLDbTables;
 
 type
   NewControl = class(TControl);
+
   Tf_cari = class(TForm)
     sSkinProvider1: TsSkinProvider;
     Ed_cari: TsEdit;
@@ -23,198 +23,157 @@ type
     clm3: TcxGridDBColumn;
     clm4: TcxGridDBColumn;
     l_data: TcxGridLevel;
-    b_pilih: TsButton;
+    BtnPilih: TsButton;
+    ds_cari: TDataSource;
+    Q_cari: TmySQLQuery;
     procedure Ed_cariChange(Sender: TObject);
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure t_dataDblClick(Sender: TObject);
-    procedure b_pilihClick(Sender: TObject);
-    procedure Ed_cariKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure t_dataKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnPilihClick(Sender: TObject);
+    procedure Ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
-    { Public declarations }
+    _SQLi, nm_tabel, Kondisi: string;
+    TblCap: array[0..3] of string;
+    TblVal: array[0..3] of string;
+    CariT: Integer;
   end;
 
 var
-  F_cari:TF_cari;
-  sumber:TForm;
-  tipe_cari: integer;
-  asal,kondisi: string;
-  
+  F_cari: TF_cari;
+  TblTemp: TStringList;
+
 implementation
 
-uses u_dm, u_lap, u_purchase, u_barcode, u_stok_opname;
+uses
+  u_dm;
 
 {$R *.dfm}
 
-function cari_tabel(sql:string):string;
-var  nPos,npos2,npos3   : integer;
+function cari_tabel(sql: string): string;
+var
+  nPos, npos2, npos3: integer;
 begin
-  nPos:= Pos( 'from', sql );
-  delete(sql,1,npos+4);
+  nPos := Pos('from', LowerCase(sql));
+  delete(sql, 1, npos + 4);
 
-  npos2:= pos(' ',sql);
-  npos3:= length(sql);
-  delete(sql,npos2,npos3);
+  npos2 := pos(' ', sql);
+  npos3 := length(sql);
+  delete(sql, npos2, npos3);
 
-  result:= sql;
+  result := sql;
 end;
 
-function cari_kondisi(sql:string):string;
-var  nPos   : integer;
+function cari_kondisi(sql: string): string;
+var
+  nPos: integer;
 begin
-  nPos:= Pos('where', LowerCase(sql) );
-  if nPos<> 0 then
-  delete(sql,1,npos+5) else
-  sql:='';
-  
-  nPos:= Pos('limit', LowerCase(sql) );
-  if nPos<> 0 then
-  delete(sql,nPos,50) else
-  sql:='';
+  nPos := Pos('where', LowerCase(sql));
+  if nPos <> 0 then
+    delete(sql, 1, npos + 5)
+  else
+    sql := '';
 
-  result:= sql;
+  result := sql;
 end;
-
 
 procedure Tf_cari.Ed_cariChange(Sender: TObject);
-var nm_tabel: string;
+var
+  saringan: string;
+  x: Integer;
 begin
-nm_tabel:= cari_tabel(dm.q_cari.SQL.Text);
+  for x := 0 to q_cari.FieldCount - 1 do
+    saringan := saringan + q_cari.Fields[x].FieldName + ' like "%' + ed_cari.Text
+      + '%" or ';
 
-case dm.q_cari.FieldCount of
-  2:
-  begin
-    fungsi.SQLExec(dm.q_cari,'select '+clm1.DataBinding.FieldName+','+clm2.DataBinding.FieldName
-    +' from '+nm_tabel+' where '+kondisi+'('+clm1.DataBinding.FieldName+' like "%'+
-    ed_cari.Text+'%" or '+clm2.DataBinding.FieldName+'  like  "%'+ed_cari.Text+'%") limit 0,100',true);
-  end;
-  3:
-  begin
-    fungsi.SQLExec(dm.q_cari,'select '+clm1.DataBinding.FieldName+','+clm2.DataBinding.FieldName
-    +','+clm3.DataBinding.FieldName+' from '+nm_tabel+' where '+kondisi+'('+clm1.DataBinding.FieldName+' like "%'+
-    ed_cari.Text+'%" or '+clm2.DataBinding.FieldName+'  like  "%'+ed_cari.Text+'%"  or '+
-    clm3.DataBinding.FieldName+'  like  "%'+ed_cari.Text+'%") limit 0,100',true);
-  end;
-  4:
-  begin
-    fungsi.SQLExec(dm.q_cari,'select '+clm1.DataBinding.FieldName+','+clm2.DataBinding.FieldName
-    +','+clm3.DataBinding.FieldName+' from '+nm_tabel+' where '+kondisi+'('+clm1.DataBinding.FieldName+' like "%'+
-    ed_cari.Text+'%" or '+clm2.DataBinding.FieldName+'  like  "%'+ed_cari.Text+'%"  or '+
-    clm3.DataBinding.FieldName+'  like  "%'+ed_cari.Text+'%") limit 0,100',true);
-  end;
-end;
+  delete(saringan, Length(saringan) - 3, 4);
+
+  fungsi.SQLExec(q_cari, 'select ' + TblTemp.CommaText + ' from ' + nm_tabel +
+    ' where ' + kondisi + '(' + saringan + ') limit 0,100', true);
 end;
 
-procedure Tf_cari.FormKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure Tf_cari.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
-if key=vk_escape then close;
+  if key = vk_return then
+  begin
+    PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
+    BtnPilihClick(Self);
+  end;
 
-if key=vk_f2 then ed_cari.SetFocus;
+  if key = vk_escape then
+    close;
+
+  if key = vk_f2 then
+    ed_cari.SetFocus;
 end;
 
 procedure Tf_cari.FormShow(Sender: TObject);
+var
+  x: Integer;
 begin
-  if cari_kondisi(dm.q_cari.SQL.Text)<>'' then
-    kondisi:= cari_kondisi(dm.q_cari.SQL.Text)+ ' AND ' else
-    kondisi:='';
+  fungsi.SQLExec(Q_cari, _SQLi + ' limit 0,100', True);
 
+  nm_tabel := cari_tabel(_SQLi);
 
-case dm.q_cari.FieldCount of
-  2:
+  if cari_kondisi(_SQLi) <> '' then
+    kondisi := cari_kondisi(_SQLi) + ' AND '
+  else
+    kondisi := '';
+
+  TblTemp.Clear;
+
+  for x := 0 to q_cari.FieldCount - 1 do
   begin
-    clm1.DataBinding.FieldName:= dm.q_cari.Fields[0].FieldName;
-    clm2.DataBinding.FieldName:= dm.q_cari.Fields[1].FieldName;
-    clm3.Visible:=false;
-    clm4.Visible:=false;
+    TblTemp.Add(q_cari.Fields[x].FieldName);
   end;
-  3:
+
+  for x := 0 to q_cari.FieldCount - 1 do
   begin
-    clm1.DataBinding.FieldName:= dm.q_cari.Fields[0].FieldName;
-    clm2.DataBinding.FieldName:= dm.q_cari.Fields[1].FieldName;
-    clm3.DataBinding.FieldName:= dm.q_cari.Fields[2].FieldName;
-    clm4.Visible:=false;
+    TcxGridDBColumn(FindComponent('clm' + IntToStr(x + 1))).DataBinding.FieldName
+      := q_cari.Fields[x].FieldName;
+    TcxGridDBColumn(FindComponent('clm' + IntToStr(x + 1))).Visible := True;
+    TcxGridDBColumn(FindComponent('clm' + IntToStr(x + 1))).Caption := tblCap[x];
   end;
-  4:
-  begin
-    clm1.DataBinding.FieldName:= dm.q_cari.Fields[0].FieldName;
-    clm2.DataBinding.FieldName:= dm.q_cari.Fields[1].FieldName;
-    clm3.DataBinding.FieldName:= dm.q_cari.Fields[2].FieldName;
-    clm4.DataBinding.FieldName:= dm.q_cari.Fields[3].FieldName;
-  end;
-end;
-t_data.DataController.FocusedRowIndex:=1;
 end;
 
 procedure Tf_cari.t_dataDblClick(Sender: TObject);
 begin
-try
-   case tipe_cari of
-      1 : //kode Barang
-      begin
-      if asal='f_stok' then
-      begin
-      f_stok_opname.ed_code.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
-      end else
-      if asal='f_lap' then
-      begin
-      f_lap.ed_cari.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
-      end else
-      if asal='f_barcode' then
-      begin
-      f_Barcode.ed_PID.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
-      end else
-      if asal='f_purchase' then
-      begin
-      f_purchase.ed_code.Text:= dm.q_cari.fieldbyname('kd_barang').AsString;
-      end;
-      end;
-   end;
-close;
-except
+  BtnPilihClick(Self);
 end;
 
+procedure Tf_cari.BtnPilihClick(Sender: TObject);
+var
+  x: Integer;
+begin
+  for x := 0 to q_cari.FieldCount - 1 do
+  begin
+    TblVal[x] := q_cari.fieldbyname(TcxGridDBColumn(FindComponent('clm' +
+      IntToStr(x + 1))).DataBinding.FieldName).AsString;
+  end;
+  ModalResult := mrOk;
 end;
 
-procedure Tf_cari.b_pilihClick(Sender: TObject);
+procedure Tf_cari.Ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
-t_dataDblClick(Sender);
+  if key = vk_up then
+  begin
+    t_data.DataController.FocusedRowIndex := t_data.DataController.FocusedRowIndex - 1;
+    key := VK_NONAME;
+  end;
+
+  if key = vk_down then
+  begin
+    t_data.DataController.FocusedRowIndex := t_data.DataController.FocusedRowIndex + 1;
+  end;
 end;
 
-procedure Tf_cari.Ed_cariKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-if (key=vk_down) or (key=vk_up)then
-grid.SetFocus;
+initialization
+  TblTemp := TStringList.Create;
 
-if key= vk_return then
-begin
-PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
-t_dataDblClick(Sender);
-end;
-end;
-
-procedure Tf_cari.t_dataKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-if key= vk_return then
-begin
-PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
-t_dataDblClick(Sender);
-end;
-end;
-
-procedure Tf_cari.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-action:=cafree;
-f_cari:=nil;
-end;
+finalization
+  TblTemp.Free;
 
 end.
+
