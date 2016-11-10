@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sLabel, sEdit, U_fungsi, DB, Grids, DBGrids, Mask,
+  Dialogs, StdCtrls, sLabel, sEdit, UFungsi, DB, Grids, DBGrids, Mask,
   sMaskEdit, sCustomComboEdit, sCurrEdit, sCurrencyEdit, Buttons, sBitBtn,
   frxClass, frxDBSet, frxDesgn, frxExportXML, frxExportXLS, cxStyles,
   cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit,
@@ -69,7 +69,7 @@ type
 
 var
   F_Setor: TF_Setor;
-  fungsi:TFungsi;
+  
 implementation
 
 uses u_dm, u_utama;

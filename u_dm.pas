@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, mySQLDbTables, sSkinManager, frxClass, frxDBSet,
-  frxExportXML, dialogs, forms, inifiles, u_fungsi, ImgList, Controls,
+  frxExportXML, dialogs, forms, inifiles, UFungsi, ImgList, Controls,
   acAlphaImageList, frxBarcode, Windows, cxStyles, SHFolder;
 
 type
@@ -54,7 +54,6 @@ type
 
 var
   dm: Tdm;
-  fungsi: tfungsi;
   pilihan: integer;
   kd_comp, kd_operator, n_operator: string;
   metu_kabeh: Boolean;

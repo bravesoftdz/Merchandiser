@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, sMaskEdit, sCustomComboEdit, sTooledit, sButton,
-  sLabel,u_fungsi, ComCtrls, sEdit, sCheckBox,
+  sLabel,UFungsi, ComCtrls, sEdit, sCheckBox,
   sGroupBox, sComboBox, sSkinProvider, Buttons, sSpeedButton, Menus,
   sRadioButton, sCurrEdit, sCurrencyEdit, cxStyles, cxCustomData,
   cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, cxCurrencyEdit,
@@ -51,7 +51,7 @@ type
 
 var
   f_Barcode: Tf_Barcode;
-  fungsi:tfungsi;
+  
 
 implementation
 

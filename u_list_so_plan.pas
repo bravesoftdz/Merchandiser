@@ -9,7 +9,7 @@ uses
   StdCtrls, Buttons, sBitBtn, ExtCtrls, sPanel, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
   cxControls, cxGridCustomView, cxGrid, sSpeedButton, Mask, sMaskEdit,
-  sCustomComboEdit, sTooledit, sLabel, mySQLDbTables;
+  sCustomComboEdit, sTooledit, sLabel, mySQLDbTables,UFungsi;
 
 type
   Tf_list_so_plan = class(TForm)

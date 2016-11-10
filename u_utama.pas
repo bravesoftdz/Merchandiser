@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, ToolWin, sToolBar, acCoolBar, sStatusBar, Buttons,
   sSpeedButton, sTrackBar, StdCtrls, sLabel, ExtCtrls, sPanel, sMemo, Menus,
-  TeEngine, Series, TeeProcs, Chart, DbChart, ImgList, U_fungsi, acAlphaImageList,
+  TeEngine, Series, TeeProcs, Chart, DbChart, ImgList, UFungsi, acAlphaImageList,
   sSplitter, ExtDlgs, sDialogs,inifiles, sEdit, sButton,
   sComboBox,shellapi, sTabControl, DB, mySQLDbTables;
 
@@ -104,7 +104,7 @@ type
 
 var
   F_Utama: TF_Utama;
-  fungsi:TFungsi;
+  
   periode,bulan,tahun : string;
 
 implementation
@@ -318,7 +318,7 @@ begin
   ExportImportData1.Enabled :=False;
 end;  
 
-sb.Panels[9].Text:= 'Versi : '+fungsi.program_versi;
+sb.Panels[9].Text:= 'Versi : '+fungsi.GetVersiApp;
 
 panel_auto_width;
 

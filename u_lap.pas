@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, sMaskEdit, sCustomComboEdit, sTooledit, sButton,
-  sLabel,u_fungsi, ComCtrls, sEdit, sCheckBox,
+  sLabel,UFungsi, ComCtrls, sEdit, sCheckBox,
   sGroupBox, sComboBox, sSkinProvider, Buttons, sSpeedButton, Menus,
   sCurrEdit, sCurrencyEdit, sRadioButton;
 
@@ -57,7 +57,7 @@ type
 
 var
   f_lap: Tf_lap;
-  fungsi:tfungsi;
+  
 
 implementation
 

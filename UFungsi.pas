@@ -1,30 +1,92 @@
-unit U_fungsi;
+unit UFungsi;
 
 interface
 
 uses
-  Classes, DB, ShellAPI, SysUtils, dialogs, mySQLDbTables, Windows;
+  Classes, mySQLDbTables, DB, sysutils, ShellAPI, windows, WinInet;
 
 type
-  Tfungsi = class(TObject)//kita membuat object baru dengan nama TProsedur
+  TQueryTread = class(TThread)
+  private
+    FQuery: TmySQLQuery;
+    FText: string;
+    iscari: Boolean;
+  protected
+    procedure Execute; override;
+    procedure ThreadExecute;
+  public
+    constructor create(_query: TmySQLQuery; _text: string; is_cari: Boolean);
+  end;
+
+type
+  Tfungsi = class(TObject)
   private
     {private declaration}
   public
-    function program_versi: string;
-    function caridanganti(sSrc, sLookFor, sReplaceWith: string): string;
-    procedure hapusdir(const DirName: string);
-    procedure savetofile(aQuery: TmySQLQuery; _SQL, nm_file: string);
-    procedure amankan(pathin, pathout: string; Chave: Word);
+    function CariDanGanti(sSrc, sLookFor, sReplaceWith: string): string;
+    function GetVersiApp: string;
+    procedure Amankan(pathin, pathout: string; Chave: Word);
+    procedure HapusDir(const DirName: string);
+    procedure LoadSQL(aQuery: TmySQLQuery; _SQL: string);
+    procedure SaveToFile(aQuery: TmySQLQuery; _SQL, nm_file: string);
     procedure SQLExec(aQuery: TmySQLQuery; _SQL: string; isSearch: boolean);
-    procedure loadSQL(aQuery: TmySQLQuery; _SQL: string);
+    procedure SQLExecT(aQuery: TmySQLQuery; _SQL: string; isSearch: boolean);
   end;
+
+var
+  fungsi: Tfungsi;
 
 implementation
 
-uses
-  u_dm, U_Login;
+{ TQueryTread }
 
-function Tfungsi.program_versi: string;
+procedure TQueryTread.Execute;
+begin
+  Synchronize(ThreadExecute);
+end;
+
+procedure TQueryTread.ThreadExecute();
+begin
+  with FQuery do
+  begin
+    Close;
+    sql.Clear;
+    SQL.Text := FText;
+    if iscari then
+      Open
+    else
+      ExecSQL;
+  end;
+end;
+
+constructor TQueryTread.create(_query: TmySQLQuery; _text: string; is_cari: Boolean);
+begin
+  inherited create(False);
+  Self.FQuery := _query;
+  Self.FText := _text;
+  Self.iscari := is_cari;
+  FreeOnTerminate := True;
+  Resume;
+end;
+
+{ Tfungsi }
+
+function Tfungsi.CariDanGanti(sSrc, sLookFor, sReplaceWith: string): string;
+var
+  nPos, nLenLookFor: integer;
+begin
+  nPos := Pos(sLookFor, sSrc);
+  nLenLookFor := Length(sLookFor);
+  while (nPos > 0) do
+  begin
+    Delete(sSrc, nPos, nLenLookFor);
+    Insert(sReplaceWith, sSrc, nPos);
+    nPos := Pos(sLookFor, sSrc);
+  end;
+  Result := sSrc;
+end;
+
+function Tfungsi.GetVersiApp: string;
 var
   V1, V2, V3, V4: Word;
   VerInfoSize, VerValueSize, Dummy: DWORD;
@@ -47,18 +109,7 @@ begin
   Result := IntToStr(V1) + '.' + IntToStr(V2) + '.' + IntToStr(V3) + '.' + IntToStr(V4);
 end;
 
-procedure Tfungsi.hapusdir(const DirName: string);
-var
-  FileOp: TSHFileOpStruct;
-begin
-  FillChar(FileOp, SizeOf(FileOp), 0);
-  FileOp.wFunc := FO_DELETE;
-  FileOp.pFrom := PChar(DirName + #0); //double zero-terminated
-  FileOp.fFlags := FOF_SILENT or FOF_NOERRORUI or FOF_NOCONFIRMATION;
-  SHFileOperation(FileOp);
-end;
-
-procedure Tfungsi.amankan(pathin, pathout: string; Chave: Word);
+procedure Tfungsi.Amankan(pathin, pathout: string; Chave: Word);
 var
   InMS, OutMS: TMemoryStream;
   cnt: Integer;
@@ -82,7 +133,31 @@ begin
   end;
 end;
 
-procedure Tfungsi.savetofile(aQuery: TmySQLQuery; _SQL, nm_file: string);
+procedure Tfungsi.HapusDir(const DirName: string);
+var
+  FileOp: TSHFileOpStruct;
+begin
+  FillChar(FileOp, SizeOf(FileOp), 0);
+  FileOp.wFunc := FO_DELETE;
+  FileOp.pFrom := PChar(DirName + #0); //double zero-terminated
+  FileOp.fFlags := FOF_SILENT or FOF_NOERRORUI or FOF_NOCONFIRMATION;
+  SHFileOperation(FileOp);
+end;
+
+procedure Tfungsi.LoadSQL(aQuery: TmySQLQuery; _SQL: string);
+begin
+  with aQuery do
+  begin
+    DisableControls;
+    Close;
+    sql.Clear;
+    SQL.LoadFromFile(_SQL);
+    ExecSQL;
+    EnableControls;
+  end;
+end;
+
+procedure Tfungsi.SaveToFile(aQuery: TmySQLQuery; _SQL, nm_file: string);
 var
   I: Integer;
   X: TextFile;
@@ -123,38 +198,19 @@ begin
         S1 := S1 + '#' + aQuery.Fields[I].AsString + '#';
     end;
 
-     // Added for ExtendInsert support
     S1 := Format('%s%s%s', ['<', S1, '>']);
     Write(X, S1);
 
-     // End modification
-//        Result := Trunc(aQuery.RecNo*100/(aQuery.RecordCount-1));
     aQuery.Next;
   end;
   closefile(X);
   amankan(nm_file, nm_file, 9966);
 end;
 
-function Tfungsi.caridanganti(sSrc, sLookFor, sReplaceWith: string): string;
-var
-  nPos, nLenLookFor: integer;
-begin
-  nPos := Pos(sLookFor, sSrc);
-  nLenLookFor := Length(sLookFor);
-  while (nPos > 0) do
-  begin
-    Delete(sSrc, nPos, nLenLookFor);
-    Insert(sReplaceWith, sSrc, nPos);
-    nPos := Pos(sLookFor, sSrc);
-  end;
-  Result := sSrc;
-end;
-
 procedure Tfungsi.SQLExec(aQuery: TmySQLQuery; _SQL: string; isSearch: boolean);
 begin
   with aQuery do
   begin
-    DisableControls;
     Close;
     sql.Clear;
     SQL.Text := _SQL;
@@ -162,21 +218,12 @@ begin
       Open
     else
       ExecSQL;
-    EnableControls;
   end;
 end;
 
-procedure Tfungsi.loadSQL(aQuery: TmySQLQuery; _SQL: string);
+procedure Tfungsi.SQLExecT(aQuery: TmySQLQuery; _SQL: string; isSearch: boolean);
 begin
-  with aQuery do
-  begin
-    DisableControls;
-    Close;
-    sql.Clear;
-    SQL.LoadFromFile(_SQL);
-    ExecSQL;
-    EnableControls;
-  end;
+  TQueryTread.Create(aQuery, _SQL, isSearch);
 end;
 
 end.

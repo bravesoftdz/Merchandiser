@@ -9,7 +9,7 @@ uses
   cxGraphics, cxDataStorage,
   cxEdit, DB, cxDBData, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxControls, cxGridCustomView, cxClasses, cxGridLevel,
-  cxGrid,u_fungsi, cxStyles, cxCustomData, cxFilter, cxData, sSpeedButton,
+  cxGrid,UFungsi, cxStyles, cxCustomData, cxFilter, cxData, sSpeedButton,
   Mask, sMaskEdit, sCustomComboEdit, sTooledit, sLabel;
 
 type
@@ -48,7 +48,7 @@ type
 
 var
   f_List_purchase: Tf_List_purchase;
-  fungsi:tfungsi;
+  
 
 implementation
 

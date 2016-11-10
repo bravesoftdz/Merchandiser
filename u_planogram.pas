@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, StdCtrls, sLabel, sEdit,u_fungsi,
+  Dialogs, Buttons, StdCtrls, sLabel, sEdit,UFungsi,
   sSpinEdit, sButton, sSkinProvider, cxStyles,
   cxGraphics, cxDataStorage, cxEdit, DB,
   cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
@@ -49,7 +49,7 @@ type
 
 var
   f_planogram: Tf_planogram;
-  fungsi:tfungsi;
+  
   kd_barang: string;
 
 implementation

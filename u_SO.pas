@@ -9,7 +9,7 @@ uses
   cxStyles, cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage,
   cxEdit, DB, cxDBData, cxGridLevel, cxClasses, cxControls,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid,u_fungsi, sGroupBox, Menus, ComCtrls,
+  cxGridDBTableView, cxGrid,UFungsi, sGroupBox, Menus, ComCtrls,
   sStatusBar,SHELLAPI, mySQLDbTables,XPMan;
 
 type
@@ -107,7 +107,7 @@ type
 
 var
   F_SO: TF_SO;
-  fungsi:tfungsi;
+  
 
 implementation
 
@@ -269,7 +269,7 @@ sb.Panels[6].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;
 sb.Panels[8].Text:=dm.Q_temp.fieldbyname('ket').AsString;
 
 sb.Panels[7].Text:=dm.db_conn.DatabaseName+'@'+dm.db_conn.Host;
-sb.Panels[9].Text:= 'Versi: '+fungsi.program_versi;
+sb.Panels[9].Text:= 'Versi: '+fungsi.GetVersiApp;
 
 panel_auto_width;
 setcueBanner(edInput,'Masukkan Angka di ikuti tanda + kemudian Enter untuk merubah Quantity...');

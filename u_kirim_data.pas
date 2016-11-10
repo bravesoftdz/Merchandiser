@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sButton,U_fungsi,DB, sDialogs, sCheckBox, sGroupBox,
+  Dialogs, StdCtrls, sButton,UFungsi,DB, sDialogs, sCheckBox, sGroupBox,
   sRadioButton, ComCtrls, sListView, sLabel, sEdit, acShellCtrls, Mask,
   sMaskEdit, sCustomComboEdit, sTooledit, sMemo, sPageControl, sListBox,
   AbZView,AbZipKit, Grids, AbView, AbBase, AbBrowse, AbZBrows, AbZipper,
@@ -46,7 +46,7 @@ type
 
 var
   F_kirim_data: TF_kirim_data;
-  fungsi:Tfungsi;
+  
   dir_simpan,dir_zip,file_load,dir_load:string;
 
   const

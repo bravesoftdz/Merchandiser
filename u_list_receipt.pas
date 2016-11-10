@@ -8,7 +8,7 @@ uses
   cxDataStorage, cxEdit, DB, cxDBData, sSkinProvider, StdCtrls, Buttons,
   sBitBtn, ExtCtrls, sPanel, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxControls,
-  cxGridCustomView, cxGrid,u_fungsi, cxCurrencyEdit, 
+  cxGridCustomView, cxGrid,UFungsi, cxCurrencyEdit, 
   cxStyles, cxCustomData, cxFilter, cxData, cxCalendar;
 
 type
@@ -46,7 +46,7 @@ type
 
 var
   f_list_receipt: Tf_list_receipt;
-  fungsi:tfungsi;
+  
 
 implementation
 

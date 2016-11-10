@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, sLabel, Mask, sMaskEdit, sCustomComboEdit, sTooledit,
-  ComCtrls, acProgressBar, sButton, sGauge, U_fungsi, sGroupBox, sEdit,
+  ComCtrls, acProgressBar, sButton, sGauge, UFungsi, sGroupBox, sEdit,
   Buttons, sBitBtn, sRichEdit, sRadioButton, sStatusBar,inifiles,Winsock,TlHelp32;
 
 type
@@ -49,7 +49,7 @@ type
 
 var
   F_Login: TF_Login;
-  fungsi:Tfungsi;
+  
   status,userPassword,userRealName:string;
 
 implementation
@@ -249,7 +249,7 @@ var
   versiDB,versiAPP,URLDownload:string;
   fileName, UrlDownloadLocal:string;
 begin
-  versiAPP := fungsi.program_versi;
+  versiAPP := fungsi.GetVersiApp;
 
   fungsi.SQLExec(dm.Q_Show,'select versi_terbaru, URLdownload from  app_versi where kode="pos_server.exe"',true);
   versiDB           := dm.Q_Show.FieldByName('versi_terbaru').AsString;

@@ -7,7 +7,7 @@ uses
   Dialogs, ComCtrls, sTabControl, DB, StdCtrls, sEdit, Grids, DBGrids,
   Buttons, sBitBtn, sPageControl, sSkinProvider, acProgressBar,
   MySQLMonitor, ExtCtrls, sPanel, sRadioButton, sGroupBox, sListBox,
-  sCheckListBox, sButton, sLabel, u_fungsi, sUpDown, DBCtrls, Mask,
+  sCheckListBox, sButton, sLabel, UFungsi, sUpDown, DBCtrls, Mask,
   frxClass, frxDBSet;
 
 type

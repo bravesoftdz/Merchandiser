@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, U_fungsi, StdCtrls, sEdit, sButton, ExtCtrls,
+  Dialogs, UFungsi, StdCtrls, sEdit, sButton, ExtCtrls,
   DBCtrls, sSkinProvider, cxCustomData, cxGraphics,
   cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
@@ -46,7 +46,7 @@ var
   sumber:TForm;
   tipe_cari: integer;
   asal,kondisi: string;
-  fungsi:tfungsi;
+  
 implementation
 
 uses u_dm, u_lap, u_SO, u_purchase, u_barcode, u_stok_opname;

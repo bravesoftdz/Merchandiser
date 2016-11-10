@@ -8,7 +8,7 @@ uses
   cxDataStorage, cxEdit, DB, cxDBData, sSkinProvider, StdCtrls, Buttons,
   sBitBtn, ExtCtrls, sPanel, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxControls,
-  cxGridCustomView, cxGrid,u_fungsi, cxStyles,
+  cxGridCustomView, cxGrid,UFungsi, cxStyles,
   cxCustomData, cxFilter, cxData, cxCurrencyEdit;
 
 type
@@ -44,7 +44,7 @@ type
 
 var
   f_list_return: Tf_list_return;
-  fungsi:tfungsi;
+  
 
 implementation
 

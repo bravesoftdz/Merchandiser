@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ComCtrls, acProgressBar, Buttons, sBitBtn, DBCtrls, Mask,
   StdCtrls, sButton, sUpDown, sEdit, sLabel, sRadioButton, sGroupBox,
-  ExtCtrls, sPanel, Grids, DBGrids, sPageControl,u_fungsi, cxStyles,
+  ExtCtrls, sPanel, Grids, DBGrids, sPageControl,UFungsi, cxStyles,
   cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, DB,
   cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
   cxGridLevel, cxClasses, cxControls, cxGridCustomView, cxGrid, sComboBox,
@@ -34,7 +34,6 @@ type
 
 var
   F_toko: TF_toko;
-  fungsi: TFungsi;
   periode,bulan,tahun : string;
 
 implementation
