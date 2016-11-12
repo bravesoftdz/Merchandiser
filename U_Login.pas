@@ -119,7 +119,7 @@ procedure TF_Login.b_loginClick(Sender: TObject);
 var passs:string;
   Host, IP, Err,ip_kasir: string;
 begin
-  if fungsi.GetIPFromHost(Host, IP, Err) then ip_kasir := IP //masupin local IP ke edit1
+  if fungsi.GetIPFromHost(Host, IP, Err) then ip_kasir := IP
    else MessageDlg(Err, mtError, [mbOk], 0);
 
 dm.db_conn.StartTransaction;
@@ -136,11 +136,15 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
     ed_pass.SetFocus;
   end else
   begin
-    fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-    ed_kd_op.Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
+    if dm.HakAkses('tkAdmin', kd_operator,kd_comp) then
+    begin
+      fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
+      ed_kd_op.Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
 
-    fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
-    sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
+      fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
+      sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
+    end;
+
     kd_operator:=ed_kd_op.Text;
     n_operator:= ed_n_op.Text;
 

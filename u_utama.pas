@@ -194,40 +194,50 @@ end;
 
 procedure TF_Utama.sb_tutup_kasirClick(Sender: TObject);
 begin
-application.CreateForm(tF_Setor, F_setor);
-f_setor.ShowModal;
+  if not(dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, f_utama.sb.Panels[5].Text)) then
+  begin
+    messagedlg('Anda tidak mempunyai hak untuk ' + #13#10 +
+      'melanjutkan AKSES ke dalam MENU ini...',mtWarning,[mbOk],0);
+    Exit;
+  end;
+
+  application.CreateForm(tF_Setor, F_setor);
+  f_setor.ShowModal;
 end;
 
 procedure TF_Utama.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
-'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
-  if not(dm.Q_temp.Eof) then
-    begin
-    if (MessageBox(0, 'ADA KASIR YANG BELUM SETOR.....'+#13+#10+''+#13+#10+'Apakah Anda '+
-    'akan melakukan setor kasir dahulu?????', 'Setor Kasir', MB_ICONWARNING or MB_YESNO) = idYes) then
-     begin
-      application.CreateForm(tF_Setor, F_setor);
-      f_setor.ShowModal;
-      action:=canone;
-      Exit;
-     end;
-    end;
-
- dm.db_conn.StartTransaction;
- try
-        fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-        sb.Panels[3].Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[5].Text+'"',false);
-        dm.db_conn.Commit;
-        metu_kabeh:= True;
-        Action := caFree;
- except on e:exception do
+  if dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, f_utama.sb.Panels[5].Text) then
+  begin
+    fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+    'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
+      if not(dm.Q_temp.Eof) then
+        begin
+        if (MessageBox(0, 'ADA KASIR YANG BELUM SETOR.....'+#13+#10+''+#13+#10+'Apakah Anda '+
+        'akan melakukan setor kasir dahulu?????', 'Setor Kasir', MB_ICONWARNING or MB_YESNO) = idYes) then
          begin
-          action:=caNone;
-          dm.db_conn.Rollback;
-          showmessage('perubahan data gagal '#10#13'' +e.Message);
+          application.CreateForm(tF_Setor, F_setor);
+          f_setor.ShowModal;
+          action:=canone;
+          Exit;
          end;
- end;
+        end;
+
+     dm.db_conn.StartTransaction;
+     try
+            fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
+            sb.Panels[3].Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[5].Text+'"',false);
+            dm.db_conn.Commit;
+            metu_kabeh:= True;
+            Action := caFree;
+     except on e:exception do
+             begin
+              action:=caNone;
+              dm.db_conn.Rollback;
+              showmessage('perubahan data gagal '#10#13'' +e.Message);
+             end;
+     end;
+  end;
 end;
 
 procedure TF_Utama.sb_refreshClick(Sender: TObject);
