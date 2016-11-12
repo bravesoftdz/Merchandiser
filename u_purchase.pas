@@ -300,7 +300,7 @@ try
 fungsi.SQLExec(dm.Q_exe,'insert into tb_purchase_global(kd_perusahaan,kd_purchase,tgl_purchase,'+
 'kd_suplier,nilai_faktur,pengguna,simpan_pada) values ("'+dm.kd_perusahaan+'","'+ed_no_faktur.Text
 +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+ed_supplier.Text+'","'+
-ed_nilai_faktur.Text+'","'+f_utama.Sb.Panels[3].Text+'",now())',false);
+ed_nilai_faktur.Text+'","'+dm.kd_operator+'",now())',false);
 
   fungsi.SQLExec(dm.Q_exe,'insert into tb_purchase_rinci(kd_perusahaan,kd_purchase,tgl_purchase,'+
   'kd_barang,n_barang,qty_purchase,harga_pokok,barcode,tgl_simpan) values  '+isi_sql, false);

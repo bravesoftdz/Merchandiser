@@ -216,7 +216,7 @@ try
 fungsi.SQLExec(dm.Q_exe,'insert into tb_receipt_global(kd_perusahaan,kd_receipt,tgl_receipt,'+
 'kd_suplier,jatuh_tempo,tunai,plus_PPN,PPN,disk_rp,nilai_faktur,pengguna,simpan_pada) values ("'+dm.kd_perusahaan+'","'+ed_no_faktur.Text
 +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+ed_supplier.Text+'",7,"'+tunai+'","'+plus_PPN+'",0,0,"'+
-ed_nilai_faktur.Text+'","'+f_utama.Sb.Panels[3].Text+'",now())',false);
+ed_nilai_faktur.Text+'","'+dm.kd_operator+'",now())',false);
 
   fungsi.SQLExec(dm.Q_exe,'insert into tb_receipt_rinci(kd_perusahaan,kd_receipt,tgl_receipt,'+
   'kd_barang,n_barang,qty_receipt,harga_pokok,diskon,barcode,tgl_simpan) values '+isi_sql, false);

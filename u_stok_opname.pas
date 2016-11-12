@@ -216,7 +216,7 @@ begin
     dm.db_conn.StartTransaction;
     try
       fungsi.SQLExec(dm.Q_Exe,'call sp_simpan_SO("'+dm.kd_perusahaan+'","'+
-      ed_kodeSO.Text+'","'+f_utama.sb.Panels[3].Text+'")',false);
+      ed_kodeSO.Text+'","'+dm.kd_operator+'")',false);
 
       showmessage('proses Simpan Stok Opname untuk '#10#13''+ed_kodeSO.Text+' Telah Sukses...');
 

@@ -194,7 +194,7 @@ end;
 
 procedure TF_Utama.sb_tutup_kasirClick(Sender: TObject);
 begin
-  if not(dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, dm.kd_perusahaan)) then
+  if not(dm.HakAkses('tkAdmin', dm.kd_operator, dm.kd_perusahaan)) then
   begin
     messagedlg('Anda tidak mempunyai hak untuk ' + #13#10 +
       'melanjutkan AKSES ke dalam MENU ini...',mtWarning,[mbOk],0);
@@ -207,10 +207,10 @@ end;
 
 procedure TF_Utama.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, dm.kd_perusahaan) then
+  if dm.HakAkses('tkAdmin', dm.kd_operator, dm.kd_perusahaan) then
   begin
     fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+dm.kd_perusahaan+'" '+
-    'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
+    'and kd_jaga="'+dm.kd_operator+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
       if not(dm.Q_temp.Eof) then
         begin
         if (MessageBox(0, 'ADA KASIR YANG BELUM SETOR.....'+#13+#10+''+#13+#10+'Apakah Anda '+
@@ -226,7 +226,7 @@ begin
      dm.db_conn.StartTransaction;
      try
             fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-            sb.Panels[3].Text+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
+            dm.kd_operator+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
             dm.db_conn.Commit;
             dm.metu_kabeh:= True;
             Action := caFree;

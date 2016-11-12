@@ -159,7 +159,7 @@ begin
    else MessageDlg(Err, mtError, [mbOk], 0);
 
 fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+dm.kd_perusahaan+'" '+
-'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' and date(tanggal)='+
+'and kd_jaga="'+dm.kd_operator+'"  and `status` = ''online'' and date(tanggal)='+
 QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+' order by `status` ASC limit 1',true);
   if not(dm.Q_temp.Eof) then
     begin
@@ -188,14 +188,14 @@ zipp.FileName:=dir_simpan+'.zip';
   dm.kd_perusahaan+'","'+ExtractFileName(zipp.FileName)+'","kirim",now())',False);
 
   fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-  F_Utama.sb.Panels[3].Text+'" and status="jaga" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
+  dm.kd_operator+'" and status="jaga" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
 
   namafile:= dir_simpan+'\tb_login_jaga.cbT';
   fungsi.savetofile(dm.Q_Exe,'select * from tb_login_jaga	where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tanggal='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_login_jaga.cbT',0);
 
   fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
-  dm.kd_perusahaan+'","'+f_utama.sb.Panels[3].Text+'","'+f_utama.sb.Panels[4].Text+'",date(now()),"jaga","online","'+ip_kasir+'")',false);
+  dm.kd_perusahaan+'","'+dm.kd_operator+'","'+f_utama.sb.Panels[4].Text+'",date(now()),"jaga","online","'+ip_kasir+'")',false);
 
   sg_load.Progress:=1;
 
