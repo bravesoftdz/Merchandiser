@@ -228,7 +228,7 @@ begin
             fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
             sb.Panels[3].Text+'" and kd_perusahaan="'+sb.Panels[5].Text+'"',false);
             dm.db_conn.Commit;
-            metu_kabeh:= True;
+            dm.metu_kabeh:= True;
             Action := caFree;
      except on e:exception do
              begin
@@ -310,9 +310,9 @@ F_Login.ShowModal;
 
 if dm.Login = False then Close;
 
-sb.Panels[3].Text:=kd_operator;
-sb.Panels[4].Text:=n_operator;
-sb.Panels[5].Text:=kd_perusahaan;
+sb.Panels[3].Text:=dm.kd_operator;
+sb.Panels[4].Text:=dm.n_operator;
+sb.Panels[5].Text:=dm.kd_perusahaan;
 
 fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.Panels[5].text+'"',true);
 sb.Panels[6].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;

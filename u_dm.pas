@@ -46,16 +46,14 @@ type
   private
     { Private declarations }
   public
-    a_path, AppPath, DocPath: string;
-    Login : Boolean;
+    a_path, AppPath, DocPath, kd_perusahaan, kd_operator, n_operator: string;
+    Login, metu_kabeh : Boolean;
     function HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
     { Public declarations }
   end;
 
 var
   dm: Tdm;
-  kd_perusahaan, kd_operator, n_operator: string;
-  metu_kabeh: Boolean;
   Mgs: TMsg;
 
 implementation

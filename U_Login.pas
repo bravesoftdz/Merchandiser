@@ -57,7 +57,7 @@ uses u_dm, u_utama, u_cari;
 procedure TF_Login.FormShow(Sender: TObject);
 begin
 dm.Login := False;
-sb.Panels[0].Text:=kd_perusahaan;
+sb.Panels[0].Text:=dm.kd_perusahaan;
 fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.Panels[0].text+'"',true);
 sb.Panels[1].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;
 
@@ -136,7 +136,7 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
     ed_pass.SetFocus;
   end else
   begin
-    if dm.HakAkses('tkAdmin', ed_kd_op.Text, kd_perusahaan) then
+    if dm.HakAkses('tkAdmin', ed_kd_op.Text, dm.kd_perusahaan) then
     begin
       fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
       ed_kd_op.Text+'" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
@@ -145,8 +145,8 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
       sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",now(),''online'',"'+ip_kasir+'")',false);
     end;
 
-    kd_operator:=ed_kd_op.Text;
-    n_operator:= ed_n_op.Text;
+    dm.kd_operator := ed_kd_op.Text;
+    dm.n_operator  := ed_n_op.Text;
 
     simpanKodePerusahaan;
     dm.Login:= True;
@@ -240,7 +240,7 @@ end;
 procedure TF_Login.simpanKodePerusahaan;
 var appINI : TIniFile;
 begin
-  kd_perusahaan := sb.Panels[0].Text;
+  dm.kd_perusahaan := sb.Panels[0].Text;
   appINI := TIniFile.Create(dm.AppPath +'gain.ini') ;
   appINI.WriteString('toko','kd_perusahaan',sb.Panels[0].Text);
   appINI.Free;
