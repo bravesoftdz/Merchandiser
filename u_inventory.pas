@@ -217,7 +217,7 @@ procedure TF_Inventory.FormShow(Sender: TObject);
 begin
 pc_inventory.ActivePage:= ts_jelajah;
 fungsi.SQLExec(dm.Q_show,'select * from tb_barang where kd_perusahaan='+
-quotedstr(F_Utama.sb.Panels[5].Text)+'',true);
+quotedstr(dm.kd_perusahaan)+'',true);
 l_hasil.Caption:= 'Ada '+inttostr(dm.Q_show.RecordCount)+' Item';
 end;
 
@@ -226,7 +226,7 @@ begin
 if rb_plu.Checked and rb_like.Checked then
 begin
 fungsi.SQLExec(dm.Q_show,'select * from tb_barang where kd_barang like "%'+ed_cari.Text
-+'%" or n_barang like "%'+ed_cari.Text+'%" order by kd_barang and kd_perusahaan='+quotedstr(F_Utama.sb.Panels[5].Text)+'',true);
++'%" or n_barang like "%'+ed_cari.Text+'%" order by kd_barang and kd_perusahaan='+quotedstr(dm.kd_perusahaan)+'',true);
 
 l_hasil.Caption:= 'Ada '+inttostr(dm.Q_show.RecordCount)+' Item';
 end;
@@ -289,7 +289,7 @@ if rb_lebih_sama.Checked=true then kondisi:='>=';
 if rb_kurang_sama.Checked=true then kondisi:='<=';
 
 
-fungsi.SQLExec(dm.Q_show,'select * from tb_barang where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" and '+kategori+' '+kondisi+' '+ed_cari.Text+' order by kd_barang',true);
+fungsi.SQLExec(dm.Q_show,'select * from tb_barang where kd_perusahaan="'+dm.kd_perusahaan+'" and '+kategori+' '+kondisi+' '+ed_cari.Text+' order by kd_barang',true);
 
 l_hasil.Caption:= 'Ada '+inttostr(dm.Q_show.RecordCount)+' Item';
 end;
@@ -335,7 +335,7 @@ end;
 procedure TF_Inventory.ts_mutasiClickBtn(Sender: TObject);
 begin
 ed_pid.Text:= dm.Q_show.fieldbyname('kd_barang').AsString;
-fungsi.SQLExec(dm.Q_temp,'select * from tb_mutasi WHERE kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" and MONTH(tb_mutasi.tgl)=MONTH(NOW()) and kd_barang="'+ed_pid.Text+'"',true);
+fungsi.SQLExec(dm.Q_temp,'select * from tb_mutasi WHERE kd_perusahaan="'+dm.kd_perusahaan+'" and MONTH(tb_mutasi.tgl)=MONTH(NOW()) and kd_barang="'+ed_pid.Text+'"',true);
 dm.Q_temp.RecNo:=dm.Q_temp.RecordCount;
 end;
 
@@ -349,7 +349,7 @@ end else
 if pc_inventory.ActivePage=ts_mutasi then
 begin
 fungsi.SQLExec(dm.Q_temp,'select * from tb_mutasi WHERE left(tgl,7)="'+
-F_Utama.cb_periode.Text+'" and kd_barang="'+ed_pid.Text+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+F_Utama.cb_periode.Text+'" and kd_barang="'+ed_pid.Text+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 dm.Q_temp.RecNo:=dm.Q_temp.RecordCount;
 end;
 

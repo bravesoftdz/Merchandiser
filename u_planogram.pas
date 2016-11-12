@@ -62,7 +62,7 @@ procedure Tf_planogram.se_rakChange(Sender: TObject);
 begin
 if se_rak.Value>0 then
 begin
-fungsi.SQLExec(dm.Q_show,'select * from vw_planogram_set where (kd_perusahaan="'+f_utama.sb.Panels[5].Text
+fungsi.SQLExec(dm.Q_show,'select * from vw_planogram_set where (kd_perusahaan="'+dm.kd_perusahaan
 +'" and no_rak='+se_rak.Text+' and no_shelving='+se_shelving.Text+')',true);
 
 se_shelving.Enabled:= true;
@@ -77,7 +77,7 @@ procedure Tf_planogram.se_shelvingChange(Sender: TObject);
 begin
 if se_shelving.Value>0 then
 begin
-fungsi.SQLExec(dm.Q_show,'select * from vw_planogram_set where (kd_perusahaan="'+f_utama.sb.Panels[5].Text
+fungsi.SQLExec(dm.Q_show,'select * from vw_planogram_set where (kd_perusahaan="'+dm.kd_perusahaan
 +'" and no_rak='+se_rak.Text+' and no_shelving='+se_shelving.Text+')',true);
 end else
 begin
@@ -95,7 +95,7 @@ end;
 procedure Tf_planogram.b_cetakClick(Sender: TObject);
 begin
 fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram_set where '+
-'kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" ORDER BY no_rak, no_shelving',true);
+'kd_perusahaan="'+dm.kd_perusahaan+'" ORDER BY no_rak, no_shelving',true);
 dm.laporan.LoadFromFile(dm.a_Path + 'laporan\gp_planogram.fr3');
 dm.laporan.ShowReport;
 end;
@@ -113,7 +113,7 @@ end;
 procedure Tf_planogram.sButton1Click(Sender: TObject);
 begin
 fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram_set where kd_perusahaan="'+
-f_utama.sb.Panels[5].Text+'" and no_rak ='+se_rak.Text+' ORDER BY no_shelving',true);
+dm.kd_perusahaan+'" and no_rak ='+se_rak.Text+' ORDER BY no_shelving',true);
 dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_planogram.fr3');
 dm.laporan.ShowReport;
 end;

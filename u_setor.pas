@@ -79,7 +79,7 @@ uses u_dm, u_utama;
 procedure TF_Setor.FormShow(Sender: TObject);
 begin
 
-fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+dm.kd_perusahaan+'" '+
 'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
   if dm.Q_temp.Eof then
     de_trans.Date := Date()
@@ -96,7 +96,7 @@ if key=vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
     fungsi.SQLExec(dm.Q_temp,'select * from tb_login_kasir inner join tb_user on '+
-    'tb_user.kd_user=tb_login_kasir.user where tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+    'tb_user.kd_user=tb_login_kasir.user where tb_login_kasir.kd_perusahaan="'+dm.kd_perusahaan+'" '+
     'and tb_login_kasir.user="'+ed_kd_kasir.Text+'" and tb_login_kasir.kd_jaga="'+f_utama.sb.Panels[3].Text+'" and status=''online''',true);
     if dm.Q_temp.Eof then
       begin
@@ -129,13 +129,13 @@ procedure TF_Setor.b_simpanClick(Sender: TObject);
 begin
 dm.db_conn.StartTransaction;
 try
-fungsi.SQLExec(dm.Q_exe,'call sp_setor_kasir("'+f_utama.sb.Panels[5].Text+'","'+
+fungsi.SQLExec(dm.Q_exe,'call sp_setor_kasir("'+dm.kd_perusahaan+'","'+
 ed_Kd_kasir.Text+'","'+f_utama.Sb.Panels[3].Text+'")',False);
 dm.db_Conn.Commit;
 
 fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set jumlah_setor_real="'+ed_set_real.Text
 +'", tgl_logout=now(),status=''offline'' where kd_perusahaan="'+
-f_utama.sb.Panels[5].Text+'" and user="'+ed_kd_kasir.Text
+dm.kd_perusahaan+'" and user="'+ed_kd_kasir.Text
 +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and status="online"',false);
 
 dm.db_conn.Commit;
@@ -153,7 +153,7 @@ begin
 fungsi.SQLExec(dm.Q_laporan,'select * from tb_login_kasir inner join tb_user on '+
 'tb_user.kd_user=tb_login_kasir.`user` '+
 'where status=''offline'' and tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'" and tb_login_kasir.kd_jaga="'+
-f_utama.sb.Panels[3].Text+'" and tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+f_utama.sb.Panels[3].Text+'" and tb_login_kasir.kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 laporan.LoadFromFile(dm.a_path + 'laporan\p_setor_kasir.fr3');
 laporan.ShowReport;
 end;
@@ -169,7 +169,7 @@ fungsi.SQLExec(dm.Q_show,'SELECT * FROM tb_login_kasir INNER JOIN tb_user ' +
 'ON tb_user.kd_user = tb_login_kasir.`user` WHERE '+
 'tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'" AND ' +
 'tb_login_kasir.kd_jaga="'+f_utama.sb.Panels[3].Text+'" AND ' +
-'tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+'tb_login_kasir.kd_perusahaan="'+dm.kd_perusahaan+'" '+
 'ORDER BY tanggal DESC',true);
 
 if dm.Q_show.Eof then
@@ -194,7 +194,7 @@ begin
   begin
     fungsi.SQLExec(dm.Q_temp,'select * from tb_login_kasir inner join tb_user '+
     'on tb_user.kd_user=tb_login_kasir.user '+
-    'where tb_login_kasir.kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+    'where tb_login_kasir.kd_perusahaan="'+dm.kd_perusahaan+'" '+
     'and tb_login_kasir.user="'+View.TagStr+'" and tb_login_kasir.kd_jaga="'+
     f_utama.sb.Panels[3].Text+'" and tanggal >= "'+formatdatetime('yyyy-MM-dd hh:mm:ss',de_trans.Date)+'"',true);
 
@@ -213,7 +213,7 @@ begin
   ShowMessage('Menu ini untuk sementara tidak dapat dijalankan...');
 {
   fungsi.SQLExec(dm.Q_temp,'select count(tanggal) as total from tb_login_kasir'
-  +' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '
+  +' where kd_perusahaan="'+dm.kd_perusahaan+'" '
   +' and `user`="'+dm.Q_show.fieldbyname('user').AsString+'" '
   +' and kd_jaga="'+f_utama.sb.Panels[3].Text+'" AND `status` = "online"',true);
 
@@ -223,14 +223,14 @@ begin
   end else
   begin
     fungsi.SQLExec(dm.Q_temp,'select `user`,tanggal from tb_login_kasir'
-    +' where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" and `user`="'
+    +' where kd_perusahaan="'+dm.kd_perusahaan+'" and `user`="'
     + dm.Q_show.fieldbyname('user').AsString+'" and kd_jaga="'
     + f_utama.sb.Panels[3].Text+'" ORDER BY `status`,tanggal DESC limit 1',true);
     
     dm.db_conn.StartTransaction;
     try
       fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set status="online" where kd_perusahaan="'+
-      f_utama.sb.Panels[5].Text+'" and user="'+dm.Q_temp.fieldbyname('user').AsString
+      dm.kd_perusahaan+'" and user="'+dm.Q_temp.fieldbyname('user').AsString
       +'" and kd_jaga="'+f_utama.sb.Panels[3].Text+'" and tanggal="'+
       formatdatetime('yyyy-MM-dd hh:mm:ss',dm.Q_temp.fieldbyname('tanggal').AsDateTime)+'"',false);
 

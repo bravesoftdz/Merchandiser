@@ -69,17 +69,17 @@ if cb_karep.Checked=true then
   begin
     if lb_data.Items.Count = 0 then Exit;
   fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'" and kd_barang in('+lb_data.Items.CommaText+') and kd_macam_harga="'+cb_macam.Text+'"',true);
+  dm.kd_perusahaan+'" and kd_barang in('+lb_data.Items.CommaText+') and kd_macam_harga="'+cb_macam.Text+'"',true);
   end else
 if rbHarga.Checked = True then
   begin
   fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'" and date(update_pada)>="'+formatdatetime('yyyy-MM-dd', de_mulai.Date)
+  dm.kd_perusahaan+'" and date(update_pada)>="'+formatdatetime('yyyy-MM-dd', de_mulai.Date)
   +'" and date(update_pada)<="'+formatdatetime('yyyy-MM-dd', de_sampai.Date)+'" and kd_macam_harga="'+cb_macam.Text+'"',true);
   end else
   begin
   fungsi.SQLExec(dm.Q_laporan,'select * from vw_planogram where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'" and no_rak='+edRak.Text+' ',true);
+  dm.kd_perusahaan+'" and no_rak='+edRak.Text+' ',true);
   end;  
 
 dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_real_card.fr3');
@@ -97,7 +97,7 @@ if key= vk_f2 then sb_cariClick(Sender);
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
     cb_karep.Checked:= True;
     fungsi.SQLExec(dm.Q_temp,'select * from vw_planogram where kd_perusahaan="'+
-    f_utama.sb.Panels[5].text+'" and (kd_barang="'+ed_cari.Text+'" or barcode3="'+
+    dm.kd_perusahaan+'" and (kd_barang="'+ed_cari.Text+'" or barcode3="'+
     ed_cari.Text+'") ',true);
 
     if dm.Q_temp.Eof then
@@ -146,7 +146,7 @@ begin
   with F_cari do
   try
     _SQLi:= 'select kd_barang, n_barang from tb_barang ' +
-            'where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"';
+            'where kd_perusahaan="'+dm.kd_perusahaan+'"';
     tblcap[0]:= 'Kode';
     tblCap[1]:= 'Deskripsi';
     if ShowModal = mrOk then

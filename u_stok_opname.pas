@@ -122,7 +122,7 @@ begin
 
     fungsi.sqlExec(dm.Q_temp,'SELECT kd_barang from tb_barang where ((kd_barang = "'+
     ed_code.Text+'" OR barcode3 = "'+ed_code.Text+'" OR barcode2 = "'+ed_code.Text+'" OR barcode1 = "'+
-    ed_code.Text+'") AND kd_perusahaan="'+F_Utama.sb.Panels[5].Text+'")', true);
+    ed_code.Text+'") AND kd_perusahaan="'+dm.kd_perusahaan+'")', true);
 
     kd_brg:=dm.Q_temp.fieldbyname('kd_barang').AsString;
 
@@ -139,7 +139,7 @@ begin
       'Rak,Shelving,urut,kd_barang,barcode,n_barang,qty_oh,harga_pokok) '+
       'SELECT kd_perusahaan,'+quotedstr(ed_kodeSO.Text)+',no_rak,no_shelving,no_urut, '+
       'kd_barang,barcode3,n_barang,stok_OH,hpp_aktif FROM vw_so WHERE '+
-      '(kd_perusahaan="'+F_Utama.sb.Panels[5].Text+'" AND kd_barang = "'+
+      '(kd_perusahaan="'+dm.kd_perusahaan+'" AND kd_barang = "'+
       kd_brg+'")', false);
 
       dm.db_conn.Commit;
@@ -191,7 +191,7 @@ begin
   with F_cari do
   try
     _SQLi:= 'select kd_barang, n_barang from tb_barang ' +
-            'where kd_perusahaan="'+F_Utama.sb.Panels[5].Text+'"';
+            'where kd_perusahaan="'+dm.kd_perusahaan+'"';
     tblcap[0]:= 'Kode';
     tblCap[1]:= 'Deskripsi';
     if ShowModal = mrOk then
@@ -215,7 +215,7 @@ begin
   begin
     dm.db_conn.StartTransaction;
     try
-      fungsi.SQLExec(dm.Q_Exe,'call sp_simpan_SO("'+f_utama.sb.Panels[5].Text+'","'+
+      fungsi.SQLExec(dm.Q_Exe,'call sp_simpan_SO("'+dm.kd_perusahaan+'","'+
       ed_kodeSO.Text+'","'+f_utama.sb.Panels[3].Text+'")',false);
 
       showmessage('proses Simpan Stok Opname untuk '#10#13''+ed_kodeSO.Text+' Telah Sukses...');
@@ -234,7 +234,7 @@ end;
 procedure Tf_stok_opname.BtnCetakClick(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan,'select * from vw_so_temp where kd_koreksi="'+
-  ed_kodeSO.Text+'" AND kd_perusahaan = "'+f_utama.sb.Panels[5].Text+'"',true);
+  ed_kodeSO.Text+'" AND kd_perusahaan = "'+dm.kd_perusahaan+'"',true);
 
   dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_persiapan_SO.fr3');
   dm.laporan.ShowReport;
@@ -265,7 +265,7 @@ var
   a: integer;
 begin
   fungsi.SQLExec(dm.Q_temp,'select IFNULL(MAX(RIGHT(kd_koreksi,4)),0) + 1 AS ahir from tb_koreksi_temp '+
-  'where kd_perusahaan= "'+f_utama.sb.Panels[5].Text+'"',true);
+  'where kd_perusahaan= "'+dm.kd_perusahaan+'"',true);
 
   a := dm.Q_temp.FieldbyName('ahir').AsInteger;
 
@@ -335,7 +335,7 @@ begin
 
   dm.db_conn.StartTransaction;
   try
-  fungsi.SQLExec(dm.Q_Exe,'call sp_persiapan_SO("'+f_utama.sb.Panels[5].Text+'","'+ed_kodeSO.Text+'","'+semua+'",'+se_rak.Text+')',false);
+  fungsi.SQLExec(dm.Q_Exe,'call sp_persiapan_SO("'+dm.kd_perusahaan+'","'+ed_kodeSO.Text+'","'+semua+'",'+se_rak.Text+')',false);
 
   dm.db_conn.Commit;
   segarkan;
@@ -351,7 +351,7 @@ end;
 procedure Tf_stok_opname.segarkan;
 begin
   fungsi.SQLExec(QListData,'select * from tb_koreksi_temp where kd_koreksi="'+
-  ed_kodeSO.Text+'" AND kd_perusahaan = "'+f_utama.sb.Panels[5].Text+'"', true);
+  ed_kodeSO.Text+'" AND kd_perusahaan = "'+dm.kd_perusahaan+'"', true);
 end;
 
 procedure Tf_stok_opname.BtnBatalClick(Sender: TObject);
@@ -361,7 +361,7 @@ begin
     dm.db_conn.StartTransaction;
     try
     fungsi.SQLExec(dm.Q_Exe,'delete from tb_koreksi_temp where kd_koreksi="'+
-    ed_kodeSO.Text+'" AND kd_perusahaan = "'+f_utama.sb.Panels[5].Text+'"',false);
+    ed_kodeSO.Text+'" AND kd_perusahaan = "'+dm.kd_perusahaan+'"',false);
 
     showmessage('proses Pembatalan stok Opname untuk '#10#13''+ed_kodeSO.Text+' Telah Sukses...');
 
@@ -384,7 +384,7 @@ begin
   try
   lama:= QListData.RecordCount;
 
-  fungsi.SQLExec(dm.Q_Exe,'call sp_koreksi_data("'+ed_kodeSO.Text+'","'+f_utama.sb.Panels[5].Text+'")',false);
+  fungsi.SQLExec(dm.Q_Exe,'call sp_koreksi_data("'+ed_kodeSO.Text+'","'+dm.kd_perusahaan+'")',false);
   dm.db_conn.Commit;
 
   segarkan;

@@ -142,7 +142,7 @@ begin
   with F_cari do
   try
     _SQLi:= 'select kd_barang, n_barang from tb_barang ' +
-            'where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"';
+            'where kd_perusahaan="'+dm.kd_perusahaan+'"';
     tblcap[0]:= 'Kode';
     tblCap[1]:= 'Deskripsi';
     if ShowModal = mrOk then

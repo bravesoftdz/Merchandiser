@@ -206,7 +206,7 @@ end;
 
   for x:=0 to tableview.DataController.RecordCount-1 do
   begin
-  isi_sql:=isi_sql +'("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
+  isi_sql:=isi_sql +'("'+dm.kd_perusahaan+'","'+ed_no_faktur.Text
   +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+TableView.DataController.GetDisplayText(x,0)+'","'+
   TableView.DataController.GetDisplayText(x,1)+'","'+floattostr(TableView.DataController.GetValue(x,2))+'","'+
   floattostr(TableView.DataController.GetValue(x,4))+'",0,"'+TableView.DataController.GetDisplayText(x,5)+'",date(now())),';
@@ -217,7 +217,7 @@ end;
 dm.db_conn.StartTransaction;
 try
 fungsi.SQLExec(dm.Q_exe,'insert into tb_return_global(kd_perusahaan,kd_return,tgl_return,'+
-'kd_suplier,disk_rp,nilai_faktur,pengguna,faktur_receipt,simpan_pada) values ("'+f_utama.sb.Panels[5].Text+'","'+ed_no_faktur.Text
+'kd_suplier,disk_rp,nilai_faktur,pengguna,faktur_receipt,simpan_pada) values ("'+dm.kd_perusahaan+'","'+ed_no_faktur.Text
 +'","'+formatdatetime('yyyy-MM-dd',ed_tgl.Date)+'","'+ed_supplier.Text+'",0,"'+ed_nilai_faktur.Text
 +'","'+f_utama.Sb.Panels[3].Text+'","'+ed_fak_receipt.Text+'",now())',false);
 
@@ -241,7 +241,7 @@ end;
 procedure Tf_return.b_printClick(Sender: TObject);
 begin
 fungsi.SQLExec(dm.Q_laporan,'select * from vw_cetak_return where kd_perusahaan="'+
-f_utama.sb.Panels[5].Text+'" and kd_return="'+no_faktur+'"',true);
+dm.kd_perusahaan+'" and kd_return="'+no_faktur+'"',true);
 dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_return_rinci.fr3');
 dm.laporan.ShowReport;
 end;
@@ -256,7 +256,7 @@ end;
 procedure Tf_return.ed_no_fakturChange(Sender: TObject);
 begin
 fungsi.SQLExec(dm.Q_temp,'select kd_return from tb_return_global where kd_return="'+
-ed_no_faktur.Text+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+ed_no_faktur.Text+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 if not(dm.Q_temp.Eof) then
 ed_no_faktur.Color:=clblue
 else ed_no_faktur.Color:=clwhite;
@@ -270,7 +270,7 @@ end;
 procedure Tf_return.ed_fak_receiptChange(Sender: TObject);
 begin
 fungsi.SQLExec(dm.Q_temp,'select kd_receipt from tb_receipt_global where kd_receipt="'+
-ed_fak_receipt.Text+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+ed_fak_receipt.Text+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 if dm.Q_temp.Eof then
 ed_fak_receipt.Color:=clblue
 else ed_fak_receipt.Color:=clwhite;

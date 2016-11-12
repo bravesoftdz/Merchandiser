@@ -134,7 +134,7 @@ begin
 if not DirectoryExists(dm.DocPath+'DATA_KIRIM') then
   MkDir(dm.DocPath+'DATA_KIRIM');
 
-dir_zip:= 'CP_'+f_utama.sb.Panels[5].text+'_'+formatdatetime('yyyy-MM-dd',edt_kirim.Date);
+dir_zip:= 'CP_'+dm.kd_perusahaan+'_'+formatdatetime('yyyy-MM-dd',edt_kirim.Date);
 dir_simpan:=dm.DocPath+'DATA_KIRIM\'+dir_zip;
 
 if not DirectoryExists(dir_simpan) then
@@ -147,7 +147,7 @@ if not DirectoryExists(dm.DocPath+'DATA_TERIMA') then
   MkDir(dm.DocPath+'DATA_TERIMA');
 
 dir_load:= dm.DocPath+'DATA_TERIMA\';
-file_load:=dm.DocPath+'DATA_TERIMA\PC_'+f_utama.sb.Panels[5].text+'_'+formatdatetime('yyyy-MM-dd',edt_terima.Date)+'.zip';
+file_load:=dm.DocPath+'DATA_TERIMA\PC_'+dm.kd_perusahaan+'_'+formatdatetime('yyyy-MM-dd',edt_terima.Date)+'.zip';
 end;
 
 procedure TF_kirim_data.b_kirimClick(Sender: TObject);
@@ -158,7 +158,7 @@ begin
   if GetIPFromHost(Host, IP, Err) then ip_kasir := IP //masupin local IP ke edit1
    else MessageDlg(Err, mtError, [mbOk], 0);
 
-fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+dm.kd_perusahaan+'" '+
 'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' and date(tanggal)='+
 QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+' order by `status` ASC limit 1',true);
   if not(dm.Q_temp.Eof) then
@@ -185,92 +185,92 @@ zipp.FileName:=dir_simpan+'.zip';
   sg_load.Suffix:=' %';
 
   fungsi.SQLExec(dm.Q_Exe,'replace into tb_export_import(kd_perusahaan, data, ket, tanggal) values ("'+
-  f_utama.sb.Panels[5].text+'","'+ExtractFileName(zipp.FileName)+'","kirim",now())',False);
+  dm.kd_perusahaan+'","'+ExtractFileName(zipp.FileName)+'","kirim",now())',False);
 
   fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-  F_Utama.sb.Panels[3].Text+'" and status="jaga" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',false);
+  F_Utama.sb.Panels[3].Text+'" and status="jaga" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
 
   namafile:= dir_simpan+'\tb_login_jaga.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_login_jaga	where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tanggal='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_login_jaga	where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tanggal='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_login_jaga.cbT',0);
 
   fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
-  f_utama.sb.Panels[5].Text+'","'+f_utama.sb.Panels[3].Text+'","'+f_utama.sb.Panels[4].Text+'",date(now()),"jaga","online","'+ip_kasir+'")',false);
+  dm.kd_perusahaan+'","'+f_utama.sb.Panels[3].Text+'","'+f_utama.sb.Panels[4].Text+'",date(now()),"jaga","online","'+ip_kasir+'")',false);
 
   sg_load.Progress:=1;
 
   namafile:= dir_simpan+'\tb_login_kasir.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_login_kasir where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and date(tanggal)='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_login_kasir where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and date(tanggal)='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_login_kasir.cbT',0);
   sg_load.Progress:=2;
 
   namafile:= dir_simpan+'\tb_jual_batal.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_jual_batal	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_transaksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_jual_batal	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_transaksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_jual_batal.cbT',0);
   sg_load.Progress:=3;
 
   namafile:= dir_simpan+'\tb_jual_global.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_jual_global	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_transaksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_jual_global	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_transaksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_jual_global.cbT',0);
   sg_load.Progress:=4;
 
   namafile:= dir_simpan+'\tb_jual_rinci.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_jual_rinci	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_jual_rinci	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_jual_rinci.cbT',0);
   sg_load.Progress:=5;
 
   namafile:= dir_simpan+'\tb_koreksi_global.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_koreksi_global	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_koreksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_koreksi_global	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_koreksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_koreksi_global.cbT',0);
   sg_load.Progress:=6;
 
   namafile:= dir_simpan+'\tb_koreksi_rinci.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_koreksi_rinci	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_koreksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_koreksi_rinci	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_koreksi='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_koreksi_rinci.cbT',0);
   sg_load.Progress:=7;
 
   namafile:= dir_simpan+'\tb_purchase_global.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_purchase_global	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_purchase='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_purchase_global	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_purchase='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_purchase_global.cbT',0);
   sg_load.Progress:=8;
 
   namafile:= dir_simpan+'\tb_purchase_rinci.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_purchase_rinci	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_purchase='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_purchase_rinci	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_purchase='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_purchase_rinci.cbT',0);
   sg_load.Progress:=9;
 
   namafile:= dir_simpan+'\tb_receipt_global.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_receipt_global	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_receipt='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_receipt_global	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_receipt='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_receipt_global.cbT',0);
   sg_load.Progress:=10;
 
   namafile:= dir_simpan+'\tb_receipt_rinci.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_receipt_rinci	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_receipt='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_receipt_rinci	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_receipt='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_receipt_rinci.cbT',0);
   sg_load.Progress:=11;
 
   namafile:= dir_simpan+'\tb_return_global.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_global	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_global	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_return='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_return_global.cbT',0);
   sg_load.Progress:=12;
 
   namafile:= dir_simpan+'\tb_return_rinci.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_rinci	 where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_rinci	 where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_return='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_return_rinci.cbT',0);
   sg_load.Progress:=13;
 
   namafile:= dir_simpan+'\tb_return_jual_global.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual_global where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return_jual='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual_global where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_return_jual='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_return_jual_global.cbT',0);
   sg_load.Progress:=14;
 
   namafile:= dir_simpan+'\tb_return_jual_rinci.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual_rinci where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and tgl_return_jual='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_return_jual_rinci where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and tgl_return_jual='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_return_jual_rinci.cbT',0);
   sg_load.Progress:=15;
 
   namafile:= dir_simpan+'\tb_export_import.cbT';
-  fungsi.savetofile(dm.Q_Exe,'select * from tb_export_import where kd_perusahaan='+QuotedStr(f_utama.sb.Panels[5].Text)+' and date(tanggal)='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
+  fungsi.savetofile(dm.Q_Exe,'select * from tb_export_import where kd_perusahaan='+QuotedStr(dm.kd_perusahaan)+' and date(tanggal)='+QuotedStr(formatdatetime('yyyy-MM-dd',edt_kirim.date))+'',namafile);
   zipp.AddFiles(dir_zip+'\tb_export_import.cbT',0);
   sg_load.Progress:=16;
 
@@ -341,7 +341,7 @@ cek_dir_terima;
 uz:= TabUnzipper.Create(Self);
 
   fungsi.SQLExec(dm.Q_temp,'select * from tb_export_import where kd_perusahaan = "'+
-  f_utama.sb.Panels[5].text+'" and data = "'+ExtractFileName(zk_load.FileName)+'" and ket = "terima"',True);
+  dm.kd_perusahaan+'" and data = "'+ExtractFileName(zk_load.FileName)+'" and ket = "terima"',True);
 
   if not(dm.Q_temp.Eof) then
   begin
@@ -387,10 +387,10 @@ try
   end;
 
   fungsi.SQLExec(dm.Q_Exe,'replace into tb_export_import(kd_perusahaan, data, ket, tanggal) values ("'+
-  f_utama.sb.Panels[5].text+'","'+ExtractFileName(zk_load.FileName)+'","terima",now())',False);
+  dm.kd_perusahaan+'","'+ExtractFileName(zk_load.FileName)+'","terima",now())',False);
 
   fungsi.SQLExec(dm.Q_Exe,'update tb_company set update_mutasi="YA" where kd_perusahaan="'+
-  f_utama.sb.Panels[5].text+'"',False);
+  dm.kd_perusahaan+'"',False);
 
  dm.db_conn.Commit;
 

@@ -169,10 +169,10 @@ begin
   tahun:= Copy(periode,1,4);
 
 fungsi.SQLExec(dm.Q_mutasi_toko,'select * from tb_mutasi_bulan where month(tgl)="'+
-bulan+'" and year(tgl)="'+tahun+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+bulan+'" and year(tgl)="'+tahun+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 
 fungsi.SQLExec(dm.Q_gross,'select * from tb_gross_margin where month(tanggal)="'+
-bulan+'" and year(tanggal)="'+tahun+'" and kd_perusahaan="'+f_utama.sb.Panels[5].Text+'"',true);
+bulan+'" and year(tanggal)="'+tahun+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 dbc_margin.RefreshData;
 dbc_mutasi.RefreshData;
 end;
@@ -194,7 +194,7 @@ end;
 
 procedure TF_Utama.sb_tutup_kasirClick(Sender: TObject);
 begin
-  if not(dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, f_utama.sb.Panels[5].Text)) then
+  if not(dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, dm.kd_perusahaan)) then
   begin
     messagedlg('Anda tidak mempunyai hak untuk ' + #13#10 +
       'melanjutkan AKSES ke dalam MENU ini...',mtWarning,[mbOk],0);
@@ -207,9 +207,9 @@ end;
 
 procedure TF_Utama.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, f_utama.sb.Panels[5].Text) then
+  if dm.HakAkses('tkAdmin', f_utama.sb.Panels[3].Text, dm.kd_perusahaan) then
   begin
-    fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+f_utama.sb.Panels[5].Text+'" '+
+    fungsi.SQLExec(dm.Q_temp,'select tanggal from tb_login_kasir where kd_perusahaan="'+dm.kd_perusahaan+'" '+
     'and kd_jaga="'+f_utama.sb.Panels[3].Text+'"  and `status` = ''online'' order by `status` ASC limit 1',true);
       if not(dm.Q_temp.Eof) then
         begin
@@ -226,7 +226,7 @@ begin
      dm.db_conn.StartTransaction;
      try
             fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-            sb.Panels[3].Text+'" and kd_perusahaan="'+sb.Panels[5].Text+'"',false);
+            sb.Panels[3].Text+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
             dm.db_conn.Commit;
             dm.metu_kabeh:= True;
             Action := caFree;
@@ -247,7 +247,7 @@ end;
 
 procedure TF_Utama.PenjualanItemHarian1Click(Sender: TObject);
 begin
-fungsi.SQLExec(dm.Q_laporan,'select * from vw_jual_harian where tgl_transaksi=date(now()) and kd_perusahaan="'+sb.Panels[5].Text+'"',true);
+fungsi.SQLExec(dm.Q_laporan,'select * from vw_jual_harian where tgl_transaksi=date(now()) and kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_jual_item_harian.fr3');
 dm.laporan.ShowReport;
 end;
@@ -287,14 +287,14 @@ end;
 
 procedure TF_Utama.DaftarSupplier1Click(Sender: TObject);
 begin
-fungsi.SQLExec(dm.Q_laporan,'select * from tb_supp where kd_perusahaan="'+sb.Panels[5].Text+'"',true);
+fungsi.SQLExec(dm.Q_laporan,'select * from tb_supp where kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 dm.laporan.LoadFromFile(dm.a_path+ 'laporan\p_daftar_supplier.fr3');
 dm.laporan.ShowReport;
 end;
 
 procedure TF_Utama.DaftarPelanggan1Click(Sender: TObject);
 begin
-fungsi.SQLExec(dm.Q_laporan,'select * from tb_pelanggan where kd_perusahaan="'+sb.Panels[5].Text+'"',true);
+fungsi.SQLExec(dm.Q_laporan,'select * from tb_pelanggan where kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 dm.laporan.LoadFromFile(dm.a_path+ 'laporan\p_daftar_pelanggan.fr3');
 dm.laporan.ShowReport;
 end;
@@ -314,7 +314,7 @@ sb.Panels[3].Text:=dm.kd_operator;
 sb.Panels[4].Text:=dm.n_operator;
 sb.Panels[5].Text:=dm.kd_perusahaan;
 
-fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.Panels[5].text+'"',true);
+fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+dm.kd_perusahaan+'"',true);
 sb.Panels[6].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;
 sb.Panels[8].Text:=dm.Q_temp.fieldbyname('ket').AsString;
 
@@ -339,7 +339,7 @@ panel_auto_width;
 
 fungsi.SQLExec(dm.Q_temp,'SELECT LEFT(tb_mutasi_bulan.tgl,7) as periode, '+
 'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "'+
-F_Utama.sb.Panels[5].Text+'" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
+dm.kd_perusahaan+'" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
 
 for x:= 1 to dm.Q_temp.RecordCount do
   begin

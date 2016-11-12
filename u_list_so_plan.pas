@@ -73,7 +73,7 @@ procedure Tf_list_so_plan.segarkan;
 begin
 fungsi.SQLExec(QList,'SELECT kd_koreksi, sum(harga_pokok) as harga_pokok, '+
                      'sum(qty_real) as qty_real, sum(harga_pokok * qty_real) AS total_hpp, '+
-                     'create_at FROM tb_koreksi_temp WHERE kd_perusahaan = "'+ F_Utama.sb.Panels[5].Text +
+                     'create_at FROM tb_koreksi_temp WHERE kd_perusahaan = "'+ dm.kd_perusahaan +
                      '" GROUP BY kd_koreksi',true);
 end;
 

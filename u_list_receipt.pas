@@ -74,7 +74,7 @@ end;
 
 procedure Tf_list_receipt.segarkan;
 begin
-fungsi.SQLExec(dm.q_list_receipt,'select * from vw_list_receipt where kd_perusahaan="'+f_utama.sb.panels[5].Text+'"',true);
+fungsi.SQLExec(dm.q_list_receipt,'select * from vw_list_receipt where kd_perusahaan="'+dm.kd_perusahaan+'"',true);
 end;
 
 procedure Tf_list_receipt.t_dataCellDblClick(

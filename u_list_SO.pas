@@ -76,7 +76,7 @@ end;
 procedure Tf_list_SO.segarkan;
 begin
 fungsi.SQLExec(dm.Q_List_SO,'select * from tb_koreksi_global where kd_perusahaan="'+
-f_utama.sb.panels[5].Text+'" and tgl_koreksi >= '+
+dm.kd_perusahaan+'" and tgl_koreksi >= '+
 quotedstr(FormatDateTime('yyyy-MM-dd',de_mulai.Date))+' and tgl_koreksi <= '+
 quotedstr(FormatDateTime('yyyy-MM-dd',de_sampai.Date))+' order by tgl_koreksi desc',true);
 end;
@@ -95,7 +95,7 @@ procedure Tf_list_SO.t_dataCellDblClick(Sender: TcxCustomGridTableView;
   AShift: TShiftState; var AHandled: Boolean);
 begin
 fungsi.SQLExec(dm.Q_laporan,'select * from vw_cetak_koreksi where kd_perusahaan='+
-quotedstr(f_utama.sb.Panels[5].Text)+' and kd_koreksi="'+dm.Q_List_SO.fieldbyname('kd_koreksi').AsString+'"',true);
+quotedstr(dm.kd_perusahaan)+' and kd_koreksi="'+dm.Q_List_SO.fieldbyname('kd_koreksi').AsString+'"',true);
 dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_koreksi_rinci.fr3');
 dm.laporan.ShowReport;
 end;

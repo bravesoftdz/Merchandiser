@@ -73,7 +73,7 @@ end;
 procedure Tf_list_return.segarkan;
 begin
 fungsi.SQLExec(dm.q_list_return,'select * from vw_list_return  where kd_perusahaan="'+
-f_utama.sb.panels[5].Text+'"',true);
+dm.kd_perusahaan+'"',true);
 end;
 
 
