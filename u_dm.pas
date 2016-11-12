@@ -48,6 +48,7 @@ type
   public
     a_path, AppPath, DocPath: string;
     Login : Boolean;
+    function HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
     { Public declarations }
   end;
 
@@ -135,6 +136,17 @@ begin
     showmessage('koneksi tidak berhasil');
     application.Terminate;
   end;
+end;
+
+function Tdm.HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
+var
+  sql : string;
+begin
+  sql:= 'SELECT '+kunci+' FROM tb_user_company WHERE ' +
+  'kd_user="'+User+'" AND kd_perusahaan="'+Perusahaan+'"';
+
+  fungsi.SQLExec(Q_temp,sql,true);
+  Result:= Q_temp.FieldByName(kunci).AsBoolean;
 end;
 
 procedure Tdm.smAfterChange(Sender: TObject);
