@@ -136,13 +136,13 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
     ed_pass.SetFocus;
   end else
   begin
-    if dm.HakAkses('tkAdmin', kd_operator,kd_comp) then
+    if dm.HakAkses('tkAdmin', ed_kd_op.Text, kd_comp) then
     begin
       fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-      ed_kd_op.Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
+      ed_kd_op.Text+'" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
 
-      fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("'+
-      sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",date(now()),''jaga'',''online'',"'+ip_kasir+'")',false);
+      fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,mode,komp)values("'+
+      sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",now(),''online'',"'+ip_kasir+'")',false);
     end;
 
     kd_operator:=ed_kd_op.Text;
