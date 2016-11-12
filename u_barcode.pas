@@ -35,7 +35,6 @@ type
     procedure sb_cariClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure FormCreate(Sender: TObject);
     procedure ed_PIDKeyPress(Sender: TObject; var Key: Char);
     procedure laporanGetValue(const VarName: String; var Value: Variant);
     procedure TableViewTcxGridDataControllerTcxDataSummaryFooterSummaryItems2GetText(
@@ -43,7 +42,6 @@ type
       AIsFooter: Boolean; var AText: String);
   private
     { Private declarations }
-    kd_perusahaan :string;
     jumlahLabel,baris,hitung :Integer;
   public
     { Public declarations }
@@ -105,7 +103,7 @@ if key= vk_f2 then sb_cari.Click;
     'AND tb_barang_harga.kd_perusahaan = tb_barang.kd_perusahaan '+
     'WHERE tb_barang.kd_barang = "'+ed_PID.Text+'" AND '+
     'tb_barang_harga.kd_macam_harga = "HETK" AND tb_barang.aktif="Y" AND '+
-    'tb_barang.kd_perusahaan= "'+kd_perusahaan+'"',true);
+    'tb_barang.kd_perusahaan= "'+dm.kd_perusahaan+'"',true);
 
     if dm.Q_temp.Eof then
       showmessage('data tidak ada...') else
@@ -169,11 +167,6 @@ TableView.DataController.DeleteFocused;
 if (Shift=[ssShift]) and (Key= vk_delete) then
 if (MessageDlg('Yakinkah, Anda akan menghapus Seluruh Data???', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
 TableView.DataController.RecordCount:= 0;
-end;
-
-procedure Tf_Barcode.FormCreate(Sender: TObject);
-begin
-  kd_perusahaan := f_utama.sb.Panels[5].text;
 end;
 
 procedure Tf_Barcode.ed_PIDKeyPress(Sender: TObject; var Key: Char);
