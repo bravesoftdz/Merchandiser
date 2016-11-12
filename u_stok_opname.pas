@@ -117,6 +117,13 @@ var
 begin
   if key=vk_return then
   begin
+    if ed_kodeSO.Text = '' then
+    begin
+      ShowMessage('Masukkan Kode SO terlebih Dahulu');
+      ed_kodeSO.SetFocus;
+      Exit;
+    end;
+
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE );
     if ed_code.Text='' then exit;
 
@@ -249,7 +256,8 @@ end;
 
 procedure Tf_stok_opname.ed_kodeSOChange(Sender: TObject);
 begin
-  fungsi.SQLExec(QListData,'select * from tb_koreksi_temp where kd_koreksi="'+ed_kodeSO.Text+'"',true);
+  fungsi.SQLExec(QListData,'select * from tb_koreksi_temp where ' +
+  'kd_koreksi="'+ed_kodeSO.Text+'" and kd_perusahaan ="'+dm.kd_perusahaan+'" ',true);
   Self.Caption := 'Stock Opname ' + ed_kodeSO.Text;
   f_utama.tc_child.Tabs.Strings[f_utama.tc_child.TabIndex] :=Caption;
   BtnKoreksi.Enabled := True;
@@ -329,6 +337,13 @@ procedure Tf_stok_opname.BtnTambahClick(Sender: TObject);
 var
   semua :string;
 begin
+  if ed_kodeSO.Text = '' then
+  begin
+    ShowMessage('Masukkan Kode SO terlebih Dahulu');
+    ed_kodeSO.SetFocus;
+    Exit;
+end;
+
   if rg_pilihan.ItemIndex=0 then
   semua:= 'Y' else
   semua:='N';
