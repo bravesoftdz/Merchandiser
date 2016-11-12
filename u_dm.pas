@@ -47,7 +47,7 @@ type
     { Private declarations }
   public
     a_path, AppPath, DocPath, kd_perusahaan, kd_operator, n_operator: string;
-    Login, metu_kabeh : Boolean;
+    Login, metu_kabeh: Boolean;
     function HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
     { Public declarations }
   end;
@@ -138,13 +138,13 @@ end;
 
 function Tdm.HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
 var
-  sql : string;
+  sql: string;
 begin
-  sql:= 'SELECT '+kunci+' FROM tb_user_company WHERE ' +
-  'kd_user="'+User+'" AND kd_perusahaan="'+Perusahaan+'"';
+  sql := 'SELECT ' + kunci + ' FROM tb_user_company WHERE ' + 'kd_user="' + User
+    + '" AND kd_perusahaan="' + Perusahaan + '"';
 
-  fungsi.SQLExec(Q_temp,sql,true);
-  Result:= Q_temp.FieldByName(kunci).AsBoolean;
+  fungsi.SQLExec(Q_temp, sql, true);
+  Result := Q_temp.FieldByName(kunci).AsBoolean;
 end;
 
 procedure Tdm.smAfterChange(Sender: TObject);

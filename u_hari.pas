@@ -25,8 +25,9 @@ implementation
 
 procedure Tf_hari.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-Action:= caFree;
-f_hari:= nil;
+  Action := caFree;
+  f_hari := nil;
 end;
 
 end.
+

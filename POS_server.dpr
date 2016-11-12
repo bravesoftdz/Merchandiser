@@ -27,6 +27,8 @@ uses
 
 {$R *.res}
 
+
+
 begin
   Application.Initialize;
   Application.Title := 'POS Server';
@@ -34,3 +36,4 @@ begin
   Application.CreateForm(TF_Utama, F_Utama);
   Application.Run;
 end.
+
