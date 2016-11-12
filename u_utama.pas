@@ -226,7 +226,7 @@ begin
      dm.db_conn.StartTransaction;
      try
             fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-            sb.Panels[3].Text+'" and status="jaga" and kd_perusahaan="'+sb.Panels[5].Text+'"',false);
+            sb.Panels[3].Text+'" and kd_perusahaan="'+sb.Panels[5].Text+'"',false);
             dm.db_conn.Commit;
             metu_kabeh:= True;
             Action := caFree;
