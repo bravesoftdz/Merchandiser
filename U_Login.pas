@@ -58,7 +58,7 @@ procedure TF_Login.FormShow(Sender: TObject);
 begin
 dm.Login := False;
 sb.Panels[0].Text:=dm.kd_perusahaan;
-fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.Panels[0].text+'"',true);
+fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+dm.kd_perusahaan+'"',true);
 sb.Panels[1].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;
 
 sb.Panels[2].Text:=dm.db_conn.DatabaseName+'@'+dm.db_conn.Host;
@@ -75,7 +75,7 @@ begin
   sql:= 'SELECT tb_user.n_user, tb_user.`password` FROM tb_user INNER JOIN ' +
         'tb_user_company ON tb_user.kd_user = tb_user_company.kd_user WHERE ' +
         'tb_user.kd_user="'+ed_kd_op.Text+'" AND tb_user_company.toko="Y" ' +
-        'AND tb_user_company.kd_perusahaan="'+sb.Panels[0].Text+'"';
+        'AND tb_user_company.kd_perusahaan="'+dm.kd_perusahaan+'"';
   fungsi.SQLExec(DM.Q_Show,sql,true);
   if dm.Q_show.Eof then
   Begin
@@ -139,10 +139,10 @@ passs:=dm.Q_temp.fieldbyname('passs').AsString;
     if dm.HakAkses('tkAdmin', ed_kd_op.Text, dm.kd_perusahaan) then
     begin
       fungsi.SQLExec(dm.Q_exe,'update tb_login_jaga set `mode`="offline" where `user`= "'+
-      ed_kd_op.Text+'" and kd_perusahaan="'+sb.Panels[0].Text+'"',false);
+      ed_kd_op.Text+'" and kd_perusahaan="'+dm.kd_perusahaan+'"',false);
 
       fungsi.SQLExec(dm.q_exe,'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,mode,komp)values("'+
-      sb.Panels[0].Text+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",now(),''online'',"'+ip_kasir+'")',false);
+      dm.kd_perusahaan+'","'+ed_kd_op.Text+'","'+ed_n_op.Text+'",now(),''online'',"'+ip_kasir+'")',false);
     end;
 
     dm.kd_operator := ed_kd_op.Text;
@@ -219,7 +219,8 @@ begin
     tblCap[1]:= 'Nama Perusahaan';
     if ShowModal = mrOk then
     begin
-      sb.Panels[0].Text:= TblVal[0];
+      dm.kd_perusahaan := TblVal[0];
+      sb.Panels[0].Text:= dm.kd_perusahaan;
       sb.Panels[1].Text:= TblVal[1];
       ed_kd_op.Clear;
       ed_pass.Enabled:=False;
@@ -240,9 +241,8 @@ end;
 procedure TF_Login.simpanKodePerusahaan;
 var appINI : TIniFile;
 begin
-  dm.kd_perusahaan := sb.Panels[0].Text;
   appINI := TIniFile.Create(dm.AppPath +'gain.ini') ;
-  appINI.WriteString('toko','kd_perusahaan',sb.Panels[0].Text);
+  appINI.WriteString('toko','kd_perusahaan',dm.kd_perusahaan);
   appINI.Free;
 end;
 
