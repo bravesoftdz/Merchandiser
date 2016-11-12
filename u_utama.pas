@@ -312,7 +312,7 @@ if dm.Login = False then Close;
 
 sb.Panels[3].Text:=kd_operator;
 sb.Panels[4].Text:=n_operator;
-sb.Panels[5].Text:=kd_comp;
+sb.Panels[5].Text:=kd_perusahaan;
 
 fungsi.SQLExec(dm.Q_temp,'select * from tb_company where kd_perusahaan = "'+sb.Panels[5].text+'"',true);
 sb.Panels[6].Text:=dm.Q_temp.fieldbyname('n_perusahaan').AsString;

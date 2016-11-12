@@ -54,7 +54,7 @@ type
 
 var
   dm: Tdm;
-  kd_comp, kd_operator, n_operator: string;
+  kd_perusahaan, kd_operator, n_operator: string;
   metu_kabeh: Boolean;
   Mgs: TMsg;
 
@@ -103,7 +103,7 @@ begin
 
   appINI := TIniFile.Create(AppPath + 'gain.ini');
   try
-    kd_comp := appINI.ReadString('toko', 'kd_perusahaan', '');
+    kd_perusahaan := appINI.ReadString('toko', 'kd_perusahaan', '');
     sm.SkinName := appINI.ReadString('toko', 'nama_skin', 'Air');
     sm.HueOffset := appini.ReadInteger('toko', 'hue_skin', 0);
     sm.Saturation := appini.ReadInteger('toko', 'sat_skin', 0);
