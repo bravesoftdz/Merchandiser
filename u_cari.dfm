@@ -63,10 +63,12 @@ object f_cari: Tf_cari
       OptionsBehavior.IncSearch = True
       OptionsData.Editing = False
       OptionsData.Inserting = False
+      OptionsSelection.CellSelect = False
       OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
       OptionsView.Indicator = True
       Styles.Inactive = dm.cxstyl1
+      Styles.Selection = dm.cxstyl1
       object clm1: TcxGridDBColumn
         Tag = 1
         Visible = False
