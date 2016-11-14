@@ -49,7 +49,7 @@ begin
     'select * from tb_gross_margin where MONTH(tanggal)="' + bulan +
     '" and YEAR(tanggal)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan
     + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_gross.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_gross.fr3');
   dm.laporan.ShowReport;
 end;
 
@@ -59,9 +59,9 @@ begin
     'select * from tb_mutasi_bulan where MONTH(tgl)="' + bulan +
     '" and YEAR(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', true);
   if TsButton(Sender).Name = 'btnMutasi' then
-    dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_mutasi_global_stok.fr3')
+    dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_mutasi_global_stok.fr3')
   else
-    dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_mutasi_global_uang.fr3');
+    dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_mutasi_global_uang.fr3');
 
   dm.laporan.ShowReport;
 end;
@@ -70,7 +70,7 @@ procedure TF_toko.sButton2Click(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan, 'select * from vw_stok_out where kd_perusahaan="'
     + dm.kd_perusahaan + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_stok_out_harian.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_stok_out_harian.fr3');
   dm.laporan.ShowReport;
 end;
 

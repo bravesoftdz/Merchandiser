@@ -135,7 +135,7 @@ begin
   baris := 0;
   hitung := 0;
 
-  laporan.LoadFromFile(dm.a_path + '\laporan\gp_barcode.fr3');
+  laporan.LoadFromFile(dm.Path + '\laporan\gp_barcode.fr3');
   laporan.ShowReport;
 end;
 

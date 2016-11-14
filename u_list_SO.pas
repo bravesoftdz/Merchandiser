@@ -96,7 +96,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from vw_cetak_koreksi where kd_perusahaan=' + quotedstr(dm.kd_perusahaan)
     + ' and kd_koreksi="' + dm.Q_List_SO.fieldbyname('kd_koreksi').AsString + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_koreksi_rinci.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_koreksi_rinci.fr3');
   dm.laporan.ShowReport;
 end;
 

@@ -87,7 +87,7 @@ begin
       '" and no_rak=' + edRak.Text + ' ', true);
   end;
 
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_real_card.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_real_card.fr3');
   dm.laporan.ShowReport;
 end;
 

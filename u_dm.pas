@@ -46,7 +46,7 @@ type
   private
     { Private declarations }
   public
-    a_path, AppPath, DocPath, kd_perusahaan, kd_operator, n_operator: string;
+    Path, AppPath, DocPath, kd_perusahaan, kd_operator, n_operator: string;
     Login, metu_kabeh: Boolean;
     function HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
     { Public declarations }
@@ -87,7 +87,7 @@ var
   X: TextFile;
   appINI: TIniFile;
 begin
-  a_path := extractfilepath(application.ExeName);
+  Path := extractfilepath(application.ExeName);
 
   AppPath := GetAppData(CSIDL_COMMON_APPDATA);
   if not (DirectoryExists(AppPath)) then

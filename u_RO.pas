@@ -248,7 +248,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from vw_cetak_receipt where kd_perusahaan="' + dm.kd_perusahaan +
     '" and kd_receipt="' + no_faktur + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_receipt_rinci.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_receipt_rinci.fr3');
   dm.laporan.ShowReport;
 end;
 

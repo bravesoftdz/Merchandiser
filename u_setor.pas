@@ -159,7 +159,7 @@ begin
     + 'where status=''offline'' and tanggal >= "' + formatdatetime('yyyy-MM-dd hh:mm:ss',
     de_trans.Date) + '" and tb_login_kasir.kd_jaga="' + dm.kd_operator +
     '" and tb_login_kasir.kd_perusahaan="' + dm.kd_perusahaan + '"', true);
-  laporan.LoadFromFile(dm.a_path + 'laporan\p_setor_kasir.fr3');
+  laporan.LoadFromFile(dm.Path + 'laporan\p_setor_kasir.fr3');
   laporan.ShowReport;
 end;
 
@@ -205,7 +205,7 @@ begin
       '" and tb_login_kasir.kd_jaga="' + dm.kd_operator + '" and tanggal >= "' +
       formatdatetime('yyyy-MM-dd hh:mm:ss', de_trans.Date) + '"', true);
 
-    r_detail_setor.LoadFromFile(dm.a_path + 'laporan\p_setor_kasir_detail.fr3');
+    r_detail_setor.LoadFromFile(dm.Path + 'laporan\p_setor_kasir_detail.fr3');
     r_detail_setor.ShowReport;
   end;
 end;

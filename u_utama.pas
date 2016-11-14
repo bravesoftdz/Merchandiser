@@ -257,7 +257,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from vw_jual_harian where tgl_transaksi=date(now()) and kd_perusahaan="' +
     dm.kd_perusahaan + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_jual_item_harian.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\p_jual_item_harian.fr3');
   dm.laporan.ShowReport;
 end;
 
@@ -287,7 +287,7 @@ end;
 procedure TF_Utama.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if key = vk_f1 then
-    ShellExecute(Handle, 'open', PChar('hh.exe'), PChar(dm.a_path +
+    ShellExecute(Handle, 'open', PChar('hh.exe'), PChar(dm.Path +
       'tools/bantuan.chm::/POS_Server1.htm'), nil, SW_SHOW);
 
   if (shift = [ssctrl]) and (key = vk_home) then
@@ -298,7 +298,7 @@ procedure TF_Utama.DaftarSupplier1Click(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan, 'select * from tb_supp where kd_perusahaan="' +
     dm.kd_perusahaan + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_daftar_supplier.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\p_daftar_supplier.fr3');
   dm.laporan.ShowReport;
 end;
 
@@ -306,7 +306,7 @@ procedure TF_Utama.DaftarPelanggan1Click(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from tb_pelanggan where kd_perusahaan="' + dm.kd_perusahaan + '"', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_daftar_pelanggan.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\p_daftar_pelanggan.fr3');
   dm.laporan.ShowReport;
 end;
 

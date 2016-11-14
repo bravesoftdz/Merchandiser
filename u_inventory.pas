@@ -397,13 +397,13 @@ end;
 
 procedure TF_Inventory.B_PrintClick(Sender: TObject);
 begin
-  laporan.LoadFromFile(dm.a_path + 'laporan\gp_mutasi_brg.fr3');
+  laporan.LoadFromFile(dm.Path + 'laporan\gp_mutasi_brg.fr3');
   laporan.ShowReport;
 end;
 
 procedure TF_Inventory.sButton1Click(Sender: TObject);
 begin
-  laporan.LoadFromFile(dm.a_path + 'laporan\p_daftar_barang.fr3');
+  laporan.LoadFromFile(dm.Path + 'laporan\p_daftar_barang.fr3');
   laporan.ShowReport;
 end;
 

@@ -251,7 +251,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan, 'select * from vw_so_temp where kd_koreksi="' +
     ed_kodeSO.Text + '" AND kd_perusahaan = "' + dm.kd_perusahaan + '"', true);
 
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\p_persiapan_SO.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\p_persiapan_SO.fr3');
   dm.laporan.ShowReport;
 end;
 

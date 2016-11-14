@@ -98,7 +98,7 @@ procedure Tf_planogram.b_cetakClick(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan, 'select * from vw_planogram_set where ' +
     'kd_perusahaan="' + dm.kd_perusahaan + '" ORDER BY no_rak, no_shelving', true);
-  dm.laporan.LoadFromFile(dm.a_Path + 'laporan\gp_planogram.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_planogram.fr3');
   dm.laporan.ShowReport;
 end;
 
@@ -120,7 +120,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from vw_planogram_set where kd_perusahaan="' + dm.kd_perusahaan +
     '" and no_rak =' + se_rak.Text + ' ORDER BY no_shelving', true);
-  dm.laporan.LoadFromFile(dm.a_path + 'laporan\gp_planogram.fr3');
+  dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_planogram.fr3');
   dm.laporan.ShowReport;
 end;
 
