@@ -32,7 +32,6 @@ object f_cari: Tf_cari
     ParentFont = False
     TabOrder = 0
     OnChange = Ed_cariChange
-    OnKeyDown = Ed_cariKeyDown
     SkinData.CustomColor = True
     SkinData.SkinSection = 'EDIT'
     BoundLabel.Indent = 0
@@ -54,6 +53,7 @@ object f_cari: Tf_cari
     LookAndFeel.Kind = lfOffice11
     object t_data: TcxGridDBTableView
       OnDblClick = t_dataDblClick
+      OnKeyDown = t_dataKeyDown
       NavigatorButtons.ConfirmDelete = False
       DataController.DataSource = ds_cari
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -105,6 +105,15 @@ object f_cari: Tf_cari
     Caption = '&Pilih'
     TabOrder = 2
     OnClick = BtnPilihClick
+    SkinData.SkinSection = 'BUTTON'
+  end
+  object BtnKeluar: TsButton
+    Left = 416
+    Top = 320
+    Width = 75
+    Height = 25
+    Caption = 'Keluar'
+    TabOrder = 3
     SkinData.SkinSection = 'BUTTON'
   end
   object sSkinProvider1: TsSkinProvider

@@ -26,12 +26,13 @@ type
     BtnPilih: TsButton;
     ds_cari: TDataSource;
     Q_cari: TmySQLQuery;
+    BtnKeluar: TsButton;
     procedure Ed_cariChange(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure t_dataDblClick(Sender: TObject);
+    procedure t_dataKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BtnPilihClick(Sender: TObject);
-    procedure Ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -99,7 +100,7 @@ begin
   if key = vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
-    BtnPilihClick(Self);
+    BtnPilihClick(Sender);
   end;
 
   if key = vk_escape then
@@ -107,6 +108,17 @@ begin
 
   if key = vk_f2 then
     ed_cari.SetFocus;
+
+  if key = vk_up then
+  begin
+    t_data.DataController.FocusedRowIndex := t_data.DataController.FocusedRowIndex - 1;
+    key := VK_NONAME;
+  end;
+
+  if key = vk_down then
+  begin
+    t_data.DataController.FocusedRowIndex := t_data.DataController.FocusedRowIndex + 1;
+  end;
 end;
 
 procedure Tf_cari.FormShow(Sender: TObject);
@@ -140,7 +152,13 @@ end;
 
 procedure Tf_cari.t_dataDblClick(Sender: TObject);
 begin
-  BtnPilihClick(Self);
+  BtnPilihClick(Sender);
+end;
+
+procedure Tf_cari.t_dataKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  if key = vk_return then
+    BtnPilihClick(Sender);
 end;
 
 procedure Tf_cari.BtnPilihClick(Sender: TObject);
@@ -153,20 +171,6 @@ begin
       IntToStr(x + 1))).DataBinding.FieldName).AsString;
   end;
   ModalResult := mrOk;
-end;
-
-procedure Tf_cari.Ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-begin
-  if key = vk_up then
-  begin
-    t_data.DataController.FocusedRowIndex := t_data.DataController.FocusedRowIndex - 1;
-    key := VK_NONAME;
-  end;
-
-  if key = vk_down then
-  begin
-    t_data.DataController.FocusedRowIndex := t_data.DataController.FocusedRowIndex + 1;
-  end;
 end;
 
 initialization
