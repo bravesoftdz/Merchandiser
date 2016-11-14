@@ -18,10 +18,6 @@ type
     Ed_cari: TsEdit;
     grid: TcxGrid;
     t_data: TcxGridDBTableView;
-    clm1: TcxGridDBColumn;
-    clm2: TcxGridDBColumn;
-    clm3: TcxGridDBColumn;
-    clm4: TcxGridDBColumn;
     l_data: TcxGridLevel;
     BtnPilih: TsButton;
     ds_cari: TDataSource;
@@ -37,8 +33,8 @@ type
     { Private declarations }
   public
     _SQLi, nm_tabel, Kondisi: string;
-    TblCap: array[0..3] of string;
-    TblVal: array[0..3] of string;
+    TblCap: array[0..10] of string;
+    TblVal: array[0..10] of string;
     CariT: Integer;
   end;
 
@@ -86,7 +82,7 @@ var
   x: Integer;
 begin
   for x := 0 to q_cari.FieldCount - 1 do
-    saringan := saringan + q_cari.Fields[x].FieldName + ' like "%' + ed_cari.Text
+    saringan := saringan + '`' + q_cari.Fields[x].FieldName + '`' + ' like "%' + ed_cari.Text
       + '%" or ';
 
   delete(saringan, Length(saringan) - 3, 4);
@@ -124,6 +120,7 @@ end;
 procedure Tf_cari.FormShow(Sender: TObject);
 var
   x: Integer;
+  clm: TcxGridDBColumn;
 begin
   fungsi.SQLExec(Q_cari, _SQLi + ' limit 0,100', True);
 
@@ -138,16 +135,12 @@ begin
 
   for x := 0 to q_cari.FieldCount - 1 do
   begin
-    TblTemp.Add(q_cari.Fields[x].FieldName);
+    TblTemp.Add('`' + q_cari.Fields[x].FieldName + '`');
+    t_data.CreateColumn;
+    t_data.Columns[x].DataBinding.FieldName := q_cari.Fields[x].FieldName;
+    t_data.Columns[x].Caption := tblCap[x];
   end;
-
-  for x := 0 to q_cari.FieldCount - 1 do
-  begin
-    TcxGridDBColumn(FindComponent('clm' + IntToStr(x + 1))).DataBinding.FieldName
-      := q_cari.Fields[x].FieldName;
-    TcxGridDBColumn(FindComponent('clm' + IntToStr(x + 1))).Visible := True;
-    TcxGridDBColumn(FindComponent('clm' + IntToStr(x + 1))).Caption := tblCap[x];
-  end;
+    t_data.ApplyBestFit;
 end;
 
 procedure Tf_cari.t_dataDblClick(Sender: TObject);
@@ -167,8 +160,7 @@ var
 begin
   for x := 0 to q_cari.FieldCount - 1 do
   begin
-    TblVal[x] := q_cari.fieldbyname(TcxGridDBColumn(FindComponent('clm' +
-      IntToStr(x + 1))).DataBinding.FieldName).AsString;
+    TblVal[x] := q_cari.fieldbyname(t_data.Columns[x].DataBinding.FieldName).AsString;
   end;
   ModalResult := mrOk;
 end;
