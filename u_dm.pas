@@ -37,7 +37,7 @@ type
     ds_list_return: TDataSource;
     Q_list_purchase: TmySQLQuery;
     ds_list_purchase: TDataSource;
-    stl_focus: TcxStyleRepository;
+    Style: TcxStyleRepository;
     cxstyl1: TcxStyle;
     Q_LIST_SO: TmySQLQuery;
     ds_ist_SO: TDataSource;

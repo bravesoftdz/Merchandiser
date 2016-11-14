@@ -12755,8 +12755,9 @@ object dm: Tdm
     Left = 328
     Top = 296
   end
-  object stl_focus: TcxStyleRepository
-    Left = 216
+  object Style: TcxStyleRepository
+    Left = 24
+    Top = 312
     PixelsPerInch = 96
     object cxstyl1: TcxStyle
       AssignedValues = [svColor, svTextColor]
