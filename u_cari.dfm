@@ -1,9 +1,9 @@
 object f_cari: Tf_cari
-  Left = 287
-  Top = 126
+  Left = 306
+  Top = 134
   BorderStyle = bsDialog
   Caption = 'Pencarian'
-  ClientHeight = 352
+  ClientHeight = 455
   ClientWidth = 584
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,7 +13,7 @@ object f_cari: Tf_cari
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poOwnerFormCenter
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
@@ -48,7 +48,7 @@ object f_cari: Tf_cari
     Left = 4
     Top = 32
     Width = 573
-    Height = 273
+    Height = 385
     TabOrder = 1
     LookAndFeel.Kind = lfOffice11
     object t_data: TcxGridDBTableView
@@ -70,7 +70,7 @@ object f_cari: Tf_cari
       object clm1: TcxGridDBColumn
         Tag = 1
         Visible = False
-        Width = 55
+        Width = 90
         IsCaptionAssigned = True
       end
       object clm2: TcxGridDBColumn
@@ -78,18 +78,19 @@ object f_cari: Tf_cari
         Visible = False
         SortIndex = 0
         SortOrder = soAscending
+        Width = 283
         IsCaptionAssigned = True
       end
       object clm3: TcxGridDBColumn
         Tag = 3
         Visible = False
-        Width = 335
+        Width = 140
         IsCaptionAssigned = True
       end
       object clm4: TcxGridDBColumn
         Tag = 4
         Visible = False
-        Width = 79
+        Width = 100
         IsCaptionAssigned = True
       end
     end
@@ -97,23 +98,25 @@ object f_cari: Tf_cari
       GridView = t_data
     end
   end
-  object BtnPilih: TsButton
-    Left = 504
-    Top = 320
+  object BtnKeluar: TsButton
+    Left = 501
+    Top = 424
     Width = 75
     Height = 25
-    Caption = '&Pilih'
+    Caption = '&Keluar'
+    ModalResult = 2
     TabOrder = 2
-    OnClick = BtnPilihClick
     SkinData.SkinSection = 'BUTTON'
   end
-  object BtnKeluar: TsButton
+  object BtnPilih: TsButton
     Left = 416
-    Top = 320
+    Top = 424
     Width = 75
     Height = 25
-    Caption = 'Keluar'
+    Caption = '&Ambil'
+    ModalResult = 1
     TabOrder = 3
+    OnClick = BtnPilihClick
     SkinData.SkinSection = 'BUTTON'
   end
   object sSkinProvider1: TsSkinProvider
@@ -129,12 +132,14 @@ object f_cari: Tf_cari
   end
   object ds_cari: TDataSource
     DataSet = Q_cari
-    Left = 104
-    Top = 8
+    Left = 48
+    Top = 56
   end
   object Q_cari: TmySQLQuery
     Database = dm.db_conn
-    Left = 56
-    Top = 8
+    SQL.Strings = (
+      '')
+    Left = 8
+    Top = 56
   end
 end
