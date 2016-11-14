@@ -82,8 +82,8 @@ var
   x: Integer;
 begin
   for x := 0 to q_cari.FieldCount - 1 do
-    saringan := saringan + '`' + q_cari.Fields[x].FieldName + '`' + ' like "%' + ed_cari.Text
-      + '%" or ';
+    saringan := saringan + '`' + q_cari.Fields[x].FieldName + '`' + ' like "%' +
+      ed_cari.Text + '%" or ';
 
   delete(saringan, Length(saringan) - 3, 4);
 
@@ -140,7 +140,7 @@ begin
     t_data.Columns[x].DataBinding.FieldName := q_cari.Fields[x].FieldName;
     t_data.Columns[x].Caption := tblCap[x];
   end;
-    t_data.ApplyBestFit;
+  t_data.ApplyBestFit;
 end;
 
 procedure Tf_cari.t_dataDblClick(Sender: TObject);
