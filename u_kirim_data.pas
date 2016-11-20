@@ -204,7 +204,7 @@ begin
 
     fungsi.SQLExec(dm.Q_exe,
       'update tb_login_jaga set `mode`="offline" where `user`= "' + dm.kd_operator
-      + '" and status="jaga" and kd_perusahaan="' + dm.kd_perusahaan + '"', false);
+      + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', false);
 
     namafile := dir_simpan + '\tb_login_jaga.cbT';
     fungsi.savetofile(dm.Q_Exe,
@@ -214,9 +214,9 @@ begin
     zipp.AddFiles(dir_zip + '\tb_login_jaga.cbT', 0);
 
     fungsi.SQLExec(dm.q_exe,
-      'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,status,mode,komp)values("' +
+      'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,mode,komp)values("' +
       dm.kd_perusahaan + '","' + dm.kd_operator + '","' + f_utama.sb.Panels[4].Text
-      + '",date(now()),"jaga","online","' + ip_kasir + '")', false);
+      + '",date(now()),"online","' + ip_kasir + '")', false);
 
     sg_load.Progress := 1;
 
