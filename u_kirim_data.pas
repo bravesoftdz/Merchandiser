@@ -41,12 +41,11 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
+    dir_simpan, dir_zip, file_load, dir_load: string;
   end;
 
 var
   F_kirim_data: TF_kirim_data;
-  dir_simpan, dir_zip, file_load, dir_load: string;
 
 const
   OFASI_EDIT = $0001;
