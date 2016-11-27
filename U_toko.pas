@@ -27,6 +27,7 @@ type
     procedure cb_periodeChange(Sender: TObject);
     procedure cekPeriode;
   private
+    bulan, tahun, periode : string;
     { Private declarations }
   public
     { Public declarations }
@@ -34,7 +35,6 @@ type
 
 var
   F_toko: TF_toko;
-  periode, bulan, tahun: string;
 
 implementation
 

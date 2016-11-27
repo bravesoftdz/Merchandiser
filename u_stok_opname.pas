@@ -79,7 +79,6 @@ type
 
 var
   f_stok_opname: Tf_stok_opname;
-  sub_sub_total: integer;
 
 implementation
 

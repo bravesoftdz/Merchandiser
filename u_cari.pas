@@ -120,7 +120,6 @@ end;
 procedure Tf_cari.FormShow(Sender: TObject);
 var
   x: Integer;
-  clm: TcxGridDBColumn;
 begin
   fungsi.SQLExec(Q_cari, _SQLi + ' limit 0,100', True);
 

@@ -134,7 +134,6 @@ type
 
 var
   F_Inventory: TF_Inventory;
-  fungsi: TFungsi;
 
 implementation
 

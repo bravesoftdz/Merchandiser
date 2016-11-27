@@ -46,7 +46,6 @@ type
 
 var
   f_planogram: Tf_planogram;
-  kd_barang: string;
 
 implementation
 

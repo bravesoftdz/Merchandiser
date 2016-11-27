@@ -96,6 +96,7 @@ type
     procedure DaftarRencanaSO1Click(Sender: TObject);
     procedure mniStockOpnameSO2Click(Sender: TObject);
   private
+    bulan, tahun, periode : string;
     { Private declarations }
   public
     { Public declarations }
@@ -103,7 +104,6 @@ type
 
 var
   F_Utama: TF_Utama;
-  periode, bulan, tahun: string;
 
 implementation
 

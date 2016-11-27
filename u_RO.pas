@@ -64,6 +64,7 @@ type
     procedure b_loadClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
+    no_faktur: string;
     { Private declarations }
   public
     { Public declarations }
@@ -71,8 +72,6 @@ type
 
 var
   f_RO: Tf_RO;
-  sub_sub_total, diskon: integer;
-  no_faktur: string;
 
 implementation
 

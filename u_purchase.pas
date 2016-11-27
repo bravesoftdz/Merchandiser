@@ -89,7 +89,6 @@ type
 
 var
   f_purchase: Tf_purchase;
-  sub_sub_total: integer;
 
 implementation
 
@@ -557,21 +556,11 @@ procedure Tf_purchase.ed_codeKeyPress(Sender: TObject; var Key: Char);
 var
   kode: string;
   b: Integer;
-  Qty, harga: real;
+  harga: real;
 begin
-  if not ((key >= '0') and (key <= '9') or (key = #8) or (key = #43)) then
-  begin
-    key := #0;
-    Exit;
-  end;
+  if TableView.DataController.RecordCount = 0 then Exit;
 
-  if TableView.DataController.RecordCount = 0 then
-    Exit;
-
-  Qty := TableView.DataController.GetValue(tableview.DataController.FocusedRecordIndex,
-    2);
-  harga := TableView.DataController.GetValue(tableview.DataController.FocusedRecordIndex,
-    3);
+  harga := TableView.DataController.GetValue(tableview.DataController.FocusedRecordIndex,3);
 
   kode := Ed_Code.Text;
 

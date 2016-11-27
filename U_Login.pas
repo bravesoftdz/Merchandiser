@@ -35,6 +35,7 @@ type
     procedure sbClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
+    userPassword, userRealName: string;
     { Private declarations }
   public
     { Public declarations }
@@ -42,7 +43,6 @@ type
 
 var
   F_Login: TF_Login;
-  status, userPassword, userRealName: string;
 
 implementation
 
