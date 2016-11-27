@@ -4,9 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sLabel, Mask, sMaskEdit, sCustomComboEdit, sTooledit,
-  ComCtrls, acProgressBar, sButton, sGauge, UFungsi, sGroupBox, sEdit, Buttons,
-  sBitBtn, sRichEdit, sRadioButton, sStatusBar, inifiles;
+  Dialogs, sLabel, 
+  ComCtrls, sButton, UFungsi, sEdit, Buttons,
+  sStatusBar, inifiles, StdCtrls;
 
 type
   TF_Login = class(TForm)
@@ -42,7 +42,7 @@ var
 implementation
 
 uses
-  u_dm, u_utama, u_cari;
+  u_dm, u_cari;
 
 {$R *.dfm}
 

@@ -3,8 +3,7 @@ unit UFungsi;
 interface
 
 uses
-  Classes, mySQLDbTables, DB, sysutils, ShellAPI, windows, WinInet, Winsock,
-  TlHelp32;
+  Classes, mySQLDbTables, DB, sysutils, ShellAPI, windows, Winsock;
 
 type
   TQueryTread = class(TThread)

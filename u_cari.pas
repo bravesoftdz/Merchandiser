@@ -4,11 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, UFungsi, StdCtrls, sEdit, sButton, ExtCtrls, DBCtrls, sSkinProvider,
+  Dialogs, UFungsi, sEdit, sButton, ExtCtrls, DBCtrls, sSkinProvider,
   cxCustomData, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, cxStyles, cxFilter, cxData,
-  mySQLDbTables;
+  cxGridTableView, cxGridDBTableView, cxGrid, cxStyles, 
+  mySQLDbTables, cxFilter, cxData, StdCtrls;
 
 type
   NewControl = class(TControl);

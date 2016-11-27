@@ -4,13 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ComCtrls, acProgressBar, Buttons, sBitBtn, DBCtrls, Mask,
-  StdCtrls, sButton, sUpDown, sEdit, sLabel, sRadioButton, sGroupBox, ExtCtrls,
-  sPanel, Grids, DBGrids, sPageControl, UFungsi, cxStyles, cxCustomData,
-  cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
-  cxClasses, cxControls, cxGridCustomView, cxGrid, sComboBox, sMaskEdit,
-  sCustomComboEdit, sTooledit;
+  Dialogs, Menus, ComCtrls, Buttons, DBCtrls, 
+  sButton, sLabel, ExtCtrls,
+  UFungsi, cxStyles, 
+  cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, 
+  cxClasses, cxControls, cxGridCustomView, cxGrid, sComboBox, StdCtrls;
 
 type
   TF_toko = class(TForm)
@@ -39,7 +38,7 @@ var
 implementation
 
 uses
-  u_dm, u_utama;
+  u_dm;
 
 {$R *.dfm}
 

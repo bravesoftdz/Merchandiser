@@ -4,14 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sTooledit, sEdit, Buttons, sSpeedButton, sButton, Mask,
-  sMaskEdit, sCustomComboEdit, sCurrEdit, sCurrencyEdit, sLabel, ExtCtrls,
+  Dialogs, sEdit, Buttons, sSpeedButton, sButton, 
+  sCurrencyEdit, sLabel, ExtCtrls,
   sPanel, sMemo, cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, sBevel, ComCtrls,
-  sSkinProvider, cxImageComboBox, cxStyles, cxFilter, cxData, sDialogs,
-  uTerbilang, DB, cxDBData, cxGridDBTableView, sSpinEdit, sGroupBox,
-  mySQLDbTables;
+  sSkinProvider, cxImageComboBox, cxStyles, sDialogs,
+  DB, cxDBData, cxGridDBTableView, sSpinEdit, sGroupBox,
+  mySQLDbTables, cxFilter, cxData, StdCtrls, Mask, sMaskEdit,
+  sCustomComboEdit, sCurrEdit;
 
 type
   Tf_stok_opname = class(TForm)

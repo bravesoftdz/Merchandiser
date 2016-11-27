@@ -4,11 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, StdCtrls, sLabel, sEdit, UFungsi, sSpinEdit, sButton,
+  Dialogs, Buttons, sLabel, UFungsi, sSpinEdit, sButton,
   sSkinProvider, cxStyles, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
-  cxClasses, cxControls, cxGridCustomView, cxGrid, sCheckBox, Mask, sMaskEdit,
-  sCustomComboEdit, sCurrEdit, cxCustomData, cxFilter, cxData, sCurrencyEdit;
+  cxClasses, cxControls, cxGridCustomView, cxGrid, cxCustomData, cxFilter,
+  cxData, StdCtrls, sEdit;
 
 type
   Tf_planogram = class(TForm)
@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-  u_dm, u_utama;
+  u_dm;
 
 {$R *.dfm}
 

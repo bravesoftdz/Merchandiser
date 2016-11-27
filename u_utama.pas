@@ -4,10 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, ToolWin, sToolBar, acCoolBar, sStatusBar, Buttons,
-  sSpeedButton, sTrackBar, StdCtrls, sLabel, ExtCtrls, sPanel, sMemo, Menus,
-  TeEngine, Series, TeeProcs, Chart, DbChart, ImgList, UFungsi, acAlphaImageList,
-  sSplitter, ExtDlgs, sDialogs, inifiles, sEdit, sButton, sComboBox, shellapi,
+  Dialogs, ComCtrls, sStatusBar, Buttons,
+  sSpeedButton, StdCtrls, sLabel, ExtCtrls, sPanel, Menus,
+  TeEngine, Series, TeeProcs, Chart, DbChart, UFungsi, 
+  sSplitter, ExtDlgs, sDialogs, sComboBox, shellapi,
   sTabControl, DB, mySQLDbTables;
 
 const

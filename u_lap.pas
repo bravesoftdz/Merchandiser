@@ -4,10 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Mask, sMaskEdit, sCustomComboEdit, sTooledit, sButton,
+  Dialogs, StdCtrls, sTooledit, sButton,
   sLabel, UFungsi, ComCtrls, sEdit, sCheckBox, sGroupBox, sComboBox,
   sSkinProvider, Buttons, sSpeedButton, Menus, sCurrEdit, sCurrencyEdit,
-  sRadioButton;
+  sRadioButton, Mask, sMaskEdit, sCustomComboEdit;
 
 type
   Tf_lap = class(TForm)
@@ -57,7 +57,7 @@ var
 implementation
 
 uses
-  u_dm, u_cari, u_utama;
+  u_dm, u_cari;
 
 {$R *.dfm}
 

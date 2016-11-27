@@ -5,10 +5,10 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, sSkinProvider,
-  StdCtrls, Buttons, sBitBtn, ExtCtrls, sPanel, cxGridLevel,
+  Buttons, sBitBtn, ExtCtrls, sPanel, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxControls, cxGridCustomView, cxGrid, UFungsi, cxStyles, cxCustomData,
-  cxFilter, cxData, cxCurrencyEdit;
+  cxControls, cxGridCustomView, cxGrid, UFungsi, cxStyles, 
+  cxCurrencyEdit, cxCustomData, cxFilter, cxData, StdCtrls;
 
 type
   Tf_list_return = class(TForm)

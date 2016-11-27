@@ -4,13 +4,14 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sLabel, sEdit, UFungsi, DB, Grids, DBGrids, Mask, sMaskEdit,
+  Dialogs, sLabel, sEdit, UFungsi, DB, 
   sCustomComboEdit, sCurrEdit, sCurrencyEdit, Buttons, sBitBtn, frxClass,
-  frxDBSet, frxDesgn, frxExportXML, frxExportXLS, cxStyles, cxCustomData,
-  cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, cxDBData, cxGridLevel,
+  frxDBSet, cxStyles, 
+  cxGraphics, cxDataStorage, cxEdit, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls, sGroupBox,
-  cxCurrencyEdit, AdvDateTimePicker, sTooledit, ExtCtrls, sPanel, Menus;
+  cxCurrencyEdit, AdvDateTimePicker, sTooledit, ExtCtrls, sPanel, Menus,
+  cxCustomData, cxFilter, cxData, StdCtrls, Mask, sMaskEdit;
 
 type
   TF_Setor = class(TForm)
@@ -64,7 +65,7 @@ var
 implementation
 
 uses
-  u_dm, u_utama;
+  u_dm;
 
 {$R *.dfm}
 

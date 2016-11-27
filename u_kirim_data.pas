@@ -4,12 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sButton, UFungsi, DB, sDialogs, sCheckBox, sGroupBox,
-  sRadioButton, ComCtrls, sListView, sLabel, sEdit, acShellCtrls, Mask,
-  sMaskEdit, sCustomComboEdit, sTooledit, sMemo, sPageControl, sListBox, AbZView,
-  AbZipKit, Grids, AbView, AbBase, AbBrowse, AbZBrows, AbZipper, ExtCtrls,
-  sPanel, AbUnZper, sSkinProvider, acProgressBar, sGauge, sBevel, ShellAPI,
-  ShlObj, Winsock, TlHelp32;
+  Dialogs, sButton, UFungsi, DB, sDialogs, 
+  ComCtrls, sLabel, acShellCtrls, 
+  sTooledit, sPageControl, AbZView,
+  AbZipKit, AbView, AbBrowse, AbZipper, ExtCtrls,
+  sPanel, AbUnZper, sSkinProvider, sGauge, ShellAPI,
+  ShlObj, Winsock, AbBase, AbZBrows, Grids, StdCtrls, Mask, sMaskEdit,
+  sCustomComboEdit;
 
 type
   TF_kirim_data = class(TForm)
@@ -54,7 +55,7 @@ const
 implementation
 
 uses
-  u_dm, u_utama, u_setor;
+  u_dm, u_setor;
 
 {$R *.dfm}
 

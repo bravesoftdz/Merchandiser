@@ -4,10 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, sTabControl, DB, StdCtrls, sEdit, Grids, DBGrids, Buttons,
-  sBitBtn, sPageControl, sSkinProvider, acProgressBar, MySQLMonitor, ExtCtrls,
-  sPanel, sRadioButton, sGroupBox, sListBox, sCheckListBox, sButton, sLabel,
-  UFungsi, sUpDown, DBCtrls, Mask, frxClass, frxDBSet;
+  Dialogs, ComCtrls, DB, sEdit, DBGrids, Buttons,
+  sPageControl, sSkinProvider, MySQLMonitor, ExtCtrls,
+  sPanel, sRadioButton, sGroupBox, sButton, sLabel,
+  UFungsi, sUpDown, DBCtrls, frxClass, frxDBSet, StdCtrls, Grids;
 
 type
   NewControl = class(TControl);
