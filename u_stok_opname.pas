@@ -153,7 +153,6 @@ begin
       dm.db_conn.Commit;
       segarkan;
       ed_code.Clear;
-      BtnKoreksi.Enabled := True;
     except
       on e: exception do
       begin
@@ -374,7 +373,6 @@ begin
     dm.db_conn.Commit;
     segarkan;
     showmessage('Proses Tambah data Berhasil...');
-    BtnKoreksi.Enabled := True;
   except
     on e: exception do
     begin
