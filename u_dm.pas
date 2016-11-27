@@ -109,8 +109,6 @@ begin
     appINI.Free;
   end;
 
-  sm.Active := true;
-
   db_conn.Connected := False;
 
   assignfile(X, 'tools\koneksi.cbCon');
