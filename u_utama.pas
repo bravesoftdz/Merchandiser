@@ -10,6 +10,9 @@ uses
   sSplitter, ExtDlgs, sDialogs, inifiles, sEdit, sButton, sComboBox, shellapi,
   sTabControl, DB, mySQLDbTables;
 
+const
+  WM_AFTER_SHOW = WM_USER + 300; // custom message
+
 type
   TF_Utama = class(TForm)
     sb: TsStatusBar;
@@ -97,6 +100,7 @@ type
     procedure mniStockOpnameSO2Click(Sender: TObject);
   private
     bulan, tahun, periode : string;
+    procedure WmAfterShow(var Msg: TMessage); message WM_AFTER_SHOW;
     { Private declarations }
   public
     { Public declarations }
@@ -177,6 +181,66 @@ begin
     + '"', true);
   dbc_margin.RefreshData;
   dbc_mutasi.RefreshData;
+end;
+
+procedure TF_Utama.WmAfterShow(var Msg: TMessage);
+var
+  x: integer;
+begin
+  Application.CreateForm(TF_Login, F_Login);
+  F_Login.ShowModal;
+
+  if dm.Login = False then
+    Close;
+
+  sb.Panels[3].Text := dm.kd_pengguna;
+  sb.Panels[4].Text := dm.n_pengguna;
+  sb.Panels[5].Text := dm.kd_perusahaan;
+
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +
+    dm.kd_perusahaan + '"', true);
+  sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
+  sb.Panels[8].Text := dm.Q_temp.fieldbyname('ket').AsString;
+
+  sb.Panels[7].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
+
+  if sb.Panels[8].Text = 'PUSAT' then
+  begin
+    laporanpo.Enabled := False;
+    LaporanTerimaBarang1.Enabled := False;
+    LaporanReturnBarang1.Enabled := False;
+    ExportImportData1.Enabled := False;
+  end;
+
+  if dm.Q_temp.fieldbyname('onserver').AsString = 'Y' then
+  begin
+    ExportImportData1.Enabled := False;
+  end;
+
+  sb.Panels[9].Text := 'Versi : ' + fungsi.GetVersiApp;
+
+  panel_auto_width;
+
+  fungsi.SQLExec(dm.Q_temp, 'SELECT LEFT(tb_mutasi_bulan.tgl,7) as periode, ' +
+    'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "' +
+    dm.kd_perusahaan + '" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
+
+  for x := 1 to dm.Q_temp.RecordCount do
+  begin
+    cb_periode.Items.Add(dm.Q_temp.fieldbyname('periode').AsString);
+    dm.Q_temp.Next;
+  end;
+
+  cb_periode.ItemIndex := cb_periode.Items.Count - 1;
+  segarkan;
+
+  s_mg_jual.DataSource := dm.Q_gross;
+  s_mg_laba.DataSource := dm.Q_gross;
+
+  Series2.DataSource := dm.Q_mutasi_toko;
+  Series2.DataSource := dm.Q_mutasi_toko;
+  Series2.DataSource := dm.Q_mutasi_toko;
+  Series2.DataSource := dm.Q_mutasi_toko;
 end;
 
 procedure TF_Utama.sb_inventoryClick(Sender: TObject);
@@ -297,67 +361,11 @@ begin
 end;
 
 procedure TF_Utama.FormShow(Sender: TObject);
-var
-  x: integer;
 begin
   DecimalSeparator := '.';
   ThousandSeparator := ',';
 
-  Application.CreateForm(TF_Login, F_Login);
-  F_Login.ShowModal;
-
-  if dm.Login = False then
-    Close;
-
-  sb.Panels[3].Text := dm.kd_pengguna;
-  sb.Panels[4].Text := dm.n_pengguna;
-  sb.Panels[5].Text := dm.kd_perusahaan;
-
-  fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +
-    dm.kd_perusahaan + '"', true);
-  sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
-  sb.Panels[8].Text := dm.Q_temp.fieldbyname('ket').AsString;
-
-  sb.Panels[7].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
-
-  if sb.Panels[8].Text = 'PUSAT' then
-  begin
-    laporanpo.Enabled := False;
-    LaporanTerimaBarang1.Enabled := False;
-    LaporanReturnBarang1.Enabled := False;
-    ExportImportData1.Enabled := False;
-  end;
-
-  if dm.Q_temp.fieldbyname('onserver').AsString = 'Y' then
-  begin
-    ExportImportData1.Enabled := False;
-  end;
-
-  sb.Panels[9].Text := 'Versi : ' + fungsi.GetVersiApp;
-
-  panel_auto_width;
-
-  fungsi.SQLExec(dm.Q_temp, 'SELECT LEFT(tb_mutasi_bulan.tgl,7) as periode, ' +
-    'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "' +
-    dm.kd_perusahaan + '" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
-
-  for x := 1 to dm.Q_temp.RecordCount do
-  begin
-    cb_periode.Items.Add(dm.Q_temp.fieldbyname('periode').AsString);
-    dm.Q_temp.Next;
-  end;
-
-  cb_periode.ItemIndex := cb_periode.Items.Count - 1;
-  segarkan;
-
-  s_mg_jual.DataSource := dm.Q_gross;
-  s_mg_laba.DataSource := dm.Q_gross;
-
-  Series2.DataSource := dm.Q_mutasi_toko;
-  Series2.DataSource := dm.Q_mutasi_toko;
-  Series2.DataSource := dm.Q_mutasi_toko;
-  Series2.DataSource := dm.Q_mutasi_toko;
-
+  PostMessage(Self.Handle, WM_AFTER_SHOW, 0, 0);
 end;
 
 procedure TF_Utama.cb_periodeChange(Sender: TObject);

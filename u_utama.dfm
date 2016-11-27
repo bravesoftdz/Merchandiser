@@ -53,29 +53,36 @@ object F_Utama: TF_Utama
       end
       item
         Alignment = taCenter
+        Text = 'USER'
         Width = 70
       end
       item
         Alignment = taCenter
+        Text = 'NAMA USER'
         Width = 150
       end
       item
         Alignment = taCenter
+        Text = 'KODE'
         Width = 80
       end
       item
         Alignment = taCenter
+        Text = 'PERUSAHAAN'
         Width = 150
       end
       item
         Alignment = taCenter
+        Text = 'DATABASE@HOST'
         Width = 150
       end
       item
         Alignment = taCenter
+        Text = 'PUSAT'
         Width = 50
       end
       item
+        Text = 'VERSI'
         Width = 50
       end>
     SkinData.SkinSection = 'STATUSBAR'
