@@ -140,18 +140,6 @@ begin
       end
       else
       begin
-        if dm.HakAkses('tkAdmin', ed_kd_op.Text, dm.kd_perusahaan) then
-        begin
-          fungsi.SQLExec(dm.Q_exe, 'update tb_login_jaga set `mode`="offline"' +
-            ' where `user` = "' + ed_kd_op.Text + '" and kd_perusahaan = "' + dm.kd_perusahaan
-            + '"', false);
-
-          fungsi.SQLExec(dm.q_exe, 'replace into tb_login_jaga(kd_perusahaan, '
-            + 'user,nama_user,tanggal,mode,komp)values("' + dm.kd_perusahaan +
-            '","' + ed_kd_op.Text + '","' + ed_n_op.Text +
-            '",now(),''online'',"' + ip_kasir + '")', false);
-        end;
-
         dm.kd_operator := ed_kd_op.Text;
         dm.n_operator := ed_n_op.Text;
 

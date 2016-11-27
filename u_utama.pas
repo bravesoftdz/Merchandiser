@@ -228,22 +228,8 @@ begin
       end;
     end;
 
-    dm.db_conn.StartTransaction;
-    try
-      fungsi.SQLExec(dm.Q_exe,
-        'update tb_login_jaga set `mode`="offline" where `user`= "' + dm.kd_operator
-        + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', false);
-      dm.db_conn.Commit;
-      dm.metu_kabeh := True;
-      Action := caFree;
-    except
-      on e: exception do
-      begin
-        action := caNone;
-        dm.db_conn.Rollback;
-        showmessage('perubahan data gagal '#10#13'' + e.Message);
-      end;
-    end;
+    dm.metu_kabeh := True;
+    Action := caFree;
   end;
 end;
 

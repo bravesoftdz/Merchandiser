@@ -201,22 +201,6 @@ begin
       dm.kd_perusahaan + '","' + ExtractFileName(zipp.FileName) +
       '","kirim",now())', False);
 
-    fungsi.SQLExec(dm.Q_exe,
-      'update tb_login_jaga set `mode`="offline" where `user`= "' + dm.kd_operator
-      + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', false);
-
-    namafile := dir_simpan + '\tb_login_jaga.cbT';
-    fungsi.savetofile(dm.Q_Exe,
-      'select * from tb_login_jaga	where kd_perusahaan=' + QuotedStr(dm.kd_perusahaan)
-      + ' and tanggal=' + QuotedStr(formatdatetime('yyyy-MM-dd', edt_kirim.date))
-      + '', namafile);
-    zipp.AddFiles(dir_zip + '\tb_login_jaga.cbT', 0);
-
-    fungsi.SQLExec(dm.q_exe,
-      'replace into tb_login_jaga(kd_perusahaan,user,nama_user,tanggal,mode,komp)values("' +
-      dm.kd_perusahaan + '","' + dm.kd_operator + '","' + f_utama.sb.Panels[4].Text
-      + '",date(now()),"online","' + ip_kasir + '")', false);
-
     sg_load.Progress := 1;
 
     namafile := dir_simpan + '\tb_login_kasir.cbT';
