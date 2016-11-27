@@ -38,10 +38,6 @@ type
     l_5: TsLabel;
     b_refresh: TsBitBtn;
     de_trans: TsDateEdit;
-    pm1: TPopupMenu;
-    mnigetonline1: TMenuItem;
-    mniN1: TMenuItem;
-    mniRefresh1: TMenuItem;
     sLabel1: TsLabel;
     edNama: TsEdit;
     sLabel2: TsLabel;
@@ -56,8 +52,6 @@ type
     procedure b_refreshClick(Sender: TObject);
     procedure laporanClickObject(view: TfrxView; Button: TMouseButton; Shift:
       TShiftState; var Modified: Boolean);
-    procedure mniRefresh1Click(Sender: TObject);
-    procedure mnigetonline1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -208,50 +202,6 @@ begin
     r_detail_setor.LoadFromFile(dm.Path + 'laporan\p_setor_kasir_detail.fr3');
     r_detail_setor.ShowReport;
   end;
-end;
-
-procedure TF_Setor.mniRefresh1Click(Sender: TObject);
-begin
-  b_refreshClick(Self);
-end;
-
-procedure TF_Setor.mnigetonline1Click(Sender: TObject);
-begin
-  ShowMessage('Menu ini untuk sementara tidak dapat dijalankan...');
-{
-  fungsi.SQLExec(dm.Q_temp,'select count(tanggal) as total from tb_login_kasir'
-  +' where kd_perusahaan="'+dm.kd_perusahaan+'" '
-  +' and `user`="'+dm.Q_show.fieldbyname('user').AsString+'" '
-  +' and kd_jaga="'+dm.kd_pengguna+'" AND `status` = "online"',true);
-
-  if dm.Q_temp.FieldByName('total').AsInteger <> 0 then
-  begin
-    ShowMessage('data terahir untuk user masih aktif....');
-  end else
-  begin
-    fungsi.SQLExec(dm.Q_temp,'select `user`,tanggal from tb_login_kasir'
-    +' where kd_perusahaan="'+dm.kd_perusahaan+'" and `user`="'
-    + dm.Q_show.fieldbyname('user').AsString+'" and kd_jaga="'
-    + dm.kd_pengguna+'" ORDER BY `status`,tanggal DESC limit 1',true);
-    
-    dm.db_conn.StartTransaction;
-    try
-      fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set status="online" where kd_perusahaan="'+
-      dm.kd_perusahaan+'" and user="'+dm.Q_temp.fieldbyname('user').AsString
-      +'" and kd_jaga="'+dm.kd_pengguna+'" and tanggal="'+
-      formatdatetime('yyyy-MM-dd hh:mm:ss',dm.Q_temp.fieldbyname('tanggal').AsDateTime)+'"',false);
-
-      dm.db_conn.Commit;
-      showmessage('Penggantian status Berhasil...');
-      b_refreshClick(Self);
-    except on e:exception do
-    begin
-      dm.db_conn.Rollback;
-      showmessage('penyimpanan data gagal '#10#13'' +e.Message);
-    end;
-    end;
-  end;
-}
 end;
 
 end.

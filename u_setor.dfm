@@ -21,7 +21,6 @@ object F_Setor: TF_Setor
     Top = 200
     Width = 657
     Height = 161
-    PopupMenu = pm1
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
     object t_data: TcxGridDBTableView
@@ -1764,20 +1763,5 @@ object F_Setor: TF_Setor
     BCDToCurrency = False
     Left = 296
     Top = 312
-  end
-  object pm1: TPopupMenu
-    Left = 136
-    Top = 224
-    object mnigetonline1: TMenuItem
-      Caption = 'Aktifkan data terahir'
-      OnClick = mnigetonline1Click
-    end
-    object mniN1: TMenuItem
-      Caption = '-'
-    end
-    object mniRefresh1: TMenuItem
-      Caption = 'Refresh'
-      OnClick = mniRefresh1Click
-    end
   end
 end
