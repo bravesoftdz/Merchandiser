@@ -140,8 +140,8 @@ begin
       end
       else
       begin
-        dm.kd_operator := ed_kd_op.Text;
-        dm.n_operator := ed_n_op.Text;
+        dm.kd_pengguna := ed_kd_op.Text;
+        dm.n_pengguna := ed_n_op.Text;
 
         simpanKodePerusahaan;
         dm.Login := True;

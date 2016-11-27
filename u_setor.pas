@@ -79,7 +79,7 @@ begin
 
   fungsi.SQLExec(dm.Q_temp,
     'select tanggal from tb_login_kasir where kd_perusahaan="' + dm.kd_perusahaan
-    + '" ' + 'and kd_jaga="' + dm.kd_operator +
+    + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
     '"  and `status` = ''online'' order by `status` ASC limit 1', true);
   if dm.Q_temp.Eof then
     de_trans.Date := Date()
@@ -97,7 +97,7 @@ begin
     fungsi.SQLExec(dm.Q_temp,
       'select * from tb_login_kasir inner join tb_user on ' + 'tb_user.kd_user=tb_login_kasir.user where tb_login_kasir.kd_perusahaan="'
       + dm.kd_perusahaan + '" ' + 'and tb_login_kasir.user="' + ed_kd_kasir.Text
-      + '" and tb_login_kasir.kd_jaga="' + dm.kd_operator +
+      + '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna +
       '" and status=''online''', true);
     if dm.Q_temp.Eof then
     begin
@@ -131,13 +131,13 @@ begin
   dm.db_conn.StartTransaction;
   try
     fungsi.SQLExec(dm.Q_exe, 'call sp_setor_kasir("' + dm.kd_perusahaan + '","'
-      + ed_Kd_kasir.Text + '","' + dm.kd_operator + '")', False);
+      + ed_Kd_kasir.Text + '","' + dm.kd_pengguna + '")', False);
     dm.db_Conn.Commit;
 
     fungsi.SQLExec(dm.Q_Exe, 'update tb_login_kasir set jumlah_setor_real="' +
       ed_set_real.Text +
       '", tgl_logout=now(),status=''offline'' where kd_perusahaan="' + dm.kd_perusahaan
-      + '" and user="' + ed_kd_kasir.Text + '" and kd_jaga="' + dm.kd_operator +
+      + '" and user="' + ed_kd_kasir.Text + '" and kd_jaga="' + dm.kd_pengguna +
       '" and status="online"', false);
 
     dm.db_conn.Commit;
@@ -157,7 +157,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from tb_login_kasir inner join tb_user on ' + 'tb_user.kd_user=tb_login_kasir.`user` '
     + 'where status=''offline'' and tanggal >= "' + formatdatetime('yyyy-MM-dd hh:mm:ss',
-    de_trans.Date) + '" and tb_login_kasir.kd_jaga="' + dm.kd_operator +
+    de_trans.Date) + '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna +
     '" and tb_login_kasir.kd_perusahaan="' + dm.kd_perusahaan + '"', true);
   laporan.LoadFromFile(dm.Path + 'laporan\p_setor_kasir.fr3');
   laporan.ShowReport;
@@ -173,7 +173,7 @@ begin
   fungsi.SQLExec(dm.Q_show, 'SELECT * FROM tb_login_kasir INNER JOIN tb_user ' +
     'ON tb_user.kd_user = tb_login_kasir.`user` WHERE ' + 'tanggal >= "' +
     formatdatetime('yyyy-MM-dd hh:mm:ss', de_trans.Date) + '" AND ' +
-    'tb_login_kasir.kd_jaga="' + dm.kd_operator + '" AND ' +
+    'tb_login_kasir.kd_jaga="' + dm.kd_pengguna + '" AND ' +
     'tb_login_kasir.kd_perusahaan="' + dm.kd_perusahaan + '" ' +
     'ORDER BY tanggal DESC', true);
 
@@ -202,7 +202,7 @@ begin
       + 'on tb_user.kd_user=tb_login_kasir.user ' +
       'where tb_login_kasir.kd_perusahaan="' + dm.kd_perusahaan + '" ' +
       'and tb_login_kasir.user="' + View.TagStr +
-      '" and tb_login_kasir.kd_jaga="' + dm.kd_operator + '" and tanggal >= "' +
+      '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna + '" and tanggal >= "' +
       formatdatetime('yyyy-MM-dd hh:mm:ss', de_trans.Date) + '"', true);
 
     r_detail_setor.LoadFromFile(dm.Path + 'laporan\p_setor_kasir_detail.fr3');
@@ -222,7 +222,7 @@ begin
   fungsi.SQLExec(dm.Q_temp,'select count(tanggal) as total from tb_login_kasir'
   +' where kd_perusahaan="'+dm.kd_perusahaan+'" '
   +' and `user`="'+dm.Q_show.fieldbyname('user').AsString+'" '
-  +' and kd_jaga="'+dm.kd_operator+'" AND `status` = "online"',true);
+  +' and kd_jaga="'+dm.kd_pengguna+'" AND `status` = "online"',true);
 
   if dm.Q_temp.FieldByName('total').AsInteger <> 0 then
   begin
@@ -232,13 +232,13 @@ begin
     fungsi.SQLExec(dm.Q_temp,'select `user`,tanggal from tb_login_kasir'
     +' where kd_perusahaan="'+dm.kd_perusahaan+'" and `user`="'
     + dm.Q_show.fieldbyname('user').AsString+'" and kd_jaga="'
-    + dm.kd_operator+'" ORDER BY `status`,tanggal DESC limit 1',true);
+    + dm.kd_pengguna+'" ORDER BY `status`,tanggal DESC limit 1',true);
     
     dm.db_conn.StartTransaction;
     try
       fungsi.SQLExec(dm.Q_Exe,'update tb_login_kasir set status="online" where kd_perusahaan="'+
       dm.kd_perusahaan+'" and user="'+dm.Q_temp.fieldbyname('user').AsString
-      +'" and kd_jaga="'+dm.kd_operator+'" and tanggal="'+
+      +'" and kd_jaga="'+dm.kd_pengguna+'" and tanggal="'+
       formatdatetime('yyyy-MM-dd hh:mm:ss',dm.Q_temp.fieldbyname('tanggal').AsDateTime)+'"',false);
 
       dm.db_conn.Commit;

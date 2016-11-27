@@ -46,7 +46,7 @@ type
   private
     { Private declarations }
   public
-    Path, AppPath, DocPath, kd_perusahaan, kd_operator, n_operator: string;
+    Path, AppPath, DocPath, kd_perusahaan, kd_pengguna, n_pengguna: string;
     Login, metu_kabeh: Boolean;
     function HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
     { Public declarations }

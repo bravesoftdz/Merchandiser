@@ -196,7 +196,7 @@ end;
 
 procedure TF_Utama.sb_tutup_kasirClick(Sender: TObject);
 begin
-  if not (dm.HakAkses('tkAdmin', dm.kd_operator, dm.kd_perusahaan)) then
+  if not (dm.HakAkses('tkAdmin', dm.kd_pengguna, dm.kd_perusahaan)) then
   begin
     messagedlg('Anda tidak mempunyai hak untuk ' + #13#10 +
       'melanjutkan AKSES ke dalam MENU ini...', mtWarning, [mbOk], 0);
@@ -209,11 +209,11 @@ end;
 
 procedure TF_Utama.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if dm.HakAkses('tkAdmin', dm.kd_operator, dm.kd_perusahaan) then
+  if dm.HakAkses('tkAdmin', dm.kd_pengguna, dm.kd_perusahaan) then
   begin
     fungsi.SQLExec(dm.Q_temp,
       'select tanggal from tb_login_kasir where kd_perusahaan="' + dm.kd_perusahaan
-      + '" ' + 'and kd_jaga="' + dm.kd_operator +
+      + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
       '"  and `status` = ''online'' order by `status` ASC limit 1', true);
     if not (dm.Q_temp.Eof) then
     begin
@@ -309,8 +309,8 @@ begin
   if dm.Login = False then
     Close;
 
-  sb.Panels[3].Text := dm.kd_operator;
-  sb.Panels[4].Text := dm.n_operator;
+  sb.Panels[3].Text := dm.kd_pengguna;
+  sb.Panels[4].Text := dm.n_pengguna;
   sb.Panels[5].Text := dm.kd_perusahaan;
 
   fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +

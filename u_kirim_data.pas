@@ -170,7 +170,7 @@ begin
 
   fungsi.SQLExec(dm.Q_temp,
     'select tanggal from tb_login_kasir where kd_perusahaan="' + dm.kd_perusahaan
-    + '" ' + 'and kd_jaga="' + dm.kd_operator +
+    + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
     '"  and `status` = ''online'' and date(tanggal)=' + QuotedStr(formatdatetime
     ('yyyy-MM-dd', edt_kirim.date)) + ' order by `status` ASC limit 1', true);
   if not (dm.Q_temp.Eof) then
