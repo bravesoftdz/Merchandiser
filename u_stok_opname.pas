@@ -174,12 +174,17 @@ begin
     key := VK_NONAME;
   end;
 
-  if (key = vk_down) or (Key = Vk_return) then
+  if key = vk_down then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
     t_koreksi.DataController.FocusedRowIndex := t_koreksi.DataController.FocusedRowIndex
       + 1;
   end;
+
+  if Key = vk_delete then
+    if (MessageDlg('Yakinkah, Anda akan menghapus data ini???', mtConfirmation,
+      [mbYes, mbNo], 0) = mrYes) then
+      QListData.Delete;
 end;
 
 procedure Tf_stok_opname.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
