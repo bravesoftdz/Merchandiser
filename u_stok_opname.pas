@@ -269,12 +269,7 @@ end;
 
 procedure Tf_stok_opname.ed_kodeSOChange(Sender: TObject);
 begin
-  fungsi.SQLExec(QListData, 'select * from tb_koreksi_temp where ' +
-    'kd_koreksi="' + ed_kodeSO.Text + '" and kd_perusahaan ="' + dm.kd_perusahaan
-    + '" ', true);
-  Self.Caption := 'Stock Opname ' + ed_kodeSO.Text;
-  f_utama.tc_child.Tabs.Strings[f_utama.tc_child.TabIndex] := Caption;
-  BtnKoreksi.Enabled := True;
+  segarkan;
 end;
 
 procedure Tf_stok_opname.sSpeedButton18Click(Sender: TObject);
@@ -392,7 +387,11 @@ end;
 procedure Tf_stok_opname.segarkan;
 begin
   fungsi.SQLExec(QListData, 'select * from tb_koreksi_temp where kd_koreksi="' +
-    ed_kodeSO.Text + '" AND kd_perusahaan = "' + dm.kd_perusahaan + '"', true);
+    ed_kodeSO.Text + '" and kd_perusahaan ="' + dm.kd_perusahaan +
+    '" ORDER BY Rak, Shelving, urut, kd_barang', true);
+  Self.Caption := 'Stock Opname ' + ed_kodeSO.Text;
+  f_utama.tc_child.Tabs.Strings[f_utama.tc_child.TabIndex] := Caption;
+  BtnKoreksi.Enabled := True;
 end;
 
 procedure Tf_stok_opname.BtnBatalClick(Sender: TObject);
