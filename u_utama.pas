@@ -101,6 +101,7 @@ type
   private
     bulan, tahun, periode : string;
     procedure WmAfterShow(var Msg: TMessage); message WM_AFTER_SHOW;
+    procedure cek_update;
     { Private declarations }
   public
     { Public declarations }
@@ -188,6 +189,9 @@ var
   x: integer;
 begin
   Application.CreateForm(TF_Login, F_Login);
+  F_Login.sb.Panels[0].Text := dm.kd_perusahaan;
+  F_Login.sb.Panels[1].Text := sb.Panels[6].Text;
+  F_Login.sb.Panels[2].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
   F_Login.ShowModal;
 
   if dm.Login = False then
@@ -216,8 +220,6 @@ begin
   begin
     ExportImportData1.Enabled := False;
   end;
-
-  sb.Panels[9].Text := 'Versi : ' + fungsi.GetVersiApp;
 
   panel_auto_width;
 
@@ -362,8 +364,19 @@ end;
 
 procedure TF_Utama.FormShow(Sender: TObject);
 begin
+  cek_update;
+  
   DecimalSeparator := '.';
   ThousandSeparator := ',';
+
+  dm.sm.Active := True;
+
+  sb.Panels[5].Text := dm.kd_perusahaan;
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +
+    dm.kd_perusahaan + '"', true);
+  sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
+  sb.Panels[7].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
+  sb.Panels[9].Text := 'Versi : ' + fungsi.GetVersiApp;
 
   PostMessage(Self.Handle, WM_AFTER_SHOW, 0, 0);
 end;
@@ -529,6 +542,30 @@ begin
   //Stock Opname
   application.CreateForm(Tf_stok_opname, f_stok_opname);
   f_stok_opname.Show;
+end;
+
+procedure TF_Utama.cek_update;
+var
+  versiDB, versiAPP, URLDownload: string;
+  fileName, UrlDownloadLocal: string;
+begin
+  versiAPP := fungsi.GetVersiApp;
+
+  fungsi.SQLExec(dm.Q_Show,
+    'select versi_terbaru, URLdownload from  app_versi where kode="pos_server.exe"',
+    true);
+  versiDB := dm.Q_Show.FieldByName('versi_terbaru').AsString;
+  URLDownload := dm.Q_Show.FieldByName('URLdownload').AsString;
+  fileName := Copy(URLDownload, LastDelimiter('/', URLDownload) + 1, Length(URLDownload));
+  UrlDownloadLocal := 'http://' + dm.db_conn.Host + '/GainProfit/' + fileName;
+
+  if versiAPP < versiDB then
+  begin
+    ShowMessage('APLIKASI POS Server TIDAK DAPAT DIJALANKAN' + #13#10 +
+      'aplikasi terbaru dengan versi : ' + versiDB + #13#10 + 'SUDAH DIRILIS...');
+
+    Application.Terminate;
+  end;
 end;
 
 end.
