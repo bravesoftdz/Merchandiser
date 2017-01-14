@@ -23,7 +23,6 @@ type
   private
     {private declaration}
   public
-    function CariDanGanti(sSrc, sLookFor, sReplaceWith: string): string;
     function GetIPFromHost(var HostName, IPaddr, WSAErr: string): Boolean;
     function GetVersiApp: string;
     procedure Amankan(pathin, pathout: string; Chave: Word);
@@ -71,21 +70,6 @@ begin
 end;
 
 { Tfungsi }
-
-function Tfungsi.CariDanGanti(sSrc, sLookFor, sReplaceWith: string): string;
-var
-  nPos, nLenLookFor: integer;
-begin
-  nPos := Pos(sLookFor, sSrc);
-  nLenLookFor := Length(sLookFor);
-  while (nPos > 0) do
-  begin
-    Delete(sSrc, nPos, nLenLookFor);
-    Insert(sReplaceWith, sSrc, nPos);
-    nPos := Pos(sLookFor, sSrc);
-  end;
-  Result := sSrc;
-end;
 
 function Tfungsi.GetIPFromHost(var HostName, IPaddr, WSAErr: string): Boolean;
 type

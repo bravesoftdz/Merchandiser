@@ -430,8 +430,8 @@ begin
 
       fungsi.amankan(dir_load + nm_file, dir_load + nm_file, 9966);
 
-      fungsi.SQLExec(dm.Q_Exe, 'LOAD DATA LOCAL INFILE "' + fungsi.caridanganti(dir_load
-        + nm_file, '\', '/') + '" REPLACE INTO ' + 'TABLE ' + nm_tabel +
+      fungsi.SQLExec(dm.Q_Exe, 'LOAD DATA LOCAL INFILE "' + StringReplace(dir_load
+        + nm_file, '\', '/', [rfReplaceAll]) + '" REPLACE INTO ' + 'TABLE ' + nm_tabel +
         ' FIELDS TERMINATED BY ''&'' OPTIONALLY ENCLOSED BY ''#'' LINES ' +
         'STARTING BY ''<'' TERMINATED BY ''>'' ', false);
 
