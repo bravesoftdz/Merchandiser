@@ -10,7 +10,7 @@ uses
   cxGraphics, cxDataStorage, cxEdit, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls, sGroupBox,
-  cxCurrencyEdit, AdvDateTimePicker, sTooledit, ExtCtrls, sPanel, Menus,
+  cxCurrencyEdit, sTooledit, ExtCtrls, sPanel, Menus,
   cxCustomData, cxFilter, cxData, StdCtrls, Mask, sMaskEdit;
 
 type
