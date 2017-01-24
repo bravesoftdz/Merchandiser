@@ -4,7 +4,7 @@ uses
   Forms,
   u_inventory in 'u_inventory.pas' {F_Inventory},
   u_dm in 'u_dm.pas' {dm: TDataModule},
-  UFungsi in 'UFungsi.pas',
+  UFungsi in '..\tools\pascal\UFungsi.pas',
   U_toko in 'U_toko.pas' {F_toko},
   U_Login in 'U_Login.pas' {F_Login},
   u_setor in 'u_setor.pas' {F_Setor},
