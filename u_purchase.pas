@@ -499,41 +499,13 @@ begin
 end;
 
 procedure Tf_purchase.b_autoClick(Sender: TObject);
-var
-  x: Integer;
-  pid, pid_temp: string;
 begin
-  if ed_supplier.Text = '' then
-  begin
-    ShowMessage('untuk auto kode, supplier harus diisi terlebih dahulu');
-    Exit;
-  end;
-  fungsi.SQLExec(dm.Q_temp,
-    'select kd_purchase from tb_purchase_global where kd_suplier="' +
-    ed_supplier.text + '" and kd_perusahaan = "' + dm.kd_perusahaan +
-    '" and kd_purchase like "PO-' + ed_supplier.text + '-%"order by kd_purchase', true);
+  fungsi.SQLExec(dm.Q_temp,Format('SELECT CONCAT("PO", DATE_FORMAT(NOW(), "%%Y%%m%%d"), '+
+  'LPAD(COUNT(kd_purchase) + 1, 4, "0")) AS new_id FROM tb_purchase_global '+
+  'WHERE DATE(simpan_pada) = DATE(NOW()) AND kd_perusahaan = "%s"',
+  [dm.kd_perusahaan]),true);
 
-  dm.Q_temp.First;
-
-  for x := 1 to 10000 do
-  begin
-    if x < 10 then
-      pid := 'PO-' + ed_supplier.text + '-000'
-    else if x < 100 then
-      pid := 'PO-' + ed_supplier.text + '-00'
-    else if x < 1000 then
-      pid := 'PO-' + ed_supplier.text + '-0'
-    else if x < 10000 then
-      pid := 'PO-' + ed_supplier.text + '-';
-
-    pid_temp := pid + inttostr(x);
-
-    if dm.Q_temp.fieldbyname('kd_purchase').AsString = pid_temp then
-      dm.Q_temp.Next
-    else
-      break;
-  end;
-  ed_no_faktur.Text := pid_temp;
+  ed_no_faktur.Text := dm.Q_temp.fieldbyname('new_id').AsString;
 end;
 
 procedure Tf_purchase.TableViewTcxGridDataControllerTcxDataSummaryFooterSummaryItems4GetText
