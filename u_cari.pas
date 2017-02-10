@@ -8,7 +8,7 @@ uses
   cxCustomData, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, cxStyles, 
-  mySQLDbTables, cxFilter, cxData, StdCtrls;
+  MyAccess, cxFilter, cxData, MemDS, DBAccess, StdCtrls;
 
 type
   NewControl = class(TControl);
@@ -21,7 +21,7 @@ type
     l_data: TcxGridLevel;
     BtnPilih: TsButton;
     ds_cari: TDataSource;
-    Q_cari: TmySQLQuery;
+    Q_cari: TMyQuery;
     BtnKeluar: TsButton;
     procedure Ed_cariChange(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

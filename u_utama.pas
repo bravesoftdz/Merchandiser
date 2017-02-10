@@ -8,7 +8,7 @@ uses
   sSpeedButton, StdCtrls, sLabel, ExtCtrls, sPanel, Menus,
   TeEngine, Series, TeeProcs, Chart, DbChart, UFungsi, 
   sSplitter, ExtDlgs, sDialogs, sComboBox, shellapi,
-  sTabControl, DB, mySQLDbTables;
+  sTabControl, DB, MemDS, DBAccess, MyAccess;
 
 const
   WM_AFTER_SHOW = WM_USER + 300; // custom message
@@ -57,7 +57,7 @@ type
     PO1: TMenuItem;
     DaftarPO1: TMenuItem;
     N4: TMenuItem;
-    Q_time: TmySQLQuery;
+    Q_time: TMyQuery;
     mniLaporanSO: TMenuItem;
     mniStockOpnameSO2: TMenuItem;
     mniDaftarSO1: TMenuItem;
@@ -191,7 +191,7 @@ begin
   Application.CreateForm(TF_Login, F_Login);
   F_Login.sb.Panels[0].Text := dm.kd_perusahaan;
   F_Login.sb.Panels[1].Text := sb.Panels[6].Text;
-  F_Login.sb.Panels[2].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
+  F_Login.sb.Panels[2].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
   F_Login.ShowModal;
 
   if dm.Login = False then
@@ -206,7 +206,7 @@ begin
   sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
   sb.Panels[8].Text := dm.Q_temp.fieldbyname('ket').AsString;
 
-  sb.Panels[7].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
+  sb.Panels[7].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
 
   if sb.Panels[8].Text = 'PUSAT' then
   begin
@@ -375,7 +375,7 @@ begin
   fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +
     dm.kd_perusahaan + '"', true);
   sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
-  sb.Panels[7].Text := dm.db_conn.DatabaseName + '@' + dm.db_conn.Host;
+  sb.Panels[7].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
   sb.Panels[9].Text := 'Versi : ' + fungsi.GetVersiApp;
 
   PostMessage(Self.Handle, WM_AFTER_SHOW, 0, 0);
@@ -557,7 +557,7 @@ begin
   versiDB := dm.Q_Show.FieldByName('versi_terbaru').AsString;
   URLDownload := dm.Q_Show.FieldByName('URLdownload').AsString;
   fileName := Copy(URLDownload, LastDelimiter('/', URLDownload) + 1, Length(URLDownload));
-  UrlDownloadLocal := 'http://' + dm.db_conn.Host + '/GainProfit/' + fileName;
+  UrlDownloadLocal := 'http://' + dm.db_conn.Server + '/GainProfit/' + fileName;
 
   if versiAPP < versiDB then
   begin

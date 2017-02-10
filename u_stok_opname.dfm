@@ -532,9 +532,8 @@ object f_stok_opname: Tf_stok_opname
     Left = 8
     Top = 8
   end
-  object QListData: TmySQLQuery
-    Database = dm.db_conn
-    RequestLive = True
+  object QListData: TMyQuery
+    Connection = dm.db_conn
     Left = 24
     Top = 232
   end

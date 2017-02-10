@@ -156,8 +156,8 @@ object f_list_so_plan: Tf_list_so_plan
     Left = 16
     Top = 24
   end
-  object QList: TmySQLQuery
-    Database = dm.db_conn
+  object QList: TMyQuery
+    Connection = dm.db_conn
     Left = 56
     Top = 24
   end

@@ -557,8 +557,8 @@ object F_Utama: TF_Utama
     Left = 320
     Top = 206
   end
-  object Q_time: TmySQLQuery
-    Database = dm.db_conn
+  object Q_time: TMyQuery
+    Connection = dm.db_conn
     Left = 128
     Top = 168
   end

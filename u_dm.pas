@@ -3,43 +3,44 @@ unit u_dm;
 interface
 
 uses
-  SysUtils, Classes, DB, mySQLDbTables, sSkinManager, frxClass, frxDBSet,
+  SysUtils, Classes, DB, sSkinManager, frxClass, frxDBSet,
   frxExportXML, dialogs, forms, inifiles, UFungsi, ImgList, Controls,
-  acAlphaImageList, frxBarcode, Windows, cxStyles, SHFolder;
+  acAlphaImageList, frxBarcode, Windows, cxStyles, SHFolder, MemDS,
+  DBAccess, MyAccess;
 
 type
   Tdm = class(TDataModule)
-    db_conn: TmySQLDatabase;
-    Q_Exe: TmySQLQuery;
+    db_conn: TMyConnection;
+    Q_Exe: TMyQuery;
     sm: TsSkinManager;
-    Q_show: TmySQLQuery;
-    Q_temp: TmySQLQuery;
+    Q_show: TMyQuery;
+    Q_temp: TMyQuery;
     ds_barang: TDataSource;
     ds_mutasi: TDataSource;
     ds_mutasi_toko: TDataSource;
     ds_gross: TDataSource;
     frxXMLExport1: TfrxXMLExport;
     laporan: TfrxReport;
-    Q_laporan: TmySQLQuery;
+    Q_laporan: TMyQuery;
     db_laporan: TfrxDBDataset;
     gambar: TsAlphaImageList;
     ds_koreksi: TDataSource;
     ds_stok_out: TDataSource;
-    Q_mutasi_toko: TmySQLQuery;
-    Q_gross: TmySQLQuery;
-    q_stock_out: TmySQLQuery;
+    Q_mutasi_toko: TMyQuery;
+    Q_gross: TMyQuery;
+    q_stock_out: TMyQuery;
     im: TsAlphaImageList;
-    Q_koreksi: TmySQLQuery;
+    Q_koreksi: TMyQuery;
     frxbrcdbjct1: TfrxBarCodeObject;
-    Q_list_receipt: TmySQLQuery;
+    Q_list_receipt: TMyQuery;
     ds_list_receipt: TDataSource;
-    Q_list_return: TmySQLQuery;
+    Q_list_return: TMyQuery;
     ds_list_return: TDataSource;
-    Q_list_purchase: TmySQLQuery;
+    Q_list_purchase: TMyQuery;
     ds_list_purchase: TDataSource;
     Style: TcxStyleRepository;
     cxstyl1: TcxStyle;
-    Q_LIST_SO: TmySQLQuery;
+    Q_LIST_SO: TMyQuery;
     ds_ist_SO: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
     procedure smAfterChange(Sender: TObject);
@@ -120,14 +121,12 @@ begin
     readln(X, nama);
     readln(X, kata);
     closefile(X);
-    db_conn.Host := krupuk(pusat, 6);
-    db_conn.DatabaseName := krupuk(data, 6);
+    db_conn.Server := krupuk(pusat, 6);
+    db_conn.Database := krupuk(data, 6);
     jalur1 := krupuk(jalur2, 6);
     db_conn.Port := strtoint(jalur1);
     db_conn.UserName := krupuk(nama, 6);
-    db_conn.UserPassword := krupuk(kata, 6);
-    db_conn.Connected := true;
-
+    db_conn.Password := krupuk(kata, 6);
   except
     showmessage('koneksi tidak berhasil');
     application.Terminate;

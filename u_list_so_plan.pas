@@ -9,7 +9,8 @@ uses
   ExtCtrls, sPanel, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
   sSpeedButton, 
-  mySQLDbTables, UFungsi, cxCustomData, cxFilter, cxData;
+  UFungsi, MemDS, DBAccess,
+  MyAccess, cxCustomData, cxFilter, cxData;
 
 type
   Tf_list_so_plan = class(TForm)
@@ -24,7 +25,7 @@ type
     sknprvdr1: TsSkinProvider;
     sb_1: TsSpeedButton;
     sb_2: TsSpeedButton;
-    QList: TmySQLQuery;
+    QList: TMyQuery;
     dsDsList: TDataSource;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

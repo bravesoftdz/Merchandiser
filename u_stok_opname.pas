@@ -11,8 +11,8 @@ uses
   cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, sBevel, ComCtrls,
   sSkinProvider, cxImageComboBox, cxStyles, sDialogs,
   DB, cxDBData, cxGridDBTableView, sSpinEdit, sGroupBox,
-  mySQLDbTables, cxFilter, cxData, StdCtrls, Mask, sMaskEdit,
-  sCustomComboEdit, sCurrEdit;
+  StdCtrls, Mask, sMaskEdit,
+  sCustomComboEdit, sCurrEdit, MemDS, DBAccess, MyAccess, cxFilter, cxData;
 
 type
   Tf_stok_opname = class(TForm)
@@ -52,7 +52,7 @@ type
     BtnBatal: TsButton;
     BtnKoreksi: TsButton;
     BtnSimpan: TsButton;
-    QListData: TmySQLQuery;
+    QListData: TMyQuery;
     dsDsListData: TDataSource;
     procedure ed_codeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

@@ -119,8 +119,8 @@ object f_cari: Tf_cari
     Left = 48
     Top = 56
   end
-  object Q_cari: TmySQLQuery
-    Database = dm.db_conn
+  object Q_cari: TMyQuery
+    Connection = dm.db_conn
     SQL.Strings = (
       '')
     Left = 8
