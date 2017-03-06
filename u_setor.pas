@@ -127,7 +127,6 @@ begin
   try
     fungsi.SQLExec(dm.Q_exe, 'call sp_setor_kasir("' + dm.kd_perusahaan + '","'
       + ed_Kd_kasir.Text + '","' + dm.kd_pengguna + '")', False);
-    dm.db_Conn.Commit;
 
     fungsi.SQLExec(dm.Q_Exe, 'update tb_login_kasir set jumlah_setor_real="' +
       ed_set_real.Text +
