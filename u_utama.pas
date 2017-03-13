@@ -177,7 +177,7 @@ begin
     '" and year(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', true);
 
   fungsi.SQLExec(dm.Q_gross,
-    'select * from tb_gross_margin where month(tanggal)="' + bulan +
+    'select tanggal, sales, (sales - hpp) as gm_rp from tb_gross_margin where month(tanggal)="' + bulan +
     '" and year(tanggal)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan
     + '"', true);
   dbc_margin.RefreshData;
