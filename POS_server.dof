@@ -115,7 +115,7 @@ AutoIncBuild=0
 MajorVer=3
 MinorVer=2
 Release=0
-Build=0
+Build=1
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=Gain-Profit
 FileDescription=
-FileVersion=3.2.0.0
+FileVersion=3.2.0.1
 InternalName=Merchandiser
 LegalCopyright=
 LegalTrademarks=
