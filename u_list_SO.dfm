@@ -28,6 +28,7 @@ object f_list_SO: Tf_list_SO
     Align = alClient
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
+    LookAndFeel.NativeStyle = False
     object grid_data: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       OnCellDblClick = t_dataCellDblClick

@@ -23,6 +23,7 @@ object F_Setor: TF_Setor
     Height = 161
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
+    LookAndFeel.NativeStyle = False
     object t_data: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       DataController.DataSource = ds_kasir

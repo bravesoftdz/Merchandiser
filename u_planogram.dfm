@@ -110,6 +110,7 @@ object f_planogram: Tf_planogram
     Height = 313
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
+    LookAndFeel.NativeStyle = False
     object t_data_plano: TcxGridDBTableView
       NavigatorButtons.ConfirmDelete = False
       DataController.DataSource = dm.ds_barang

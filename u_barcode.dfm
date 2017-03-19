@@ -79,6 +79,7 @@ object f_Barcode: Tf_Barcode
     Height = 313
     TabOrder = 2
     LookAndFeel.Kind = lfOffice11
+    LookAndFeel.NativeStyle = False
     object TableView: TcxGridTableView
       NavigatorButtons.ConfirmDelete = False
       NavigatorButtons.Append.Visible = False

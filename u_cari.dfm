@@ -56,6 +56,7 @@ object f_cari: Tf_cari
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 1
     LookAndFeel.Kind = lfOffice11
+    LookAndFeel.NativeStyle = False
     object t_data: TcxGridDBTableView
       OnDblClick = t_dataDblClick
       OnKeyDown = t_dataKeyDown

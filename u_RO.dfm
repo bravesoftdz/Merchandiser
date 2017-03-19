@@ -128,6 +128,7 @@ object f_RO: Tf_RO
       Align = alClient
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
+      LookAndFeel.NativeStyle = False
       object TableView: TcxGridTableView
         NavigatorButtons.ConfirmDelete = False
         NavigatorButtons.Append.Visible = False
