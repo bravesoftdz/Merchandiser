@@ -10,7 +10,9 @@ uses
   cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
   sSpeedButton, 
   UFungsi, MemDS, DBAccess,
-  MyAccess, cxCustomData, cxFilter, cxData;
+  MyAccess, cxCustomData, cxFilter, cxData, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_list_so_plan = class(TForm)

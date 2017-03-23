@@ -6,7 +6,7 @@ uses
   SysUtils, Classes, DB, sSkinManager, frxClass, frxDBSet,
   frxExportXML, dialogs, forms, inifiles, UFungsi, ImgList, Controls,
   acAlphaImageList, frxBarcode, Windows, cxStyles, SHFolder, MemDS,
-  DBAccess, MyAccess;
+  DBAccess, MyAccess, cxClasses;
 
 type
   Tdm = class(TDataModule)

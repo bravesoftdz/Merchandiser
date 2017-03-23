@@ -8,7 +8,8 @@ uses
   sSkinProvider, cxStyles, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGrid, cxCustomData, cxFilter,
-  cxData, StdCtrls, sEdit;
+  cxData, StdCtrls, sEdit, cxLookAndFeels, cxLookAndFeelPainters,
+  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_planogram = class(TForm)

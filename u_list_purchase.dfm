@@ -29,7 +29,7 @@ object f_List_purchase: Tf_List_purchase
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     object t_data: TcxGridDBTableView
-      NavigatorButtons.ConfirmDelete = False
+      Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = t_dataCellDblClick
       DataController.DataSource = dm.ds_list_purchase
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -109,9 +109,8 @@ object f_List_purchase: Tf_List_purchase
       OnClick = sb_2Click
       Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
-      DisabledGlyphKind = []
-      ImageIndex = 2
       Images = dm.gambar
+      ImageIndex = 2
       Reflected = True
     end
     object sb_1: TsSpeedButton
@@ -133,9 +132,8 @@ object f_List_purchase: Tf_List_purchase
       OnClick = sb_1Click
       Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
-      DisabledGlyphKind = []
-      ImageIndex = 10
       Images = dm.gambar
+      ImageIndex = 10
       Reflected = True
     end
     object p1: TsPanel
@@ -170,15 +168,6 @@ object f_List_purchase: Tf_List_purchase
         MaxLength = 10
         TabOrder = 0
         Text = '  /  /    '
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.SkinSection = 'EDIT'
         GlyphMode.Blend = 0
         GlyphMode.Grayed = False
@@ -193,15 +182,6 @@ object f_List_purchase: Tf_List_purchase
         MaxLength = 10
         TabOrder = 1
         Text = '  /  /    '
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.SkinSection = 'EDIT'
         GlyphMode.Blend = 0
         GlyphMode.Grayed = False
@@ -209,11 +189,6 @@ object f_List_purchase: Tf_List_purchase
     end
   end
   object sSkinProvider1: TsSkinProvider
-    AddedTitle.Font.Charset = DEFAULT_CHARSET
-    AddedTitle.Font.Color = clNone
-    AddedTitle.Font.Height = -11
-    AddedTitle.Font.Name = 'MS Sans Serif'
-    AddedTitle.Font.Style = []
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
     Left = 704

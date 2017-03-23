@@ -8,7 +8,9 @@ uses
   Buttons, sBitBtn, ExtCtrls, sPanel, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
   cxControls, cxGridCustomView, cxGrid, UFungsi, cxStyles, 
-  cxCurrencyEdit, cxCustomData, cxFilter, cxData, StdCtrls;
+  cxCurrencyEdit, cxCustomData, cxFilter, cxData, StdCtrls, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_list_return = class(TForm)

@@ -10,7 +10,8 @@ uses
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, sBevel, ComCtrls,
   sSkinProvider, cxImageComboBox, cxStyles, sDialogs, cxFilter, cxData,
-  sMaskEdit;
+  sMaskEdit, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_purchase = class(TForm)

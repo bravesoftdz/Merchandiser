@@ -10,7 +10,9 @@ uses
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, ComCtrls,
   sSkinProvider, cxImageComboBox, cxStyles, sDialogs, cxFilter, cxData,
-  StdCtrls, sMaskEdit, sCustomComboEdit;
+  StdCtrls, sMaskEdit, sCustomComboEdit, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_return = class(TForm)

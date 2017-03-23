@@ -30,7 +30,7 @@ object f_list_so_plan: Tf_list_so_plan
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     object grid_data: TcxGridDBTableView
-      NavigatorButtons.ConfirmDelete = False
+      Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = t_dataCellDblClick
       DataController.DataSource = dsDsList
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -116,9 +116,8 @@ object f_list_so_plan: Tf_list_so_plan
       OnClick = sb_1Click
       Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
-      DisabledGlyphKind = []
-      ImageIndex = 10
       Images = dm.gambar
+      ImageIndex = 10
       Reflected = True
     end
     object sb_2: TsSpeedButton
@@ -140,18 +139,12 @@ object f_list_so_plan: Tf_list_so_plan
       OnClick = sb_2Click
       Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
-      DisabledGlyphKind = []
-      ImageIndex = 2
       Images = dm.gambar
+      ImageIndex = 2
       Reflected = True
     end
   end
   object sknprvdr1: TsSkinProvider
-    AddedTitle.Font.Charset = DEFAULT_CHARSET
-    AddedTitle.Font.Color = clNone
-    AddedTitle.Font.Height = -11
-    AddedTitle.Font.Name = 'MS Sans Serif'
-    AddedTitle.Font.Style = []
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
     Left = 16

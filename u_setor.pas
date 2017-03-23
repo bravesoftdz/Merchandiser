@@ -11,7 +11,9 @@ uses
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls, sGroupBox,
   cxCurrencyEdit, sTooledit, ExtCtrls, sPanel, Menus, cxCustomData,
-  cxFilter, cxData, StdCtrls, Mask, sMaskEdit;
+  cxFilter, cxData, StdCtrls, Mask, sMaskEdit, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinscxPCPainter, cxNavigator;
 
 type
   TF_Setor = class(TForm)

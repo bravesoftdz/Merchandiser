@@ -50,9 +50,8 @@ object f_stok_opname: Tf_stok_opname
       OnClick = sSpeedButton18Click
       Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
-      DisabledGlyphKind = []
-      ImageIndex = 10
       Images = dm.gambar
+      ImageIndex = 10
       Reflected = True
     end
     object spnl1: TsPanel
@@ -157,15 +156,6 @@ object f_stok_opname: Tf_stok_opname
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'
@@ -188,15 +178,6 @@ object f_stok_opname: Tf_stok_opname
         ReadOnly = True
         TabOrder = 1
         Align = alRight
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'
@@ -258,8 +239,8 @@ object f_stok_opname: Tf_stok_opname
         Height = 21
         OnClick = Sb_cariClick
         SkinData.SkinSection = 'SPEEDBUTTON'
-        ImageIndex = 0
         Images = dm.im
+        ImageIndex = 0
       end
       object ed_kodeSO: TsEdit
         Left = 56
@@ -278,15 +259,6 @@ object f_stok_opname: Tf_stok_opname
         OnKeyDown = ed_kodeSOKeyDown
         SkinData.CustomColor = True
         SkinData.SkinSection = 'EDIT'
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
       end
       object ed_code: TsEdit
         Left = 37
@@ -298,15 +270,6 @@ object f_stok_opname: Tf_stok_opname
         OnKeyDown = ed_codeKeyDown
         OnKeyPress = ed_codeKeyPress
         SkinData.SkinSection = 'EDIT'
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
       end
       object BtnAuto: TsButton
         Left = 296
@@ -370,15 +333,6 @@ object f_stok_opname: Tf_stok_opname
         TabOrder = 5
         Text = '1'
         SkinData.SkinSection = 'EDIT'
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         Alignment = taCenter
         Increment = 1.000000000000000000
         Value = 1.000000000000000000
@@ -393,7 +347,7 @@ object f_stok_opname: Tf_stok_opname
       Align = alClient
       TabOrder = 2
       object t_koreksi: TcxGridDBTableView
-        NavigatorButtons.ConfirmDelete = False
+        Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsDsListData
         DataController.Summary.DefaultGroupSummaryItems = <
           item
@@ -522,11 +476,6 @@ object f_stok_opname: Tf_stok_opname
     end
   end
   object sSkinProvider1: TsSkinProvider
-    AddedTitle.Font.Charset = DEFAULT_CHARSET
-    AddedTitle.Font.Color = clNone
-    AddedTitle.Font.Height = -11
-    AddedTitle.Font.Name = 'MS Sans Serif'
-    AddedTitle.Font.Style = []
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
     Left = 8

@@ -10,7 +10,8 @@ uses
   cxStyles, cxCustomData, cxGraphics, 
   cxDataStorage, cxEdit, cxCurrencyEdit, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxClasses, cxControls, cxGridCustomView, cxGrid, frxClass,
-  cxFilter, cxData, StdCtrls;
+  cxFilter, cxData, StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
+  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_Barcode = class(TForm)

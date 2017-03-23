@@ -38,15 +38,6 @@ object f_cari: Tf_cari
     OnChange = Ed_cariChange
     SkinData.CustomColor = True
     SkinData.SkinSection = 'EDIT'
-    BoundLabel.Indent = 0
-    BoundLabel.Font.Charset = DEFAULT_CHARSET
-    BoundLabel.Font.Color = clWindowText
-    BoundLabel.Font.Height = -11
-    BoundLabel.Font.Name = 'MS Sans Serif'
-    BoundLabel.Font.Style = []
-    BoundLabel.Layout = sclLeft
-    BoundLabel.MaxWidth = 0
-    BoundLabel.UseSkinColor = True
   end
   object grid: TcxGrid
     Left = 4
@@ -60,7 +51,7 @@ object f_cari: Tf_cari
     object t_data: TcxGridDBTableView
       OnDblClick = t_dataDblClick
       OnKeyDown = t_dataKeyDown
-      NavigatorButtons.ConfirmDelete = False
+      Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = ds_cari
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
@@ -105,11 +96,6 @@ object f_cari: Tf_cari
     SkinData.SkinSection = 'BUTTON'
   end
   object sSkinProvider1: TsSkinProvider
-    AddedTitle.Font.Charset = DEFAULT_CHARSET
-    AddedTitle.Font.Color = clNone
-    AddedTitle.Font.Height = -11
-    AddedTitle.Font.Name = 'MS Sans Serif'
-    AddedTitle.Font.Style = []
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
     Left = 352

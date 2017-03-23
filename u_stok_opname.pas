@@ -12,7 +12,9 @@ uses
   sSkinProvider, cxImageComboBox, cxStyles, sDialogs,
   DB, cxDBData, cxGridDBTableView, sSpinEdit, sGroupBox,
   StdCtrls, Mask, sMaskEdit,
-  sCustomComboEdit, sCurrEdit, MemDS, DBAccess, MyAccess, cxFilter, cxData;
+  sCustomComboEdit, sCurrEdit, MemDS, DBAccess, MyAccess, cxFilter, cxData,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_stok_opname = class(TForm)

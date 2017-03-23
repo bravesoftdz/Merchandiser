@@ -9,7 +9,9 @@ uses
   cxGridTableView, cxGridDBTableView, cxControls, cxGridCustomView, cxClasses,
   cxGridLevel, cxGrid, UFungsi, cxStyles, 
   sSpeedButton, sTooledit, sLabel, cxCustomData, cxFilter, cxData,
-  StdCtrls, Mask, sMaskEdit, sCustomComboEdit;
+  StdCtrls, Mask, sMaskEdit, sCustomComboEdit, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinscxPCPainter, cxNavigator;
 
 type
   Tf_List_purchase = class(TForm)

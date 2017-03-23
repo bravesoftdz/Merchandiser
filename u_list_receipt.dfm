@@ -29,7 +29,7 @@ object f_list_receipt: Tf_list_receipt
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     object t_data: TcxGridDBTableView
-      NavigatorButtons.ConfirmDelete = False
+      Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = t_dataCellDblClick
       DataController.DataSource = dm.ds_list_receipt
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -130,10 +130,10 @@ object f_list_receipt: Tf_list_receipt
       OnClick = sBitBtn2Click
       Layout = blGlyphTop
       Spacing = 0
-      SkinData.SkinSection = 'TOOLBUTTON'
       ImageIndex = 10
       Images = dm.gambar
       Reflected = True
+      SkinData.SkinSection = 'TOOLBUTTON'
     end
     object sBitBtn6: TsBitBtn
       Left = 8
@@ -152,18 +152,13 @@ object f_list_receipt: Tf_list_receipt
       OnClick = sBitBtn6Click
       Layout = blGlyphTop
       Spacing = 0
-      SkinData.SkinSection = 'TOOLBUTTON'
       ImageIndex = 2
       Images = dm.gambar
       Reflected = True
+      SkinData.SkinSection = 'TOOLBUTTON'
     end
   end
   object sSkinProvider1: TsSkinProvider
-    AddedTitle.Font.Charset = DEFAULT_CHARSET
-    AddedTitle.Font.Color = clNone
-    AddedTitle.Font.Height = -11
-    AddedTitle.Font.Name = 'MS Sans Serif'
-    AddedTitle.Font.Style = []
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
     Left = 752

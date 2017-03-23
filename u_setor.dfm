@@ -25,7 +25,7 @@ object F_Setor: TF_Setor
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     object t_data: TcxGridDBTableView
-      NavigatorButtons.ConfirmDelete = False
+      Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = ds_kasir
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
@@ -119,8 +119,8 @@ object F_Setor: TF_Setor
     object l_1: TsLabel
       Left = 8
       Top = 16
-      Width = 56
-      Height = 19
+      Width = 53
+      Height = 18
       Caption = 'Id Kasir'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
@@ -132,8 +132,8 @@ object F_Setor: TF_Setor
     object l_3: TsLabel
       Left = 368
       Top = 48
-      Width = 75
-      Height = 19
+      Width = 74
+      Height = 18
       Caption = 'Setor Real'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
@@ -145,8 +145,8 @@ object F_Setor: TF_Setor
     object sLabel1: TsLabel
       Left = 8
       Top = 48
-      Width = 44
-      Height = 19
+      Width = 42
+      Height = 18
       Caption = 'Nama'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
@@ -158,8 +158,8 @@ object F_Setor: TF_Setor
     object sLabel2: TsLabel
       Left = 8
       Top = 80
-      Width = 92
-      Height = 19
+      Width = 86
+      Height = 18
       Caption = 'Waktu Login'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
@@ -171,8 +171,8 @@ object F_Setor: TF_Setor
     object sLabel3: TsLabel
       Left = 368
       Top = 16
-      Width = 58
-      Height = 19
+      Width = 57
+      Height = 18
       Caption = 'IP Login'
       ParentFont = False
       Font.Charset = DEFAULT_CHARSET
@@ -198,15 +198,6 @@ object F_Setor: TF_Setor
       TabOrder = 0
       OnKeyDown = ed_Kd_kasirKeyDown
       SkinData.SkinSection = 'EDIT'
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
     end
     object ed_set_Real: TsCurrencyEdit
       Left = 464
@@ -225,15 +216,6 @@ object F_Setor: TF_Setor
       ReadOnly = True
       TabOrder = 1
       OnKeyDown = ed_set_RealKeyDown
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False
@@ -290,15 +272,6 @@ object F_Setor: TF_Setor
       TabOrder = 4
       OnKeyDown = ed_Kd_kasirKeyDown
       SkinData.SkinSection = 'EDIT'
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
     end
     object edWaktu: TsEdit
       Left = 112
@@ -317,15 +290,6 @@ object F_Setor: TF_Setor
       TabOrder = 5
       OnKeyDown = ed_Kd_kasirKeyDown
       SkinData.SkinSection = 'EDIT'
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
     end
     object edIP: TsEdit
       Left = 464
@@ -344,15 +308,6 @@ object F_Setor: TF_Setor
       TabOrder = 6
       OnKeyDown = ed_Kd_kasirKeyDown
       SkinData.SkinSection = 'EDIT'
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
     end
   end
   object p1: TsPanel
@@ -408,15 +363,6 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 1
       Text = '  /  /    '
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False

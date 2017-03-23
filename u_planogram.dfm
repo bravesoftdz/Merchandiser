@@ -60,18 +60,7 @@ object f_planogram: Tf_planogram
     Text = '0'
     OnChange = se_rakChange
     SkinData.SkinSection = 'EDIT'
-    BoundLabel.Indent = 0
-    BoundLabel.Font.Charset = DEFAULT_CHARSET
-    BoundLabel.Font.Color = clWindowText
-    BoundLabel.Font.Height = -11
-    BoundLabel.Font.Name = 'MS Sans Serif'
-    BoundLabel.Font.Style = []
-    BoundLabel.Layout = sclLeft
-    BoundLabel.MaxWidth = 0
-    BoundLabel.UseSkinColor = True
-    MaxValue = 0
-    MinValue = 0
-    Value = 0
+    Increment = 1
   end
   object se_shelving: TsSpinEdit
     Left = 184
@@ -90,18 +79,7 @@ object f_planogram: Tf_planogram
     Text = '0'
     OnChange = se_shelvingChange
     SkinData.SkinSection = 'EDIT'
-    BoundLabel.Indent = 0
-    BoundLabel.Font.Charset = DEFAULT_CHARSET
-    BoundLabel.Font.Color = clWindowText
-    BoundLabel.Font.Height = -11
-    BoundLabel.Font.Name = 'MS Sans Serif'
-    BoundLabel.Font.Style = []
-    BoundLabel.Layout = sclLeft
-    BoundLabel.MaxWidth = 0
-    BoundLabel.UseSkinColor = True
-    MaxValue = 0
-    MinValue = 0
-    Value = 0
+    Increment = 1
   end
   object grid_plano: TcxGrid
     Left = 8
@@ -112,7 +90,7 @@ object f_planogram: Tf_planogram
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     object t_data_plano: TcxGridDBTableView
-      NavigatorButtons.ConfirmDelete = False
+      Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = dm.ds_barang
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <
@@ -202,11 +180,6 @@ object f_planogram: Tf_planogram
     SkinData.SkinSection = 'BUTTON'
   end
   object sSkinProvider1: TsSkinProvider
-    AddedTitle.Font.Charset = DEFAULT_CHARSET
-    AddedTitle.Font.Color = clNone
-    AddedTitle.Font.Height = -11
-    AddedTitle.Font.Name = 'MS Sans Serif'
-    AddedTitle.Font.Style = []
     SkinData.SkinSection = 'FORM'
     TitleButtons = <>
     Left = 16
