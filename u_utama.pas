@@ -99,6 +99,7 @@ type
     procedure DaftarRencanaSO1Click(Sender: TObject);
     procedure mniStockOpnameSO2Click(Sender: TObject);
   private
+    FVersion : TVersion;
     bulan, tahun, periode : string;
     procedure WmAfterShow(var Msg: TMessage); message WM_AFTER_SHOW;
     procedure cek_update;
@@ -294,6 +295,7 @@ begin
       end;
     end;
 
+    FVersion.Free;
     dm.metu_kabeh := True;
     Action := caFree;
   end;
@@ -364,6 +366,7 @@ end;
 
 procedure TF_Utama.FormShow(Sender: TObject);
 begin
+  FVersion := TAppVersion.Create(Application.ExeName);
   cek_update;
   
   DecimalSeparator := '.';
@@ -376,7 +379,7 @@ begin
     dm.kd_perusahaan + '"', true);
   sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
   sb.Panels[7].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
-  sb.Panels[9].Text := 'Versi : ' + fungsi.GetVersiApp;
+  sb.Panels[9].Text := 'Versi : ' + FVersion.AsString;
 
   PostMessage(Self.Handle, WM_AFTER_SHOW, 0, 0);
 end;
@@ -546,26 +549,22 @@ end;
 
 procedure TF_Utama.cek_update;
 var
-  versiDB, versiAPP, URLDownload: string;
-  fileName, UrlDownloadLocal: string;
+  LVersiDB, LVersiAPP: TVersion;
+  LSql :string;
 begin
-  versiAPP := fungsi.GetVersiApp;
+  LVersiAPP := FVersion;
+  LSql := 'SELECT versi_terbaru FROM app_versi WHERE kode="pos_server.exe"';
+  fungsi.SQLExec(dm.Q_Show, LSql, true);
+  LVersiDB := TVersion.Create(dm.Q_Show.FieldByName('versi_terbaru').AsString);
 
-  fungsi.SQLExec(dm.Q_Show,
-    'select versi_terbaru, URLdownload from  app_versi where kode="pos_server.exe"',
-    true);
-  versiDB := dm.Q_Show.FieldByName('versi_terbaru').AsString;
-  URLDownload := dm.Q_Show.FieldByName('URLdownload').AsString;
-  fileName := Copy(URLDownload, LastDelimiter('/', URLDownload) + 1, Length(URLDownload));
-  UrlDownloadLocal := 'http://' + dm.db_conn.Server + '/GainProfit/' + fileName;
-
-  if versiAPP < versiDB then
+  if CompareVersion(LVersiDB, LVersiAPP) = vHigher then
   begin
-    ShowMessage('APLIKASI POS Server TIDAK DAPAT DIJALANKAN' + #13#10 +
-      'aplikasi terbaru dengan versi : ' + versiDB + #13#10 + 'SUDAH DIRILIS...');
+    ShowMessage('APLIKASI POS SERVER TIDAK DAPAT DIJALANKAN' + #13#10 +
+      'aplikasi terbaru dengan versi : ' + LVersiDB.AsString + #13#10 + 'SUDAH DIRILIS...');
 
     Application.Terminate;
   end;
+  LVersiDB.Free;
 end;
 
 end.
