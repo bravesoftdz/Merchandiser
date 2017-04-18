@@ -1,9 +1,9 @@
 object F_Utama: TF_Utama
   Left = 251
   Top = 65
-  Width = 965
-  Height = 635
   Caption = 'Point of sales'
+  ClientHeight = 443
+  ClientWidth = 899
   Color = clBtnFace
   Constraints.MinWidth = 915
   Font.Charset = DEFAULT_CHARSET
@@ -24,16 +24,17 @@ object F_Utama: TF_Utama
   object sSplitter1: TsSplitter
     Left = 0
     Top = 385
-    Width = 949
+    Width = 899
     Height = 4
     Cursor = crVSplit
     Align = alTop
     SkinData.SkinSection = 'SPLITTER'
+    ExplicitWidth = 949
   end
   object sb: TsStatusBar
     Left = 0
-    Top = 575
-    Width = 949
+    Top = 422
+    Width = 899
     Height = 21
     Panels = <
       item
@@ -86,15 +87,15 @@ object F_Utama: TF_Utama
         Width = 50
       end>
     SkinData.SkinSection = 'STATUSBAR'
+    ExplicitTop = -21
   end
   object sCoolBar1: TsPanel
     Left = 0
     Top = 0
-    Width = 949
+    Width = 899
     Height = 70
     Align = alTop
     BorderWidth = 5
-    ParentBackground = True
     ParentColor = True
     TabOrder = 1
     SkinData.SkinSection = 'TOOLBAR'
@@ -104,6 +105,7 @@ object F_Utama: TF_Utama
       Width = 139
       Height = 58
       Cursor = crHandPoint
+      Align = alLeft
       Caption = 'Barang'#13#10'Toko'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -114,10 +116,9 @@ object F_Utama: TF_Utama
       ParentFont = False
       Spacing = 2
       OnClick = sb_inventoryClick
-      Align = alLeft
       SkinData.SkinSection = 'TOOLBUTTON'
-      ImageIndex = 1
       Images = dm.gambar
+      ImageIndex = 1
       Reflected = True
     end
     object sb_toko: TsSpeedButton
@@ -126,6 +127,7 @@ object F_Utama: TF_Utama
       Width = 168
       Height = 58
       Cursor = crHandPoint
+      Align = alLeft
       Caption = 'Perkembangan'#13#10'Toko'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -135,10 +137,9 @@ object F_Utama: TF_Utama
       Font.Style = []
       ParentFont = False
       OnClick = sb_tokoClick
-      Align = alLeft
       SkinData.SkinSection = 'TOOLBUTTON'
-      ImageIndex = 3
       Images = dm.gambar
+      ImageIndex = 3
       Reflected = True
     end
     object sb_laporan: TsSpeedButton
@@ -147,6 +148,7 @@ object F_Utama: TF_Utama
       Width = 144
       Height = 58
       Cursor = crHandPoint
+      Align = alLeft
       Caption = 'Laporan'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -156,12 +158,11 @@ object F_Utama: TF_Utama
       Font.Style = []
       ParentFont = False
       Spacing = 2
-      Align = alLeft
       ButtonStyle = tbsDropDown
       SkinData.SkinSection = 'TOOLBUTTON'
       DropdownMenu = pm_laporan
-      ImageIndex = 4
       Images = dm.gambar
+      ImageIndex = 4
       Reflected = True
     end
     object sb_tutup_kasir: TsSpeedButton
@@ -170,6 +171,7 @@ object F_Utama: TF_Utama
       Width = 144
       Height = 58
       Cursor = crHandPoint
+      Align = alLeft
       Caption = 'Tutup'#13#10'Kasir'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -180,18 +182,18 @@ object F_Utama: TF_Utama
       ParentFont = False
       Spacing = 2
       OnClick = sb_tutup_kasirClick
-      Align = alLeft
       SkinData.SkinSection = 'TOOLBUTTON'
-      ImageIndex = 5
       Images = dm.gambar
+      ImageIndex = 5
       Reflected = True
     end
     object sb_tutup_toko: TsSpeedButton
-      Left = 783
+      Left = 733
       Top = 6
       Width = 160
       Height = 58
       Cursor = crHandPoint
+      Align = alRight
       Caption = 'Tutup Toko'#13#10'dan Keluar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -202,11 +204,11 @@ object F_Utama: TF_Utama
       ParentFont = False
       Spacing = 2
       OnClick = sb_tutup_tokoClick
-      Align = alRight
       SkinData.SkinSection = 'TOOLBUTTON'
-      ImageIndex = 6
       Images = dm.gambar
+      ImageIndex = 6
       Reflected = True
+      ExplicitLeft = 783
     end
     object sb_refresh: TsSpeedButton
       Left = 601
@@ -214,6 +216,7 @@ object F_Utama: TF_Utama
       Width = 144
       Height = 58
       Cursor = crHandPoint
+      Align = alLeft
       Caption = 'Refresh'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -224,124 +227,97 @@ object F_Utama: TF_Utama
       ParentFont = False
       Spacing = 2
       OnClick = sb_refreshClick
-      Align = alLeft
       SkinData.SkinSection = 'TOOLBUTTON'
-      ImageIndex = 2
       Images = dm.gambar
+      ImageIndex = 2
       Reflected = True
     end
   end
   object dbc_mutasi: TDBChart
     Left = 0
     Top = 389
-    Width = 949
-    Height = 186
+    Width = 899
+    Height = 33
     AllowPanning = pmNone
-    AllowZoom = False
-    BackWall.Brush.Color = clWhite
     BackWall.Brush.Style = bsClear
     LeftWall.Color = 16744576
     MarginBottom = 2
     MarginLeft = 2
     MarginRight = 2
     MarginTop = 2
-    Title.Font.Charset = DEFAULT_CHARSET
-    Title.Font.Color = clBlue
     Title.Font.Height = -32
-    Title.Font.Name = 'Arial'
     Title.Font.Style = [fsBold]
     Title.Text.Strings = (
       'PERKEMBANGAN MUTASI HARGA')
     Legend.Alignment = laBottom
+    Zoom.Allow = False
     Align = alClient
     TabOrder = 2
     OnDblClick = dbc_mutasiDblClick
+    ExplicitHeight = 186
+    DefaultCanvas = 'TGDIPlusCanvas'
+    ColorPaletteIndex = 13
     object Series4: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
       Marks.Visible = False
+      Marks.Style = smsValue
       DataSource = dm.Q_mutasi_toko
       SeriesColor = clRed
       Title = 'Receipt'
       XLabelsSource = 'tgl'
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'uang_receipt'
     end
     object Series5: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
       Marks.Visible = False
+      Marks.Style = smsValue
       DataSource = dm.Q_mutasi_toko
       SeriesColor = clGreen
       Title = 'Return'
       XLabelsSource = 'tgl'
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'uang_return'
     end
     object Series2: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
       Marks.Visible = False
+      Marks.Style = smsValue
       DataSource = dm.Q_mutasi_toko
       SeriesColor = clBlue
       Title = 'Jual'
       XLabelsSource = 'tgl'
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'uang_sales'
     end
     object Series1: TBarSeries
-      Marks.ArrowLength = 20
       Marks.Visible = False
       DataSource = dm.Q_mutasi_toko
       SeriesColor = clAqua
       Title = 'Return Jual'
       XLabelsSource = 'tgl'
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'uang_return_jual'
     end
     object Series6: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
       Marks.Visible = False
+      Marks.Style = smsValue
       DataSource = dm.Q_mutasi_toko
       SeriesColor = clYellow
       Title = 'Koreksi'
       XLabelsSource = 'tgl'
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'uang_koreksi'
     end
@@ -349,21 +325,17 @@ object F_Utama: TF_Utama
   object DBC_margin: TDBChart
     Left = 0
     Top = 94
-    Width = 949
+    Width = 899
     Height = 291
     AllowPanning = pmNone
-    BackWall.Brush.Color = clWhite
     BackWall.Brush.Style = bsClear
-    LeftWall.Brush.Color = clWhite
     LeftWall.Color = 4210816
     MarginBottom = 2
     MarginLeft = 2
     MarginRight = 2
     MarginTop = 2
-    Title.Font.Charset = DEFAULT_CHARSET
     Title.Font.Color = clRed
     Title.Font.Height = -32
-    Title.Font.Name = 'Arial'
     Title.Font.Style = [fsBold]
     Title.Text.Strings = (
       'PERKEMBANGAN GROSS MARGIN')
@@ -372,6 +344,8 @@ object F_Utama: TF_Utama
     Align = alTop
     TabOrder = 3
     OnDblClick = DBC_marginDblClick
+    DefaultCanvas = 'TGDIPlusCanvas'
+    ColorPaletteIndex = 13
     object sLabel1: TsLabel
       Left = 8
       Top = 8
@@ -383,59 +357,46 @@ object F_Utama: TF_Utama
       Left = 48
       Top = 6
       Width = 129
-      Height = 22
+      Height = 21
       Alignment = taLeftJustify
-      BoundLabel.Indent = 0
       BoundLabel.Font.Charset = DEFAULT_CHARSET
       BoundLabel.Font.Color = clWindowText
       BoundLabel.Font.Height = -11
       BoundLabel.Font.Name = 'MS Sans Serif'
       BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
+      BoundLabel.ParentFont = False
       SkinData.SkinSection = 'COMBOBOX'
+      VerticalAlignment = taAlignTop
       Style = csDropDownList
-      ItemHeight = 16
       ItemIndex = -1
       TabOrder = 0
       OnChange = cb_periodeChange
     end
     object s_mg_jual: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
       Marks.Visible = False
+      Marks.Style = smsValue
       DataSource = dm.Q_gross
       SeriesColor = clGreen
       Title = 'Penjualan'
       XLabelsSource = 'tanggal'
       BarStyle = bsRectGradient
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'sales'
     end
     object s_mg_laba: TBarSeries
-      Marks.ArrowLength = 20
-      Marks.Style = smsValue
       Marks.Visible = False
+      Marks.Style = smsValue
       DataSource = dm.Q_gross
       SeriesColor = clRed
       Title = 'Margin'
       XLabelsSource = 'tanggal'
       BarStyle = bsRectGradient
-      XValues.DateTime = False
       XValues.Name = 'X'
-      XValues.Multiplier = 1.000000000000000000
       XValues.Order = loAscending
-      YValues.DateTime = False
       YValues.Name = 'Bar'
-      YValues.Multiplier = 1.000000000000000000
       YValues.Order = loNone
       YValues.ValueSource = 'gm_rp'
     end
@@ -443,7 +404,7 @@ object F_Utama: TF_Utama
   object tc_child: TsTabControl
     Left = 0
     Top = 70
-    Width = 949
+    Width = 899
     Height = 24
     Cursor = crHandPoint
     Align = alTop

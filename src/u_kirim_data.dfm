@@ -39,8 +39,10 @@ object F_kirim_data: TF_kirim_data
     SkinData.SkinSection = 'PAGECONTROL'
     object ts_1: TsTabSheet
       Caption = 'Kirim Data'
-      SkinData.CustomColor = False
-      SkinData.CustomFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object l_1: TsLabel
         Left = 0
         Top = 40
@@ -75,15 +77,12 @@ object F_kirim_data: TF_kirim_data
           MaxLength = 10
           TabOrder = 0
           Text = '  /  /    '
-          BoundLabel.Indent = 0
           BoundLabel.Font.Charset = DEFAULT_CHARSET
           BoundLabel.Font.Color = clWindowText
           BoundLabel.Font.Height = -11
           BoundLabel.Font.Name = 'MS Sans Serif'
           BoundLabel.Font.Style = []
-          BoundLabel.Layout = sclLeft
-          BoundLabel.MaxWidth = 0
-          BoundLabel.UseSkinColor = True
+          BoundLabel.ParentFont = False
           SkinData.SkinSection = 'EDIT'
           GlyphMode.Blend = 0
           GlyphMode.Grayed = False
@@ -103,8 +102,10 @@ object F_kirim_data: TF_kirim_data
     end
     object ts_2: TsTabSheet
       Caption = 'Terima Data'
-      SkinData.CustomColor = False
-      SkinData.CustomFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object edt_terima: TsDateEdit
         Left = 4
         Top = 232
@@ -115,15 +116,12 @@ object F_kirim_data: TF_kirim_data
         MaxLength = 10
         TabOrder = 0
         Text = '  /  /    '
-        BoundLabel.Indent = 0
         BoundLabel.Font.Charset = DEFAULT_CHARSET
         BoundLabel.Font.Color = clWindowText
         BoundLabel.Font.Height = -11
         BoundLabel.Font.Name = 'MS Sans Serif'
         BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
+        BoundLabel.ParentFont = False
         SkinData.SkinSection = 'EDIT'
         GlyphMode.Blend = 0
         GlyphMode.Grayed = False

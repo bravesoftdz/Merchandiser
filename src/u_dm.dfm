@@ -1,8 +1,6 @@
 object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 599
-  Top = 166
   Height = 519
   Width = 474
   object db_conn: TMyConnection
@@ -86,21 +84,8 @@ object dm: Tdm
     Left = 88
     Top = 232
   end
-  object frxXMLExport1: TfrxXMLExport
-    UseFileCache = True
-    ShowProgress = True
-    OverwritePrompt = False
-    Background = True
-    Creator = 'FastReport'
-    EmptyLines = True
-    SuppressPageHeadersFooters = False
-    RowsCount = 0
-    Split = ssNotSplit
-    Left = 336
-    Top = 120
-  end
   object laporan: TfrxReport
-    Version = '4.9.35'
+    Version = '5.3.14'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -108,7 +93,7 @@ object dm: Tdm
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 41084.196632395800000000
-    ReportOptions.LastChange = 41376.582225879630000000
+    ReportOptions.LastChange = 41376.582225879640000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -137,6 +122,7 @@ object dm: Tdm
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 18.897637800000000000
         Top = 177.637910000000000000
         Width = 718.110700000000000000
@@ -147,7 +133,6 @@ object dm: Tdm
           Left = 45.354360000000000000
           Width = 75.590600000000000000
           Height = 18.897637800000000000
-          ShowHint = False
           DataField = 'kd_barang'
           DataSet = db_laporan
           DataSetName = 'db_laporan'
@@ -158,7 +143,7 @@ object dm: Tdm
           Font.Style = []
           Frame.Style = fsDot
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_laporan."kd_barang"]')
           ParentFont = False
         end
@@ -166,7 +151,6 @@ object dm: Tdm
           Left = 15.118120000000000000
           Width = 30.236240000000000000
           Height = 18.897637800000000000
-          ShowHint = False
           DataField = 'urut'
           DataSet = db_laporan
           DataSetName = 'db_laporan'
@@ -177,7 +161,7 @@ object dm: Tdm
           Font.Style = []
           Frame.Style = fsDot
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_laporan."urut"]')
           ParentFont = False
         end
@@ -185,7 +169,6 @@ object dm: Tdm
           Left = 241.889920000000000000
           Width = 389.291590000000000000
           Height = 18.897637800000000000
-          ShowHint = False
           DataField = 'n_barang'
           DataSet = db_laporan
           DataSetName = 'db_laporan'
@@ -196,7 +179,7 @@ object dm: Tdm
           Font.Style = []
           Frame.Style = fsDot
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_laporan."n_barang"]')
           ParentFont = False
         end
@@ -204,7 +187,6 @@ object dm: Tdm
           Left = 120.944960000000000000
           Width = 120.944960000000000000
           Height = 18.897637800000000000
-          ShowHint = False
           DataField = 'barcode'
           DataSet = db_laporan
           DataSetName = 'db_laporan'
@@ -215,7 +197,7 @@ object dm: Tdm
           Font.Style = []
           Frame.Style = fsDot
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_laporan."barcode"]')
           ParentFont = False
         end
@@ -223,7 +205,6 @@ object dm: Tdm
           Left = 631.181510000000000000
           Width = 86.929190000000000000
           Height = 18.897637800000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -236,6 +217,7 @@ object dm: Tdm
         end
       end
       object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
         Height = 75.590600000000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
@@ -247,7 +229,6 @@ object dm: Tdm
           Top = 26.456710000000000000
           Width = 702.992580000000000000
           Height = 26.456710000000000000
-          ShowHint = False
           DataField = 'kd_koreksi'
           DataSet = db_laporan
           DataSetName = 'db_laporan'
@@ -257,7 +238,7 @@ object dm: Tdm
           Font.Name = 'times New Roman'
           Font.Style = [fsBold]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_laporan."kd_koreksi"]')
           ParentFont = False
           VAlign = vaCenter
@@ -265,14 +246,13 @@ object dm: Tdm
         object Memo1: TfrxMemoView
           Width = 718.110700000000000000
           Height = 26.456710000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -21
           Font.Name = 'times New Roman'
           Font.Style = [fsBold]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'STOCK OPNAME (SO)')
           ParentFont = False
         end
@@ -280,7 +260,6 @@ object dm: Tdm
           Top = 30.236240000000000000
           Width = 185.196970000000000000
           Height = 26.456710000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -288,7 +267,7 @@ object dm: Tdm
           Font.Height = -19
           Font.Name = 'times New Roman'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '| [db_laporan."kd_perusahaan"] |')
           ParentFont = False
           VAlign = vaCenter
@@ -297,7 +276,6 @@ object dm: Tdm
           Top = 56.692950000000000000
           Width = 718.110700000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -306,7 +284,7 @@ object dm: Tdm
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Rak : [db_laporan."Rak"]')
           ParentFont = False
         end
@@ -315,7 +293,6 @@ object dm: Tdm
           Top = 30.236240000000000000
           Width = 207.874150000000000000
           Height = 26.456710000000000000
-          ShowHint = False
           DisplayFormat.FormatStr = 'dd mmmm yyyy'
           DisplayFormat.Kind = fkDateTime
           Font.Charset = DEFAULT_CHARSET
@@ -324,13 +301,14 @@ object dm: Tdm
           Font.Name = 'times New Roman'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Date]')
           ParentFont = False
           VAlign = vaCenter
         end
       end
       object GroupHeader2: TfrxGroupHeader
+        FillType = ftBrush
         Height = 37.795300000000000000
         Top = 117.165430000000000000
         Width = 718.110700000000000000
@@ -339,7 +317,6 @@ object dm: Tdm
           Left = 7.559060000000000000
           Width = 710.551640000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -348,7 +325,7 @@ object dm: Tdm
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Shelving : [db_laporan."Shelving"]')
           ParentFont = False
         end
@@ -357,7 +334,6 @@ object dm: Tdm
           Top = 18.897650000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -366,7 +342,7 @@ object dm: Tdm
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'PID')
           ParentFont = False
         end
@@ -375,7 +351,6 @@ object dm: Tdm
           Top = 18.897650000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -384,7 +359,7 @@ object dm: Tdm
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'No')
           ParentFont = False
         end
@@ -393,7 +368,6 @@ object dm: Tdm
           Top = 18.897650000000000000
           Width = 389.291590000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -402,7 +376,7 @@ object dm: Tdm
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Deskripsi Barang')
           ParentFont = False
         end
@@ -411,7 +385,6 @@ object dm: Tdm
           Top = 18.897650000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = db_laporan
           DataSetName = 'db_laporan'
           Font.Charset = DEFAULT_CHARSET
@@ -420,7 +393,7 @@ object dm: Tdm
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Barcode')
           ParentFont = False
         end
@@ -429,19 +402,19 @@ object dm: Tdm
           Top = 18.897650000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Jumlah Real')
           ParentFont = False
         end
       end
       object PageFooter1: TfrxPageFooter
+        FillType = ftBrush
         Height = 22.677180000000000000
         Top = 257.008040000000000000
         Width = 718.110700000000000000
@@ -450,14 +423,13 @@ object dm: Tdm
           Top = 3.779530000000000000
           Width = 192.756030000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Lembar [Page]')
           ParentFont = False
         end
@@ -1015,7 +987,12 @@ object dm: Tdm
       end>
     Left = 168
     Top = 70
-    Bitmap = {}
+    Bitmap = {
+      494C010100000800080001000100FFFFFFFF0400FFFFFFFFFFFFFFFF424D7600
+      0000000000007600000028000000040000000100000001000400000000000400
+      0000000000000000000000000000000000000000000000008000008000000080
+      8000800000008000800080800000C0C0C000808080000000FF0000FF000000FF
+      FF00FF000000FF00FF00FFFF0000FFFFFF0000000000}
   end
   object ds_koreksi: TDataSource
     DataSet = Q_koreksi
@@ -12700,7 +12677,12 @@ object dm: Tdm
       end>
     Left = 216
     Top = 72
-    Bitmap = {}
+    Bitmap = {
+      494C010100000800080001000100FFFFFFFF0400FFFFFFFFFFFFFFFF424D7600
+      0000000000007600000028000000040000000100000001000400000000000400
+      0000000000000000000000000000000000000000000000008000008000000080
+      8000800000008000800080800000C0C0C000808080000000FF0000FF000000FF
+      FF00FF000000FF00FF00FFFF0000FFFFFF0000000000}
   end
   object Q_koreksi: TMyQuery
     Connection = db_conn

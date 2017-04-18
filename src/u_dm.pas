@@ -4,9 +4,9 @@ interface
 
 uses
   SysUtils, Classes, DB, sSkinManager, frxClass, frxDBSet,
-  frxExportXML, dialogs, forms, inifiles, UFungsi, ImgList, Controls,
+  dialogs, forms, inifiles, UFungsi, ImgList, Controls,
   acAlphaImageList, frxBarcode, Windows, cxStyles, SHFolder, MemDS,
-  DBAccess, MyAccess, cxClasses;
+  DBAccess, MyAccess, cxClasses, System.ImageList;
 
 type
   Tdm = class(TDataModule)
@@ -19,7 +19,6 @@ type
     ds_mutasi: TDataSource;
     ds_mutasi_toko: TDataSource;
     ds_gross: TDataSource;
-    frxXMLExport1: TfrxXMLExport;
     laporan: TfrxReport;
     Q_laporan: TMyQuery;
     db_laporan: TfrxDBDataset;

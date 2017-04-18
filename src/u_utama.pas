@@ -6,9 +6,10 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, sStatusBar, Buttons,
   sSpeedButton, StdCtrls, sLabel, ExtCtrls, sPanel, Menus,
-  TeEngine, Series, TeeProcs, Chart, DbChart, UFungsi, 
+  UFungsi,
   sSplitter, ExtDlgs, sDialogs, sComboBox, shellapi,
-  sTabControl, DB, MemDS, DBAccess, MyAccess;
+  sTabControl, DB, MemDS, DBAccess, MyAccess, VclTee.TeeGDIPlus,
+  VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart;
 
 const
   WM_AFTER_SHOW = WM_USER + 300; // custom message
@@ -369,8 +370,13 @@ begin
   FVersion := TAppVersion.Create(Application.ExeName);
   cek_update;
   
-  DecimalSeparator := '.';
-  ThousandSeparator := ',';
+  {$IFDEF VER150}
+    DecimalSeparator := '.';
+    ThousandSeparator := ',';
+  {$ELSE}
+    FormatSettings.DecimalSeparator := '.';
+    FormatSettings.ThousandSeparator := ',';
+  {$ENDIF}
 
   dm.sm.Active := True;
 

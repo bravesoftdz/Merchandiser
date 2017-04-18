@@ -88,53 +88,6 @@ begin
   end;
 end;
 
-//===========================================
-//procedure untuk mendapatkan Local Host dan Local IP
-//=============================================
-function GetIPFromHost(var HostName, IPaddr, WSAErr: string): Boolean;
-type
-  Name = array[0..100] of Char;
-
-  PName = ^Name;
-var
-  HEnt: pHostEnt;
-  HName: PName;
-  WSAData: TWSAData;
-  i: Integer;
-begin
-  Result := False;
-  if WSAStartup($0101, WSAData) <> 0 then
-  begin
-    WSAErr := 'Winsock is not responding."';
-    Exit;
-  end;
-  IPaddr := '';
-  New(HName);
-  if GetHostName(HName^, SizeOf(Name)) = 0 then
-  begin
-    HostName := StrPas(HName^);
-    HEnt := GetHostByName(HName^);
-    for i := 0 to HEnt^.h_length - 1 do
-      IPaddr := Concat(IPaddr, IntToStr(Ord(HEnt^.h_addr_list^[i])) + '.');
-    SetLength(IPaddr, Length(IPaddr) - 1);
-    Result := True;
-  end
-  else
-  begin
-    case WSAGetLastError of
-      WSANOTINITIALISED:
-        WSAErr := 'WSANotInitialised';
-      WSAENETDOWN:
-        WSAErr := 'WSAENetDown';
-      WSAEINPROGRESS:
-        WSAErr := 'WSAEInProgress';
-    end;
-  end;
-  Dispose(HName);
-  WSACleanup;
-end;
-//=================================================
-
 procedure TF_kirim_data.cek_dir_kirim;
 begin
   if not DirectoryExists(dm.DocPath + 'DATA_KIRIM') then
@@ -164,7 +117,7 @@ var
   zipp: TAbZipper;
   Host, IP, Err, ip_kasir: string;
 begin
-  if GetIPFromHost(Host, IP, Err) then
+  if fungsi.GetIPFromHost(Host, IP, Err) then
     ip_kasir := IP //masupin local IP ke edit1
   else
     MessageDlg(Err, mtError, [mbOk], 0);
