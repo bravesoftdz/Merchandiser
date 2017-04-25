@@ -52,7 +52,7 @@ object f_Barcode: Tf_Barcode
     OnKeyPress = ed_PIDKeyPress
     SkinData.SkinSection = 'EDIT'
   end
-  object btnBarcode: TsButton
+  object btnBarcode: TButton
     Left = 384
     Top = 352
     Width = 153
@@ -61,7 +61,6 @@ object f_Barcode: Tf_Barcode
     Enabled = False
     TabOrder = 1
     OnClick = btnBarcodeClick
-    SkinData.SkinSection = 'BUTTON'
   end
   object Grid: TcxGrid
     Left = 8
@@ -160,7 +159,7 @@ object f_Barcode: Tf_Barcode
     Top = 352
   end
   object laporan: TfrxReport
-    Version = '4.9.35'
+    Version = '5.3.14'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -206,6 +205,7 @@ object f_Barcode: Tf_Barcode
         '0')
       EndlessHeight = True
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 68.031496060000000000
         Top = 18.897650000000000000
         Width = 264.567100000000000000
@@ -220,7 +220,6 @@ object f_Barcode: Tf_Barcode
           Top = 0.377952760000000000
           Width = 103.000000000000000000
           Height = 30.992125980000000000
-          ShowHint = False
           BarType = bcCode39
           Expression = '<kd_barang>'
           HAlign = haCenter
@@ -240,7 +239,6 @@ object f_Barcode: Tf_Barcode
           Top = 40.062992130000000000
           Width = 124.724490000000000000
           Height = 13.228346460000000000
-          ShowHint = False
           DataSet = dm.db_laporan
           DataSetName = 'db_laporan'
           DisplayFormat.FormatStr = '###,###,##0 ;(###,###,##0); 0'
@@ -249,7 +247,7 @@ object f_Barcode: Tf_Barcode
           Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[n_barang]')
           ParentFont = False
         end
@@ -258,7 +256,6 @@ object f_Barcode: Tf_Barcode
           Top = 29.480314960000000000
           Width = 37.795300000000000000
           Height = 15.118107800000000000
-          ShowHint = False
           DataSet = dm.db_laporan
           DataSetName = 'db_laporan'
           DisplayFormat.FormatStr = '###,###,##0 ;(###,###,##0); 0'
@@ -267,7 +264,7 @@ object f_Barcode: Tf_Barcode
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[kd_barang]')
           ParentFont = False
         end
@@ -276,7 +273,6 @@ object f_Barcode: Tf_Barcode
           Top = 29.480314960000000000
           Width = 71.811070000000000000
           Height = 15.118107800000000000
-          ShowHint = False
           DataSet = dm.db_laporan
           DataSetName = 'db_laporan'
           DisplayFormat.FormatStr = '###,###,##0 ;(###,###,##0); 0'
@@ -287,7 +283,7 @@ object f_Barcode: Tf_Barcode
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Rp.[harga_jual3]')
           ParentFont = False
         end

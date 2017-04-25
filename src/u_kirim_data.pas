@@ -27,11 +27,11 @@ type
     l_1: TLabel;
     spnl1: TsPanel;
     edt_kirim: TsDateEdit;
-    b_kirim: TsButton;
+    b_kirim: TButton;
     spnl2: TsPanel;
-    sButton3: TsButton;
-    sButton2: TsButton;
-    sButton1: TsButton;
+    sButton3: TButton;
+    sButton2: TButton;
+    sButton1: TButton;
     procedure b_kirimClick(Sender: TObject);
     procedure cek_dir_kirim;
     procedure cek_dir_terima;

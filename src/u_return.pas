@@ -44,12 +44,12 @@ type
     sLabel5: TLabel;
     sLabel6: TLabel;
     sPanel2: TsPanel;
-    b_load: TsButton;
+    b_load: TButton;
     od: TsOpenDialog;
     spnl1: TsPanel;
-    b_print: TsButton;
-    b_new: TsButton;
-    b_simpan: TsButton;
+    b_print: TButton;
+    b_new: TButton;
+    b_simpan: TButton;
     t_view_barcode: TcxGridColumn;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure bersih;

@@ -22,12 +22,12 @@ object f_lap: Tf_lap
     Width = 67
     Height = 13
     Caption = 'Macam Harga'
-    ParentFont = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
+    ParentFont = False
   end
   object sb_cari: TsSpeedButton
     Tag = 9
@@ -37,10 +37,10 @@ object f_lap: Tf_lap
     Height = 21
     OnClick = sb_cariClick
     SkinData.SkinSection = 'SPEEDBUTTON'
-    ImageIndex = 0
     Images = dm.im
+    ImageIndex = 0
   end
-  object b_preview: TsButton
+  object b_preview: TButton
     Left = 384
     Top = 8
     Width = 153
@@ -48,7 +48,6 @@ object f_lap: Tf_lap
     Caption = '&Real Card'
     TabOrder = 0
     OnClick = b_previewClick
-    SkinData.SkinSection = 'BUTTON'
   end
   object ed_cari: TsEdit
     Left = 8
@@ -65,15 +64,12 @@ object f_lap: Tf_lap
     TabOrder = 1
     OnKeyDown = ed_cariKeyDown
     SkinData.SkinSection = 'EDIT'
-    BoundLabel.Indent = 0
     BoundLabel.Font.Charset = DEFAULT_CHARSET
     BoundLabel.Font.Color = clWindowText
     BoundLabel.Font.Height = -11
     BoundLabel.Font.Name = 'MS Sans Serif'
     BoundLabel.Font.Style = []
-    BoundLabel.Layout = sclLeft
-    BoundLabel.MaxWidth = 0
-    BoundLabel.UseSkinColor = True
+    BoundLabel.ParentFont = False
   end
   object lv_data: TListView
     Left = 8
@@ -136,12 +132,12 @@ object f_lap: Tf_lap
       Width = 19
       Height = 13
       Caption = 'Dari'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = []
+      ParentFont = False
     end
     object sLabel2: TLabel
       Left = 8
@@ -149,12 +145,12 @@ object f_lap: Tf_lap
       Width = 35
       Height = 13
       Caption = 'Sampai'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = []
+      ParentFont = False
     end
     object de_mulai: TsDateEdit
       Left = 56
@@ -173,15 +169,12 @@ object f_lap: Tf_lap
       ParentFont = False
       TabOrder = 0
       Text = '  /  /    '
-      BoundLabel.Indent = 0
       BoundLabel.Font.Charset = DEFAULT_CHARSET
       BoundLabel.Font.Color = clWindowText
       BoundLabel.Font.Height = -11
       BoundLabel.Font.Name = 'MS Sans Serif'
       BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
+      BoundLabel.ParentFont = False
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False
@@ -204,15 +197,12 @@ object f_lap: Tf_lap
       TabOrder = 1
       Text = '  /  /    '
       OnChange = de_sampaiChange
-      BoundLabel.Indent = 0
       BoundLabel.Font.Charset = DEFAULT_CHARSET
       BoundLabel.Font.Color = clWindowText
       BoundLabel.Font.Height = -11
       BoundLabel.Font.Name = 'MS Sans Serif'
       BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
+      BoundLabel.ParentFont = False
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False
@@ -222,18 +212,16 @@ object f_lap: Tf_lap
     Left = 416
     Top = 360
     Width = 121
-    Height = 22
+    Height = 24
     Alignment = taLeftJustify
-    BoundLabel.Indent = 0
     BoundLabel.Font.Charset = DEFAULT_CHARSET
     BoundLabel.Font.Color = clWindowText
     BoundLabel.Font.Height = -11
     BoundLabel.Font.Name = 'MS Sans Serif'
     BoundLabel.Font.Style = []
-    BoundLabel.Layout = sclLeft
-    BoundLabel.MaxWidth = 0
-    BoundLabel.UseSkinColor = True
+    BoundLabel.ParentFont = False
     SkinData.SkinSection = 'COMBOBOX'
+    VerticalAlignment = taAlignTop
     Style = csDropDownList
     CharCase = ecUpperCase
     Color = clWhite
@@ -242,7 +230,6 @@ object f_lap: Tf_lap
     Font.Height = -13
     Font.Name = 'Rockwell'
     Font.Style = []
-    ItemHeight = 16
     ItemIndex = 0
     ParentFont = False
     TabOrder = 6
@@ -293,15 +280,12 @@ object f_lap: Tf_lap
       Height = 21
       AutoSize = False
       TabOrder = 0
-      BoundLabel.Indent = 0
       BoundLabel.Font.Charset = DEFAULT_CHARSET
       BoundLabel.Font.Color = clWindowText
       BoundLabel.Font.Height = -11
       BoundLabel.Font.Name = 'MS Sans Serif'
       BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
+      BoundLabel.ParentFont = False
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False

@@ -1,9 +1,9 @@
 object f_RO: Tf_RO
   Left = 4
   Top = 161
-  Width = 1009
-  Height = 473
   Caption = 'Receip Order (Penerimaan Barang)'
+  ClientHeight = 411
+  ClientWidth = 774
   Color = clBtnFace
   Constraints.MinHeight = 450
   Constraints.MinWidth = 790
@@ -23,10 +23,10 @@ object f_RO: Tf_RO
   PixelsPerInch = 96
   TextHeight = 13
   object panel4: TsPanel
-    Left = 843
+    Left = 624
     Top = 0
     Width = 150
-    Height = 434
+    Height = 411
     Align = alRight
     TabOrder = 1
     SkinData.SkinSection = 'PANEL'
@@ -36,6 +36,7 @@ object f_RO: Tf_RO
       Width = 148
       Height = 96
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Selesai'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -47,7 +48,6 @@ object f_RO: Tf_RO
       ParentFont = False
       Spacing = 0
       OnClick = sSpeedButton18Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 10
@@ -55,13 +55,13 @@ object f_RO: Tf_RO
     end
     object sPanel2: TsPanel
       Left = 1
-      Top = 391
+      Top = 368
       Width = 148
       Height = 42
       Align = alBottom
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
-      object b_load: TsButton
+      object b_load: TButton
         Left = 8
         Top = 9
         Width = 129
@@ -69,7 +69,6 @@ object f_RO: Tf_RO
         Caption = '&Load File'
         TabOrder = 0
         OnClick = b_loadClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
     object spnl1: TsPanel
@@ -79,7 +78,7 @@ object f_RO: Tf_RO
       Height = 97
       TabOrder = 1
       SkinData.SkinSection = 'PANEL'
-      object b_simpan: TsButton
+      object b_simpan: TButton
         Left = 8
         Top = 4
         Width = 129
@@ -87,9 +86,8 @@ object f_RO: Tf_RO
         Caption = '&Simpan'
         TabOrder = 0
         OnClick = b_simpanClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object b_new: TsButton
+      object b_new: TButton
         Left = 8
         Top = 34
         Width = 129
@@ -97,9 +95,8 @@ object f_RO: Tf_RO
         Caption = '&Baru'
         TabOrder = 1
         OnClick = b_newClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object b_print: TsButton
+      object b_print: TButton
         Left = 8
         Top = 64
         Width = 129
@@ -107,23 +104,22 @@ object f_RO: Tf_RO
         Caption = '&Print Preview'
         TabOrder = 2
         OnClick = b_printClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
   end
   object sPanel1: TsPanel
     Left = 0
     Top = 0
-    Width = 843
-    Height = 434
+    Width = 624
+    Height = 411
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
     object Grid: TcxGrid
       Left = 1
       Top = 137
-      Width = 841
-      Height = 224
+      Width = 622
+      Height = 201
       Align = alClient
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
@@ -240,7 +236,7 @@ object f_RO: Tf_RO
     object panel1: TsPanel
       Left = 1
       Top = 1
-      Width = 841
+      Width = 622
       Height = 73
       Align = alTop
       Enabled = False
@@ -249,7 +245,7 @@ object f_RO: Tf_RO
       object Mm_nama: TsMemo
         Left = 1
         Top = 1
-        Width = 559
+        Width = 340
         Height = 71
         Align = alClient
         Alignment = taCenter
@@ -267,10 +263,11 @@ object f_RO: Tf_RO
         SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
-        Left = 560
+        Left = 341
         Top = 1
         Width = 280
         Height = 71
+        Align = alRight
         AutoSize = False
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -283,7 +280,6 @@ object f_RO: Tf_RO
         ParentFont = False
         ReadOnly = True
         TabOrder = 1
-        Align = alRight
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'
@@ -296,13 +292,13 @@ object f_RO: Tf_RO
     object panel2: TsPanel
       Left = 1
       Top = 74
-      Width = 841
+      Width = 622
       Height = 63
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
       object sLabel5: TLabel
-        Left = 610
+        Left = 391
         Top = 1
         Width = 230
         Height = 61
@@ -310,12 +306,14 @@ object f_RO: Tf_RO
         Alignment = taRightJustify
         Caption = 'RECEIPT'
         Constraints.MinWidth = 230
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -53
         Font.Name = 'ARIAL'
         Font.Style = []
+        ParentFont = False
+        ExplicitLeft = 611
+        ExplicitHeight = 60
       end
       object sLabel1: TLabel
         Left = 312
@@ -323,12 +321,12 @@ object f_RO: Tf_RO
         Width = 47
         Height = 13
         Caption = 'No Faktur'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel3: TLabel
         Left = 312
@@ -336,12 +334,12 @@ object f_RO: Tf_RO
         Width = 39
         Height = 13
         Caption = 'Tanggal'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel4: TLabel
         Left = 8
@@ -349,12 +347,12 @@ object f_RO: Tf_RO
         Width = 38
         Height = 13
         Caption = 'Supplier'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object ed_no_faktur: TsEdit
         Left = 384
@@ -419,17 +417,18 @@ object f_RO: Tf_RO
     end
     object panel3: TsPanel
       Left = 1
-      Top = 361
-      Width = 841
+      Top = 338
+      Width = 622
       Height = 72
       Align = alBottom
       TabOrder = 2
       SkinData.SkinSection = 'PANEL'
       object ed_nilai_faktur: TsCurrencyEdit
-        Left = 464
+        Left = 245
         Top = 1
         Width = 376
         Height = 70
+        Align = alRight
         AutoSize = False
         BevelInner = bvLowered
         BevelKind = bkFlat
@@ -442,7 +441,6 @@ object f_RO: Tf_RO
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Align = alRight
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'

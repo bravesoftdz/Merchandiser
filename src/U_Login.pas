@@ -18,7 +18,7 @@ type
     Lbl3: TLabel;
     EdPassword: TsEdit;
     LblKeterangan: TLabel;
-    BtnLogin: TsButton;
+    BtnLogin: TButton;
     procedure simpanKodePerusahaan;
     procedure FormShow(Sender: TObject);
     procedure EdKdPenggunaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

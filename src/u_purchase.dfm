@@ -1,9 +1,9 @@
 object f_purchase: Tf_purchase
   Left = 200
   Top = 107
-  Width = 1005
-  Height = 581
   Caption = 'Purchase Order (PO)'
+  ClientHeight = 411
+  ClientWidth = 774
   Color = clBtnFace
   Constraints.MinHeight = 450
   Constraints.MinWidth = 790
@@ -24,10 +24,10 @@ object f_purchase: Tf_purchase
   PixelsPerInch = 96
   TextHeight = 13
   object panel4: TsPanel
-    Left = 839
+    Left = 624
     Top = 0
     Width = 150
-    Height = 542
+    Height = 411
     Align = alRight
     TabOrder = 1
     SkinData.SkinSection = 'PANEL'
@@ -37,6 +37,7 @@ object f_purchase: Tf_purchase
       Width = 148
       Height = 90
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Selesai'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -48,13 +49,12 @@ object f_purchase: Tf_purchase
       ParentFont = False
       Spacing = 0
       OnClick = sSpeedButton18Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 10
       Reflected = True
     end
-    object b_rekom: TsButton
+    object b_rekom: TButton
       Left = 8
       Top = 196
       Width = 129
@@ -62,17 +62,16 @@ object f_purchase: Tf_purchase
       Caption = '&RECOMENDED'
       TabOrder = 1
       OnClick = b_rekomClick
-      SkinData.SkinSection = 'BUTTON'
     end
     object sPanel2: TsPanel
       Left = 1
-      Top = 467
+      Top = 336
       Width = 148
       Height = 74
       Align = alBottom
       TabOrder = 2
       SkinData.SkinSection = 'PANEL'
-      object b_simpan_file: TsButton
+      object b_simpan_file: TButton
         Left = 8
         Top = 9
         Width = 129
@@ -80,9 +79,8 @@ object f_purchase: Tf_purchase
         Caption = 'Simpan &File'
         TabOrder = 0
         OnClick = b_simpan_fileClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object b_load: TsButton
+      object b_load: TButton
         Left = 8
         Top = 41
         Width = 129
@@ -90,7 +88,6 @@ object f_purchase: Tf_purchase
         Caption = '&Load File'
         TabOrder = 1
         OnClick = b_loadClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
     object spnl1: TsPanel
@@ -101,7 +98,7 @@ object f_purchase: Tf_purchase
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
-      object b_new: TsButton
+      object b_new: TButton
         Left = 8
         Top = 34
         Width = 129
@@ -109,9 +106,8 @@ object f_purchase: Tf_purchase
         Caption = '&Baru'
         TabOrder = 1
         OnClick = b_newClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object b_simpan: TsButton
+      object b_simpan: TButton
         Left = 8
         Top = 4
         Width = 129
@@ -119,9 +115,8 @@ object f_purchase: Tf_purchase
         Caption = '&Simpan'
         TabOrder = 0
         OnClick = b_simpanClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object b_print: TsButton
+      object b_print: TButton
         Left = 8
         Top = 64
         Width = 129
@@ -130,23 +125,22 @@ object f_purchase: Tf_purchase
         Enabled = False
         TabOrder = 2
         OnClick = b_printClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
   end
   object sPanel1: TsPanel
     Left = 0
     Top = 0
-    Width = 839
-    Height = 542
+    Width = 624
+    Height = 411
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
     object Grid: TcxGrid
       Left = 1
       Top = 170
-      Width = 837
-      Height = 299
+      Width = 622
+      Height = 168
       Align = alClient
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
@@ -267,7 +261,7 @@ object f_purchase: Tf_purchase
     object panel1: TsPanel
       Left = 1
       Top = 1
-      Width = 837
+      Width = 622
       Height = 73
       Align = alTop
       Enabled = False
@@ -276,7 +270,7 @@ object f_purchase: Tf_purchase
       object Mm_nama: TsMemo
         Left = 1
         Top = 1
-        Width = 555
+        Width = 340
         Height = 71
         Align = alClient
         Alignment = taCenter
@@ -294,10 +288,11 @@ object f_purchase: Tf_purchase
         SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
-        Left = 556
+        Left = 341
         Top = 1
         Width = 280
         Height = 71
+        Align = alRight
         AutoSize = False
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -310,7 +305,6 @@ object f_purchase: Tf_purchase
         ParentFont = False
         ReadOnly = True
         TabOrder = 1
-        Align = alRight
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'
@@ -323,16 +317,16 @@ object f_purchase: Tf_purchase
     object panel2: TsPanel
       Left = 1
       Top = 74
-      Width = 837
+      Width = 622
       Height = 96
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
       DesignSize = (
-        837
+        622
         96)
       object sLabel5: TLabel
-        Left = 544
+        Left = 329
         Top = 1
         Width = 292
         Height = 63
@@ -340,19 +334,22 @@ object f_purchase: Tf_purchase
         Alignment = taRightJustify
         Caption = 'PURCHASE'
         Constraints.MinWidth = 220
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -53
         Font.Name = 'ARIAL'
         Font.Style = []
+        ParentFont = False
+        ExplicitLeft = 544
+        ExplicitHeight = 60
       end
       object sBevel1: TsBevel
         Left = 1
         Top = 64
-        Width = 835
+        Width = 620
         Height = 31
         Align = alBottom
+        ExplicitWidth = 835
       end
       object sLabel1: TLabel
         Left = 8
@@ -360,12 +357,12 @@ object f_purchase: Tf_purchase
         Width = 62
         Height = 13
         Caption = 'No Purchase'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel3: TLabel
         Left = 8
@@ -373,12 +370,12 @@ object f_purchase: Tf_purchase
         Width = 39
         Height = 13
         Caption = 'Tanggal'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel4: TLabel
         Left = 8
@@ -386,12 +383,12 @@ object f_purchase: Tf_purchase
         Width = 38
         Height = 13
         Caption = 'Supplier'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object sb_cari: TsSpeedButton
         Tag = 9
@@ -466,7 +463,7 @@ object f_purchase: Tf_purchase
       object ed_code: TsEdit
         Left = 264
         Top = 70
-        Width = 569
+        Width = 354
         Height = 21
         Anchors = [akLeft, akTop, akRight]
         CharCase = ecUpperCase
@@ -483,7 +480,7 @@ object f_purchase: Tf_purchase
         SkinData.CustomColor = True
         SkinData.SkinSection = 'EDIT'
       end
-      object b_auto: TsButton
+      object b_auto: TButton
         Left = 232
         Top = 32
         Width = 73
@@ -491,23 +488,23 @@ object f_purchase: Tf_purchase
         Caption = '&Auto Kode'
         TabOrder = 2
         OnClick = b_autoClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
     object panel3: TsPanel
       Left = 1
-      Top = 469
-      Width = 837
+      Top = 338
+      Width = 622
       Height = 72
       Align = alBottom
       Enabled = False
       TabOrder = 2
       SkinData.SkinSection = 'PANEL'
       object ed_nilai_faktur: TsCurrencyEdit
-        Left = 460
+        Left = 245
         Top = 1
         Width = 376
         Height = 70
+        Align = alRight
         AutoSize = False
         BevelInner = bvLowered
         BevelKind = bkFlat
@@ -520,7 +517,6 @@ object f_purchase: Tf_purchase
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Align = alRight
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'

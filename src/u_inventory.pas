@@ -81,7 +81,7 @@ type
     L_hasil: TLabel;
     ed_temp: TsEdit;
     ud_cari: TsUpDown;
-    B_Cari: TsButton;
+    B_Cari: TButton;
     rb_minO: TsRadioButton;
     rb_minS: TsRadioButton;
     rb_maxS: TsRadioButton;
@@ -109,9 +109,9 @@ type
     ed_time: TsEdit;
     db_mutasi: TfrxDBDataset;
     laporan: TfrxReport;
-    B_Print: TsButton;
+    B_Print: TButton;
     db_laporan: TfrxDBDataset;
-    sButton1: TsButton;
+    sButton1: TButton;
     procedure ubah_detail;
     procedure FormShow(Sender: TObject);
     procedure Ed_CariChange(Sender: TObject);

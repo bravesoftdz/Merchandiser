@@ -31,8 +31,8 @@ type
     t_data_planoColumn8: TcxGridDBColumn;
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
-    b_cetak: TsButton;
-    sButton1: TsButton;
+    b_cetak: TButton;
+    sButton1: TButton;
     procedure se_rakChange(Sender: TObject);
     procedure se_shelvingChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

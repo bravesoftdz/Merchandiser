@@ -24,12 +24,12 @@ object f_planogram: Tf_planogram
     Width = 20
     Height = 13
     Caption = 'Rak'
-    ParentFont = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
+    ParentFont = False
   end
   object sLabel3: TLabel
     Left = 136
@@ -37,12 +37,12 @@ object f_planogram: Tf_planogram
     Width = 41
     Height = 13
     Caption = 'Shelving'
-    ParentFont = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
+    ParentFont = False
   end
   object se_rak: TsSpinEdit
     Left = 56
@@ -60,7 +60,9 @@ object f_planogram: Tf_planogram
     Text = '0'
     OnChange = se_rakChange
     SkinData.SkinSection = 'EDIT'
-    Increment = 1
+    MaxValue = 0
+    MinValue = 0
+    Value = 0
   end
   object se_shelving: TsSpinEdit
     Left = 184
@@ -79,7 +81,9 @@ object f_planogram: Tf_planogram
     Text = '0'
     OnChange = se_shelvingChange
     SkinData.SkinSection = 'EDIT'
-    Increment = 1
+    MaxValue = 0
+    MinValue = 0
+    Value = 0
   end
   object grid_plano: TcxGrid
     Left = 8
@@ -159,7 +163,7 @@ object f_planogram: Tf_planogram
       GridView = t_data_plano
     end
   end
-  object b_cetak: TsButton
+  object b_cetak: TButton
     Left = 656
     Top = 8
     Width = 201
@@ -167,9 +171,8 @@ object f_planogram: Tf_planogram
     Caption = 'Cetak &Semua Planogram'
     TabOrder = 3
     OnClick = b_cetakClick
-    SkinData.SkinSection = 'BUTTON'
   end
-  object sButton1: TsButton
+  object sButton1: TButton
     Left = 264
     Top = 8
     Width = 201
@@ -177,7 +180,6 @@ object f_planogram: Tf_planogram
     Caption = '&Cetak Planogram per Rak'
     TabOrder = 4
     OnClick = sButton1Click
-    SkinData.SkinSection = 'BUTTON'
   end
   object sSkinProvider1: TsSkinProvider
     SkinData.SkinSection = 'FORM'

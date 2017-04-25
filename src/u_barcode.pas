@@ -16,7 +16,7 @@ uses
 type
   Tf_Barcode = class(TForm)
     ed_PID: TsEdit;
-    btnBarcode: TsButton;
+    btnBarcode: TButton;
     sSkinProvider1: TsSkinProvider;
     sb_cari: TsSpeedButton;
     Grid: TcxGrid;

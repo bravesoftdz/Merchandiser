@@ -13,12 +13,12 @@ uses
 
 type
   TF_toko = class(TForm)
-    sButton2: TsButton;
+    sButton2: TButton;
     cb_periode: TsComboBox;
-    btnMutasi: TsButton;
-    btnGross: TsButton;
+    btnMutasi: TButton;
+    btnGross: TButton;
     lbl1: TLabel;
-    btnMutasiHarga: TsButton;
+    btnMutasiHarga: TButton;
     procedure btnGrossClick(Sender: TObject);
     procedure btnMutasiClick(Sender: TObject);
     procedure sButton2Click(Sender: TObject);
@@ -57,7 +57,7 @@ begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from tb_mutasi_bulan where MONTH(tgl)="' + bulan +
     '" and YEAR(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', true);
-  if TsButton(Sender).Name = 'btnMutasi' then
+  if TButton(Sender).Name = 'btnMutasi' then
     dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_mutasi_global_stok.fr3')
   else
     dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_mutasi_global_uang.fr3');

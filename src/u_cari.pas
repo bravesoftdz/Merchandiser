@@ -21,10 +21,10 @@ type
     grid: TcxGrid;
     t_data: TcxGridDBTableView;
     l_data: TcxGridLevel;
-    BtnPilih: TsButton;
+    BtnPilih: TButton;
     ds_cari: TDataSource;
     Q_cari: TMyQuery;
-    BtnKeluar: TsButton;
+    BtnKeluar: TButton;
     procedure Ed_cariChange(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);

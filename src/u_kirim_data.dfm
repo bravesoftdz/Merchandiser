@@ -39,10 +39,6 @@ object F_kirim_data: TF_kirim_data
     SkinData.SkinSection = 'PAGECONTROL'
     object ts_1: TsTabSheet
       Caption = 'Kirim Data'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object l_1: TLabel
         Left = 0
         Top = 40
@@ -87,7 +83,7 @@ object F_kirim_data: TF_kirim_data
           GlyphMode.Blend = 0
           GlyphMode.Grayed = False
         end
-        object b_kirim: TsButton
+        object b_kirim: TButton
           Left = 332
           Top = 8
           Width = 132
@@ -96,7 +92,6 @@ object F_kirim_data: TF_kirim_data
           Caption = '&Kirim Data'
           TabOrder = 1
           OnClick = b_kirimClick
-          SkinData.SkinSection = 'BUTTON'
         end
       end
     end
@@ -190,7 +185,7 @@ object F_kirim_data: TF_kirim_data
         DesignSize = (
           471
           41)
-        object sButton3: TsButton
+        object sButton3: TButton
           Left = 280
           Top = 8
           Width = 188
@@ -199,9 +194,8 @@ object F_kirim_data: TF_kirim_data
           Caption = '&Simpan Data ke Dalam Database'
           TabOrder = 0
           OnClick = sButton3Click
-          SkinData.SkinSection = 'BUTTON'
         end
-        object sButton2: TsButton
+        object sButton2: TButton
           Left = 144
           Top = 8
           Width = 130
@@ -210,9 +204,8 @@ object F_kirim_data: TF_kirim_data
           Caption = 'Load From File'
           TabOrder = 1
           OnClick = sButton2Click
-          SkinData.SkinSection = 'BUTTON'
         end
-        object sButton1: TsButton
+        object sButton1: TButton
           Left = 4
           Top = 8
           Width = 129
@@ -221,7 +214,6 @@ object F_kirim_data: TF_kirim_data
           Caption = 'Load From Date'
           TabOrder = 2
           OnClick = sButton1Click
-          SkinData.SkinSection = 'BUTTON'
         end
       end
     end

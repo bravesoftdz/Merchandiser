@@ -1,9 +1,9 @@
 object f_stok_opname: Tf_stok_opname
   Left = 299
   Top = 133
-  Width = 958
-  Height = 519
   Caption = 'Stock Opname'
+  ClientHeight = 411
+  ClientWidth = 774
   Color = clBtnFace
   Constraints.MinHeight = 450
   Constraints.MinWidth = 790
@@ -24,10 +24,10 @@ object f_stok_opname: Tf_stok_opname
   PixelsPerInch = 96
   TextHeight = 13
   object panel4: TsPanel
-    Left = 792
+    Left = 624
     Top = 0
     Width = 150
-    Height = 480
+    Height = 411
     Align = alRight
     TabOrder = 1
     SkinData.SkinSection = 'PANEL'
@@ -37,6 +37,7 @@ object f_stok_opname: Tf_stok_opname
       Width = 148
       Height = 90
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Selesai'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -48,7 +49,6 @@ object f_stok_opname: Tf_stok_opname
       ParentFont = False
       Spacing = 0
       OnClick = sSpeedButton18Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 10
@@ -62,7 +62,7 @@ object f_stok_opname: Tf_stok_opname
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
-      object BtnCetak: TsButton
+      object BtnCetak: TButton
         Left = 8
         Top = 8
         Width = 129
@@ -70,9 +70,8 @@ object f_stok_opname: Tf_stok_opname
         Caption = '&Cetak Lembar SO'
         TabOrder = 0
         OnClick = BtnCetakClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object BtnKoreksi: TsButton
+      object BtnKoreksi: TButton
         Left = 8
         Top = 40
         Width = 129
@@ -80,9 +79,8 @@ object f_stok_opname: Tf_stok_opname
         Caption = 'Koreksi SO'
         TabOrder = 1
         OnClick = BtnKoreksiClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object BtnSimpan: TsButton
+      object BtnSimpan: TButton
         Left = 8
         Top = 76
         Width = 129
@@ -90,18 +88,17 @@ object f_stok_opname: Tf_stok_opname
         Caption = '&Simpan'
         TabOrder = 2
         OnClick = BtnSimpanClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
     object pnl1: TsPanel
       Left = 1
-      Top = 408
+      Top = 339
       Width = 148
       Height = 71
       Align = alBottom
       TabOrder = 1
       SkinData.SkinSection = 'PANEL'
-      object BtnBaru: TsButton
+      object BtnBaru: TButton
         Left = 8
         Top = 10
         Width = 129
@@ -109,9 +106,8 @@ object f_stok_opname: Tf_stok_opname
         Caption = '&Baru'
         TabOrder = 0
         OnClick = BtnBaruClick
-        SkinData.SkinSection = 'BUTTON'
       end
-      object BtnBatal: TsButton
+      object BtnBatal: TButton
         Left = 8
         Top = 40
         Width = 129
@@ -119,22 +115,21 @@ object f_stok_opname: Tf_stok_opname
         Caption = 'Batalkan SO'
         TabOrder = 1
         OnClick = BtnBatalClick
-        SkinData.SkinSection = 'BUTTON'
       end
     end
   end
   object sPanel1: TsPanel
     Left = 0
     Top = 0
-    Width = 792
-    Height = 480
+    Width = 624
+    Height = 411
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
     object panel1: TsPanel
       Left = 1
       Top = 1
-      Width = 790
+      Width = 622
       Height = 73
       Align = alTop
       Enabled = False
@@ -143,7 +138,7 @@ object f_stok_opname: Tf_stok_opname
       object Mm_nama: TsMemo
         Left = 1
         Top = 1
-        Width = 508
+        Width = 340
         Height = 71
         Align = alClient
         Alignment = taCenter
@@ -161,10 +156,11 @@ object f_stok_opname: Tf_stok_opname
         SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
-        Left = 509
+        Left = 341
         Top = 1
         Width = 280
         Height = 71
+        Align = alRight
         AutoSize = False
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -177,7 +173,6 @@ object f_stok_opname: Tf_stok_opname
         ParentFont = False
         ReadOnly = True
         TabOrder = 1
-        Align = alRight
         SkinData.CustomColor = True
         SkinData.CustomFont = True
         SkinData.SkinSection = 'PANEL'
@@ -190,13 +185,13 @@ object f_stok_opname: Tf_stok_opname
     object panel2: TsPanel
       Left = 1
       Top = 74
-      Width = 790
+      Width = 622
       Height = 119
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
       object sLabel5: TLabel
-        Left = 366
+        Left = 198
         Top = 1
         Width = 423
         Height = 86
@@ -204,19 +199,22 @@ object f_stok_opname: Tf_stok_opname
         Alignment = taRightJustify
         Caption = 'STOCK OPNAME'
         Constraints.MinWidth = 220
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -53
         Font.Name = 'ARIAL'
         Font.Style = []
+        ParentFont = False
+        ExplicitLeft = 366
+        ExplicitHeight = 60
       end
       object sBevel1: TsBevel
         Left = 1
         Top = 87
-        Width = 788
+        Width = 620
         Height = 31
         Align = alBottom
+        ExplicitWidth = 788
       end
       object sLabel1: TLabel
         Left = 8
@@ -224,12 +222,12 @@ object f_stok_opname: Tf_stok_opname
         Width = 43
         Height = 13
         Caption = 'Kode SO'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        ParentFont = False
       end
       object Sb_cari: TsSpeedButton
         Tag = 9
@@ -271,7 +269,7 @@ object f_stok_opname: Tf_stok_opname
         OnKeyPress = ed_codeKeyPress
         SkinData.SkinSection = 'EDIT'
       end
-      object BtnAuto: TsButton
+      object BtnAuto: TButton
         Left = 296
         Top = 8
         Width = 65
@@ -279,7 +277,6 @@ object f_stok_opname: Tf_stok_opname
         Caption = '&Auto'
         TabOrder = 1
         OnClick = BtnAutoClick
-        SkinData.SkinSection = 'BUTTON'
       end
       object rg_pilihan: TsRadioGroup
         Left = 8
@@ -302,7 +299,7 @@ object f_stok_opname: Tf_stok_opname
           'Semua Rak'
           'Rak No')
       end
-      object BtnTambah: TsButton
+      object BtnTambah: TButton
         Left = 296
         Top = 36
         Width = 65
@@ -317,13 +314,13 @@ object f_stok_opname: Tf_stok_opname
         ParentFont = False
         TabOrder = 4
         OnClick = BtnTambahClick
-        SkinData.SkinSection = 'BUTTON'
       end
       object se_rak: TsDecimalSpinEdit
         Left = 224
         Top = 46
         Width = 57
         Height = 21
+        Alignment = taCenter
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -333,7 +330,6 @@ object f_stok_opname: Tf_stok_opname
         TabOrder = 5
         Text = '1'
         SkinData.SkinSection = 'EDIT'
-        Alignment = taCenter
         Increment = 1.000000000000000000
         Value = 1.000000000000000000
         DecimalPlaces = 0
@@ -342,8 +338,8 @@ object f_stok_opname: Tf_stok_opname
     object grid: TcxGrid
       Left = 1
       Top = 193
-      Width = 790
-      Height = 286
+      Width = 622
+      Height = 217
       Align = alClient
       TabOrder = 2
       object t_koreksi: TcxGridDBTableView
@@ -417,8 +413,8 @@ object f_stok_opname: Tf_stok_opname
         OptionsView.Indicator = True
         OptionsView.IndicatorWidth = 14
         Styles.Inactive = dm.cxstyl1
-        Styles.Selection = dm.cxstyl1
         Styles.Indicator = dm.cxstyl1
+        Styles.Selection = dm.cxstyl1
         object t_koreksiRak: TcxGridDBColumn
           DataBinding.FieldName = 'Rak'
           Options.Editing = False
