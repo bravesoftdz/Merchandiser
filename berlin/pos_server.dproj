@@ -46,6 +46,12 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <VerInfo_Release>25</VerInfo_Release>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_MinorVer>4</VerInfo_MinorVer>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_MajorVer>17</VerInfo_MajorVer>
+        <VerInfo_Keys>CompanyName=Ngalah Developer;FileDescription=$(MSBuildProjectName);FileVersion=17.4.25.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Gain Profit;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
@@ -60,13 +66,11 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;dxmdsRS24;dxSkinBlueprintRS24;DBXInterBaseDriver;dxPSDBTeeChartRS24;vclactnband;dxSpreadSheetRS24;vclFireDAC;tethering;svnui;dxSkinVisualStudio2013BlueRS24;FireDACADSDriver;dxFireDACServerModeRS24;dxSkinMetropolisRS24;dxSkinMoneyTwinsRS24;dxSkinOffice2007BlackRS24;dxPSTeeChartRS24;dxPScxPCProdRS24;vcltouch;vcldb;bindcompfmx;svn;dxSkinXmas2008BlueRS24;Intraweb;inetdb;dxSkinOffice2016ColorfulRS24;dxSkinOffice2010BlackRS24;dxADOServerModeRS24;FmxTeeUI;dacfmx240;dxGDIPlusRS24;FireDACIBDriver;fmx;fmxdae;dxSkinSpringTimeRS24;frx24;vclib;dxSkinLondonLiquidSkyRS24;dxSkinLilianRS24;dxSkinValentineRS24;dxSkinWhiteprintRS24;crcontrols240;AbbreviaVCLD;dbexpress;IndyCore;dxSkiniMaginaryRS24;vclx;dxSkinOffice2016DarkRS24;dsnap;dxSkinOffice2007PinkRS24;dxPSdxSpreadSheetLnkRS24;cxDataRS24;FireDACCommon;dxSkinDevExpressDarkStyleRS24;RESTBackendComponents;VCLRESTComponents;dxSkinDevExpressStyleRS24;soapserver;dxSkinOffice2013LightGrayRS24;cxExportRS24;mydacvcl240;dxOfficeCoreRS24;dac240;dxSkinVisualStudio2013LightRS24;vclie;dxSkinMetropolisDarkRS24;bindengine;DBXMySQLDriver;CloudService;FireDACMySQLDriver;dxPScxCommonRS24;FireDACCommonODBC;FireDACCommonDriver;dxSkinBlackRS24;dxSkinSharpRS24;inet;dxPSLnksRS24;bindcompdbx;IndyIPCommon;dxSkinCoffeeRS24;dxSkinVS2010RS24;vcl;IndyIPServer;dxSkinSharpPlusRS24;dxCoreRS24;IndySystem;dxThemeRS24;acntDX10Berlin_R;dxSkinOffice2013DarkGrayRS24;dsnapcon;dxSkinOffice2007GreenRS24;FireDACMSAccDriver;fmxFireDAC;vclimg;TeeDB;FireDAC;dxPScxGridLnkRS24;dxSkinDarkSideRS24;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;dxSkinOffice2010BlueRS24;dxSkinOffice2013WhiteRS24;dxPSdxLCLnkRS24;FMXTee;dxServerModeRS24;dxPScxExtCommonRS24;soaprtl;DbxCommonDriver;mydac240;ibxpress;Tee;dacvcl240;xmlrtl;soapmidas;ibxbindings;fmxobj;vclwinx;dxSkinMcSkinRS24;rtl;dxLayoutControlRS24;DbxClientDriver;dxSkinOffice2007BlueRS24;dxPSCoreRS24;frxTee24;CustomIPTransport;vcldsnap;dxSkinBlueRS24;dxSkinGlassOceansRS24;cxLibraryRS24;dxSkinStardustRS24;dxSkinSummer2008RS24;dxSkinCaramelRS24;bindcomp;appanalytics;dxSkinsCoreRS24;dxDBXServerModeRS24;dxSkinDarkRoomRS24;dxSkinFoggyRS24;IndyIPClient;dxSkinHighContrastRS24;dxSkinOffice2010SilverRS24;bindcompvcl;cxGridRS24;dxSkinTheAsphaltWorldRS24;TeeUI;frxe24;cxPageControlRS24;cxEditorsRS24;dxSkinSevenClassicRS24;dbxcds;VclSmp;EntityDac;adortl;dxSkinSilverRS24;mydacfmx240;dxSkinVisualStudio2013DarkRS24;dxComnRS24;dxSkinPumpkinRS24;mysqlmon240;dxSkinscxPCPainterRS24;frxDB24;dxSpreadSheetReportDesignerRS24;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;dxSkinOffice2007SilverRS24;dxSkinSevenRS24;dxSkinLiquidSkyRS24;dxHttpIndyRequestRS24;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;dxmdsRS24;dxSkinBlueprintRS24;DBXInterBaseDriver;dxPSDBTeeChartRS24;vclactnband;dxSpreadSheetRS24;vclFireDAC;tethering;dxSkinVisualStudio2013BlueRS24;FireDACADSDriver;dxFireDACServerModeRS24;dxSkinMetropolisRS24;dxSkinMoneyTwinsRS24;dxSkinOffice2007BlackRS24;dxPSTeeChartRS24;dxPScxPCProdRS24;vcltouch;vcldb;bindcompfmx;dxSkinXmas2008BlueRS24;Intraweb;inetdb;dxSkinOffice2016ColorfulRS24;dxSkinOffice2010BlackRS24;dxADOServerModeRS24;FmxTeeUI;dxGDIPlusRS24;FireDACIBDriver;fmx;fmxdae;dxSkinSpringTimeRS24;vclib;dxSkinLondonLiquidSkyRS24;dxSkinLilianRS24;dxSkinValentineRS24;dxSkinWhiteprintRS24;AbbreviaVCLD;dbexpress;IndyCore;dxSkiniMaginaryRS24;vclx;dxSkinOffice2016DarkRS24;dsnap;dxSkinOffice2007PinkRS24;dxPSdxSpreadSheetLnkRS24;cxDataRS24;FireDACCommon;dxSkinDevExpressDarkStyleRS24;RESTBackendComponents;VCLRESTComponents;dxSkinDevExpressStyleRS24;soapserver;dxSkinOffice2013LightGrayRS24;cxExportRS24;dxOfficeCoreRS24;dxSkinVisualStudio2013LightRS24;vclie;dxSkinMetropolisDarkRS24;bindengine;DBXMySQLDriver;CloudService;FireDACMySQLDriver;dxPScxCommonRS24;FireDACCommonODBC;FireDACCommonDriver;dxSkinBlackRS24;dxSkinSharpRS24;inet;dxPSLnksRS24;bindcompdbx;IndyIPCommon;dxSkinCoffeeRS24;dxSkinVS2010RS24;vcl;IndyIPServer;dxSkinSharpPlusRS24;dxCoreRS24;IndySystem;dxThemeRS24;dxSkinOffice2013DarkGrayRS24;dsnapcon;dxSkinOffice2007GreenRS24;FireDACMSAccDriver;fmxFireDAC;vclimg;TeeDB;FireDAC;dxPScxGridLnkRS24;dxSkinDarkSideRS24;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;dxSkinOffice2010BlueRS24;dxSkinOffice2013WhiteRS24;dxPSdxLCLnkRS24;FMXTee;dxServerModeRS24;dxPScxExtCommonRS24;soaprtl;DbxCommonDriver;ibxpress;Tee;xmlrtl;soapmidas;ibxbindings;fmxobj;vclwinx;dxSkinMcSkinRS24;rtl;dxLayoutControlRS24;DbxClientDriver;dxSkinOffice2007BlueRS24;dxPSCoreRS24;CustomIPTransport;vcldsnap;dxSkinBlueRS24;dxSkinGlassOceansRS24;cxLibraryRS24;dxSkinStardustRS24;dxSkinSummer2008RS24;dxSkinCaramelRS24;bindcomp;appanalytics;dxSkinsCoreRS24;dxDBXServerModeRS24;dxSkinDarkRoomRS24;dxSkinFoggyRS24;IndyIPClient;dxSkinHighContrastRS24;dxSkinOffice2010SilverRS24;bindcompvcl;cxGridRS24;dxSkinTheAsphaltWorldRS24;TeeUI;cxPageControlRS24;cxEditorsRS24;dxSkinSevenClassicRS24;dbxcds;VclSmp;adortl;dxSkinSilverRS24;dxSkinVisualStudio2013DarkRS24;dxComnRS24;dxSkinPumpkinRS24;dxSkinscxPCPainterRS24;dxSpreadSheetReportDesignerRS24;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;dxSkinOffice2007SilverRS24;dxSkinSevenRS24;dxSkinLiquidSkyRS24;dxHttpIndyRequestRS24;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -80,15 +84,9 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Release>18</VerInfo_Release>
         <AppEnableHighDPI>true</AppEnableHighDPI>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=17.8.18.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <VerInfo_MinorVer>8</VerInfo_MinorVer>
-        <VerInfo_MajorVer>17</VerInfo_MajorVer>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -98,6 +96,7 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
     </PropertyGroup>
@@ -223,27 +222,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -622,12 +606,27 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
