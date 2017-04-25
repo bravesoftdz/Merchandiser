@@ -87,7 +87,7 @@ object F_Utama: TF_Utama
         Width = 50
       end>
   end
-  object sCoolBar1: TPanel
+  object PnlHeader: TPanel
     Left = 0
     Top = 0
     Width = 899
