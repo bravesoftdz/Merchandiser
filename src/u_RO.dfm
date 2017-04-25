@@ -237,7 +237,7 @@ object f_RO: Tf_RO
       Align = alTop
       Enabled = False
       TabOrder = 3
-      object Mm_nama: TsMemo
+      object Mm_nama: TMemo
         Left = 1
         Top = 1
         Width = 340
@@ -253,9 +253,6 @@ object f_RO: Tf_RO
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.CustomColor = True
-        SkinData.CustomFont = True
-        SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
         Left = 341
@@ -292,10 +289,10 @@ object f_RO: Tf_RO
       Align = alTop
       TabOrder = 0
       object sLabel5: TLabel
-        Left = 391
+        Left = 392
         Top = 1
         Width = 230
-        Height = 61
+        Height = 60
         Align = alRight
         Alignment = taRightJustify
         Caption = 'RECEIPT'
@@ -306,8 +303,6 @@ object f_RO: Tf_RO
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 392
-        ExplicitHeight = 60
       end
       object sLabel1: TLabel
         Left = 312

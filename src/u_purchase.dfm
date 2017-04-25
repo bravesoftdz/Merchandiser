@@ -262,7 +262,7 @@ object f_purchase: Tf_purchase
       Align = alTop
       Enabled = False
       TabOrder = 3
-      object Mm_nama: TsMemo
+      object Mm_nama: TMemo
         Left = 1
         Top = 1
         Width = 340
@@ -278,9 +278,6 @@ object f_purchase: Tf_purchase
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.CustomColor = True
-        SkinData.CustomFont = True
-        SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
         Left = 341

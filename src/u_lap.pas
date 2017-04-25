@@ -15,7 +15,7 @@ type
     ed_cari: TEdit;
     lv_data: TListView;
     lb_data: TListBox;
-    cb_karep: TsCheckBox;
+    cb_karep: TCheckBox;
     gb_tgl: TGroupBox;
     sLabel1: TLabel;
     de_mulai: TsDateEdit;

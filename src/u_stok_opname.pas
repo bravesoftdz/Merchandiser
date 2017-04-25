@@ -21,7 +21,7 @@ type
     panel4: TPanel;
     sPanel1: TPanel;
     panel1: TPanel;
-    Mm_nama: TsMemo;
+    Mm_nama: TMemo;
     ce_harga: TsCurrencyEdit;
     panel2: TPanel;
     sBevel1: TsBevel;

@@ -100,7 +100,7 @@ object f_lap: Tf_lap
     TabOrder = 3
     Visible = False
   end
-  object cb_karep: TsCheckBox
+  object cb_karep: TCheckBox
     Left = 8
     Top = 360
     Width = 235
@@ -108,9 +108,6 @@ object f_lap: Tf_lap
     Caption = '&Tentukan Sendiri Barang yang akan dicetak'
     TabOrder = 4
     OnClick = cb_karepClick
-    SkinData.SkinSection = 'CHECKBOX'
-    ImgChecked = 0
-    ImgUnchecked = 0
   end
   object gb_tgl: TGroupBox
     Left = 8

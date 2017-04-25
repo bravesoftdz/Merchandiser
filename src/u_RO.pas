@@ -27,7 +27,7 @@ type
     t_view_HPP: TcxGridColumn;
     Level: TcxGridLevel;
     panel1: TPanel;
-    Mm_nama: TsMemo;
+    Mm_nama: TMemo;
     ce_harga: TsCurrencyEdit;
     panel2: TPanel;
     sLabel1: TLabel;

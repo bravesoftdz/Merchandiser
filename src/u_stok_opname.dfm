@@ -130,7 +130,7 @@ object f_stok_opname: Tf_stok_opname
       Align = alTop
       Enabled = False
       TabOrder = 1
-      object Mm_nama: TsMemo
+      object Mm_nama: TMemo
         Left = 1
         Top = 1
         Width = 340
@@ -146,9 +146,6 @@ object f_stok_opname: Tf_stok_opname
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.CustomColor = True
-        SkinData.CustomFont = True
-        SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
         Left = 341

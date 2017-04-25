@@ -237,7 +237,7 @@ object f_return: Tf_return
       Align = alTop
       Enabled = False
       TabOrder = 3
-      object Mm_nama: TsMemo
+      object Mm_nama: TMemo
         Left = 1
         Top = 1
         Width = 420
@@ -253,9 +253,6 @@ object f_return: Tf_return
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.CustomColor = True
-        SkinData.CustomFont = True
-        SkinData.SkinSection = 'PANEL'
       end
       object ce_harga: TsCurrencyEdit
         Left = 421
@@ -295,7 +292,7 @@ object f_return: Tf_return
         Left = 481
         Top = 1
         Width = 220
-        Height = 61
+        Height = 60
         Align = alRight
         Alignment = taRightJustify
         Caption = 'RETURN'
@@ -306,7 +303,6 @@ object f_return: Tf_return
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitHeight = 60
       end
       object sLabel1: TLabel
         Left = 8
