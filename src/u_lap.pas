@@ -16,7 +16,7 @@ type
     lv_data: TListView;
     lb_data: TListBox;
     cb_karep: TsCheckBox;
-    gb_tgl: TsGroupBox;
+    gb_tgl: TGroupBox;
     sLabel1: TLabel;
     de_mulai: TsDateEdit;
     de_sampai: TsDateEdit;
@@ -32,7 +32,7 @@ type
     N1: TMenuItem;
     rbHarga: TsRadioButton;
     rbRak: TsRadioButton;
-    gb_Rak: TsGroupBox;
+    gb_Rak: TGroupBox;
     l_1: TLabel;
     edRak: TsCurrencyEdit;
     procedure b_previewClick(Sender: TObject);

@@ -109,13 +109,12 @@ object F_Setor: TF_Setor
       GridView = t_data
     end
   end
-  object gb_1: TsGroupBox
+  object gb_1: TGroupBox
     Left = 8
     Top = 56
     Width = 657
     Height = 137
     TabOrder = 1
-    SkinData.SkinSection = 'GROUPBOX'
     object l_1: TLabel
       Left = 8
       Top = 16

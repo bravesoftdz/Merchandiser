@@ -30,7 +30,7 @@ type
     t_datastatus: TcxGridDBColumn;
     t_datakomp: TcxGridDBColumn;
     t_datan_user: TcxGridDBColumn;
-    gb_1: TsGroupBox;
+    gb_1: TGroupBox;
     l_1: TLabel;
     l_3: TLabel;
     ed_Kd_kasir: TEdit;

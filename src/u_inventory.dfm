@@ -122,7 +122,7 @@ object F_Inventory: TF_Inventory
         Height = 96
         Align = alBottom
         TabOrder = 0
-        object gb_kondisi: TsGroupBox
+        object gb_kondisi: TGroupBox
           Left = 209
           Top = 1
           Width = 112
@@ -130,7 +130,6 @@ object F_Inventory: TF_Inventory
           Align = alLeft
           Caption = '| Kondisi|'
           TabOrder = 0
-          SkinData.SkinSection = 'GROUPBOX'
           object rb_like: TsRadioButton
             Left = 8
             Top = 16
@@ -203,7 +202,7 @@ object F_Inventory: TF_Inventory
             SkinData.SkinSection = 'RADIOBUTTON'
           end
         end
-        object gb_saring: TsGroupBox
+        object gb_saring: TGroupBox
           Left = 1
           Top = 1
           Width = 208
@@ -211,7 +210,6 @@ object F_Inventory: TF_Inventory
           Align = alLeft
           Caption = '| Penyaringan|'
           TabOrder = 1
-          SkinData.SkinSection = 'GROUPBOX'
           object rb_plu: TsRadioButton
             Left = 8
             Top = 24
@@ -255,14 +253,13 @@ object F_Inventory: TF_Inventory
             SkinData.SkinSection = 'RADIOBUTTON'
           end
         end
-        object sGroupBox6: TsGroupBox
+        object sGroupBox6: TGroupBox
           Left = 321
           Top = 1
           Width = 293
           Height = 94
           Align = alClient
           TabOrder = 2
-          SkinData.SkinSection = 'GROUPBOX'
           object L_hasil: TLabel
             Left = 96
             Top = 46
@@ -548,7 +545,7 @@ object F_Inventory: TF_Inventory
         ReadOnly = True
         TabOrder = 3
       end
-      object sGroupBox1: TsGroupBox
+      object sGroupBox1: TGroupBox
         Left = 344
         Top = 24
         Width = 265
@@ -561,7 +558,6 @@ object F_Inventory: TF_Inventory
         Font.Style = []
         ParentFont = False
         TabOrder = 4
-        SkinData.SkinSection = 'GROUPBOX'
         object sLabel11: TLabel
           Left = 8
           Top = 30
@@ -647,7 +643,7 @@ object F_Inventory: TF_Inventory
           TabOrder = 2
         end
       end
-      object sGroupBox2: TsGroupBox
+      object sGroupBox2: TGroupBox
         Left = 424
         Top = 160
         Width = 185
@@ -660,7 +656,6 @@ object F_Inventory: TF_Inventory
         Font.Style = []
         ParentFont = False
         TabOrder = 5
-        SkinData.SkinSection = 'GROUPBOX'
         object sLabel6: TLabel
           Left = 8
           Top = 26
@@ -774,7 +769,7 @@ object F_Inventory: TF_Inventory
           TabOrder = 3
         end
       end
-      object sGroupBox3: TsGroupBox
+      object sGroupBox3: TGroupBox
         Left = 48
         Top = 160
         Width = 201
@@ -787,7 +782,6 @@ object F_Inventory: TF_Inventory
         Font.Style = []
         ParentFont = False
         TabOrder = 6
-        SkinData.SkinSection = 'GROUPBOX'
         object ed_sat1: TEdit
           Left = 8
           Top = 24
@@ -864,7 +858,7 @@ object F_Inventory: TF_Inventory
           TabOrder = 4
         end
       end
-      object sGroupBox4: TsGroupBox
+      object sGroupBox4: TGroupBox
         Left = 256
         Top = 160
         Width = 161
@@ -877,7 +871,6 @@ object F_Inventory: TF_Inventory
         Font.Style = []
         ParentFont = False
         TabOrder = 7
-        SkinData.SkinSection = 'GROUPBOX'
         object ed_bar1: TEdit
           Left = 8
           Top = 24
@@ -924,7 +917,7 @@ object F_Inventory: TF_Inventory
           TabOrder = 2
         end
       end
-      object sGroupBox5: TsGroupBox
+      object sGroupBox5: TGroupBox
         Left = 0
         Top = 288
         Width = 417
@@ -937,7 +930,6 @@ object F_Inventory: TF_Inventory
         Font.Style = []
         ParentFont = False
         TabOrder = 8
-        SkinData.SkinSection = 'GROUPBOX'
         object sLabel17: TLabel
           Left = 8
           Top = 28

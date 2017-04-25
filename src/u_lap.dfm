@@ -112,13 +112,12 @@ object f_lap: Tf_lap
     ImgChecked = 0
     ImgUnchecked = 0
   end
-  object gb_tgl: TsGroupBox
+  object gb_tgl: TGroupBox
     Left = 8
     Top = 40
     Width = 201
     Height = 73
     TabOrder = 5
-    SkinData.SkinSection = 'GROUPBOX'
     object sLabel1: TLabel
       Left = 8
       Top = 24
@@ -242,13 +241,12 @@ object f_lap: Tf_lap
     TabOrder = 8
     SkinData.SkinSection = 'RADIOBUTTON'
   end
-  object gb_Rak: TsGroupBox
+  object gb_Rak: TGroupBox
     Left = 216
     Top = 40
     Width = 145
     Height = 73
     TabOrder = 9
-    SkinData.SkinSection = 'GROUPBOX'
     object l_1: TLabel
       Left = 8
       Top = 16
