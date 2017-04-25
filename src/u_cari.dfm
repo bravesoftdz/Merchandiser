@@ -21,7 +21,7 @@ object f_cari: Tf_cari
     455)
   PixelsPerInch = 96
   TextHeight = 13
-  object Ed_cari: TsEdit
+  object Ed_cari: TEdit
     Left = 4
     Top = 8
     Width = 557
@@ -36,8 +36,6 @@ object f_cari: Tf_cari
     ParentFont = False
     TabOrder = 0
     OnChange = Ed_cariChange
-    SkinData.CustomColor = True
-    SkinData.SkinSection = 'EDIT'
   end
   object grid: TcxGrid
     Left = 4

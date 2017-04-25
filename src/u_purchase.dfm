@@ -394,7 +394,7 @@ object f_purchase: Tf_purchase
         Images = dm.im
         ImageIndex = 0
       end
-      object ed_no_faktur: TsEdit
+      object ed_no_faktur: TEdit
         Left = 80
         Top = 32
         Width = 145
@@ -410,8 +410,6 @@ object f_purchase: Tf_purchase
         TabOrder = 1
         OnChange = ed_no_fakturChange
         OnKeyDown = ed_no_fakturKeyDown
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
       object ed_tgl: TsDateEdit
         Left = 80
@@ -435,7 +433,7 @@ object f_purchase: Tf_purchase
         GlyphMode.Grayed = False
         DefaultToday = True
       end
-      object ed_supplier: TsEdit
+      object ed_supplier: TEdit
         Left = 80
         Top = 8
         Width = 145
@@ -450,10 +448,8 @@ object f_purchase: Tf_purchase
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
-      object ed_code: TsEdit
+      object ed_code: TEdit
         Left = 264
         Top = 70
         Width = 354
@@ -470,8 +466,6 @@ object f_purchase: Tf_purchase
         TabOrder = 4
         OnKeyDown = ed_codeKeyDown
         OnKeyPress = ed_codeKeyPress
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
       object b_auto: TButton
         Left = 232

@@ -12,11 +12,11 @@ type
   TF_Login = class(TForm)
     sb: TsStatusBar;
     Lbl1: TLabel;
-    EdKdPengguna: TsEdit;
+    EdKdPengguna: TEdit;
     Lbl2: TLabel;
-    EdNamaPengguna: TsEdit;
+    EdNamaPengguna: TEdit;
     Lbl3: TLabel;
-    EdPassword: TsEdit;
+    EdPassword: TEdit;
     LblKeterangan: TLabel;
     BtnLogin: TButton;
     procedure simpanKodePerusahaan;

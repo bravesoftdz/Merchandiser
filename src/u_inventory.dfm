@@ -271,14 +271,14 @@ object F_Inventory: TF_Inventory
             Alignment = taRightJustify
             AutoSize = False
             Caption = 'Ada 1200 Item'
-            ParentFont = False
             Font.Charset = DEFAULT_CHARSET
             Font.Color = 1184274
             Font.Height = -13
             Font.Name = 'Rockwell'
             Font.Style = []
+            ParentFont = False
           end
-          object Ed_Cari: TsEdit
+          object Ed_Cari: TEdit
             Left = 8
             Top = 12
             Width = 280
@@ -292,15 +292,8 @@ object F_Inventory: TF_Inventory
             ParentFont = False
             TabOrder = 0
             OnChange = Ed_CariChange
-            SkinData.SkinSection = 'EDIT'
-            BoundLabel.Font.Charset = DEFAULT_CHARSET
-            BoundLabel.Font.Color = clWindowText
-            BoundLabel.Font.Height = -11
-            BoundLabel.Font.Name = 'MS Sans Serif'
-            BoundLabel.Font.Style = []
-            BoundLabel.ParentFont = False
           end
-          object ed_temp: TsEdit
+          object ed_temp: TEdit
             Left = 107
             Top = 32
             Width = 57
@@ -315,13 +308,6 @@ object F_Inventory: TF_Inventory
             TabOrder = 1
             Text = 'ed_temp'
             Visible = False
-            SkinData.SkinSection = 'EDIT'
-            BoundLabel.Font.Charset = DEFAULT_CHARSET
-            BoundLabel.Font.Color = clWindowText
-            BoundLabel.Font.Height = -11
-            BoundLabel.Font.Name = 'MS Sans Serif'
-            BoundLabel.Font.Style = []
-            BoundLabel.ParentFont = False
           end
           object ud_cari: TsUpDown
             Left = 120
@@ -402,12 +388,12 @@ object F_Inventory: TF_Inventory
         Width = 34
         Height = 19
         Caption = 'Jenis'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel2: TLabel
         Left = 0
@@ -415,12 +401,12 @@ object F_Inventory: TF_Inventory
         Width = 39
         Height = 19
         Caption = 'Merk'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel3: TLabel
         Left = 0
@@ -428,12 +414,12 @@ object F_Inventory: TF_Inventory
         Width = 72
         Height = 19
         Caption = 'Golongan'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel4: TLabel
         Left = 0
@@ -441,12 +427,12 @@ object F_Inventory: TF_Inventory
         Width = 63
         Height = 19
         Caption = 'Kategori'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object l_aktif: TLabel
         Left = 424
@@ -456,12 +442,12 @@ object F_Inventory: TF_Inventory
         Alignment = taCenter
         AutoSize = False
         Caption = 'AKTIF'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -27
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel14: TLabel
         Left = 0
@@ -469,12 +455,12 @@ object F_Inventory: TF_Inventory
         Width = 32
         Height = 19
         Caption = 'Satu'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel15: TLabel
         Left = 0
@@ -482,12 +468,12 @@ object F_Inventory: TF_Inventory
         Width = 30
         Height = 19
         Caption = 'Dua'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel16: TLabel
         Left = 0
@@ -495,14 +481,14 @@ object F_Inventory: TF_Inventory
         Width = 32
         Height = 19
         Caption = 'Tiga'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -16
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
-      object Ed_golongan: TsEdit
+      object Ed_golongan: TEdit
         Left = 88
         Top = 64
         Width = 249
@@ -516,15 +502,8 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
-      object Ed_Merk: TsEdit
+      object Ed_Merk: TEdit
         Left = 88
         Top = 96
         Width = 249
@@ -538,15 +517,8 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 1
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
-      object Ed_Kategori: TsEdit
+      object Ed_Kategori: TEdit
         Left = 88
         Top = 128
         Width = 249
@@ -560,15 +532,8 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 2
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
-      object Ed_Jenis: TsEdit
+      object Ed_Jenis: TEdit
         Left = 88
         Top = 32
         Width = 249
@@ -582,13 +547,6 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 3
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
       object sGroupBox1: TsGroupBox
         Left = 344
@@ -610,12 +568,12 @@ object F_Inventory: TF_Inventory
           Width = 70
           Height = 19
           Caption = 'Transaksi'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel12: TLabel
           Left = 8
@@ -623,12 +581,12 @@ object F_Inventory: TF_Inventory
           Width = 84
           Height = 19
           Caption = 'Pengiriman'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel13: TLabel
           Left = 8
@@ -636,14 +594,14 @@ object F_Inventory: TF_Inventory
           Width = 54
           Height = 19
           Caption = 'Kosong'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
-        object ed_trans_ah: TsEdit
+        object ed_trans_ah: TEdit
           Left = 104
           Top = 24
           Width = 153
@@ -657,15 +615,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_kirim_ah: TsEdit
+        object ed_kirim_ah: TEdit
           Left = 104
           Top = 56
           Width = 153
@@ -679,15 +630,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 1
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_kosong_ah: TsEdit
+        object ed_kosong_ah: TEdit
           Left = 104
           Top = 88
           Width = 153
@@ -701,13 +645,6 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 2
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
       end
       object sGroupBox2: TsGroupBox
@@ -730,12 +667,12 @@ object F_Inventory: TF_Inventory
           Width = 63
           Height = 19
           Caption = 'Min Stok'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel9: TLabel
           Left = 8
@@ -743,12 +680,12 @@ object F_Inventory: TF_Inventory
           Width = 77
           Height = 19
           Caption = 'Min Order'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel8: TLabel
           Left = 8
@@ -756,12 +693,12 @@ object F_Inventory: TF_Inventory
           Width = 76
           Height = 19
           Caption = 'Lead Time'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel7: TLabel
           Left = 8
@@ -769,14 +706,14 @@ object F_Inventory: TF_Inventory
           Width = 68
           Height = 19
           Caption = 'Max Stok'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
-        object ed_minstok: TsEdit
+        object ed_minstok: TEdit
           Left = 104
           Top = 28
           Width = 73
@@ -790,15 +727,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_maxstok: TsEdit
+        object ed_maxstok: TEdit
           Left = 104
           Top = 60
           Width = 73
@@ -812,15 +742,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 1
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_minor: TsEdit
+        object ed_minor: TEdit
           Left = 104
           Top = 92
           Width = 73
@@ -834,15 +757,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 2
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_time: TsEdit
+        object ed_time: TEdit
           Left = 104
           Top = 124
           Width = 73
@@ -856,13 +772,6 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 3
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
       end
       object sGroupBox3: TsGroupBox
@@ -879,7 +788,7 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         TabOrder = 6
         SkinData.SkinSection = 'GROUPBOX'
-        object ed_sat1: TsEdit
+        object ed_sat1: TEdit
           Left = 8
           Top = 24
           Width = 105
@@ -893,15 +802,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_sat2: TsEdit
+        object ed_sat2: TEdit
           Left = 8
           Top = 56
           Width = 105
@@ -915,15 +817,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 1
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_sat3: TsEdit
+        object ed_sat3: TEdit
           Left = 8
           Top = 88
           Width = 105
@@ -937,15 +832,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 2
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_qty1: TsEdit
+        object ed_qty1: TEdit
           Left = 120
           Top = 24
           Width = 73
@@ -959,15 +847,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 3
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_qty2: TsEdit
+        object ed_qty2: TEdit
           Left = 120
           Top = 56
           Width = 73
@@ -981,13 +862,6 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 4
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
       end
       object sGroupBox4: TsGroupBox
@@ -1004,7 +878,7 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         TabOrder = 7
         SkinData.SkinSection = 'GROUPBOX'
-        object ed_bar1: TsEdit
+        object ed_bar1: TEdit
           Left = 8
           Top = 24
           Width = 145
@@ -1018,15 +892,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_bar2: TsEdit
+        object ed_bar2: TEdit
           Left = 8
           Top = 56
           Width = 145
@@ -1040,15 +907,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 1
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_bar3: TsEdit
+        object ed_bar3: TEdit
           Left = 8
           Top = 88
           Width = 145
@@ -1062,13 +922,6 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 2
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
       end
       object sGroupBox5: TsGroupBox
@@ -1091,12 +944,12 @@ object F_Inventory: TF_Inventory
           Width = 53
           Height = 19
           Caption = 'No Rak'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel18: TLabel
           Left = 8
@@ -1104,12 +957,12 @@ object F_Inventory: TF_Inventory
           Width = 88
           Height = 19
           Caption = 'No Shelving'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel19: TLabel
           Left = 8
@@ -1117,12 +970,12 @@ object F_Inventory: TF_Inventory
           Width = 57
           Height = 19
           Caption = 'No Urut'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel20: TLabel
           Left = 216
@@ -1130,12 +983,12 @@ object F_Inventory: TF_Inventory
           Width = 20
           Height = 19
           Caption = 'LD'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel21: TLabel
           Left = 320
@@ -1143,12 +996,12 @@ object F_Inventory: TF_Inventory
           Width = 20
           Height = 19
           Caption = 'AB'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel22: TLabel
           Left = 216
@@ -1156,12 +1009,12 @@ object F_Inventory: TF_Inventory
           Width = 20
           Height = 19
           Caption = 'KK'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel23: TLabel
           Left = 320
@@ -1169,12 +1022,12 @@ object F_Inventory: TF_Inventory
           Width = 21
           Height = 19
           Caption = 'DB'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
         object sLabel24: TLabel
           Left = 216
@@ -1182,14 +1035,14 @@ object F_Inventory: TF_Inventory
           Width = 86
           Height = 19
           Caption = 'Min Display'
-          ParentFont = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 1184274
           Font.Height = -16
           Font.Name = 'Rockwell'
           Font.Style = []
+          ParentFont = False
         end
-        object Ed_urut: TsEdit
+        object Ed_urut: TEdit
           Left = 112
           Top = 80
           Width = 89
@@ -1203,15 +1056,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object Ed_shelving: TsEdit
+        object Ed_shelving: TEdit
           Left = 112
           Top = 52
           Width = 89
@@ -1225,15 +1071,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 1
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object Ed_rak: TsEdit
+        object Ed_rak: TEdit
           Left = 112
           Top = 24
           Width = 89
@@ -1247,15 +1086,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 2
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_LD: TsEdit
+        object ed_LD: TEdit
           Left = 248
           Top = 52
           Width = 57
@@ -1269,15 +1101,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 3
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_AB: TsEdit
+        object ed_AB: TEdit
           Left = 352
           Top = 52
           Width = 57
@@ -1291,15 +1116,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 4
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_KK: TsEdit
+        object ed_KK: TEdit
           Left = 248
           Top = 80
           Width = 57
@@ -1313,15 +1131,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 5
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object ed_DB: TsEdit
+        object ed_DB: TEdit
           Left = 352
           Top = 80
           Width = 57
@@ -1335,15 +1146,8 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 6
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
-        object Ed_min_display: TsEdit
+        object Ed_min_display: TEdit
           Left = 312
           Top = 24
           Width = 97
@@ -1357,16 +1161,9 @@ object F_Inventory: TF_Inventory
           ParentFont = False
           ReadOnly = True
           TabOrder = 7
-          SkinData.SkinSection = 'EDIT'
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'MS Sans Serif'
-          BoundLabel.Font.Style = []
-          BoundLabel.ParentFont = False
         end
       end
-      object ed_pid: TsEdit
+      object ed_pid: TEdit
         Left = 0
         Top = 0
         Width = 81
@@ -1380,15 +1177,8 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 9
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
-      object ed_nama: TsEdit
+      object ed_nama: TEdit
         Left = 88
         Top = 0
         Width = 521
@@ -1402,23 +1192,12 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 10
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
     end
     object ts_mutasi: TsTabSheet
       BorderWidth = 1
       Caption = 'Mutasi'
       OnClickBtn = ts_mutasiClickBtn
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object sLabel10: TLabel
         Left = 72
         Top = 32
@@ -1427,12 +1206,12 @@ object F_Inventory: TF_Inventory
         Alignment = taCenter
         AutoSize = False
         Caption = 'MUTASI BARANG'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -27
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object sLabel25: TLabel
         Left = 72
@@ -1442,12 +1221,12 @@ object F_Inventory: TF_Inventory
         Alignment = taCenter
         AutoSize = False
         Caption = 'MUTASI RUPIAH'
-        ParentFont = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 1184274
         Font.Height = -27
         Font.Name = 'Rockwell'
         Font.Style = []
+        ParentFont = False
       end
       object DBGrid1: TDBGrid
         Left = 72
@@ -1602,7 +1381,7 @@ object F_Inventory: TF_Inventory
             Visible = True
           end>
       end
-      object ed_pid2: TsEdit
+      object ed_pid2: TEdit
         Left = 0
         Top = 0
         Width = 81
@@ -1616,15 +1395,8 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 2
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
-      object ed_nama2: TsEdit
+      object ed_nama2: TEdit
         Left = 88
         Top = 0
         Width = 521
@@ -1638,13 +1410,6 @@ object F_Inventory: TF_Inventory
         ParentFont = False
         ReadOnly = True
         TabOrder = 3
-        SkinData.SkinSection = 'EDIT'
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'MS Sans Serif'
-        BoundLabel.Font.Style = []
-        BoundLabel.ParentFont = False
       end
       object B_Print: TButton
         Left = 464

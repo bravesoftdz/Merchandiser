@@ -348,7 +348,7 @@ object f_RO: Tf_RO
         Font.Style = []
         ParentFont = False
       end
-      object ed_no_faktur: TsEdit
+      object ed_no_faktur: TEdit
         Left = 384
         Top = 8
         Width = 225
@@ -364,8 +364,6 @@ object f_RO: Tf_RO
         ReadOnly = True
         TabOrder = 1
         OnChange = ed_no_fakturChange
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
       object ed_tgl: TsDateEdit
         Left = 384
@@ -390,7 +388,7 @@ object f_RO: Tf_RO
         GlyphMode.Grayed = False
         DefaultToday = True
       end
-      object ed_supplier: TsEdit
+      object ed_supplier: TEdit
         Left = 72
         Top = 8
         Width = 201
@@ -405,8 +403,6 @@ object f_RO: Tf_RO
         ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
     end
     object panel3: TPanel

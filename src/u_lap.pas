@@ -12,7 +12,7 @@ uses
 type
   Tf_lap = class(TForm)
     b_preview: TButton;
-    ed_cari: TsEdit;
+    ed_cari: TEdit;
     lv_data: TListView;
     lb_data: TListBox;
     cb_karep: TsCheckBox;

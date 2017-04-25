@@ -49,7 +49,7 @@ object f_lap: Tf_lap
     TabOrder = 0
     OnClick = b_previewClick
   end
-  object ed_cari: TsEdit
+  object ed_cari: TEdit
     Left = 8
     Top = 120
     Width = 497
@@ -63,13 +63,6 @@ object f_lap: Tf_lap
     ParentFont = False
     TabOrder = 1
     OnKeyDown = ed_cariKeyDown
-    SkinData.SkinSection = 'EDIT'
-    BoundLabel.Font.Charset = DEFAULT_CHARSET
-    BoundLabel.Font.Color = clWindowText
-    BoundLabel.Font.Height = -11
-    BoundLabel.Font.Name = 'MS Sans Serif'
-    BoundLabel.Font.Style = []
-    BoundLabel.ParentFont = False
   end
   object lv_data: TListView
     Left = 8

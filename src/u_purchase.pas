@@ -33,10 +33,10 @@ type
     sLabel3: TLabel;
     sLabel4: TLabel;
     sb_cari: TsSpeedButton;
-    ed_no_faktur: TsEdit;
+    ed_no_faktur: TEdit;
     ed_tgl: TsDateEdit;
-    ed_supplier: TsEdit;
-    ed_code: TsEdit;
+    ed_supplier: TEdit;
+    ed_code: TEdit;
     panel3: TPanel;
     ed_nilai_faktur: TsCurrencyEdit;
     sSpeedButton18: TsSpeedButton;

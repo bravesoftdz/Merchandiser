@@ -233,7 +233,7 @@ object f_stok_opname: Tf_stok_opname
         Images = dm.im
         ImageIndex = 0
       end
-      object ed_kodeSO: TsEdit
+      object ed_kodeSO: TEdit
         Left = 56
         Top = 8
         Width = 233
@@ -248,10 +248,8 @@ object f_stok_opname: Tf_stok_opname
         TabOrder = 0
         OnChange = ed_kodeSOChange
         OnKeyDown = ed_kodeSOKeyDown
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
-      object ed_code: TsEdit
+      object ed_code: TEdit
         Left = 37
         Top = 94
         Width = 1174
@@ -260,7 +258,6 @@ object f_stok_opname: Tf_stok_opname
         TabOrder = 2
         OnKeyDown = ed_codeKeyDown
         OnKeyPress = ed_codeKeyPress
-        SkinData.SkinSection = 'EDIT'
       end
       object BtnAuto: TButton
         Left = 296

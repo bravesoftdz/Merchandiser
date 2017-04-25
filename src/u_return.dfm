@@ -360,7 +360,7 @@ object f_return: Tf_return
         Font.Style = []
         ParentFont = False
       end
-      object ed_no_faktur: TsEdit
+      object ed_no_faktur: TEdit
         Left = 88
         Top = 8
         Width = 169
@@ -376,8 +376,6 @@ object f_return: Tf_return
         ReadOnly = True
         TabOrder = 0
         OnChange = ed_no_fakturChange
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
       object ed_tgl: TsDateEdit
         Left = 312
@@ -402,7 +400,7 @@ object f_return: Tf_return
         GlyphMode.Grayed = False
         DefaultToday = True
       end
-      object ed_supplier: TsEdit
+      object ed_supplier: TEdit
         Left = 312
         Top = 6
         Width = 137
@@ -417,10 +415,8 @@ object f_return: Tf_return
         ParentFont = False
         ReadOnly = True
         TabOrder = 2
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
-      object ed_fak_receipt: TsEdit
+      object ed_fak_receipt: TEdit
         Left = 88
         Top = 32
         Width = 169
@@ -436,8 +432,6 @@ object f_return: Tf_return
         ReadOnly = True
         TabOrder = 1
         OnChange = ed_fak_receiptChange
-        SkinData.CustomColor = True
-        SkinData.SkinSection = 'EDIT'
       end
     end
     object panel3: TPanel

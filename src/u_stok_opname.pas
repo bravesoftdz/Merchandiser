@@ -26,8 +26,8 @@ type
     panel2: TPanel;
     sBevel1: TsBevel;
     sLabel1: TLabel;
-    ed_kodeSO: TsEdit;
-    ed_code: TsEdit;
+    ed_kodeSO: TEdit;
+    ed_code: TEdit;
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
     sLabel5: TLabel;

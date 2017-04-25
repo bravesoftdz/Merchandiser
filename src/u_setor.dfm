@@ -181,7 +181,7 @@ object F_Setor: TF_Setor
       Font.Style = []
       ParentFont = False
     end
-    object ed_Kd_kasir: TsEdit
+    object ed_Kd_kasir: TEdit
       Left = 112
       Top = 16
       Width = 249
@@ -197,7 +197,6 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 0
       OnKeyDown = ed_Kd_kasirKeyDown
-      SkinData.SkinSection = 'EDIT'
     end
     object ed_set_Real: TsCurrencyEdit
       Left = 464
@@ -255,7 +254,7 @@ object F_Setor: TF_Setor
       OnClick = b_cetakClick
       SkinData.SkinSection = 'BUTTON'
     end
-    object edNama: TsEdit
+    object edNama: TEdit
       Left = 112
       Top = 48
       Width = 249
@@ -271,9 +270,8 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 4
       OnKeyDown = ed_Kd_kasirKeyDown
-      SkinData.SkinSection = 'EDIT'
     end
-    object edWaktu: TsEdit
+    object edWaktu: TEdit
       Left = 112
       Top = 80
       Width = 249
@@ -289,9 +287,8 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 5
       OnKeyDown = ed_Kd_kasirKeyDown
-      SkinData.SkinSection = 'EDIT'
     end
-    object edIP: TsEdit
+    object edIP: TEdit
       Left = 464
       Top = 16
       Width = 177
@@ -307,7 +304,6 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 6
       OnKeyDown = ed_Kd_kasirKeyDown
-      SkinData.SkinSection = 'EDIT'
     end
   end
   object p1: TPanel

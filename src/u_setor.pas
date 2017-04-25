@@ -33,7 +33,7 @@ type
     gb_1: TsGroupBox;
     l_1: TLabel;
     l_3: TLabel;
-    ed_Kd_kasir: TsEdit;
+    ed_Kd_kasir: TEdit;
     ed_set_Real: TsCurrencyEdit;
     b_simpan: TsBitBtn;
     b_cetak: TsBitBtn;
@@ -42,10 +42,10 @@ type
     b_refresh: TsBitBtn;
     de_trans: TsDateEdit;
     sLabel1: TLabel;
-    edNama: TsEdit;
+    edNama: TEdit;
     sLabel2: TLabel;
-    edWaktu: TsEdit;
-    edIP: TsEdit;
+    edWaktu: TEdit;
+    edIP: TEdit;
     sLabel3: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

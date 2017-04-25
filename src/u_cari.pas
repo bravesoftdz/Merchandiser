@@ -17,7 +17,7 @@ type
 
   Tf_cari = class(TForm)
     sSkinProvider1: TsSkinProvider;
-    Ed_cari: TsEdit;
+    Ed_cari: TEdit;
     grid: TcxGrid;
     t_data: TcxGridDBTableView;
     l_data: TcxGridLevel;
