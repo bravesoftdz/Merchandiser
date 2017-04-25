@@ -23,7 +23,7 @@ object f_list_so_plan: Tf_list_so_plan
   object grid: TcxGrid
     Left = 0
     Top = 0
-    Width = 762
+    Width = 154
     Height = 0
     Align = alClient
     TabOrder = 0

@@ -4,13 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, UFungsi, sEdit, sButton, ExtCtrls, DBCtrls, sSkinProvider,
+  Dialogs, UFungsi, ExtCtrls, DBCtrls, sSkinProvider,
   cxCustomData, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, cxStyles, 
-  MyAccess, cxFilter, cxData, MemDS, DBAccess, StdCtrls, cxLookAndFeels,
+  cxGridTableView, cxGridDBTableView, cxGrid, cxStyles,
+  MyAccess, StdCtrls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
-  dxSkinscxPCPainter, cxNavigator;
+  dxSkinscxPCPainter, cxNavigator, cxFilter, cxData, MemDS, DBAccess;
 
 type
   NewControl = class(TControl);

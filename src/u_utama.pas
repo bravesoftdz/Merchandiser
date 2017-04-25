@@ -4,12 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, sStatusBar, Buttons,
-  sSpeedButton, StdCtrls, sLabel, ExtCtrls, sPanel, Menus,
+  Dialogs, ComCtrls, Buttons,
+  sSpeedButton, StdCtrls, ExtCtrls, Menus,
   UFungsi,
-  sSplitter, ExtDlgs, sDialogs, sComboBox, shellapi,
-  sTabControl, DB, MemDS, DBAccess, MyAccess, VclTee.TeeGDIPlus,
-  VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart;
+  ExtDlgs, sDialogs, shellapi,
+  DB, MemDS, DBAccess, MyAccess,
+  VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart,
+  VclTee.TeeGDIPlus;
 
 const
   WM_AFTER_SHOW = WM_USER + 300; // custom message

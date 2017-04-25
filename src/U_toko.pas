@@ -4,12 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ComCtrls, Buttons, DBCtrls, 
-  sButton, sLabel, ExtCtrls,
-  UFungsi, cxStyles, 
+  Dialogs, Menus, ComCtrls, Buttons, DBCtrls,
+  ExtCtrls,
+  UFungsi, cxStyles,
   cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, 
-  cxClasses, cxControls, cxGridCustomView, cxGrid, sComboBox, StdCtrls;
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxClasses, cxControls, cxGridCustomView, cxGrid, StdCtrls;
 
 type
   TF_toko = class(TForm)

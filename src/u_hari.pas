@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, sLabel, StdCtrls;
+  Dialogs, StdCtrls;
 
 type
   Tf_hari = class(TForm)

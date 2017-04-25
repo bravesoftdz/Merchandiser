@@ -4,14 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, sButton,
-  sLabel, UFungsi, ComCtrls, sEdit, 
-  sSkinProvider, Buttons, sSpeedButton, Menus, 
-  cxStyles, cxCustomData, cxGraphics, 
+  Dialogs,
+  UFungsi, ComCtrls,
+  sSkinProvider, Buttons, sSpeedButton, Menus,
+  cxStyles, cxCustomData, cxGraphics,
   cxDataStorage, cxEdit, cxCurrencyEdit, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxClasses, cxControls, cxGridCustomView, cxGrid, frxClass,
-  cxFilter, cxData, StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
-  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
+  StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
+  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator,
+  cxFilter, cxData;
 
 type
   Tf_Barcode = class(TForm)

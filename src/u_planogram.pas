@@ -4,13 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, sLabel, UFungsi, sSpinEdit, sButton,
+  Dialogs, Buttons, UFungsi,
   sSkinProvider, cxStyles, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
-  cxClasses, cxControls, cxGridCustomView, cxGrid, cxCustomData, cxFilter,
-  cxData, StdCtrls, sEdit, cxLookAndFeels, cxLookAndFeelPainters,
+  cxClasses, cxControls, cxGridCustomView, cxGrid,
+  StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
   dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator,
-  Vcl.Samples.Spin;
+  Vcl.Samples.Spin, cxCustomData, cxFilter, cxData;
 
 type
   Tf_planogram = class(TForm)

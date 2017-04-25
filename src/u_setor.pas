@@ -4,16 +4,16 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, sLabel, sEdit, UFungsi, DB, 
-  sCustomComboEdit, sCurrEdit, sCurrencyEdit, Buttons, sBitBtn, frxClass,
-  frxDBSet, cxStyles, 
+  Dialogs, UFungsi, DB,
+  sCustomComboEdit, sCurrEdit, sCurrencyEdit, Buttons, frxClass,
+  frxDBSet, cxStyles,
   cxGraphics, cxDataStorage, cxEdit, cxDBData, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls, sGroupBox,
-  cxCurrencyEdit, sTooledit, ExtCtrls, sPanel, Menus, cxCustomData,
-  cxFilter, cxData, StdCtrls, Mask, sMaskEdit, cxLookAndFeels,
+  cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls,
+  cxCurrencyEdit, sTooledit, ExtCtrls, Menus,
+  StdCtrls, Mask, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
-  dxSkinscxPCPainter, cxNavigator;
+  dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData, sMaskEdit;
 
 type
   TF_Setor = class(TForm)

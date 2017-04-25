@@ -4,14 +4,15 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sTooledit, sEdit, Buttons, sSpeedButton, sButton, Mask,
-  sCustomComboEdit, sCurrEdit, sCurrencyEdit, sLabel, ExtCtrls,
-  sPanel, sMemo, cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxGridLevel,
+  Dialogs, StdCtrls, sTooledit, Buttons, sSpeedButton, Mask,
+  sCustomComboEdit, sCurrEdit, sCurrencyEdit, ExtCtrls,
+  cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, sBevel, ComCtrls,
-  sSkinProvider, cxImageComboBox, cxStyles, sDialogs, cxFilter, cxData,
-  sMaskEdit, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
-  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
+  cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, ComCtrls,
+  sSkinProvider, cxImageComboBox, cxStyles, sDialogs,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, cxFilter, cxData,
+  sMaskEdit;
 
 type
   Tf_purchase = class(TForm)

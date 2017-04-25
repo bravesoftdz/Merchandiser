@@ -6,13 +6,14 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, cxStyles, cxGraphics, cxDataStorage,
   cxEdit, DB, cxDBData, cxCurrencyEdit, sSkinProvider, Buttons,
-  ExtCtrls, sPanel, cxGridLevel, cxGridCustomTableView, cxGridTableView,
+  ExtCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
-  sSpeedButton, 
-  UFungsi, MemDS, DBAccess,
-  MyAccess, cxCustomData, cxFilter, cxData, cxLookAndFeels,
+  sSpeedButton,
+  UFungsi,
+  MyAccess, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
-  dxSkinscxPCPainter, cxNavigator;
+  dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData, MemDS,
+  DBAccess;
 
 type
   Tf_list_so_plan = class(TForm)

@@ -4,17 +4,18 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, sEdit, Buttons, sSpeedButton, sButton, 
-  sCurrencyEdit, sLabel, ExtCtrls,
-  sPanel, sMemo, cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxGridLevel,
+  Dialogs, Buttons, sSpeedButton,
+  sCurrencyEdit, ExtCtrls,
+  cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, sBevel, ComCtrls,
+  cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, ComCtrls,
   sSkinProvider, cxImageComboBox, cxStyles, sDialogs,
-  DB, cxDBData, cxGridDBTableView, sSpinEdit, sGroupBox,
-  StdCtrls, Mask, sMaskEdit,
-  sCustomComboEdit, sCurrEdit, MemDS, DBAccess, MyAccess, cxFilter, cxData,
+  DB, cxDBData, cxGridDBTableView,
+  StdCtrls, Mask,
+  MemDS, DBAccess, MyAccess,
   cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
-  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, Vcl.Samples.Spin;
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, Vcl.Samples.Spin,
+  cxFilter, cxData, sMaskEdit, sCustomComboEdit, sCurrEdit;
 
 type
   Tf_stok_opname = class(TForm)

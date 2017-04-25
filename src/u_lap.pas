@@ -4,10 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sTooledit, sButton,
-  sLabel, UFungsi, ComCtrls, sEdit, sCheckBox, sGroupBox, sComboBox,
+  Dialogs, StdCtrls, sTooledit,
+  UFungsi, ComCtrls,
   sSkinProvider, Buttons, sSpeedButton, Menus, sCurrEdit, sCurrencyEdit,
-  sRadioButton, Mask, sMaskEdit, sCustomComboEdit;
+  Mask, sMaskEdit, sCustomComboEdit;
 
 type
   Tf_lap = class(TForm)

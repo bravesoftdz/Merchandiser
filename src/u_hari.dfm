@@ -24,11 +24,13 @@ object f_hari: Tf_hari
     Align = alClient
     Alignment = taCenter
     Caption = 'TIDAK DAPAT MELAKUKAN TRANSAKSI'#13#10'SELAMA MASA PERGANTIAN HARI'#13#10
-    ParentFont = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -33
     Font.Name = 'Arial'
     Font.Style = [fsBold]
+    ParentFont = False
+    ExplicitWidth = 636
+    ExplicitHeight = 114
   end
 end

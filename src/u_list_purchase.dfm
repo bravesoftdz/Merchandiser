@@ -22,7 +22,7 @@ object f_List_purchase: Tf_List_purchase
   object grid: TcxGrid
     Left = 0
     Top = 0
-    Width = 762
+    Width = 154
     Height = 0
     Align = alClient
     TabOrder = 1

@@ -292,7 +292,7 @@ object f_return: Tf_return
         Left = 481
         Top = 1
         Width = 220
-        Height = 60
+        Height = 61
         Align = alRight
         Alignment = taRightJustify
         Caption = 'RETURN'
@@ -303,6 +303,7 @@ object f_return: Tf_return
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
+        ExplicitHeight = 60
       end
       object sLabel1: TLabel
         Left = 8

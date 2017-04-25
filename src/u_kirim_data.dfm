@@ -35,10 +35,6 @@ object F_kirim_data: TF_kirim_data
     TabOrder = 0
     object ts_1: TTabSheet
       Caption = 'Kirim Data'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object l_1: TLabel
         Left = 0
         Top = 40

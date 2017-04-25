@@ -4,13 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, sButton, UFungsi, DB, sDialogs, 
-  ComCtrls, sLabel, acShellCtrls, 
-  sTooledit, sPageControl, AbZView,
+  Dialogs, UFungsi, DB, sDialogs,
+  ComCtrls, acShellCtrls,
+  sTooledit, AbZView,
   AbZipKit, AbView, AbBrowse, AbZipper, ExtCtrls,
-  sPanel, AbUnZper, sSkinProvider, sGauge, ShellAPI,
-  ShlObj, Winsock, AbBase, AbZBrows, Grids, StdCtrls, Mask, sMaskEdit,
-  sCustomComboEdit, Vcl.Samples.Gauges;
+  AbUnZper, sSkinProvider, ShellAPI,
+  ShlObj, Winsock, AbZBrows, Grids, StdCtrls, Mask,
+  Vcl.Samples.Gauges, AbBase, sMaskEdit, sCustomComboEdit;
 
 type
   TF_kirim_data = class(TForm)
