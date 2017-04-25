@@ -130,7 +130,7 @@ object F_Inventory: TF_Inventory
           Align = alLeft
           Caption = '| Kondisi|'
           TabOrder = 0
-          object rb_like: TsRadioButton
+          object rb_like: TRadioButton
             Left = 8
             Top = 16
             Width = 61
@@ -139,9 +139,8 @@ object F_Inventory: TF_Inventory
             Checked = True
             TabOrder = 0
             TabStop = True
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_sama: TsRadioButton
+          object rb_sama: TRadioButton
             Left = 8
             Top = 34
             Width = 29
@@ -149,9 +148,8 @@ object F_Inventory: TF_Inventory
             Caption = '='
             Enabled = False
             TabOrder = 1
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_lebih: TsRadioButton
+          object rb_lebih: TRadioButton
             Left = 8
             Top = 52
             Width = 29
@@ -159,9 +157,8 @@ object F_Inventory: TF_Inventory
             Caption = '>'
             Enabled = False
             TabOrder = 2
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_kurang: TsRadioButton
+          object rb_kurang: TRadioButton
             Left = 64
             Top = 52
             Width = 29
@@ -169,9 +166,8 @@ object F_Inventory: TF_Inventory
             Caption = '<'
             Enabled = False
             TabOrder = 3
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_tdk_sama: TsRadioButton
+          object rb_tdk_sama: TRadioButton
             Left = 64
             Top = 34
             Width = 38
@@ -179,9 +175,8 @@ object F_Inventory: TF_Inventory
             Caption = '<>'
             Enabled = False
             TabOrder = 4
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_lebih_sama: TsRadioButton
+          object rb_lebih_sama: TRadioButton
             Left = 8
             Top = 70
             Width = 38
@@ -189,9 +184,8 @@ object F_Inventory: TF_Inventory
             Caption = '>='
             Enabled = False
             TabOrder = 5
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_kurang_sama: TsRadioButton
+          object rb_kurang_sama: TRadioButton
             Left = 64
             Top = 70
             Width = 38
@@ -199,7 +193,6 @@ object F_Inventory: TF_Inventory
             Caption = '<='
             Enabled = False
             TabOrder = 6
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
         end
         object gb_saring: TGroupBox
@@ -210,7 +203,7 @@ object F_Inventory: TF_Inventory
           Align = alLeft
           Caption = '| Penyaringan|'
           TabOrder = 1
-          object rb_plu: TsRadioButton
+          object rb_plu: TRadioButton
             Left = 8
             Top = 24
             Width = 94
@@ -220,9 +213,8 @@ object F_Inventory: TF_Inventory
             TabOrder = 0
             TabStop = True
             OnClick = rb_pluClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_min_order: TsRadioButton
+          object rb_min_order: TRadioButton
             Left = 8
             Top = 48
             Width = 79
@@ -230,9 +222,8 @@ object F_Inventory: TF_Inventory
             Caption = 'Min Order'
             TabOrder = 1
             OnClick = rb_pluClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_max_stok: TsRadioButton
+          object rb_max_stok: TRadioButton
             Left = 120
             Top = 48
             Width = 73
@@ -240,9 +231,8 @@ object F_Inventory: TF_Inventory
             Caption = 'Max Stok'
             TabOrder = 2
             OnClick = rb_pluClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_min_stok: TsRadioButton
+          object rb_min_stok: TRadioButton
             Left = 120
             Top = 24
             Width = 69
@@ -250,7 +240,6 @@ object F_Inventory: TF_Inventory
             Caption = 'Min Stok'
             TabOrder = 3
             OnClick = rb_pluClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
         end
         object sGroupBox6: TGroupBox
@@ -325,7 +314,7 @@ object F_Inventory: TF_Inventory
             Visible = False
             OnClick = B_CariClick
           end
-          object rb_minO: TsRadioButton
+          object rb_minO: TRadioButton
             Left = 8
             Top = 64
             Width = 79
@@ -334,9 +323,8 @@ object F_Inventory: TF_Inventory
             TabOrder = 4
             Visible = False
             OnClick = rb_minSClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_minS: TsRadioButton
+          object rb_minS: TRadioButton
             Left = 8
             Top = 16
             Width = 69
@@ -345,9 +333,8 @@ object F_Inventory: TF_Inventory
             TabOrder = 5
             Visible = False
             OnClick = rb_minSClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
-          object rb_maxS: TsRadioButton
+          object rb_maxS: TRadioButton
             Left = 8
             Top = 40
             Width = 73
@@ -356,7 +343,6 @@ object F_Inventory: TF_Inventory
             TabOrder = 6
             Visible = False
             OnClick = rb_minSClick
-            SkinData.SkinSection = 'RADIOBUTTON'
           end
           object sButton1: TButton
             Left = 130
@@ -1190,6 +1176,10 @@ object F_Inventory: TF_Inventory
       BorderWidth = 1
       Caption = 'Mutasi'
       OnClickBtn = ts_mutasiClickBtn
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object sLabel10: TLabel
         Left = 72
         Top = 32

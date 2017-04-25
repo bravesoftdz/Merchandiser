@@ -30,8 +30,8 @@ type
     HapusBarangini1: TMenuItem;
     HapusSemuaBarang1: TMenuItem;
     N1: TMenuItem;
-    rbHarga: TsRadioButton;
-    rbRak: TsRadioButton;
+    rbHarga: TRadioButton;
+    rbRak: TRadioButton;
     gb_Rak: TGroupBox;
     l_1: TLabel;
     edRak: TsCurrencyEdit;

@@ -221,7 +221,7 @@ object f_lap: Tf_lap
       'HETK'
       'HGTK')
   end
-  object rbHarga: TsRadioButton
+  object rbHarga: TRadioButton
     Left = 8
     Top = 8
     Width = 167
@@ -230,16 +230,14 @@ object f_lap: Tf_lap
     Checked = True
     TabOrder = 7
     TabStop = True
-    SkinData.SkinSection = 'RADIOBUTTON'
   end
-  object rbRak: TsRadioButton
+  object rbRak: TRadioButton
     Left = 224
     Top = 8
     Width = 102
     Height = 20
     Caption = 'berdasarkan Rak'
     TabOrder = 8
-    SkinData.SkinSection = 'RADIOBUTTON'
   end
   object gb_Rak: TGroupBox
     Left = 216
