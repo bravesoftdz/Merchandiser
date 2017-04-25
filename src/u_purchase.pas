@@ -46,8 +46,8 @@ type
     sPanel2: TPanel;
     b_simpan_file: TButton;
     b_load: TButton;
-    od: TsOpenDialog;
-    sd: TsSaveDialog;
+    od: TOpenDialog;
+    sd: TSaveDialog;
     b_auto: TButton;
     t_view_total_harga: TcxGridColumn;
     spnl1: TPanel;

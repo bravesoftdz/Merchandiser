@@ -41,7 +41,7 @@ type
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
     sLabel5: TLabel;
-    od: TsOpenDialog;
+    od: TOpenDialog;
     sPanel2: TPanel;
     b_load: TButton;
     spnl1: TPanel;

@@ -45,7 +45,7 @@ type
     sLabel6: TLabel;
     sPanel2: TPanel;
     b_load: TButton;
-    od: TsOpenDialog;
+    od: TOpenDialog;
     spnl1: TPanel;
     b_print: TButton;
     b_new: TButton;

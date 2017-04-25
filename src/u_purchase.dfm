@@ -516,13 +516,13 @@ object f_purchase: Tf_purchase
     Left = 8
     Top = 8
   end
-  object od: TsOpenDialog
+  object od: TOpenDialog
     DefaultExt = '.spo'
     Filter = 'PO File|*.spo'
     Left = 883
     Top = 312
   end
-  object sd: TsSaveDialog
+  object sd: TSaveDialog
     DefaultExt = '.spo'
     Filter = 'PO File|*.spo'
     Left = 851

@@ -471,7 +471,7 @@ object f_return: Tf_return
     Left = 8
     Top = 8
   end
-  object od: TsOpenDialog
+  object od: TOpenDialog
     DefaultExt = '.srk'
     Filter = 'RB File|*.srk'
     Left = 843

@@ -441,7 +441,7 @@ object f_RO: Tf_RO
     Left = 8
     Top = 8
   end
-  object od: TsOpenDialog
+  object od: TOpenDialog
     DefaultExt = '.skr'
     Filter = 'RO File|*.skr'
     Left = 851

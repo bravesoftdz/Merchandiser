@@ -21,7 +21,7 @@ type
     zk_load: TAbZipKit;
     zv_load: TAbZipView;
     spnl_load: TPanel;
-    od_load: TsOpenDialog;
+    od_load: TOpenDialog;
     sknprvdr1: TsSkinProvider;
     sg_load: TsGauge;
     l_1: TLabel;

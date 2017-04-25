@@ -217,7 +217,7 @@ object F_kirim_data: TF_kirim_data
     ExtractOptions = []
     Left = 184
   end
-  object od_load: TsOpenDialog
+  object od_load: TOpenDialog
     Left = 220
   end
   object sknprvdr1: TsSkinProvider
