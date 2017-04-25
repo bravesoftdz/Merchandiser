@@ -72,7 +72,7 @@ object F_Login: TF_Login
     Font.Style = []
     ParentFont = False
   end
-  object sb: TsStatusBar
+  object sb: TStatusBar
     Left = 0
     Top = 270
     Width = 402
@@ -89,7 +89,6 @@ object F_Login: TF_Login
         Width = 150
       end>
     OnClick = sbClick
-    SkinData.SkinSection = 'STATUSBAR'
   end
   object EdKdPengguna: TEdit
     Left = 32

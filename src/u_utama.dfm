@@ -31,7 +31,7 @@ object F_Utama: TF_Utama
     SkinData.SkinSection = 'SPLITTER'
     ExplicitWidth = 949
   end
-  object sb: TsStatusBar
+  object sb: TStatusBar
     Left = 0
     Top = 422
     Width = 899
@@ -86,8 +86,6 @@ object F_Utama: TF_Utama
         Text = 'VERSI'
         Width = 50
       end>
-    SkinData.SkinSection = 'STATUSBAR'
-    ExplicitTop = -21
   end
   object sCoolBar1: TPanel
     Left = 0
@@ -253,7 +251,6 @@ object F_Utama: TF_Utama
     Align = alClient
     TabOrder = 2
     OnDblClick = dbc_mutasiDblClick
-    ExplicitHeight = 186
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series4: TBarSeries

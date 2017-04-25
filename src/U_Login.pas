@@ -10,7 +10,7 @@ uses
 
 type
   TF_Login = class(TForm)
-    sb: TsStatusBar;
+    sb: TStatusBar;
     Lbl1: TLabel;
     EdKdPengguna: TEdit;
     Lbl2: TLabel;
