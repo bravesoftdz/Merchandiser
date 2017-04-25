@@ -401,7 +401,7 @@ object F_Utama: TF_Utama
       YValues.ValueSource = 'gm_rp'
     end
   end
-  object tc_child: TsTabControl
+  object tc_child: TTabControl
     Left = 0
     Top = 70
     Width = 899
@@ -411,7 +411,6 @@ object F_Utama: TF_Utama
     TabOrder = 4
     Visible = False
     OnChange = tc_childChange
-    SkinData.SkinSection = 'PAGECONTROL'
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer

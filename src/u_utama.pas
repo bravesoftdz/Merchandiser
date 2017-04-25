@@ -53,7 +53,7 @@ type
     cb_periode: TsComboBox;
     Return1: TMenuItem;
     DaftarReturn1: TMenuItem;
-    tc_child: TsTabControl;
+    tc_child: TTabControl;
     laporanpo: TMenuItem;
     PO1: TMenuItem;
     DaftarPO1: TMenuItem;
