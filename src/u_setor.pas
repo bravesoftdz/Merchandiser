@@ -191,15 +191,21 @@ end;
 
 procedure TF_Setor.laporanClickObject(view: TfrxView; Button: TMouseButton;
   Shift: TShiftState; var Modified: Boolean);
+var
+  LSql, LView, LKasir, LLogin: string;
 begin
   if view.Name = 'mm_kasir_user' then
   begin
-    fungsi.SQLExec(dm.Q_temp, 'select * from tb_login_kasir inner join tb_user '
-      + 'on tb_user.kd_user=tb_login_kasir.user ' +
-      'where tb_login_kasir.kd_perusahaan="' + dm.kd_perusahaan + '" ' +
-      'and tb_login_kasir.user="' + View.TagStr +
-      '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna + '" and tanggal >= "' +
-      formatdatetime('yyyy-MM-dd hh:mm:ss', de_trans.Date) + '"', true);
+    LView := view.TagStr;
+    LKasir := Copy(LView, 1, Pos(':', LView) - 2);
+    LLogin := Copy(LView, Pos(':', LView) + 2, Length(LView));
+
+    LSql := Format('SELECT * FROM tb_login_kasir lk INNER JOIN tb_user us ' +
+      'ON us.kd_user = lk.user WHERE lk.kd_perusahaan="%s" AND lk.user="%s" '+
+      'AND lk.kd_jaga="%s" and tanggal = "%s"', [dm.kd_perusahaan, LKasir,
+      dm.kd_pengguna, LLogin]);
+
+    fungsi.SQLExec(dm.Q_temp, LSql, true);
 
     r_detail_setor.LoadFromFile(dm.Path + 'laporan\p_setor_kasir_detail.fr3');
     r_detail_setor.ShowReport;
