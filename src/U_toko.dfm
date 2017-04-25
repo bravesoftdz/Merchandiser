@@ -32,27 +32,17 @@ object F_toko: TF_toko
     TabOrder = 0
     OnClick = sButton2Click
   end
-  object cb_periode: TsComboBox
+  object cb_periode: TComboBox
     Left = 95
     Top = 12
     Width = 147
     Height = 21
-    Alignment = taLeftJustify
-    BoundLabel.Font.Charset = DEFAULT_CHARSET
-    BoundLabel.Font.Color = clWindowText
-    BoundLabel.Font.Height = -11
-    BoundLabel.Font.Name = 'MS Sans Serif'
-    BoundLabel.Font.Style = []
-    BoundLabel.ParentFont = False
-    SkinData.SkinSection = 'COMBOBOX'
-    VerticalAlignment = taAlignTop
     Style = csDropDownList
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS SANS SERIF'
     Font.Style = []
-    ItemIndex = -1
     ParentFont = False
     TabOrder = 1
     OnChange = cb_periodeChange

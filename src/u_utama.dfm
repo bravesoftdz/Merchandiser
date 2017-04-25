@@ -349,22 +349,12 @@ object F_Utama: TF_Utama
       Height = 13
       Caption = 'Periode'
     end
-    object cb_periode: TsComboBox
+    object cb_periode: TComboBox
       Left = 48
       Top = 6
       Width = 129
       Height = 21
-      Alignment = taLeftJustify
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'MS Sans Serif'
-      BoundLabel.Font.Style = []
-      BoundLabel.ParentFont = False
-      SkinData.SkinSection = 'COMBOBOX'
-      VerticalAlignment = taAlignTop
       Style = csDropDownList
-      ItemIndex = -1
       TabOrder = 0
       OnChange = cb_periodeChange
     end

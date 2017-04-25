@@ -50,7 +50,7 @@ type
     ExportImportData1: TMenuItem;
     ReceiptOrderRO1: TMenuItem;
     DaftarRO1: TMenuItem;
-    cb_periode: TsComboBox;
+    cb_periode: TComboBox;
     Return1: TMenuItem;
     DaftarReturn1: TMenuItem;
     tc_child: TTabControl;

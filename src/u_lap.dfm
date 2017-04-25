@@ -201,20 +201,11 @@ object f_lap: Tf_lap
       GlyphMode.Grayed = False
     end
   end
-  object cb_macam: TsComboBox
+  object cb_macam: TComboBox
     Left = 416
     Top = 360
     Width = 121
     Height = 24
-    Alignment = taLeftJustify
-    BoundLabel.Font.Charset = DEFAULT_CHARSET
-    BoundLabel.Font.Color = clWindowText
-    BoundLabel.Font.Height = -11
-    BoundLabel.Font.Name = 'MS Sans Serif'
-    BoundLabel.Font.Style = []
-    BoundLabel.ParentFont = False
-    SkinData.SkinSection = 'COMBOBOX'
-    VerticalAlignment = taAlignTop
     Style = csDropDownList
     CharCase = ecUpperCase
     Color = clWhite

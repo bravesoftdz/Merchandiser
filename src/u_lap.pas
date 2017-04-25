@@ -21,7 +21,7 @@ type
     de_mulai: TsDateEdit;
     de_sampai: TsDateEdit;
     sLabel2: TLabel;
-    cb_macam: TsComboBox;
+    cb_macam: TComboBox;
     sLabel3: TLabel;
     sSkinProvider1: TsSkinProvider;
     sb_cari: TsSpeedButton;

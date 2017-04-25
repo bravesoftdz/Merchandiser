@@ -14,7 +14,7 @@ uses
 type
   TF_toko = class(TForm)
     sButton2: TButton;
-    cb_periode: TsComboBox;
+    cb_periode: TComboBox;
     btnMutasi: TButton;
     btnGross: TButton;
     lbl1: TLabel;
