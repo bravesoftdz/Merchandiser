@@ -20,7 +20,7 @@ object F_Login: TF_Login
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Lbl1: TsLabel
+  object Lbl1: TLabel
     Left = 8
     Top = 16
     Width = 111
@@ -33,7 +33,7 @@ object F_Login: TF_Login
     Font.Name = 'Rockwell'
     Font.Style = []
   end
-  object Lbl2: TsLabel
+  object Lbl2: TLabel
     Left = 8
     Top = 80
     Width = 117
@@ -46,7 +46,7 @@ object F_Login: TF_Login
     Font.Name = 'Rockwell'
     Font.Style = []
   end
-  object Lbl3: TsLabel
+  object Lbl3: TLabel
     Left = 8
     Top = 136
     Width = 70
@@ -59,7 +59,7 @@ object F_Login: TF_Login
     Font.Name = 'Rockwell'
     Font.Style = []
   end
-  object LblKeterangan: TsLabel
+  object LblKeterangan: TLabel
     Left = 8
     Top = 240
     Width = 216

@@ -24,7 +24,7 @@ type
     od_load: TsOpenDialog;
     sknprvdr1: TsSkinProvider;
     sg_load: TsGauge;
-    l_1: TsLabel;
+    l_1: TLabel;
     spnl1: TsPanel;
     edt_kirim: TsDateEdit;
     b_kirim: TsButton;

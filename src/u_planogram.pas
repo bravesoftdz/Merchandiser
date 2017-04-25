@@ -15,8 +15,8 @@ type
   Tf_planogram = class(TForm)
     se_rak: TsSpinEdit;
     se_shelving: TsSpinEdit;
-    sLabel2: TsLabel;
-    sLabel3: TsLabel;
+    sLabel2: TLabel;
+    sLabel3: TLabel;
     sSkinProvider1: TsSkinProvider;
     grid_plano: TcxGrid;
     t_data_plano: TcxGridDBTableView;

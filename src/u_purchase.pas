@@ -29,9 +29,9 @@ type
     ce_harga: TsCurrencyEdit;
     panel2: TsPanel;
     sBevel1: TsBevel;
-    sLabel1: TsLabel;
-    sLabel3: TsLabel;
-    sLabel4: TsLabel;
+    sLabel1: TLabel;
+    sLabel3: TLabel;
+    sLabel4: TLabel;
     sb_cari: TsSpeedButton;
     ed_no_faktur: TsEdit;
     ed_tgl: TsDateEdit;
@@ -42,7 +42,7 @@ type
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
     b_rekom: TsButton;
-    sLabel5: TsLabel;
+    sLabel5: TLabel;
     sPanel2: TsPanel;
     b_simpan_file: TsButton;
     b_load: TsButton;

@@ -46,7 +46,7 @@ type
     DaftarPelanggan1: TMenuItem;
     DaftarSupplier1: TMenuItem;
     RealCard1: TMenuItem;
-    sLabel1: TsLabel;
+    sLabel1: TLabel;
     ExportImportData1: TMenuItem;
     ReceiptOrderRO1: TMenuItem;
     DaftarRO1: TMenuItem;

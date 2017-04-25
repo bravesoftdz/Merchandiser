@@ -16,7 +16,7 @@ object f_hari: Tf_hari
   OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
-  object l_1: TsLabel
+  object l_1: TLabel
     Left = 0
     Top = 0
     Width = 771

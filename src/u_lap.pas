@@ -17,12 +17,12 @@ type
     lb_data: TListBox;
     cb_karep: TsCheckBox;
     gb_tgl: TsGroupBox;
-    sLabel1: TsLabel;
+    sLabel1: TLabel;
     de_mulai: TsDateEdit;
     de_sampai: TsDateEdit;
-    sLabel2: TsLabel;
+    sLabel2: TLabel;
     cb_macam: TsComboBox;
-    sLabel3: TsLabel;
+    sLabel3: TLabel;
     sSkinProvider1: TsSkinProvider;
     sb_cari: TsSpeedButton;
     pm1: TPopupMenu;
@@ -33,7 +33,7 @@ type
     rbHarga: TsRadioButton;
     rbRak: TsRadioButton;
     gb_Rak: TsGroupBox;
-    l_1: TsLabel;
+    l_1: TLabel;
     edRak: TsCurrencyEdit;
     procedure b_previewClick(Sender: TObject);
     procedure ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

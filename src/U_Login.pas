@@ -11,13 +11,13 @@ uses
 type
   TF_Login = class(TForm)
     sb: TsStatusBar;
-    Lbl1: TsLabel;
+    Lbl1: TLabel;
     EdKdPengguna: TsEdit;
-    Lbl2: TsLabel;
+    Lbl2: TLabel;
     EdNamaPengguna: TsEdit;
-    Lbl3: TsLabel;
+    Lbl3: TLabel;
     EdPassword: TsEdit;
-    LblKeterangan: TsLabel;
+    LblKeterangan: TLabel;
     BtnLogin: TsButton;
     procedure simpanKodePerusahaan;
     procedure FormShow(Sender: TObject);

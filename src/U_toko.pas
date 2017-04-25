@@ -17,7 +17,7 @@ type
     cb_periode: TsComboBox;
     btnMutasi: TsButton;
     btnGross: TsButton;
-    lbl1: TsLabel;
+    lbl1: TLabel;
     btnMutasiHarga: TsButton;
     procedure btnGrossClick(Sender: TObject);
     procedure btnMutasiClick(Sender: TObject);

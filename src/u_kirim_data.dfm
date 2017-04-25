@@ -43,7 +43,7 @@ object F_kirim_data: TF_kirim_data
       ExplicitTop = 0
       ExplicitWidth = 0
       ExplicitHeight = 0
-      object l_1: TsLabel
+      object l_1: TLabel
         Left = 0
         Top = 40
         Width = 465

@@ -25,12 +25,12 @@ type
     ce_harga: TsCurrencyEdit;
     panel2: TsPanel;
     sBevel1: TsBevel;
-    sLabel1: TsLabel;
+    sLabel1: TLabel;
     ed_kodeSO: TsEdit;
     ed_code: TsEdit;
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
-    sLabel5: TsLabel;
+    sLabel5: TLabel;
     BtnAuto: TsButton;
     spnl1: TsPanel;
     BtnCetak: TsButton;

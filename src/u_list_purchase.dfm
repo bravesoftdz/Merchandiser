@@ -144,14 +144,14 @@ object f_List_purchase: Tf_List_purchase
       Align = alBottom
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
-      object l_1: TsLabel
+      object l_1: TLabel
         Left = 4
         Top = 5
         Width = 31
         Height = 13
         Caption = 'Mulai :'
       end
-      object l_2: TsLabel
+      object l_2: TLabel
         Left = 4
         Top = 45
         Width = 41

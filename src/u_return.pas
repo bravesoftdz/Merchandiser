@@ -30,9 +30,9 @@ type
     Mm_nama: TsMemo;
     ce_harga: TsCurrencyEdit;
     panel2: TsPanel;
-    sLabel1: TsLabel;
-    sLabel3: TsLabel;
-    sLabel4: TsLabel;
+    sLabel1: TLabel;
+    sLabel3: TLabel;
+    sLabel4: TLabel;
     ed_no_faktur: TsEdit;
     ed_tgl: TsDateEdit;
     ed_supplier: TsEdit;
@@ -41,8 +41,8 @@ type
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
     ed_fak_receipt: TsEdit;
-    sLabel5: TsLabel;
-    sLabel6: TsLabel;
+    sLabel5: TLabel;
+    sLabel6: TLabel;
     sPanel2: TsPanel;
     b_load: TsButton;
     od: TsOpenDialog;

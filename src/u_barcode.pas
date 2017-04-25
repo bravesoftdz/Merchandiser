@@ -28,7 +28,7 @@ type
     ableViewColumn3: TcxGridColumn;
     UDLaporan: TfrxUserDataSet;
     laporan: TfrxReport;
-    l_4: TsLabel;
+    l_4: TLabel;
     procedure createRows;
     procedure ed_PIDKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btnBarcodeClick(Sender: TObject);

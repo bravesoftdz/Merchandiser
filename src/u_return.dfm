@@ -301,7 +301,7 @@ object f_return: Tf_return
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
-      object sLabel6: TsLabel
+      object sLabel6: TLabel
         Left = 616
         Top = 1
         Width = 220
@@ -317,7 +317,7 @@ object f_return: Tf_return
         Font.Name = 'ARIAL'
         Font.Style = []
       end
-      object sLabel1: TsLabel
+      object sLabel1: TLabel
         Left = 8
         Top = 8
         Width = 65
@@ -330,7 +330,7 @@ object f_return: Tf_return
         Font.Name = 'MS Sans Serif'
         Font.Style = []
       end
-      object sLabel3: TsLabel
+      object sLabel3: TLabel
         Left = 264
         Top = 32
         Width = 39
@@ -343,7 +343,7 @@ object f_return: Tf_return
         Font.Name = 'MS Sans Serif'
         Font.Style = []
       end
-      object sLabel4: TsLabel
+      object sLabel4: TLabel
         Left = 264
         Top = 8
         Width = 38
@@ -356,7 +356,7 @@ object f_return: Tf_return
         Font.Name = 'MS Sans Serif'
         Font.Style = []
       end
-      object sLabel5: TsLabel
+      object sLabel5: TLabel
         Left = 8
         Top = 32
         Width = 70

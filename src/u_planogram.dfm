@@ -18,7 +18,7 @@ object f_planogram: Tf_planogram
   OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
-  object sLabel2: TsLabel
+  object sLabel2: TLabel
     Left = 8
     Top = 8
     Width = 20
@@ -31,7 +31,7 @@ object f_planogram: Tf_planogram
     Font.Name = 'MS Sans Serif'
     Font.Style = []
   end
-  object sLabel3: TsLabel
+  object sLabel3: TLabel
     Left = 136
     Top = 8
     Width = 41

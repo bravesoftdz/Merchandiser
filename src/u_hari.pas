@@ -8,7 +8,7 @@ uses
 
 type
   Tf_hari = class(TForm)
-    l_1: TsLabel;
+    l_1: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }

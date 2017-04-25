@@ -195,7 +195,7 @@ object f_stok_opname: Tf_stok_opname
       Align = alTop
       TabOrder = 0
       SkinData.SkinSection = 'PANEL'
-      object sLabel5: TsLabel
+      object sLabel5: TLabel
         Left = 366
         Top = 1
         Width = 423
@@ -218,7 +218,7 @@ object f_stok_opname: Tf_stok_opname
         Height = 31
         Align = alBottom
       end
-      object sLabel1: TsLabel
+      object sLabel1: TLabel
         Left = 8
         Top = 8
         Width = 43

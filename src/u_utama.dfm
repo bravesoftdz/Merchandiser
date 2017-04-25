@@ -346,7 +346,7 @@ object F_Utama: TF_Utama
     OnDblClick = DBC_marginDblClick
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
-    object sLabel1: TsLabel
+    object sLabel1: TLabel
       Left = 8
       Top = 8
       Width = 36

@@ -28,7 +28,7 @@ object f_Barcode: Tf_Barcode
     Images = dm.im
     ImageIndex = 0
   end
-  object l_4: TsLabel
+  object l_4: TLabel
     Left = 8
     Top = 348
     Width = 130

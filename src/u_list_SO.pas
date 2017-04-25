@@ -28,8 +28,8 @@ type
     sb_1: TsSpeedButton;
     sb_2: TsSpeedButton;
     p1: TsPanel;
-    l_1: TsLabel;
-    l_2: TsLabel;
+    l_1: TLabel;
+    l_2: TLabel;
     de_mulai: TsDateEdit;
     de_sampai: TsDateEdit;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;

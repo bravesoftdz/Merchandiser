@@ -16,7 +16,7 @@ object F_toko: TF_toko
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object lbl1: TsLabel
+  object lbl1: TLabel
     Left = 8
     Top = 16
     Width = 58

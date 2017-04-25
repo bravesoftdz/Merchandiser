@@ -331,7 +331,7 @@ object f_purchase: Tf_purchase
       DesignSize = (
         837
         96)
-      object sLabel5: TsLabel
+      object sLabel5: TLabel
         Left = 544
         Top = 1
         Width = 292
@@ -354,7 +354,7 @@ object f_purchase: Tf_purchase
         Height = 31
         Align = alBottom
       end
-      object sLabel1: TsLabel
+      object sLabel1: TLabel
         Left = 8
         Top = 32
         Width = 62
@@ -367,7 +367,7 @@ object f_purchase: Tf_purchase
         Font.Name = 'MS Sans Serif'
         Font.Style = []
       end
-      object sLabel3: TsLabel
+      object sLabel3: TLabel
         Left = 8
         Top = 72
         Width = 39
@@ -380,7 +380,7 @@ object f_purchase: Tf_purchase
         Font.Name = 'MS Sans Serif'
         Font.Style = []
       end
-      object sLabel4: TsLabel
+      object sLabel4: TLabel
         Left = 8
         Top = 8
         Width = 38

@@ -116,7 +116,7 @@ object F_Setor: TF_Setor
     Height = 137
     TabOrder = 1
     SkinData.SkinSection = 'GROUPBOX'
-    object l_1: TsLabel
+    object l_1: TLabel
       Left = 8
       Top = 16
       Width = 53
@@ -129,7 +129,7 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object l_3: TsLabel
+    object l_3: TLabel
       Left = 368
       Top = 48
       Width = 74
@@ -142,7 +142,7 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object sLabel1: TsLabel
+    object sLabel1: TLabel
       Left = 8
       Top = 48
       Width = 42
@@ -155,7 +155,7 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object sLabel2: TsLabel
+    object sLabel2: TLabel
       Left = 8
       Top = 80
       Width = 86
@@ -168,7 +168,7 @@ object F_Setor: TF_Setor
       Font.Name = 'Rockwell'
       Font.Style = []
     end
-    object sLabel3: TsLabel
+    object sLabel3: TLabel
       Left = 368
       Top = 16
       Width = 57
@@ -318,7 +318,7 @@ object F_Setor: TF_Setor
     Align = alTop
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
-    object l_5: TsLabel
+    object l_5: TLabel
       Left = 8
       Top = 8
       Width = 166

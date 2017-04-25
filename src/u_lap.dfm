@@ -16,7 +16,7 @@ object f_lap: Tf_lap
   OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
-  object sLabel3: TsLabel
+  object sLabel3: TLabel
     Left = 344
     Top = 364
     Width = 67
@@ -130,7 +130,7 @@ object f_lap: Tf_lap
     Height = 73
     TabOrder = 5
     SkinData.SkinSection = 'GROUPBOX'
-    object sLabel1: TsLabel
+    object sLabel1: TLabel
       Left = 8
       Top = 24
       Width = 19
@@ -143,7 +143,7 @@ object f_lap: Tf_lap
       Font.Name = 'MS Sans Serif'
       Font.Style = []
     end
-    object sLabel2: TsLabel
+    object sLabel2: TLabel
       Left = 8
       Top = 48
       Width = 35
@@ -278,7 +278,7 @@ object f_lap: Tf_lap
     Height = 73
     TabOrder = 9
     SkinData.SkinSection = 'GROUPBOX'
-    object l_1: TsLabel
+    object l_1: TLabel
       Left = 8
       Top = 16
       Width = 54
