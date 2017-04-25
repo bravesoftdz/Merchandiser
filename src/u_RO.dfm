@@ -22,14 +22,13 @@ object f_RO: Tf_RO
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object panel4: TsPanel
+  object panel4: TPanel
     Left = 624
     Top = 0
     Width = 150
     Height = 411
     Align = alRight
     TabOrder = 1
-    SkinData.SkinSection = 'PANEL'
     object sSpeedButton18: TsSpeedButton
       Left = 1
       Top = 1
@@ -53,14 +52,13 @@ object f_RO: Tf_RO
       ImageIndex = 10
       Reflected = True
     end
-    object sPanel2: TsPanel
+    object sPanel2: TPanel
       Left = 1
       Top = 368
       Width = 148
       Height = 42
       Align = alBottom
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       object b_load: TButton
         Left = 8
         Top = 9
@@ -71,13 +69,12 @@ object f_RO: Tf_RO
         OnClick = b_loadClick
       end
     end
-    object spnl1: TsPanel
+    object spnl1: TPanel
       Left = 1
       Top = 104
       Width = 148
       Height = 97
       TabOrder = 1
-      SkinData.SkinSection = 'PANEL'
       object b_simpan: TButton
         Left = 8
         Top = 4
@@ -107,14 +104,13 @@ object f_RO: Tf_RO
       end
     end
   end
-  object sPanel1: TsPanel
+  object sPanel1: TPanel
     Left = 0
     Top = 0
     Width = 624
     Height = 411
     Align = alClient
     TabOrder = 0
-    SkinData.SkinSection = 'PANEL'
     object Grid: TcxGrid
       Left = 1
       Top = 137
@@ -233,7 +229,7 @@ object f_RO: Tf_RO
         GridView = TableView
       end
     end
-    object panel1: TsPanel
+    object panel1: TPanel
       Left = 1
       Top = 1
       Width = 622
@@ -241,7 +237,6 @@ object f_RO: Tf_RO
       Align = alTop
       Enabled = False
       TabOrder = 3
-      SkinData.SkinSection = 'PANEL'
       object Mm_nama: TsMemo
         Left = 1
         Top = 1
@@ -289,14 +284,13 @@ object f_RO: Tf_RO
         DisplayFormat = '###,###,##0;-###,###,##0;0'
       end
     end
-    object panel2: TsPanel
+    object panel2: TPanel
       Left = 1
       Top = 74
       Width = 622
       Height = 63
       Align = alTop
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       object sLabel5: TLabel
         Left = 391
         Top = 1
@@ -312,7 +306,7 @@ object f_RO: Tf_RO
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 611
+        ExplicitLeft = 392
         ExplicitHeight = 60
       end
       object sLabel1: TLabel
@@ -415,14 +409,13 @@ object f_RO: Tf_RO
         SkinData.SkinSection = 'EDIT'
       end
     end
-    object panel3: TsPanel
+    object panel3: TPanel
       Left = 1
       Top = 338
       Width = 622
       Height = 72
       Align = alBottom
       TabOrder = 2
-      SkinData.SkinSection = 'PANEL'
       object ed_nilai_faktur: TsCurrencyEdit
         Left = 245
         Top = 1

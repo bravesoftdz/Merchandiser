@@ -20,15 +20,15 @@ type
     edt_terima: TsDateEdit;
     zk_load: TAbZipKit;
     zv_load: TAbZipView;
-    spnl_load: TsPanel;
+    spnl_load: TPanel;
     od_load: TsOpenDialog;
     sknprvdr1: TsSkinProvider;
     sg_load: TsGauge;
     l_1: TLabel;
-    spnl1: TsPanel;
+    spnl1: TPanel;
     edt_kirim: TsDateEdit;
     b_kirim: TButton;
-    spnl2: TsPanel;
+    spnl2: TPanel;
     sButton3: TButton;
     sButton2: TButton;
     sButton1: TButton;

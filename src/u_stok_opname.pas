@@ -18,12 +18,12 @@ uses
 
 type
   Tf_stok_opname = class(TForm)
-    panel4: TsPanel;
-    sPanel1: TsPanel;
-    panel1: TsPanel;
+    panel4: TPanel;
+    sPanel1: TPanel;
+    panel1: TPanel;
     Mm_nama: TsMemo;
     ce_harga: TsCurrencyEdit;
-    panel2: TsPanel;
+    panel2: TPanel;
     sBevel1: TsBevel;
     sLabel1: TLabel;
     ed_kodeSO: TsEdit;
@@ -32,7 +32,7 @@ type
     sSkinProvider1: TsSkinProvider;
     sLabel5: TLabel;
     BtnAuto: TButton;
-    spnl1: TsPanel;
+    spnl1: TPanel;
     BtnCetak: TButton;
     Sb_cari: TsSpeedButton;
     grid: TcxGrid;
@@ -49,7 +49,7 @@ type
     rg_pilihan: TsRadioGroup;
     BtnTambah: TButton;
     se_rak: TsDecimalSpinEdit;
-    pnl1: TsPanel;
+    pnl1: TPanel;
     BtnBaru: TButton;
     BtnBatal: TButton;
     BtnKoreksi: TButton;

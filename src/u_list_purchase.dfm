@@ -1,9 +1,9 @@
 object f_List_purchase: Tf_List_purchase
   Left = 192
   Top = 107
-  Width = 928
-  Height = 480
   Caption = 'Daftar Purchase Order'
+  ClientHeight = 0
+  ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object f_List_purchase: Tf_List_purchase
     Left = 0
     Top = 0
     Width = 762
-    Height = 441
+    Height = 0
     Align = alClient
     TabOrder = 1
     LookAndFeel.Kind = lfOffice11
@@ -81,21 +81,21 @@ object f_List_purchase: Tf_List_purchase
       GridView = t_data
     end
   end
-  object sPanel1: TsPanel
-    Left = 762
+  object sPanel1: TPanel
+    Left = -30
     Top = 0
     Width = 150
-    Height = 441
+    Height = 0
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 0
-    SkinData.SkinSection = 'PANEL'
     object sb_2: TsSpeedButton
       Left = 0
       Top = 90
       Width = 150
       Height = 90
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Refresh'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -107,7 +107,6 @@ object f_List_purchase: Tf_List_purchase
       ParentFont = False
       Spacing = 0
       OnClick = sb_2Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 2
@@ -119,6 +118,7 @@ object f_List_purchase: Tf_List_purchase
       Width = 150
       Height = 90
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Selesai'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -130,20 +130,18 @@ object f_List_purchase: Tf_List_purchase
       ParentFont = False
       Spacing = 0
       OnClick = sb_1Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 10
       Reflected = True
     end
-    object p1: TsPanel
+    object p1: TPanel
       Left = 0
-      Top = 351
+      Top = -90
       Width = 150
       Height = 90
       Align = alBottom
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       object l_1: TLabel
         Left = 4
         Top = 5

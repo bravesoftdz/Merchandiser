@@ -23,14 +23,13 @@ object f_purchase: Tf_purchase
   OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
-  object panel4: TsPanel
+  object panel4: TPanel
     Left = 624
     Top = 0
     Width = 150
     Height = 411
     Align = alRight
     TabOrder = 1
-    SkinData.SkinSection = 'PANEL'
     object sSpeedButton18: TsSpeedButton
       Left = 1
       Top = 1
@@ -63,14 +62,13 @@ object f_purchase: Tf_purchase
       TabOrder = 1
       OnClick = b_rekomClick
     end
-    object sPanel2: TsPanel
+    object sPanel2: TPanel
       Left = 1
       Top = 336
       Width = 148
       Height = 74
       Align = alBottom
       TabOrder = 2
-      SkinData.SkinSection = 'PANEL'
       object b_simpan_file: TButton
         Left = 8
         Top = 9
@@ -90,14 +88,13 @@ object f_purchase: Tf_purchase
         OnClick = b_loadClick
       end
     end
-    object spnl1: TsPanel
+    object spnl1: TPanel
       Left = 1
       Top = 91
       Width = 148
       Height = 97
       Align = alTop
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       object b_new: TButton
         Left = 8
         Top = 34
@@ -128,14 +125,13 @@ object f_purchase: Tf_purchase
       end
     end
   end
-  object sPanel1: TsPanel
+  object sPanel1: TPanel
     Left = 0
     Top = 0
     Width = 624
     Height = 411
     Align = alClient
     TabOrder = 0
-    SkinData.SkinSection = 'PANEL'
     object Grid: TcxGrid
       Left = 1
       Top = 170
@@ -258,7 +254,7 @@ object f_purchase: Tf_purchase
         GridView = TableView
       end
     end
-    object panel1: TsPanel
+    object panel1: TPanel
       Left = 1
       Top = 1
       Width = 622
@@ -266,7 +262,6 @@ object f_purchase: Tf_purchase
       Align = alTop
       Enabled = False
       TabOrder = 3
-      SkinData.SkinSection = 'PANEL'
       object Mm_nama: TsMemo
         Left = 1
         Top = 1
@@ -314,14 +309,13 @@ object f_purchase: Tf_purchase
         DisplayFormat = '###,###,##0;-###,###,##0;0'
       end
     end
-    object panel2: TsPanel
+    object panel2: TPanel
       Left = 1
       Top = 74
       Width = 622
       Height = 96
       Align = alTop
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       DesignSize = (
         622
         96)
@@ -340,7 +334,6 @@ object f_purchase: Tf_purchase
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 544
         ExplicitHeight = 60
       end
       object sBevel1: TsBevel
@@ -490,7 +483,7 @@ object f_purchase: Tf_purchase
         OnClick = b_autoClick
       end
     end
-    object panel3: TsPanel
+    object panel3: TPanel
       Left = 1
       Top = 338
       Width = 622
@@ -498,7 +491,6 @@ object f_purchase: Tf_purchase
       Align = alBottom
       Enabled = False
       TabOrder = 2
-      SkinData.SkinSection = 'PANEL'
       object ed_nilai_faktur: TsCurrencyEdit
         Left = 245
         Top = 1

@@ -119,67 +119,67 @@ object F_Setor: TF_Setor
     object l_1: TLabel
       Left = 8
       Top = 16
-      Width = 53
-      Height = 18
+      Width = 56
+      Height = 19
       Caption = 'Id Kasir'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 1184274
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = []
+      ParentFont = False
     end
     object l_3: TLabel
       Left = 368
       Top = 48
-      Width = 74
-      Height = 18
+      Width = 75
+      Height = 19
       Caption = 'Setor Real'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 1184274
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = []
+      ParentFont = False
     end
     object sLabel1: TLabel
       Left = 8
       Top = 48
-      Width = 42
-      Height = 18
+      Width = 44
+      Height = 19
       Caption = 'Nama'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 1184274
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = []
+      ParentFont = False
     end
     object sLabel2: TLabel
       Left = 8
       Top = 80
-      Width = 86
-      Height = 18
+      Width = 92
+      Height = 19
       Caption = 'Waktu Login'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 1184274
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = []
+      ParentFont = False
     end
     object sLabel3: TLabel
       Left = 368
       Top = 16
-      Width = 57
-      Height = 18
+      Width = 58
+      Height = 19
       Caption = 'IP Login'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 1184274
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = []
+      ParentFont = False
     end
     object ed_Kd_kasir: TsEdit
       Left = 112
@@ -310,26 +310,25 @@ object F_Setor: TF_Setor
       SkinData.SkinSection = 'EDIT'
     end
   end
-  object p1: TsPanel
+  object p1: TPanel
     Left = 0
     Top = 0
     Width = 674
     Height = 49
     Align = alTop
     TabOrder = 0
-    SkinData.SkinSection = 'PANEL'
     object l_5: TLabel
       Left = 8
       Top = 8
       Width = 166
       Height = 18
       Caption = 'Transaksi Mulai Tanggal'
-      ParentFont = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Style = []
+      ParentFont = False
     end
     object b_refresh: TsBitBtn
       Left = 536
@@ -374,7 +373,7 @@ object F_Setor: TF_Setor
     Top = 224
   end
   object laporan: TfrxReport
-    Version = '4.9.35'
+    Version = '5.3.14'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -413,13 +412,13 @@ object F_Setor: TF_Setor
       Frame.Style = fsDot
       EndlessHeight = True
       object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
         Height = 60.472480000000000000
         Top = 18.897650000000000000
         Width = 181.417440000000000000
         object Memo1: TfrxMemoView
           Width = 173.858380000000000000
           Height = 30.236240000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -427,7 +426,7 @@ object F_Setor: TF_Setor
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'LAPORAN TUTUP KASIR '
             'DUTA SWALAYAN')
           ParentFont = False
@@ -436,7 +435,6 @@ object F_Setor: TF_Setor
           Top = 41.574830000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DisplayFormat.FormatStr = 'dd mmmm yyyy'
           DisplayFormat.Kind = fkDateTime
           Font.Charset = DEFAULT_CHARSET
@@ -445,12 +443,13 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Date]')
           ParentFont = False
         end
       end
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 60.472480000000000000
         Top = 181.417440000000000000
         Width = 181.417440000000000000
@@ -462,7 +461,6 @@ object F_Setor: TF_Setor
           Top = 3.779530000000000000
           Width = 30.236240000000000000
           Height = 15.118120000000000000
-          ShowHint = False
           Cursor = crHandPoint
           TagStr = '[db_kasir."user"]'
           DataSet = setor_kasir
@@ -473,7 +471,7 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_kasir."user"]')
           ParentFont = False
         end
@@ -482,7 +480,6 @@ object F_Setor: TF_Setor
           Top = 3.779530000000000000
           Width = 128.504020000000000000
           Height = 15.118120000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           Font.Charset = DEFAULT_CHARSET
@@ -490,7 +487,7 @@ object F_Setor: TF_Setor
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_kasir."n_user"]')
           ParentFont = False
         end
@@ -499,7 +496,6 @@ object F_Setor: TF_Setor
           Top = 22.677180000000000000
           Width = 90.708654090000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -510,7 +506,7 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_kasir."jumlah_setor_real"]')
           ParentFont = False
         end
@@ -519,7 +515,6 @@ object F_Setor: TF_Setor
           Top = 41.574830000000000000
           Width = 90.708656540000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -532,7 +527,7 @@ object F_Setor: TF_Setor
           Frame.Style = fsDot
           Frame.Typ = [ftBottom]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_kasir."selisih"]')
           ParentFont = False
         end
@@ -541,14 +536,13 @@ object F_Setor: TF_Setor
           Top = 22.677180000000000000
           Width = 60.472480000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Setor Kasir')
           ParentFont = False
         end
@@ -557,7 +551,6 @@ object F_Setor: TF_Setor
           Top = 41.574830000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -565,31 +558,32 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           Frame.Typ = [ftBottom]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Selisih')
           ParentFont = False
         end
       end
       object Header1: TfrxHeader
+        FillType = ftBrush
         Height = 18.897650000000000000
         Top = 139.842610000000000000
         Width = 181.417440000000000000
         object Memo30: TfrxMemoView
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Setor per Kasir')
           ParentFont = False
         end
       end
       object Footer1: TfrxFooter
+        FillType = ftBrush
         Height = 434.645950000000000000
         Top = 264.567100000000000000
         Width = 181.417440000000000000
@@ -597,14 +591,13 @@ object F_Setor: TF_Setor
           Top = 7.559060000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'TOTAL SETOR KASIR')
           ParentFont = False
         end
@@ -613,7 +606,6 @@ object F_Setor: TF_Setor
           Top = 26.456710000000000000
           Width = 90.708720000000000000
           Height = 22.677180000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -625,7 +617,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."jumlah_setor_real">)]')
           ParentFont = False
         end
@@ -634,7 +626,6 @@ object F_Setor: TF_Setor
           Top = 49.133890000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -646,7 +637,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."selisih">)]')
           ParentFont = False
         end
@@ -654,14 +645,13 @@ object F_Setor: TF_Setor
           Top = 75.590600000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Hasil Penjualan')
           ParentFont = False
         end
@@ -670,14 +660,13 @@ object F_Setor: TF_Setor
           Top = 94.488250000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Penjualan Tunai')
           ParentFont = False
         end
@@ -686,14 +675,13 @@ object F_Setor: TF_Setor
           Top = 113.385900000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Penjualan Kredit')
           ParentFont = False
         end
@@ -702,14 +690,13 @@ object F_Setor: TF_Setor
           Top = 132.283550000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Total Penjualan')
           ParentFont = False
         end
@@ -718,14 +705,13 @@ object F_Setor: TF_Setor
           Top = 234.330860000000000000
           Width = 68.031496062992100000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Void')
           ParentFont = False
         end
@@ -734,14 +720,13 @@ object F_Setor: TF_Setor
           Top = 253.228510000000000000
           Width = 68.031496060000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Return Jual')
           ParentFont = False
         end
@@ -750,14 +735,13 @@ object F_Setor: TF_Setor
           Top = 272.126160000000000000
           Width = 68.031496060000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Discount')
           ParentFont = False
         end
@@ -766,7 +750,6 @@ object F_Setor: TF_Setor
           Top = 234.330860000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -774,7 +757,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[sum(<db_kasir."void">)]')
           ParentFont = False
         end
@@ -783,7 +766,6 @@ object F_Setor: TF_Setor
           Top = 253.228510000000000000
           Width = 98.267780000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -795,7 +777,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."return_jual">)]')
           ParentFont = False
         end
@@ -804,7 +786,6 @@ object F_Setor: TF_Setor
           Top = 272.126160000000000000
           Width = 98.267780000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -816,7 +797,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."discount">)]')
           ParentFont = False
         end
@@ -825,7 +806,6 @@ object F_Setor: TF_Setor
           Top = 113.385900000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -837,7 +817,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."kredit">)]')
           ParentFont = False
         end
@@ -846,7 +826,6 @@ object F_Setor: TF_Setor
           Top = 94.488250000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -858,7 +837,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."price_oh">)]')
           ParentFont = False
         end
@@ -867,7 +846,6 @@ object F_Setor: TF_Setor
           Top = 132.283550000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -879,7 +857,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[mm_tunai.value+mm_kredit.value]')
           ParentFont = False
         end
@@ -887,14 +865,13 @@ object F_Setor: TF_Setor
           Top = 158.740260000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Variant')
           ParentFont = False
         end
@@ -903,14 +880,13 @@ object F_Setor: TF_Setor
           Top = 177.637910000000000000
           Width = 68.031540000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Transaksi')
           ParentFont = False
         end
@@ -919,14 +895,13 @@ object F_Setor: TF_Setor
           Top = 196.535560000000000000
           Width = 68.031496062992100000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Barang Trs')
           ParentFont = False
         end
@@ -935,14 +910,13 @@ object F_Setor: TF_Setor
           Top = 215.433210000000000000
           Width = 68.031496062992100000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Qty Out')
           ParentFont = False
         end
@@ -951,7 +925,6 @@ object F_Setor: TF_Setor
           Top = 177.637910000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           Font.Charset = DEFAULT_CHARSET
@@ -961,7 +934,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."transaksi">)]')
           ParentFont = False
         end
@@ -970,7 +943,6 @@ object F_Setor: TF_Setor
           Top = 196.535560000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           Font.Charset = DEFAULT_CHARSET
@@ -980,7 +952,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."Tr_barang">)]')
           ParentFont = False
         end
@@ -989,7 +961,6 @@ object F_Setor: TF_Setor
           Top = 215.433210000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = setor_kasir
           DataSetName = 'db_kasir'
           Font.Charset = DEFAULT_CHARSET
@@ -999,7 +970,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[SUM(<db_kasir."Qty_barang">)]')
           ParentFont = False
         end
@@ -1008,7 +979,6 @@ object F_Setor: TF_Setor
           Top = 177.637910000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -1016,7 +986,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Kali')
           ParentFont = False
         end
@@ -1025,7 +995,6 @@ object F_Setor: TF_Setor
           Top = 196.535560000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -1033,7 +1002,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Item')
           ParentFont = False
         end
@@ -1042,7 +1011,6 @@ object F_Setor: TF_Setor
           Top = 215.433210000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -1050,7 +1018,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Barang')
           ParentFont = False
         end
@@ -1059,7 +1027,6 @@ object F_Setor: TF_Setor
           Top = 234.330860000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -1067,7 +1034,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Barang')
           ParentFont = False
         end
@@ -1076,14 +1043,13 @@ object F_Setor: TF_Setor
           Top = 30.236240000000000000
           Width = 60.472480000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Setor Kasir')
           ParentFont = False
         end
@@ -1092,14 +1058,13 @@ object F_Setor: TF_Setor
           Top = 49.133890000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Selisih')
           ParentFont = False
         end
@@ -1115,7 +1080,7 @@ object F_Setor: TF_Setor
     Top = 312
   end
   object R_detail_setor: TfrxReport
-    Version = '4.9.35'
+    Version = '5.3.14'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -1153,13 +1118,13 @@ object F_Setor: TF_Setor
       Frame.Style = fsDot
       EndlessHeight = True
       object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
         Height = 34.015770000000000000
         Top = 18.897650000000000000
         Width = 181.417440000000000000
         object Memo1: TfrxMemoView
           Width = 181.417440000000000000
           Height = 15.118120000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -1167,7 +1132,7 @@ object F_Setor: TF_Setor
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'LAPORAN PER KASIR')
           ParentFont = False
         end
@@ -1176,7 +1141,6 @@ object F_Setor: TF_Setor
           Top = 15.118120000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DisplayFormat.FormatStr = 'dd mmmm yyyy'
           DisplayFormat.Kind = fkDateTime
           Font.Charset = DEFAULT_CHARSET
@@ -1185,12 +1149,13 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Date]')
           ParentFont = False
         end
       end
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 442.205010000000000000
         Top = 113.385900000000000000
         Width = 181.417440000000000000
@@ -1200,7 +1165,6 @@ object F_Setor: TF_Setor
         object db_kasiruser: TfrxMemoView
           Width = 52.913420000000000000
           Height = 15.118120000000000000
-          ShowHint = False
           DataField = 'user'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1209,7 +1173,7 @@ object F_Setor: TF_Setor
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."user"]')
           ParentFont = False
         end
@@ -1217,7 +1181,6 @@ object F_Setor: TF_Setor
           Left = 60.472480000000000000
           Width = 120.944960000000000000
           Height = 15.118120000000000000
-          ShowHint = False
           DataField = 'n_user'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1227,7 +1190,7 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."n_user"]')
           ParentFont = False
         end
@@ -1236,7 +1199,6 @@ object F_Setor: TF_Setor
           Top = 18.897650000000000000
           Width = 90.708654090000000000
           Height = 18.897637800000000000
-          ShowHint = False
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -1247,7 +1209,7 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."jumlah_setor_real"]')
           ParentFont = False
         end
@@ -1256,7 +1218,6 @@ object F_Setor: TF_Setor
           Top = 56.692950000000000000
           Width = 90.708656540000000000
           Height = 18.897637800000000000
-          ShowHint = False
           DataField = 'selisih'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1268,7 +1229,7 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."selisih"]')
           ParentFont = False
         end
@@ -1276,14 +1237,13 @@ object F_Setor: TF_Setor
           Top = 79.370130000000000000
           Width = 192.756030000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Hasil Penjualan')
           ParentFont = False
         end
@@ -1292,14 +1252,13 @@ object F_Setor: TF_Setor
           Top = 98.267780000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Penjualan Tunai')
           ParentFont = False
         end
@@ -1308,14 +1267,13 @@ object F_Setor: TF_Setor
           Top = 117.165430000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Penjualan Kredit')
           ParentFont = False
         end
@@ -1324,14 +1282,13 @@ object F_Setor: TF_Setor
           Top = 136.063080000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Total Penjualan')
           ParentFont = False
         end
@@ -1340,14 +1297,13 @@ object F_Setor: TF_Setor
           Top = 238.110390000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Void')
           ParentFont = False
         end
@@ -1356,14 +1312,13 @@ object F_Setor: TF_Setor
           Top = 257.008040000000000000
           Width = 86.929141180000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Return Jual')
           ParentFont = False
         end
@@ -1372,14 +1327,13 @@ object F_Setor: TF_Setor
           Top = 275.905690000000000000
           Width = 86.929141180000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Discount')
           ParentFont = False
         end
@@ -1388,7 +1342,6 @@ object F_Setor: TF_Setor
           Top = 238.110390000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'void'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1399,7 +1352,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."void"]')
           ParentFont = False
         end
@@ -1408,7 +1361,6 @@ object F_Setor: TF_Setor
           Top = 257.008040000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'return_jual'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1421,7 +1373,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."return_jual"]')
           ParentFont = False
         end
@@ -1430,7 +1382,6 @@ object F_Setor: TF_Setor
           Top = 275.905690000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'discount'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1443,7 +1394,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."discount"]')
           ParentFont = False
         end
@@ -1452,7 +1403,6 @@ object F_Setor: TF_Setor
           Top = 117.165430000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'kredit'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1465,7 +1415,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."kredit"]')
           ParentFont = False
         end
@@ -1474,7 +1424,6 @@ object F_Setor: TF_Setor
           Top = 98.267780000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'price_oh'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1487,7 +1436,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."price_oh"]')
           ParentFont = False
         end
@@ -1496,7 +1445,6 @@ object F_Setor: TF_Setor
           Top = 136.063080000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -1508,7 +1456,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[mm_tunai.value+mm_kredit.value]')
           ParentFont = False
         end
@@ -1516,14 +1464,13 @@ object F_Setor: TF_Setor
           Top = 162.519790000000000000
           Width = 192.756030000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = [fsBold]
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Variant')
           ParentFont = False
         end
@@ -1532,14 +1479,13 @@ object F_Setor: TF_Setor
           Top = 181.417440000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Transaksi')
           ParentFont = False
         end
@@ -1548,14 +1494,13 @@ object F_Setor: TF_Setor
           Top = 200.315090000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Barang Trs')
           ParentFont = False
         end
@@ -1564,14 +1509,13 @@ object F_Setor: TF_Setor
           Top = 219.212740000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '-Qty Out')
           ParentFont = False
         end
@@ -1580,7 +1524,6 @@ object F_Setor: TF_Setor
           Top = 181.417440000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'transaksi'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1591,7 +1534,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."transaksi"]')
           ParentFont = False
         end
@@ -1600,7 +1543,6 @@ object F_Setor: TF_Setor
           Top = 200.315090000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'Tr_barang'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1611,7 +1553,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."Tr_barang"]')
           ParentFont = False
         end
@@ -1620,7 +1562,6 @@ object F_Setor: TF_Setor
           Top = 219.212740000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataField = 'Qty_barang'
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
@@ -1631,7 +1572,7 @@ object F_Setor: TF_Setor
           Font.Style = []
           Frame.Style = fsDot
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."Qty_barang"]')
           ParentFont = False
         end
@@ -1640,7 +1581,6 @@ object F_Setor: TF_Setor
           Top = 37.795300000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           DataSet = Detail_setor
           DataSetName = 'db_detail_setor'
           DisplayFormat.FormatStr = '###,###,##0.00'
@@ -1651,7 +1591,7 @@ object F_Setor: TF_Setor
           Font.Name = 'arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[db_detail_setor."jumlah_setor_oh"]')
           ParentFont = False
         end
@@ -1659,14 +1599,13 @@ object F_Setor: TF_Setor
           Top = 18.897650000000000000
           Width = 71.811070000000000000
           Height = 18.897637800000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Setor Real')
           ParentFont = False
         end
@@ -1674,14 +1613,13 @@ object F_Setor: TF_Setor
           Top = 37.795300000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Setor OH')
           ParentFont = False
         end
@@ -1689,14 +1627,13 @@ object F_Setor: TF_Setor
           Top = 56.692950000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
-          ShowHint = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'arial'
           Font.Style = []
           Frame.Style = fsDot
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Selisih')
           ParentFont = False
         end

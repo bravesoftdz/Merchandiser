@@ -17,7 +17,7 @@ type
     grid: TcxGrid;
     t_data: TcxGridDBTableView;
     l_data: TcxGridLevel;
-    sPanel1: TsPanel;
+    sPanel1: TPanel;
     sSkinProvider1: TsSkinProvider;
     t_datakd_return: TcxGridDBColumn;
     t_datatgl_return: TcxGridDBColumn;

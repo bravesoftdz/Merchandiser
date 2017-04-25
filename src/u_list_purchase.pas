@@ -16,7 +16,7 @@ uses
 type
   Tf_List_purchase = class(TForm)
     sSkinProvider1: TsSkinProvider;
-    sPanel1: TsPanel;
+    sPanel1: TPanel;
     grid: TcxGrid;
     l_data: TcxGridLevel;
     t_data: TcxGridDBTableView;
@@ -27,7 +27,7 @@ type
     t_dataColumn1: TcxGridDBColumn;
     sb_2: TsSpeedButton;
     sb_1: TsSpeedButton;
-    p1: TsPanel;
+    p1: TPanel;
     l_1: TLabel;
     l_2: TLabel;
     de_mulai: TsDateEdit;

@@ -51,14 +51,13 @@ object F_kirim_data: TF_kirim_data
           'elesai sebelum melakukan penyimpanan file'#13#10'yang akan di kirim ke' +
           ' gudang...'
       end
-      object spnl1: TsPanel
+      object spnl1: TPanel
         Left = 0
         Top = 263
         Width = 471
         Height = 41
         Align = alBottom
         TabOrder = 0
-        SkinData.SkinSection = 'PANEL'
         DesignSize = (
           471
           41)
@@ -97,10 +96,6 @@ object F_kirim_data: TF_kirim_data
     end
     object ts_2: TsTabSheet
       Caption = 'Terima Data'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object edt_terima: TsDateEdit
         Left = 4
         Top = 232
@@ -165,23 +160,21 @@ object F_kirim_data: TF_kirim_data
           19
           17)
       end
-      object spnl_load: TsPanel
+      object spnl_load: TPanel
         Left = 0
         Top = 0
         Width = 471
         Height = 33
         Align = alTop
         TabOrder = 2
-        SkinData.SkinSection = 'PANEL'
       end
-      object spnl2: TsPanel
+      object spnl2: TPanel
         Left = 0
         Top = 263
         Width = 471
         Height = 41
         Align = alBottom
         TabOrder = 3
-        SkinData.SkinSection = 'PANEL'
         DesignSize = (
           471
           41)

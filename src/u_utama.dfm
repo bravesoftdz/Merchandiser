@@ -89,7 +89,7 @@ object F_Utama: TF_Utama
     SkinData.SkinSection = 'STATUSBAR'
     ExplicitTop = -21
   end
-  object sCoolBar1: TsPanel
+  object sCoolBar1: TPanel
     Left = 0
     Top = 0
     Width = 899
@@ -98,7 +98,6 @@ object F_Utama: TF_Utama
     BorderWidth = 5
     ParentColor = True
     TabOrder = 1
-    SkinData.SkinSection = 'TOOLBAR'
     object sb_inventory: TsSpeedButton
       Left = 6
       Top = 6

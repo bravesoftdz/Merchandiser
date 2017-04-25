@@ -23,7 +23,7 @@ type
     tvQtyReal: TcxGridDBColumn;
     tvTotalHpp: TcxGridDBColumn;
     l_data: TcxGridLevel;
-    sPanel1: TsPanel;
+    sPanel1: TPanel;
     sknprvdr1: TsSkinProvider;
     sb_1: TsSpeedButton;
     sb_2: TsSpeedButton;

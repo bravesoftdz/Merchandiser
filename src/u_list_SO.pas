@@ -23,11 +23,11 @@ type
     clmn_dataColumn4: TcxGridDBColumn;
     clmn_dataColumn5: TcxGridDBColumn;
     l_data: TcxGridLevel;
-    sPanel1: TsPanel;
+    sPanel1: TPanel;
     sknprvdr1: TsSkinProvider;
     sb_1: TsSpeedButton;
     sb_2: TsSpeedButton;
-    p1: TsPanel;
+    p1: TPanel;
     l_1: TLabel;
     l_2: TLabel;
     de_mulai: TsDateEdit;

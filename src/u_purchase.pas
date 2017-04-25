@@ -15,8 +15,8 @@ uses
 
 type
   Tf_purchase = class(TForm)
-    panel4: TsPanel;
-    sPanel1: TsPanel;
+    panel4: TPanel;
+    sPanel1: TPanel;
     Grid: TcxGrid;
     TableView: TcxGridTableView;
     ableViewColumn1: TcxGridColumn;
@@ -24,10 +24,10 @@ type
     t_view_Qty: TcxGridColumn;
     t_view_harga: TcxGridColumn;
     Level: TcxGridLevel;
-    panel1: TsPanel;
+    panel1: TPanel;
     Mm_nama: TsMemo;
     ce_harga: TsCurrencyEdit;
-    panel2: TsPanel;
+    panel2: TPanel;
     sBevel1: TsBevel;
     sLabel1: TLabel;
     sLabel3: TLabel;
@@ -37,20 +37,20 @@ type
     ed_tgl: TsDateEdit;
     ed_supplier: TsEdit;
     ed_code: TsEdit;
-    panel3: TsPanel;
+    panel3: TPanel;
     ed_nilai_faktur: TsCurrencyEdit;
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
     b_rekom: TButton;
     sLabel5: TLabel;
-    sPanel2: TsPanel;
+    sPanel2: TPanel;
     b_simpan_file: TButton;
     b_load: TButton;
     od: TsOpenDialog;
     sd: TsSaveDialog;
     b_auto: TButton;
     t_view_total_harga: TcxGridColumn;
-    spnl1: TsPanel;
+    spnl1: TPanel;
     b_new: TButton;
     b_simpan: TButton;
     b_print: TButton;

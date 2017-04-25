@@ -16,8 +16,8 @@ uses
 
 type
   Tf_return = class(TForm)
-    panel4: TsPanel;
-    sPanel1: TsPanel;
+    panel4: TPanel;
+    sPanel1: TPanel;
     Grid: TcxGrid;
     TableView: TcxGridTableView;
     ableViewColumn1: TcxGridColumn;
@@ -26,27 +26,27 @@ type
     view_total: TcxGridColumn;
     view_harga: TcxGridColumn;
     Level: TcxGridLevel;
-    panel1: TsPanel;
+    panel1: TPanel;
     Mm_nama: TsMemo;
     ce_harga: TsCurrencyEdit;
-    panel2: TsPanel;
+    panel2: TPanel;
     sLabel1: TLabel;
     sLabel3: TLabel;
     sLabel4: TLabel;
     ed_no_faktur: TsEdit;
     ed_tgl: TsDateEdit;
     ed_supplier: TsEdit;
-    panel3: TsPanel;
+    panel3: TPanel;
     ed_nilai_faktur: TsCurrencyEdit;
     sSpeedButton18: TsSpeedButton;
     sSkinProvider1: TsSkinProvider;
     ed_fak_receipt: TsEdit;
     sLabel5: TLabel;
     sLabel6: TLabel;
-    sPanel2: TsPanel;
+    sPanel2: TPanel;
     b_load: TButton;
     od: TsOpenDialog;
-    spnl1: TsPanel;
+    spnl1: TPanel;
     b_print: TButton;
     b_new: TButton;
     b_simpan: TButton;

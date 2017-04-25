@@ -1,9 +1,9 @@
 object f_list_return: Tf_list_return
   Left = 193
   Top = 154
-  Width = 928
-  Height = 480
   Caption = 'Daftar Return Pembelian'
+  ClientHeight = 0
+  ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object f_list_return: Tf_list_return
     Left = 0
     Top = 0
     Width = 762
-    Height = 441
+    Height = 0
     Align = alClient
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
@@ -92,15 +92,14 @@ object f_list_return: Tf_list_return
       GridView = t_data
     end
   end
-  object sPanel1: TsPanel
-    Left = 762
+  object sPanel1: TPanel
+    Left = -30
     Top = 0
     Width = 150
-    Height = 441
+    Height = 0
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 1
-    SkinData.SkinSection = 'PANEL'
     object sBitBtn6: TsBitBtn
       Left = 7
       Top = 88
@@ -113,11 +112,11 @@ object f_list_return: Tf_list_return
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = [fsBold]
+      Layout = blGlyphTop
       ParentFont = False
+      Spacing = 0
       TabOrder = 0
       OnClick = sBitBtn6Click
-      Layout = blGlyphTop
-      Spacing = 0
       ImageIndex = 2
       Images = dm.gambar
       Reflected = True
@@ -135,11 +134,11 @@ object f_list_return: Tf_list_return
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = [fsBold]
+      Layout = blGlyphTop
       ParentFont = False
+      Spacing = 0
       TabOrder = 1
       OnClick = sBitBtn2Click
-      Layout = blGlyphTop
-      Spacing = 0
       ImageIndex = 10
       Images = dm.gambar
       Reflected = True

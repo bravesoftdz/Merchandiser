@@ -1,9 +1,9 @@
 object f_list_receipt: Tf_list_receipt
   Left = 195
   Top = 152
-  Width = 928
-  Height = 480
   Caption = 'Daftar Receipt Order'
+  ClientHeight = 0
+  ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object f_list_receipt: Tf_list_receipt
     Left = 0
     Top = 0
     Width = 762
-    Height = 441
+    Height = 0
     Align = alClient
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
@@ -104,15 +104,14 @@ object f_list_receipt: Tf_list_receipt
       GridView = t_data
     end
   end
-  object sPanel1: TsPanel
-    Left = 762
+  object sPanel1: TPanel
+    Left = -30
     Top = 0
     Width = 150
-    Height = 441
+    Height = 0
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 1
-    SkinData.SkinSection = 'PANEL'
     object sBitBtn2: TsBitBtn
       Left = 8
       Top = 8
@@ -125,11 +124,11 @@ object f_list_receipt: Tf_list_receipt
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = [fsBold]
+      Layout = blGlyphTop
       ParentFont = False
+      Spacing = 0
       TabOrder = 0
       OnClick = sBitBtn2Click
-      Layout = blGlyphTop
-      Spacing = 0
       ImageIndex = 10
       Images = dm.gambar
       Reflected = True
@@ -147,11 +146,11 @@ object f_list_receipt: Tf_list_receipt
       Font.Height = -16
       Font.Name = 'Rockwell'
       Font.Style = [fsBold]
+      Layout = blGlyphTop
       ParentFont = False
+      Spacing = 0
       TabOrder = 1
       OnClick = sBitBtn6Click
-      Layout = blGlyphTop
-      Spacing = 0
       ImageIndex = 2
       Images = dm.gambar
       Reflected = True

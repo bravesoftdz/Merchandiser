@@ -37,7 +37,7 @@ type
     ed_set_Real: TsCurrencyEdit;
     b_simpan: TsBitBtn;
     b_cetak: TsBitBtn;
-    p1: TsPanel;
+    p1: TPanel;
     l_5: TLabel;
     b_refresh: TsBitBtn;
     de_trans: TsDateEdit;

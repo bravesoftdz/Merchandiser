@@ -1,9 +1,9 @@
 object f_list_so_plan: Tf_list_so_plan
   Left = 192
   Top = 116
-  Width = 928
-  Height = 480
   Caption = 'Dafta Rencana SO'
+  ClientHeight = 0
+  ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,7 +24,7 @@ object f_list_so_plan: Tf_list_so_plan
     Left = 0
     Top = 0
     Width = 762
-    Height = 441
+    Height = 0
     Align = alClient
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
@@ -88,21 +88,21 @@ object f_list_so_plan: Tf_list_so_plan
       GridView = grid_data
     end
   end
-  object sPanel1: TsPanel
-    Left = 762
+  object sPanel1: TPanel
+    Left = -30
     Top = 0
     Width = 150
-    Height = 441
+    Height = 0
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 1
-    SkinData.SkinSection = 'PANEL'
     object sb_1: TsSpeedButton
       Left = 0
       Top = 0
       Width = 150
       Height = 90
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Selesai'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -114,7 +114,6 @@ object f_list_so_plan: Tf_list_so_plan
       ParentFont = False
       Spacing = 0
       OnClick = sb_1Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 10
@@ -126,6 +125,7 @@ object f_list_so_plan: Tf_list_so_plan
       Width = 150
       Height = 90
       Cursor = crHandPoint
+      Align = alTop
       Caption = 'Refresh'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
@@ -137,7 +137,6 @@ object f_list_so_plan: Tf_list_so_plan
       ParentFont = False
       Spacing = 0
       OnClick = sb_2Click
-      Align = alTop
       SkinData.SkinSection = 'TOOLBUTTON'
       Images = dm.gambar
       ImageIndex = 2

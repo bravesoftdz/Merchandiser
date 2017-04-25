@@ -18,7 +18,7 @@ type
     db_barang: TDBGrid;
     ts_detail: TsTabSheet;
     sSkinProvider1: TsSkinProvider;
-    sPanel1: TsPanel;
+    sPanel1: TPanel;
     gb_kondisi: TsGroupBox;
     rb_like: TsRadioButton;
     rb_sama: TsRadioButton;

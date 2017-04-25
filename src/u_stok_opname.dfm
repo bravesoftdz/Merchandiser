@@ -23,14 +23,13 @@ object f_stok_opname: Tf_stok_opname
   OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
-  object panel4: TsPanel
+  object panel4: TPanel
     Left = 624
     Top = 0
     Width = 150
     Height = 411
     Align = alRight
     TabOrder = 1
-    SkinData.SkinSection = 'PANEL'
     object sSpeedButton18: TsSpeedButton
       Left = 1
       Top = 1
@@ -54,14 +53,13 @@ object f_stok_opname: Tf_stok_opname
       ImageIndex = 10
       Reflected = True
     end
-    object spnl1: TsPanel
+    object spnl1: TPanel
       Left = 1
       Top = 91
       Width = 148
       Height = 118
       Align = alTop
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       object BtnCetak: TButton
         Left = 8
         Top = 8
@@ -90,14 +88,13 @@ object f_stok_opname: Tf_stok_opname
         OnClick = BtnSimpanClick
       end
     end
-    object pnl1: TsPanel
+    object pnl1: TPanel
       Left = 1
       Top = 339
       Width = 148
       Height = 71
       Align = alBottom
       TabOrder = 1
-      SkinData.SkinSection = 'PANEL'
       object BtnBaru: TButton
         Left = 8
         Top = 10
@@ -118,15 +115,14 @@ object f_stok_opname: Tf_stok_opname
       end
     end
   end
-  object sPanel1: TsPanel
+  object sPanel1: TPanel
     Left = 0
     Top = 0
     Width = 624
     Height = 411
     Align = alClient
     TabOrder = 0
-    SkinData.SkinSection = 'PANEL'
-    object panel1: TsPanel
+    object panel1: TPanel
       Left = 1
       Top = 1
       Width = 622
@@ -134,7 +130,6 @@ object f_stok_opname: Tf_stok_opname
       Align = alTop
       Enabled = False
       TabOrder = 1
-      SkinData.SkinSection = 'PANEL'
       object Mm_nama: TsMemo
         Left = 1
         Top = 1
@@ -182,14 +177,13 @@ object f_stok_opname: Tf_stok_opname
         DisplayFormat = '###,###,##0;-###,###,##0;0'
       end
     end
-    object panel2: TsPanel
+    object panel2: TPanel
       Left = 1
       Top = 74
       Width = 622
       Height = 119
       Align = alTop
       TabOrder = 0
-      SkinData.SkinSection = 'PANEL'
       object sLabel5: TLabel
         Left = 198
         Top = 1
@@ -205,7 +199,6 @@ object f_stok_opname: Tf_stok_opname
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 366
         ExplicitHeight = 60
       end
       object sBevel1: TsBevel

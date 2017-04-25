@@ -17,7 +17,7 @@ const
 type
   TF_Utama = class(TForm)
     sb: TsStatusBar;
-    sCoolBar1: TsPanel;
+    sCoolBar1: TPanel;
     sb_inventory: TsSpeedButton;
     sb_toko: TsSpeedButton;
     sb_laporan: TsSpeedButton;
