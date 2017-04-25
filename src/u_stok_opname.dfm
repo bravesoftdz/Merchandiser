@@ -319,6 +319,8 @@ object f_stok_opname: Tf_stok_opname
       Height = 217
       Align = alClient
       TabOrder = 2
+      LookAndFeel.Kind = lfOffice11
+      LookAndFeel.NativeStyle = False
       object t_koreksi: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsDsListData
