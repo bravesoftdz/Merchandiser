@@ -44,31 +44,29 @@ object f_planogram: Tf_planogram
     Font.Style = []
     ParentFont = False
   end
-  object se_rak: TsSpinEdit
+  object se_rak: TSpinEdit
     Left = 56
     Top = 8
     Width = 73
-    Height = 21
+    Height = 22
     Color = clWhite
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    ParentFont = False
-    TabOrder = 0
-    Text = '0'
-    OnChange = se_rakChange
-    SkinData.SkinSection = 'EDIT'
     MaxValue = 0
     MinValue = 0
+    ParentFont = False
+    TabOrder = 0
     Value = 0
+    OnChange = se_rakChange
   end
-  object se_shelving: TsSpinEdit
+  object se_shelving: TSpinEdit
     Left = 184
     Top = 8
     Width = 73
-    Height = 21
+    Height = 22
     Color = clWhite
     Enabled = False
     Font.Charset = DEFAULT_CHARSET
@@ -76,14 +74,12 @@ object f_planogram: Tf_planogram
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    ParentFont = False
-    TabOrder = 1
-    Text = '0'
-    OnChange = se_shelvingChange
-    SkinData.SkinSection = 'EDIT'
     MaxValue = 0
     MinValue = 0
+    ParentFont = False
+    TabOrder = 1
     Value = 0
+    OnChange = se_shelvingChange
   end
   object grid_plano: TcxGrid
     Left = 8

@@ -22,7 +22,7 @@ object f_list_return: Tf_list_return
   object grid: TcxGrid
     Left = 0
     Top = 0
-    Width = 762
+    Width = 154
     Height = 0
     Align = alClient
     TabOrder = 0
@@ -100,7 +100,7 @@ object f_list_return: Tf_list_return
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 1
-    object sBitBtn6: TsBitBtn
+    object sBitBtn6: TBitBtn
       Left = 7
       Top = 88
       Width = 138
@@ -117,12 +117,8 @@ object f_list_return: Tf_list_return
       Spacing = 0
       TabOrder = 0
       OnClick = sBitBtn6Click
-      ImageIndex = 2
-      Images = dm.gambar
-      Reflected = True
-      SkinData.SkinSection = 'TOOLBUTTON'
     end
-    object sBitBtn2: TsBitBtn
+    object sBitBtn2: TBitBtn
       Left = 8
       Top = 8
       Width = 137
@@ -139,10 +135,6 @@ object f_list_return: Tf_list_return
       Spacing = 0
       TabOrder = 1
       OnClick = sBitBtn2Click
-      ImageIndex = 10
-      Images = dm.gambar
-      Reflected = True
-      SkinData.SkinSection = 'TOOLBUTTON'
     end
   end
   object sSkinProvider1: TsSkinProvider

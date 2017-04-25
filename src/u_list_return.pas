@@ -23,8 +23,8 @@ type
     t_datatgl_return: TcxGridDBColumn;
     t_datanilai_faktur: TcxGridDBColumn;
     t_datan_supp: TcxGridDBColumn;
-    sBitBtn6: TsBitBtn;
-    sBitBtn2: TsBitBtn;
+    sBitBtn6: TBitBtn;
+    sBitBtn2: TBitBtn;
     t_dataColumn1: TcxGridDBColumn;
     t_dataColumn2: TcxGridDBColumn;
     t_dataColumn3: TcxGridDBColumn;

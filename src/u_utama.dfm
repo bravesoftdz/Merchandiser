@@ -21,14 +21,13 @@ object F_Utama: TF_Utama
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object sSplitter1: TsSplitter
+  object sSplitter1: TSplitter
     Left = 0
     Top = 385
     Width = 899
     Height = 4
     Cursor = crVSplit
     Align = alTop
-    SkinData.SkinSection = 'SPLITTER'
     ExplicitWidth = 949
   end
   object sb: TStatusBar
@@ -499,7 +498,7 @@ object F_Utama: TF_Utama
       OnClick = DaftarSupplier1Click
     end
   end
-  object spd: TsSavePictureDialog
+  object spd: TSavePictureDialog
     Left = 320
     Top = 206
   end

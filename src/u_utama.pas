@@ -36,9 +36,9 @@ type
     Series5: TBarSeries;
     Series6: TBarSeries;
     sb_refresh: TsSpeedButton;
-    sSplitter1: TsSplitter;
+    sSplitter1: TSplitter;
     PenjualanItemHarian1: TMenuItem;
-    spd: TsSavePictureDialog;
+    spd: TSavePictureDialog;
     sb_tutup_toko: TsSpeedButton;
     N1: TMenuItem;
     N2: TMenuItem;

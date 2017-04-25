@@ -295,7 +295,7 @@ object F_Inventory: TF_Inventory
             Text = 'ed_temp'
             Visible = False
           end
-          object ud_cari: TsUpDown
+          object ud_cari: TUpDown
             Left = 120
             Top = 32
             Width = 40
@@ -1176,10 +1176,6 @@ object F_Inventory: TF_Inventory
       BorderWidth = 1
       Caption = 'Mutasi'
       OnClickBtn = ts_mutasiClickBtn
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object sLabel10: TLabel
         Left = 72
         Top = 32

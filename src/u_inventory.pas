@@ -80,7 +80,7 @@ type
     Ed_Cari: TEdit;
     L_hasil: TLabel;
     ed_temp: TEdit;
-    ud_cari: TsUpDown;
+    ud_cari: TUpDown;
     B_Cari: TButton;
     rb_minO: TRadioButton;
     rb_minS: TRadioButton;

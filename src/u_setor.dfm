@@ -219,7 +219,7 @@ object F_Setor: TF_Setor
       GlyphMode.Grayed = False
       DisplayFormat = '###,###,##0;-###,###,##0;0'
     end
-    object b_simpan: TsBitBtn
+    object b_simpan: TBitBtn
       Left = 408
       Top = 84
       Width = 113
@@ -235,9 +235,8 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 2
       OnClick = b_simpanClick
-      SkinData.SkinSection = 'BUTTON'
     end
-    object b_cetak: TsBitBtn
+    object b_cetak: TBitBtn
       Left = 528
       Top = 84
       Width = 113
@@ -251,7 +250,6 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 3
       OnClick = b_cetakClick
-      SkinData.SkinSection = 'BUTTON'
     end
     object edNama: TEdit
       Left = 112
@@ -325,7 +323,7 @@ object F_Setor: TF_Setor
       Font.Style = []
       ParentFont = False
     end
-    object b_refresh: TsBitBtn
+    object b_refresh: TBitBtn
       Left = 536
       Top = 8
       Width = 129
@@ -339,7 +337,6 @@ object F_Setor: TF_Setor
       ParentFont = False
       TabOrder = 0
       OnClick = b_refreshClick
-      SkinData.SkinSection = 'BUTTON'
     end
     object de_trans: TsDateEdit
       Left = 184

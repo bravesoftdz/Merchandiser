@@ -9,12 +9,13 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
   cxClasses, cxControls, cxGridCustomView, cxGrid, cxCustomData, cxFilter,
   cxData, StdCtrls, sEdit, cxLookAndFeels, cxLookAndFeelPainters,
-  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
+  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator,
+  Vcl.Samples.Spin;
 
 type
   Tf_planogram = class(TForm)
-    se_rak: TsSpinEdit;
-    se_shelving: TsSpinEdit;
+    se_rak: TSpinEdit;
+    se_shelving: TSpinEdit;
     sLabel2: TLabel;
     sLabel3: TLabel;
     sSkinProvider1: TsSkinProvider;

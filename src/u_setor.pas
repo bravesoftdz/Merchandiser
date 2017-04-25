@@ -35,11 +35,11 @@ type
     l_3: TLabel;
     ed_Kd_kasir: TEdit;
     ed_set_Real: TsCurrencyEdit;
-    b_simpan: TsBitBtn;
-    b_cetak: TsBitBtn;
+    b_simpan: TBitBtn;
+    b_cetak: TBitBtn;
     p1: TPanel;
     l_5: TLabel;
-    b_refresh: TsBitBtn;
+    b_refresh: TBitBtn;
     de_trans: TsDateEdit;
     sLabel1: TLabel;
     edNama: TEdit;
