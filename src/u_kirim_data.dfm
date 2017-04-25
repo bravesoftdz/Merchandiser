@@ -16,17 +16,14 @@ object F_kirim_data: TF_kirim_data
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object sg_load: TsGauge
+  object sg_load: TGauge
     Left = 0
     Top = 0
     Width = 479
     Height = 25
     Align = alTop
-    Visible = False
-    SkinData.SkinSection = 'GAUGE'
-    ForeColor = clBlack
     Progress = 0
-    Suffix = '%'
+    Visible = False
   end
   object pc_1: TsPageControl
     Left = 0
@@ -96,6 +93,10 @@ object F_kirim_data: TF_kirim_data
     end
     object ts_2: TsTabSheet
       Caption = 'Terima Data'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object edt_terima: TsDateEdit
         Left = 4
         Top = 232

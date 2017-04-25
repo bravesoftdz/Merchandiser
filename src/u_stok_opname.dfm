@@ -198,7 +198,7 @@ object f_stok_opname: Tf_stok_opname
         ParentFont = False
         ExplicitHeight = 60
       end
-      object sBevel1: TsBevel
+      object sBevel1: TBevel
         Left = 1
         Top = 87
         Width = 620
@@ -265,26 +265,25 @@ object f_stok_opname: Tf_stok_opname
         TabOrder = 1
         OnClick = BtnAutoClick
       end
-      object rg_pilihan: TsRadioGroup
+      object rg_pilihan: TRadioGroup
         Left = 8
         Top = 32
         Width = 281
         Height = 41
         Caption = '| Pilihan |'
+        Columns = 2
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 3
-        SkinData.SkinSection = 'GROUPBOX'
-        Columns = 2
         ItemIndex = 0
         Items.Strings = (
           'Semua Rak'
           'Rak No')
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 3
       end
       object BtnTambah: TButton
         Left = 296

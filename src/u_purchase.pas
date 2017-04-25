@@ -28,7 +28,7 @@ type
     Mm_nama: TMemo;
     ce_harga: TsCurrencyEdit;
     panel2: TPanel;
-    sBevel1: TsBevel;
+    sBevel1: TBevel;
     sLabel1: TLabel;
     sLabel3: TLabel;
     sLabel4: TLabel;

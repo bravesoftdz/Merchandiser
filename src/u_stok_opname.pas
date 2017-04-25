@@ -24,7 +24,7 @@ type
     Mm_nama: TMemo;
     ce_harga: TsCurrencyEdit;
     panel2: TPanel;
-    sBevel1: TsBevel;
+    sBevel1: TBevel;
     sLabel1: TLabel;
     ed_kodeSO: TEdit;
     ed_code: TEdit;
@@ -46,7 +46,7 @@ type
     t_koreksiqty_real: TcxGridDBColumn;
     t_koreksiColumn2: TcxGridDBColumn;
     l_koreksi: TcxGridLevel;
-    rg_pilihan: TsRadioGroup;
+    rg_pilihan: TRadioGroup;
     BtnTambah: TButton;
     se_rak: TsDecimalSpinEdit;
     pnl1: TPanel;

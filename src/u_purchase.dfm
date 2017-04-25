@@ -333,7 +333,7 @@ object f_purchase: Tf_purchase
         ParentFont = False
         ExplicitHeight = 60
       end
-      object sBevel1: TsBevel
+      object sBevel1: TBevel
         Left = 1
         Top = 64
         Width = 620

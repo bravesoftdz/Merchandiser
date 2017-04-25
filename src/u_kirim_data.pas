@@ -10,7 +10,7 @@ uses
   AbZipKit, AbView, AbBrowse, AbZipper, ExtCtrls,
   sPanel, AbUnZper, sSkinProvider, sGauge, ShellAPI,
   ShlObj, Winsock, AbBase, AbZBrows, Grids, StdCtrls, Mask, sMaskEdit,
-  sCustomComboEdit;
+  sCustomComboEdit, Vcl.Samples.Gauges;
 
 type
   TF_kirim_data = class(TForm)
@@ -23,7 +23,7 @@ type
     spnl_load: TPanel;
     od_load: TOpenDialog;
     sknprvdr1: TsSkinProvider;
-    sg_load: TsGauge;
+    sg_load: TGauge;
     l_1: TLabel;
     spnl1: TPanel;
     edt_kirim: TsDateEdit;
@@ -148,7 +148,6 @@ begin
   try
     sg_load.Visible := True;
     sg_load.MaxValue := 16;
-    sg_load.Suffix := ' %';
 
     fungsi.SQLExec(dm.Q_Exe,
       'replace into tb_export_import(kd_perusahaan, data, ket, tanggal) values ("' +
@@ -376,8 +375,6 @@ begin
       Delete(nm_file, 1, Length(zk_load.Items[i].StoredPath));
       nm_tabel := nm_file;
       Delete(nm_tabel, Length(nm_tabel) - 3, 4);
-
-      sg_load.Suffix := ' % (' + nm_file + ')';
 
       fungsi.SQLExec(dm.Q_Exe, 'TRUNCATE TABLE ' + nm_tabel + '', False);
 
