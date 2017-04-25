@@ -14,7 +14,7 @@ uses
   StdCtrls, Mask, sMaskEdit,
   sCustomComboEdit, sCurrEdit, MemDS, DBAccess, MyAccess, cxFilter, cxData,
   cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
-  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator;
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, Vcl.Samples.Spin;
 
 type
   Tf_stok_opname = class(TForm)
@@ -48,7 +48,6 @@ type
     l_koreksi: TcxGridLevel;
     rg_pilihan: TRadioGroup;
     BtnTambah: TButton;
-    se_rak: TsDecimalSpinEdit;
     pnl1: TPanel;
     BtnBaru: TButton;
     BtnBatal: TButton;
@@ -56,6 +55,7 @@ type
     BtnSimpan: TButton;
     QListData: TMyQuery;
     dsDsListData: TDataSource;
+    se_rak: TSpinEdit;
     procedure ed_codeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BtnBaruClick(Sender: TObject);

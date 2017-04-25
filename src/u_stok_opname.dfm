@@ -301,24 +301,15 @@ object f_stok_opname: Tf_stok_opname
         TabOrder = 4
         OnClick = BtnTambahClick
       end
-      object se_rak: TsDecimalSpinEdit
+      object se_rak: TSpinEdit
         Left = 224
         Top = 46
         Width = 57
-        Height = 21
-        Alignment = taCenter
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
         TabOrder = 5
-        Text = '1'
-        SkinData.SkinSection = 'EDIT'
-        Increment = 1.000000000000000000
-        Value = 1.000000000000000000
-        DecimalPlaces = 0
+        Value = 0
       end
     end
     object grid: TcxGrid
