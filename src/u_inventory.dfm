@@ -18,7 +18,7 @@ object F_Inventory: TF_Inventory
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object pc_inventory: TsPageControl
+  object pc_inventory: TPageControl
     Left = 0
     Top = 0
     Width = 625
@@ -35,11 +35,9 @@ object F_Inventory: TF_Inventory
     Style = tsFlatButtons
     TabOrder = 0
     OnChange = pc_inventoryChange
-    SkinData.SkinSection = 'PAGECONTROL'
-    object ts_jelajah: TsTabSheet
+    object ts_jelajah: TTabSheet
       BorderWidth = 1
       Caption = 'Jelajahi Barang'
-      ButtonSkin = 'BUTTON_BIG'
       ExplicitLeft = 0
       ExplicitTop = 0
       ExplicitWidth = 0
@@ -356,11 +354,9 @@ object F_Inventory: TF_Inventory
         end
       end
     end
-    object ts_detail: TsTabSheet
+    object ts_detail: TTabSheet
       BorderWidth = 1
       Caption = 'Detail Barang'
-      ButtonSkin = 'BUTTON_BIG'
-      OnClickBtn = ts_detailClickBtn
       ExplicitLeft = 0
       ExplicitTop = 0
       ExplicitWidth = 0
@@ -1172,10 +1168,13 @@ object F_Inventory: TF_Inventory
         TabOrder = 10
       end
     end
-    object ts_mutasi: TsTabSheet
+    object ts_mutasi: TTabSheet
       BorderWidth = 1
       Caption = 'Mutasi'
-      OnClickBtn = ts_mutasiClickBtn
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object sLabel10: TLabel
         Left = 72
         Top = 32

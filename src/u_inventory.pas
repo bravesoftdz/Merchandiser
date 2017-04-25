@@ -13,10 +13,10 @@ type
   NewControl = class(TControl);
 
   TF_Inventory = class(TForm)
-    pc_inventory: TsPageControl;
-    ts_jelajah: TsTabSheet;
+    pc_inventory: TPageControl;
+    ts_jelajah: TTabSheet;
     db_barang: TDBGrid;
-    ts_detail: TsTabSheet;
+    ts_detail: TTabSheet;
     sSkinProvider1: TsSkinProvider;
     sPanel1: TPanel;
     gb_kondisi: TGroupBox;
@@ -32,7 +32,7 @@ type
     rb_min_stok: TRadioButton;
     rb_lebih_sama: TRadioButton;
     rb_kurang_sama: TRadioButton;
-    ts_mutasi: TsTabSheet;
+    ts_mutasi: TTabSheet;
     sLabel1: TLabel;
     sLabel2: TLabel;
     sLabel3: TLabel;

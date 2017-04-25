@@ -14,9 +14,9 @@ uses
 
 type
   TF_kirim_data = class(TForm)
-    pc_1: TsPageControl;
-    ts_1: TsTabSheet;
-    ts_2: TsTabSheet;
+    pc_1: TPageControl;
+    ts_1: TTabSheet;
+    ts_2: TTabSheet;
     edt_terima: TsDateEdit;
     zk_load: TAbZipKit;
     zv_load: TAbZipView;

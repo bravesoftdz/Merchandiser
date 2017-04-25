@@ -25,7 +25,7 @@ object F_kirim_data: TF_kirim_data
     Progress = 0
     Visible = False
   end
-  object pc_1: TsPageControl
+  object pc_1: TPageControl
     Left = 0
     Top = 25
     Width = 479
@@ -33,9 +33,12 @@ object F_kirim_data: TF_kirim_data
     ActivePage = ts_1
     Align = alClient
     TabOrder = 0
-    SkinData.SkinSection = 'PAGECONTROL'
-    object ts_1: TsTabSheet
+    object ts_1: TTabSheet
       Caption = 'Kirim Data'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object l_1: TLabel
         Left = 0
         Top = 40
@@ -91,7 +94,7 @@ object F_kirim_data: TF_kirim_data
         end
       end
     end
-    object ts_2: TsTabSheet
+    object ts_2: TTabSheet
       Caption = 'Terima Data'
       ExplicitLeft = 0
       ExplicitTop = 0
