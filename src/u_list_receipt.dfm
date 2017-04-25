@@ -2,7 +2,7 @@ object f_list_receipt: Tf_list_receipt
   Left = 195
   Top = 152
   Caption = 'Daftar Receipt Order'
-  ClientHeight = 0
+  ClientHeight = 201
   ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -23,11 +23,12 @@ object f_list_receipt: Tf_list_receipt
     Left = 0
     Top = 0
     Width = 154
-    Height = 0
+    Height = 201
     Align = alClient
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
+    ExplicitHeight = 0
     object t_data: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = t_dataCellDblClick
@@ -108,10 +109,11 @@ object f_list_receipt: Tf_list_receipt
     Left = -30
     Top = 0
     Width = 150
-    Height = 0
+    Height = 201
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitHeight = 0
     object sBitBtn2: TBitBtn
       Left = 8
       Top = 8

@@ -3,10 +3,9 @@ unit u_dm;
 interface
 
 uses
-  SysUtils, Classes, DB, sSkinManager, frxClass, frxDBSet,
-  dialogs, forms, inifiles, UFungsi, ImgList, Controls,
-  acAlphaImageList, frxBarcode, Windows, cxStyles, SHFolder, MemDS,
-  DBAccess, MyAccess, cxClasses, System.ImageList;
+  SysUtils, Classes, DB, sSkinManager, frxClass, frxDBSet, dialogs, forms,
+  inifiles, UFungsi, ImgList, Controls, acAlphaImageList, frxBarcode, Windows,
+  cxStyles, SHFolder, MemDS, DBAccess, MyAccess, cxClasses, System.ImageList;
 
 type
   Tdm = class(TDataModule)
@@ -62,22 +61,22 @@ implementation
 
 function GetAppData(Folder: Integer): string;
 var
-  path: array[0..MAX_PATH] of Char;
+  Path: array [0 .. MAX_PATH] of Char;
 begin
   if Succeeded(SHGetFolderPath(0, Folder, 0, 0, @Path[0])) then
-    Result := path + '\Gain Profit\'
+    Result := Path + '\Gain Profit\'
   else
     Result := '';
 end;
 
 function krupuk(const s: string; CryptInt: Integer): string;
 var
-  i: integer;
+  i: Integer;
   s2: string;
 begin
-  if not (Length(s) = 0) then
+  if not(Length(s) = 0) then
     for i := 1 to Length(s) do
-      s2 := s2 + Chr(Ord(s[i]) - cryptint);
+      s2 := s2 + Chr(Ord(s[i]) - CryptInt);
   Result := s2;
 end;
 
@@ -90,11 +89,11 @@ begin
   Path := extractfilepath(application.ExeName);
 
   AppPath := GetAppData(CSIDL_COMMON_APPDATA);
-  if not (DirectoryExists(AppPath)) then
+  if not(DirectoryExists(AppPath)) then
     CreateDir(AppPath);
 
   DocPath := GetAppData(CSIDL_PERSONAL);
-  if not (DirectoryExists(DocPath)) then
+  if not(DirectoryExists(DocPath)) then
     CreateDir(DocPath);
 
   sm.SkinDirectory := Path + 'Tools\Skins';
@@ -103,8 +102,8 @@ begin
   try
     kd_perusahaan := appINI.ReadString('toko', 'kd_perusahaan', '');
     sm.SkinName := appINI.ReadString('toko', 'nama_skin', 'Air');
-    sm.HueOffset := appini.ReadInteger('toko', 'hue_skin', 0);
-    sm.Saturation := appini.ReadInteger('toko', 'sat_skin', 0);
+    sm.HueOffset := appINI.ReadInteger('toko', 'hue_skin', 0);
+    sm.Saturation := appINI.ReadInteger('toko', 'sat_skin', 0);
   finally
     appINI.Free;
   end;
@@ -136,11 +135,11 @@ function Tdm.HakAkses(Kunci: string; User: string; Perusahaan: string): Boolean;
 var
   sql: string;
 begin
-  sql := 'SELECT ' + kunci + ' FROM tb_user_company WHERE ' + 'kd_user="' + User
+  sql := 'SELECT ' + Kunci + ' FROM tb_user_company WHERE ' + 'kd_user="' + User
     + '" AND kd_perusahaan="' + Perusahaan + '"';
 
   fungsi.SQLExec(Q_temp, sql, true);
-  Result := Q_temp.FieldByName(kunci).AsBoolean;
+  Result := Q_temp.FieldByName(Kunci).AsBoolean;
 end;
 
 procedure Tdm.smAfterChange(Sender: TObject);
@@ -158,4 +157,3 @@ begin
 end;
 
 end.
-

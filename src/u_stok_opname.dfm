@@ -185,7 +185,7 @@ object f_stok_opname: Tf_stok_opname
         Left = 198
         Top = 1
         Width = 423
-        Height = 86
+        Height = 60
         Align = alRight
         Alignment = taRightJustify
         Caption = 'STOCK OPNAME'
@@ -196,7 +196,6 @@ object f_stok_opname: Tf_stok_opname
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitHeight = 60
       end
       object sBevel1: TBevel
         Left = 1

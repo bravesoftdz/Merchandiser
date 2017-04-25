@@ -4,15 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs,
-  UFungsi, ComCtrls,
-  sSkinProvider, Buttons, sSpeedButton, Menus,
-  cxStyles, cxCustomData, cxGraphics,
-  cxDataStorage, cxEdit, cxCurrencyEdit, cxGridLevel, cxGridCustomTableView,
-  cxGridTableView, cxClasses, cxControls, cxGridCustomView, cxGrid, frxClass,
-  StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
-  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator,
-  cxFilter, cxData;
+  Dialogs, UFungsi, ComCtrls, sSkinProvider, Buttons, sSpeedButton, Menus,
+  cxStyles, cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxCurrencyEdit,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxClasses, cxControls,
+  cxGridCustomView, cxGrid, frxClass, StdCtrls, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  dxSkinscxPCPainter, cxNavigator, cxFilter, cxData;
 
 type
   Tf_Barcode = class(TForm)
@@ -37,9 +34,9 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ed_PIDKeyPress(Sender: TObject; var Key: Char);
     procedure laporanGetValue(const VarName: string; var Value: Variant);
-    procedure
-      TableViewTcxGridDataControllerTcxDataSummaryFooterSummaryItems2GetText(Sender:
-      TcxDataSummaryItem; const AValue: Variant; AIsFooter: Boolean; var AText: string);
+    procedure TableViewTcxGridDataControllerTcxDataSummaryFooterSummaryItems2GetText
+      (Sender: TcxDataSummaryItem; const AValue: Variant; AIsFooter: Boolean;
+      var AText: string);
   private
     { Private declarations }
     jumlahLabel, baris, hitung: Integer;
@@ -59,55 +56,60 @@ uses
 
 procedure Tf_Barcode.createRows;
 var
-  baris_baru: integer;
-  f: integer;
+  baris_baru: Integer;
+  f: Integer;
 begin
-  if tableview.DataController.RecordCount <> 0 then
+  if TableView.DataController.RecordCount <> 0 then
   begin
-    for f := 0 to tableview.DataController.RecordCount - 1 do
+    for f := 0 to TableView.DataController.RecordCount - 1 do
     begin
-      if (pos(TableView.DataController.GetValue(f, 0), dm.Q_temp.fieldbyname('kd_barang').AsString)
-        > 0) then
+      if (pos(TableView.DataController.GetValue(f, 0),
+        dm.Q_temp.fieldbyname('kd_barang').AsString) > 0) then
       begin
-        tableview.DataController.ChangeFocusedRecordIndex(f);
-        TableView.DataController.SetValue(f, 3, TableView.DataController.GetValue
-          (f, 3) + 1);
+        TableView.DataController.ChangeFocusedRecordIndex(f);
+        TableView.DataController.SetValue(f, 3,
+          TableView.DataController.GetValue(f, 3) + 1);
         exit;
       end;
     end;
   end;
 
-  baris_baru := tableview.DataController.RecordCount + 1;
-  tableview.DataController.RecordCount := baris_baru;
-  TableView.DataController.SetValue(baris_baru - 1, 0, dm.Q_temp.fieldbyname('kd_barang').AsString);
-  TableView.DataController.SetValue(baris_baru - 1, 1, dm.Q_temp.fieldbyname('n_barang').AsString);
-  TableView.DataController.SetValue(baris_baru - 1, 2, dm.Q_temp.fieldbyname('harga_jual3').AsString);
+  baris_baru := TableView.DataController.RecordCount + 1;
+  TableView.DataController.RecordCount := baris_baru;
+  TableView.DataController.SetValue(baris_baru - 1, 0,
+    dm.Q_temp.fieldbyname('kd_barang').AsString);
+  TableView.DataController.SetValue(baris_baru - 1, 1,
+    dm.Q_temp.fieldbyname('n_barang').AsString);
+  TableView.DataController.SetValue(baris_baru - 1, 2,
+    dm.Q_temp.fieldbyname('harga_jual3').AsString);
   TableView.DataController.SetValue(baris_baru - 1, 3, 1);
-  tableview.DataController.ChangeFocusedRowIndex(baris_baru);
+  TableView.DataController.ChangeFocusedRowIndex(baris_baru);
 
   if TableView.DataController.RecordCount <> 0 then
     btnBarcode.Enabled := True;
 end;
 
-procedure Tf_Barcode.ed_PIDKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure Tf_Barcode.ed_PIDKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_f2 then
+  if Key = vk_f2 then
     sb_cari.Click;
 
-  if key = vk_return then
+  if Key = vk_return then
   begin
     if ed_PID.Text = '' then
-      Exit;
+      exit;
 
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
 
     fungsi.SQLExec(dm.Q_temp,
-      ' SELECT tb_barang.kd_barang, tb_barang.n_barang, ' + 'tb_barang_harga.harga_jual3 FROM tb_barang '
-      + 'INNER JOIN tb_barang_harga ON tb_barang.kd_barang=tb_barang_harga.kd_barang  '
+      ' SELECT tb_barang.kd_barang, tb_barang.n_barang, ' +
+      'tb_barang_harga.harga_jual3 FROM tb_barang ' +
+      'INNER JOIN tb_barang_harga ON tb_barang.kd_barang=tb_barang_harga.kd_barang  '
       + 'AND tb_barang_harga.kd_perusahaan = tb_barang.kd_perusahaan ' +
       'WHERE tb_barang.kd_barang = "' + ed_PID.Text + '" AND ' +
       'tb_barang_harga.kd_macam_harga = "HETK" AND tb_barang.aktif="Y" AND ' +
-      'tb_barang.kd_perusahaan= "' + dm.kd_perusahaan + '"', true);
+      'tb_barang.kd_perusahaan= "' + dm.kd_perusahaan + '"', True);
 
     if dm.Q_temp.Eof then
       showmessage('data tidak ada...')
@@ -117,17 +119,17 @@ begin
     ed_PID.Clear;
   end;
 
-  if key = vk_up then
+  if Key = vk_up then
   begin
-    if tableview.DataController.FocusedRecordIndex >= 1 then
-      tableview.DataController.FocusedRecordIndex := tableview.DataController.FocusedRecordIndex
-        - 1;
-    key := VK_NONAME;
+    if TableView.DataController.FocusedRecordIndex >= 1 then
+      TableView.DataController.FocusedRecordIndex :=
+        TableView.DataController.FocusedRecordIndex - 1;
+    Key := VK_NONAME;
 
   end;
-  if key = vk_down then
-    tableview.DataController.FocusedRowIndex := tableview.DataController.FocusedRowIndex
-      + 1;
+  if Key = vk_down then
+    TableView.DataController.FocusedRowIndex :=
+      TableView.DataController.FocusedRowIndex + 1;
 
 end;
 
@@ -146,22 +148,23 @@ procedure Tf_Barcode.sb_cariClick(Sender: TObject);
 begin
   ed_PID.SetFocus;
   application.CreateForm(tf_cari, f_cari);
-  with F_cari do
-  try
-    _SQLi := 'select kd_barang, n_barang from tb_barang ' +
-      'where kd_perusahaan="' + dm.kd_perusahaan + '"';
-    tblcap[0] := 'Kode';
-    tblCap[1] := 'Deskripsi';
-    if ShowModal = mrOk then
-    begin
-      ed_PID.Text := TblVal[0];
+  with f_cari do
+    try
+      _SQLi := 'select kd_barang, n_barang from tb_barang ' +
+        'where kd_perusahaan="' + dm.kd_perusahaan + '"';
+      tblcap[0] := 'Kode';
+      tblcap[1] := 'Deskripsi';
+      if ShowModal = mrOk then
+      begin
+        ed_PID.Text := TblVal[0];
+      end;
+    finally
+      close;
     end;
-  finally
-    close;
-  end;
 end;
 
-procedure Tf_Barcode.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure Tf_Barcode.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   if Key = vk_f2 then
     ed_PID.SetFocus;
@@ -183,22 +186,22 @@ var
   b: Integer;
 begin
   if TableView.DataController.RecordCount = 0 then
-    Exit;
+    exit;
 
   kode := ed_PID.Text;
 
   b := TableView.DataController.GetFocusedRecordIndex;
 
-  if key = #43 then // tanda + (repeat)
+  if Key = #43 then // tanda + (repeat)
   begin
     delete(kode, pos('+', kode), 1);
     ed_PID.Clear;
-    key := #0;
+    Key := #0;
 
     if (StrToIntDef(kode, 0) = 0) or (Length(kode) = 0) then
-      Exit;
+      exit;
 
-    TableView.DataController.SetValue(b, 3, kode); //Qty
+    TableView.DataController.SetValue(b, 3, kode); // Qty
 
     if TableView.DataController.RecordCount = 0 then
       btnBarcode.Enabled := False;
@@ -226,12 +229,12 @@ begin
     hitung := hitung + 1;
 end;
 
-procedure Tf_Barcode.TableViewTcxGridDataControllerTcxDataSummaryFooterSummaryItems2GetText
-  (Sender: TcxDataSummaryItem; const AValue: Variant; AIsFooter: Boolean; var
-  AText: string);
+procedure Tf_Barcode.
+  TableViewTcxGridDataControllerTcxDataSummaryFooterSummaryItems2GetText
+  (Sender: TcxDataSummaryItem; const AValue: Variant; AIsFooter: Boolean;
+  var AText: string);
 begin
   jumlahLabel := StrToIntDef(AText, 0);
 end;
 
 end.
-

@@ -4,9 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs,
-  ComCtrls, UFungsi, Buttons,
-  inifiles, StdCtrls;
+  Dialogs, ComCtrls, UFungsi, Buttons, inifiles, StdCtrls;
 
 type
   TF_Login = class(TForm)
@@ -21,12 +19,14 @@ type
     BtnLogin: TButton;
     procedure simpanKodePerusahaan;
     procedure FormShow(Sender: TObject);
-    procedure EdKdPenggunaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure EdKdPenggunaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure EdNamaPenggunaEnter(Sender: TObject);
     procedure BtnLoginClick(Sender: TObject);
     procedure EdKdPenggunaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure EdPasswordKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure EdPasswordKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure sbClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
@@ -51,36 +51,38 @@ begin
   dm.Login := False;
 end;
 
-procedure TF_Login.EdKdPenggunaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TF_Login.EdKdPenggunaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 var
   sql: string;
 begin
-  if key = vk_return then
+  if Key = vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
     sql := 'SELECT tb_user.n_user, tb_user.`password` FROM tb_user INNER JOIN '
       + 'tb_user_company ON tb_user.kd_user = tb_user_company.kd_user WHERE ' +
-      'tb_user.kd_user="' + EdKdPengguna.Text + '" AND tb_user_company.toko="Y" ' +
-      'AND tb_user_company.kd_perusahaan="' + dm.kd_perusahaan + '"';
-    fungsi.SQLExec(DM.Q_Show, sql, true);
-    if dm.Q_show.Eof then
+      'tb_user.kd_user="' + EdKdPengguna.Text +
+      '" AND tb_user_company.toko="Y" ' + 'AND tb_user_company.kd_perusahaan="'
+      + dm.kd_perusahaan + '"';
+    fungsi.SQLExec(dm.Q_Show, sql, true);
+    if dm.Q_Show.Eof then
     begin
       messagedlg('Kode ini tidak terdaftar...', mtError, [mbOk], 0);
       EdKdPengguna.SetFocus;
     end
     else
     begin
-      userPassword := dm.Q_show.FieldByName('password').AsString;
-      userRealName := dm.Q_show.fieldbyname('n_user').AsString;
+      userPassword := dm.Q_Show.FieldByName('password').AsString;
+      userRealName := dm.Q_Show.FieldByName('n_user').AsString;
 
       sql := 'SELECT `nilai` FROM `tb_settings` WHERE `parameter`="checkin"';
-      fungsi.SQLExec(DM.Q_Show, sql, true);
-      if dm.Q_show.FieldByName('nilai').AsBoolean then
+      fungsi.SQLExec(dm.Q_Show, sql, true);
+      if dm.Q_Show.FieldByName('nilai').AsBoolean then
       begin
         sql := 'SELECT user_id FROM tb_checkinout WHERE ISNULL(checkout_time) '
           + 'AND user_id="' + EdKdPengguna.Text + '"';
-        fungsi.SQLExec(DM.Q_Show, sql, true);
-        if dm.Q_show.Eof then
+        fungsi.SQLExec(dm.Q_Show, sql, true);
+        if dm.Q_Show.Eof then
         begin
           messagedlg('Tidak Dapat Login '#10#13'USER belum Check IN....',
             mtError, [mbOk], 0);
@@ -95,7 +97,7 @@ begin
     end;
   end;
 
-  if key = vk_escape then
+  if Key = vk_escape then
     close;
 end;
 
@@ -112,14 +114,15 @@ begin
   if fungsi.GetIPFromHost(Host, IP, Err) then
     ip_kasir := IP
   else
-    MessageDlg(Err, mtError, [mbOk], 0);
+    messagedlg(Err, mtError, [mbOk], 0);
 
   dm.db_conn.StartTransaction;
   try
     if EdNamaPengguna.Text <> '' then
     begin
-      fungsi.SQLExec(dm.Q_temp, 'select md5("' + EdPassword.Text + '")as passs', true);
-      passs := dm.Q_temp.fieldbyname('passs').AsString;
+      fungsi.SQLExec(dm.Q_temp, 'select md5("' + EdPassword.Text +
+        '")as passs', true);
+      passs := dm.Q_temp.FieldByName('passs').AsString;
 
       if compareText(userPassword, passs) <> 0 then
       begin
@@ -133,13 +136,13 @@ begin
         dm.n_pengguna := EdNamaPengguna.Text;
 
         simpanKodePerusahaan;
-        dm.Login := True;
+        dm.Login := true;
         close;
       end;
     end;
-    dm.db_Conn.Commit;
+    dm.db_conn.Commit;
   except
-    dm.db_Conn.Rollback;
+    dm.db_conn.Rollback;
   end;
 end;
 
@@ -150,13 +153,14 @@ end;
 
 procedure TF_Login.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  action := cafree;
-  f_login := nil;
+  Action := cafree;
+  F_Login := nil;
 end;
 
-procedure TF_Login.EdPasswordKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TF_Login.EdPasswordKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_return then
+  if Key = vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
     BtnLoginClick(Sender);
@@ -166,28 +170,29 @@ end;
 procedure TF_Login.sbClick(Sender: TObject);
 begin
   application.CreateForm(tf_cari, f_cari);
-  with F_cari do
-  try
-    _SQLi := 'select kd_perusahaan, n_perusahaan from tb_company';
-    tblcap[0] := 'Kode';
-    tblCap[1] := 'Nama Perusahaan';
-    if ShowModal = mrOk then
-    begin
-      dm.kd_perusahaan := TblVal[0];
-      sb.Panels[0].Text := dm.kd_perusahaan;
-      sb.Panels[1].Text := TblVal[1];
-      EdKdPengguna.Clear;
-      EdPassword.Enabled := False;
-      EdKdPengguna.SetFocus;
+  with f_cari do
+    try
+      _SQLi := 'select kd_perusahaan, n_perusahaan from tb_company';
+      tblcap[0] := 'Kode';
+      tblcap[1] := 'Nama Perusahaan';
+      if ShowModal = mrOk then
+      begin
+        dm.kd_perusahaan := TblVal[0];
+        sb.Panels[0].Text := dm.kd_perusahaan;
+        sb.Panels[1].Text := TblVal[1];
+        EdKdPengguna.Clear;
+        EdPassword.Enabled := False;
+        EdKdPengguna.SetFocus;
+      end;
+    finally
+      close;
     end;
-  finally
-    close;
-  end;
 end;
 
-procedure TF_Login.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TF_Login.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_f2 then
+  if Key = vk_f2 then
     sbClick(self);
 end;
 
@@ -201,4 +206,3 @@ begin
 end;
 
 end.
-

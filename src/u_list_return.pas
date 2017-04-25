@@ -5,12 +5,11 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, sSkinProvider,
-  Buttons, ExtCtrls, cxGridLevel,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxControls, cxGridCustomView, cxGrid, UFungsi, cxStyles,
-  cxCurrencyEdit, StdCtrls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
-  dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData;
+  Buttons, ExtCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid, UFungsi,
+  cxStyles, cxCurrencyEdit, StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
+  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator,
+  cxCustomData, cxFilter, cxData;
 
 type
   Tf_list_return = class(TForm)
@@ -30,9 +29,9 @@ type
     t_dataColumn3: TcxGridDBColumn;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo:
-      TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
-      var AHandled: Boolean);
+    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
     procedure segarkan;
     procedure sBitBtn2Click(Sender: TObject);
     procedure sBitBtn6Click(Sender: TObject);
@@ -59,7 +58,7 @@ var
   idx: Integer;
 begin
   active := FindControl(msg.ActiveWnd);
-  if not (dm.metu_kabeh) then
+  if not(dm.metu_kabeh) then
   begin
     if Assigned(active) then
     begin
@@ -74,19 +73,20 @@ end;
 procedure Tf_list_return.segarkan;
 begin
   fungsi.SQLExec(dm.q_list_return,
-    'select * from vw_list_return  where kd_perusahaan="' + dm.kd_perusahaan + '"', true);
+    'select * from vw_list_return  where kd_perusahaan="' + dm.kd_perusahaan +
+    '"', true);
 end;
 
 procedure Tf_list_return.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   f_utama.MDIChildDestroyed(Self.Handle);
-  action := cafree;
+  Action := cafree;
   f_list_return := nil;
 end;
 
 procedure Tf_list_return.t_dataCellDblClick(Sender: TcxCustomGridTableView;
-  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift:
-  TShiftState; var AHandled: Boolean);
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
 begin
   if f_return <> nil then
     f_return.Show
@@ -110,8 +110,7 @@ end;
 
 procedure Tf_list_return.FormCreate(Sender: TObject);
 begin
-  f_utama.MDIChildCreated(self.Handle);
+  f_utama.MDIChildCreated(Self.Handle);
 end;
 
 end.
-

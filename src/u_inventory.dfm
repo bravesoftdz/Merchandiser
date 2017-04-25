@@ -1171,6 +1171,10 @@ object F_Inventory: TF_Inventory
     object ts_mutasi: TTabSheet
       BorderWidth = 1
       Caption = 'Mutasi'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object sLabel10: TLabel
         Left = 72
         Top = 32

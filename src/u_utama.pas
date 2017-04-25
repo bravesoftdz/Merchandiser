@@ -4,13 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, Buttons,
-  sSpeedButton, StdCtrls, ExtCtrls, Menus,
-  UFungsi,
-  ExtDlgs, sDialogs, shellapi,
-  DB, MemDS, DBAccess, MyAccess,
-  VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart,
-  VclTee.TeeGDIPlus;
+  Dialogs, ComCtrls, Buttons, sSpeedButton, StdCtrls, ExtCtrls, Menus, UFungsi,
+  ExtDlgs, sDialogs, shellapi, DB, MemDS, DBAccess, MyAccess, VCLTee.TeEngine,
+  VCLTee.Series, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart,
+  VCLTee.TeeGDIPlus;
 
 const
   WM_AFTER_SHOW = WM_USER + 300; // custom message
@@ -101,8 +98,8 @@ type
     procedure DaftarRencanaSO1Click(Sender: TObject);
     procedure mniStockOpnameSO2Click(Sender: TObject);
   private
-    FVersion : TVersion;
-    bulan, tahun, periode : string;
+    FVersion: TVersion;
+    bulan, tahun, periode: string;
     procedure WmAfterShow(var Msg: TMessage); message WM_AFTER_SHOW;
     procedure cek_update;
     { Private declarations }
@@ -116,13 +113,14 @@ var
 implementation
 
 uses
-  U_Login, u_inventory, u_setor, U_toko, u_dm, acselectskin, u_kirim_data, u_lap,
+  U_Login, u_inventory, u_setor, U_toko, u_dm, acselectskin, u_kirim_data,
+  u_lap,
   u_planogram, u_RO, u_list_receipt, u_return, u_list_return, u_list_purchase,
   u_purchase, u_hari, u_list_SO, u_barcode, u_list_so_plan, u_stok_opname;
 
 {$R *.dfm}
 
-procedure Tf_utama.panel_auto_width;
+procedure TF_Utama.panel_auto_width;
 var
   x: integer;
   y: string;
@@ -134,36 +132,37 @@ begin
   end;
 end;
 
-//add a tab for an MDI child
-procedure tf_utama.MDIChildCreated(const childHandle: THandle);
+// add a tab for an MDI child
+procedure TF_Utama.MDIChildCreated(const childHandle: THandle);
 begin
-  tc_child.Tabs.AddObject(TForm(FindControl(childHandle)).Caption, TObject(childHandle));
+  tc_child.Tabs.AddObject(TForm(FindControl(childHandle)).Caption,
+    TObject(childHandle));
   tc_child.TabIndex := -1 + tc_child.Tabs.Count;
 
-  dbc_margin.Visible := False;
+  DBC_margin.Visible := False;
   dbc_mutasi.Visible := False;
   sSplitter1.Visible := False;
 
-  if f_utama.MDIChildCount > 1 then
+  if F_Utama.MDIChildCount > 1 then
   begin
     tc_child.Visible := True;
   end;
 end;
 
-//remove a tab for this MDI child
-procedure tf_utama.MDIChildDestroyed(const childHandle: THandle);
+// remove a tab for this MDI child
+procedure TF_Utama.MDIChildDestroyed(const childHandle: THandle);
 var
-  idx: Integer;
+  idx: integer;
 begin
   idx := tc_child.Tabs.IndexOfObject(TObject(childHandle));
   tc_child.Tabs.Delete(idx);
 
-  if f_utama.MDIChildCount = 2 then
+  if F_Utama.MDIChildCount = 2 then
     tc_child.Visible := False;
 
-  if f_utama.MDIChildCount = 1 then
+  if F_Utama.MDIChildCount = 1 then
   begin
-    dbc_margin.Visible := True;
+    DBC_margin.Visible := True;
     dbc_mutasi.Visible := True;
     sSplitter1.Visible := True;
   end;
@@ -171,19 +170,20 @@ end;
 
 procedure TF_Utama.segarkan;
 begin
-  periode := cb_periode.Text;
+  periode := cb_periode.text;
   bulan := Copy(periode, 6, 2);
   tahun := Copy(periode, 1, 4);
 
   fungsi.SQLExec(dm.Q_mutasi_toko,
     'select * from tb_mutasi_bulan where month(tgl)="' + bulan +
-    '" and year(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', true);
+    '" and year(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan +
+    '"', True);
 
   fungsi.SQLExec(dm.Q_gross,
-    'select tanggal, sales, (sales - hpp) as gm_rp from tb_gross_margin where month(tanggal)="' + bulan +
-    '" and year(tanggal)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan
-    + '"', true);
-  dbc_margin.RefreshData;
+    'select tanggal, sales, (sales - hpp) as gm_rp from tb_gross_margin where month(tanggal)="'
+    + bulan + '" and year(tanggal)="' + tahun + '" and kd_perusahaan="' +
+    dm.kd_perusahaan + '"', True);
+  DBC_margin.RefreshData;
   dbc_mutasi.RefreshData;
 end;
 
@@ -192,26 +192,26 @@ var
   x: integer;
 begin
   Application.CreateForm(TF_Login, F_Login);
-  F_Login.sb.Panels[0].Text := dm.kd_perusahaan;
-  F_Login.sb.Panels[1].Text := sb.Panels[6].Text;
-  F_Login.sb.Panels[2].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
+  F_Login.sb.Panels[0].text := dm.kd_perusahaan;
+  F_Login.sb.Panels[1].text := sb.Panels[6].text;
+  F_Login.sb.Panels[2].text := dm.db_conn.Database + '@' + dm.db_conn.Server;
   F_Login.ShowModal;
 
   if dm.Login = False then
     Close;
 
-  sb.Panels[3].Text := dm.kd_pengguna;
-  sb.Panels[4].Text := dm.n_pengguna;
-  sb.Panels[5].Text := dm.kd_perusahaan;
+  sb.Panels[3].text := dm.kd_pengguna;
+  sb.Panels[4].text := dm.n_pengguna;
+  sb.Panels[5].text := dm.kd_perusahaan;
 
   fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +
-    dm.kd_perusahaan + '"', true);
-  sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
-  sb.Panels[8].Text := dm.Q_temp.fieldbyname('ket').AsString;
+    dm.kd_perusahaan + '"', True);
+  sb.Panels[6].text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
+  sb.Panels[8].text := dm.Q_temp.fieldbyname('ket').AsString;
 
-  sb.Panels[7].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
+  sb.Panels[7].text := dm.db_conn.Database + '@' + dm.db_conn.Server;
 
-  if sb.Panels[8].Text = 'PUSAT' then
+  if sb.Panels[8].text = 'PUSAT' then
   begin
     laporanpo.Enabled := False;
     LaporanTerimaBarang1.Enabled := False;
@@ -227,8 +227,8 @@ begin
   panel_auto_width;
 
   fungsi.SQLExec(dm.Q_temp, 'SELECT LEFT(tb_mutasi_bulan.tgl,7) as periode, ' +
-    'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "' +
-    dm.kd_perusahaan + '" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
+    'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "'
+    + dm.kd_perusahaan + '" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', True);
 
   for x := 1 to dm.Q_temp.RecordCount do
   begin
@@ -250,30 +250,30 @@ end;
 
 procedure TF_Utama.sb_inventoryClick(Sender: TObject);
 begin
-//fungsi.SQLExec(dm.Q_show,'select * from tb_barang order by kd_barang',true);
+  // fungsi.SQLExec(dm.Q_show,'select * from tb_barang order by kd_barang',true);
 
-  application.CreateForm(tF_inventory, F_Inventory);
-  f_inventory.ShowModal;
+  Application.CreateForm(tF_inventory, F_Inventory);
+  F_Inventory.ShowModal;
 end;
 
 procedure TF_Utama.sb_tokoClick(Sender: TObject);
 begin
-  application.CreateForm(tF_toko, F_toko);
-//segarkan;
-  f_toko.ShowModal;
+  Application.CreateForm(tF_toko, F_toko);
+  // segarkan;
+  F_toko.ShowModal;
 end;
 
 procedure TF_Utama.sb_tutup_kasirClick(Sender: TObject);
 begin
-  if not (dm.HakAkses('tkAdmin', dm.kd_pengguna, dm.kd_perusahaan)) then
+  if not(dm.HakAkses('tkAdmin', dm.kd_pengguna, dm.kd_perusahaan)) then
   begin
     messagedlg('Anda tidak mempunyai hak untuk ' + #13#10 +
       'melanjutkan AKSES ke dalam MENU ini...', mtWarning, [mbOk], 0);
     Exit;
   end;
 
-  application.CreateForm(tF_Setor, F_setor);
-  f_setor.ShowModal;
+  Application.CreateForm(tF_Setor, F_setor);
+  F_setor.ShowModal;
 end;
 
 procedure TF_Utama.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -281,18 +281,18 @@ begin
   if dm.HakAkses('tkAdmin', dm.kd_pengguna, dm.kd_perusahaan) then
   begin
     fungsi.SQLExec(dm.Q_temp,
-      'select tanggal from tb_login_kasir where kd_perusahaan="' + dm.kd_perusahaan
-      + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
-      '"  and `status` = ''online'' order by `status` ASC limit 1', true);
-    if not (dm.Q_temp.Eof) then
+      'select tanggal from tb_login_kasir where kd_perusahaan="' +
+      dm.kd_perusahaan + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
+      '"  and `status` = ''online'' order by `status` ASC limit 1', True);
+    if not(dm.Q_temp.Eof) then
     begin
       if (MessageBox(0, 'ADA KASIR YANG BELUM SETOR.....' + #13 + #10 + '' + #13
         + #10 + 'Apakah Anda ' + 'akan melakukan setor kasir dahulu?????',
         'Setor Kasir', MB_ICONWARNING or MB_YESNO) = idYes) then
       begin
-        application.CreateForm(tF_Setor, F_setor);
-        f_setor.ShowModal;
-        action := canone;
+        Application.CreateForm(tF_Setor, F_setor);
+        F_setor.ShowModal;
+        Action := canone;
         Exit;
       end;
     end;
@@ -311,8 +311,8 @@ end;
 procedure TF_Utama.PenjualanItemHarian1Click(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan,
-    'select * from vw_jual_harian where tgl_transaksi=date(now()) and kd_perusahaan="' +
-    dm.kd_perusahaan + '"', true);
+    'select * from vw_jual_harian where tgl_transaksi=date(now()) and kd_perusahaan="'
+    + dm.kd_perusahaan + '"', True);
   dm.laporan.LoadFromFile(dm.Path + 'laporan\p_jual_item_harian.fr3');
   dm.laporan.ShowReport;
 end;
@@ -320,7 +320,7 @@ end;
 procedure TF_Utama.DBC_marginDblClick(Sender: TObject);
 begin
   if spd.Execute then
-    dbc_margin.SaveToMetafile(spd.FileName);
+    DBC_margin.SaveToMetafile(spd.FileName);
 end;
 
 procedure TF_Utama.dbc_mutasiDblClick(Sender: TObject);
@@ -337,23 +337,24 @@ end;
 
 procedure TF_Utama.sb_tutup_tokoClick(Sender: TObject);
 begin
-  close;
+  Close;
 end;
 
-procedure TF_Utama.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TF_Utama.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_f1 then
-    ShellExecute(Handle, 'open', PChar('hh.exe'), PChar(dm.Path +
-      'tools/bantuan.chm::/POS_Server1.htm'), nil, SW_SHOW);
+  if Key = vk_f1 then
+    ShellExecute(Handle, 'open', PChar('hh.exe'),
+      PChar(dm.Path + 'tools/bantuan.chm::/POS_Server1.htm'), nil, SW_SHOW);
 
-  if (shift = [ssctrl]) and (key = vk_home) then
+  if (Shift = [ssctrl]) and (Key = vk_home) then
     selectskin(dm.sm);
 end;
 
 procedure TF_Utama.DaftarSupplier1Click(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan, 'select * from tb_supp where kd_perusahaan="' +
-    dm.kd_perusahaan + '"', true);
+    dm.kd_perusahaan + '"', True);
   dm.laporan.LoadFromFile(dm.Path + 'laporan\p_daftar_supplier.fr3');
   dm.laporan.ShowReport;
 end;
@@ -361,7 +362,8 @@ end;
 procedure TF_Utama.DaftarPelanggan1Click(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan,
-    'select * from tb_pelanggan where kd_perusahaan="' + dm.kd_perusahaan + '"', true);
+    'select * from tb_pelanggan where kd_perusahaan="' + dm.kd_perusahaan +
+    '"', True);
   dm.laporan.LoadFromFile(dm.Path + 'laporan\p_daftar_pelanggan.fr3');
   dm.laporan.ShowReport;
 end;
@@ -370,23 +372,22 @@ procedure TF_Utama.FormShow(Sender: TObject);
 begin
   FVersion := TAppVersion.Create(Application.ExeName);
   cek_update;
-  
-  {$IFDEF VER150}
-    DecimalSeparator := '.';
-    ThousandSeparator := ',';
-  {$ELSE}
-    FormatSettings.DecimalSeparator := '.';
-    FormatSettings.ThousandSeparator := ',';
-  {$ENDIF}
 
+{$IFDEF VER150}
+  DecimalSeparator := '.';
+  ThousandSeparator := ',';
+{$ELSE}
+  FormatSettings.DecimalSeparator := '.';
+  FormatSettings.ThousandSeparator := ',';
+{$ENDIF}
   dm.sm.Active := True;
 
-  sb.Panels[5].Text := dm.kd_perusahaan;
+  sb.Panels[5].text := dm.kd_perusahaan;
   fungsi.SQLExec(dm.Q_temp, 'select * from tb_company where kd_perusahaan = "' +
-    dm.kd_perusahaan + '"', true);
-  sb.Panels[6].Text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
-  sb.Panels[7].Text := dm.db_conn.Database + '@' + dm.db_conn.Server;
-  sb.Panels[9].Text := 'Versi : ' + FVersion.AsString;
+    dm.kd_perusahaan + '"', True);
+  sb.Panels[6].text := dm.Q_temp.fieldbyname('n_perusahaan').AsString;
+  sb.Panels[7].text := dm.db_conn.Database + '@' + dm.db_conn.Server;
+  sb.Panels[9].text := 'Versi : ' + FVersion.AsString;
 
   PostMessage(Self.Handle, WM_AFTER_SHOW, 0, 0);
 end;
@@ -398,7 +399,7 @@ end;
 
 procedure TF_Utama.Timer1Timer(Sender: TObject);
 var
-  days: array[1..7] of string;
+  days: array [1 .. 7] of string;
 begin
   days[1] := 'Minggu';
   days[2] := 'Senin';
@@ -411,19 +412,22 @@ begin
   try
     fungsi.SQLExec(Q_time, 'select now() as sekarang', True);
 
-    sb.Panels[0].Text := days[DayOfWeek(Q_time.fieldbyname('sekarang').AsDateTime)];
-    sb.Panels[1].Text := formatdatetime('dd mmm yyyy', Q_time.fieldbyname('sekarang').AsDateTime);
-    sb.Panels[2].Text := FormatDateTime('hh:nn:ss', Q_time.fieldbyname('sekarang').AsDateTime);
+    sb.Panels[0].text :=
+      days[DayOfWeek(Q_time.fieldbyname('sekarang').AsDateTime)];
+    sb.Panels[1].text := formatdatetime('dd mmm yyyy',
+      Q_time.fieldbyname('sekarang').AsDateTime);
+    sb.Panels[2].text := formatdatetime('hh:nn:ss',
+      Q_time.fieldbyname('sekarang').AsDateTime);
   except
     Timer1.Enabled := False;
-    if (MessageDlg('KONEKSI TERPUTUS DENGAN SERVER...' + #13 + #10 + 'coba ' +
-      'hubungkan kembali??????', mtWarning, [mbOK], 0) = mrOk) then
+    if (messagedlg('KONEKSI TERPUTUS DENGAN SERVER...' + #13 + #10 + 'coba ' +
+      'hubungkan kembali??????', mtWarning, [mbOk], 0) = mrOk) then
     begin
       Timer1.Enabled := True;
     end;
   end;
 
-  if sb.Panels[2].Text >= '23:59:00' then
+  if sb.Panels[2].text >= '23:59:00' then
   begin
     if f_hari = nil then
     begin
@@ -453,43 +457,43 @@ end;
 procedure TF_Utama.ReceiptOrderRO1Click(Sender: TObject);
 begin
   if f_RO = nil then
-    Application.CreateForm(tf_ro, f_ro);
-  f_ro.show;
+    Application.CreateForm(tf_ro, f_RO);
+  f_RO.show;
   f_RO.bersih;
 end;
 
 procedure TF_Utama.Return1Click(Sender: TObject);
 begin
   if f_return = nil then
-    application.CreateForm(tf_return, f_return);
-  f_return.Show;
+    Application.CreateForm(tf_return, f_return);
+  f_return.show;
   f_return.bersih;
 end;
 
 procedure TF_Utama.DaftarRO1Click(Sender: TObject);
 begin
   if f_list_receipt = nil then
-    application.CreateForm(tf_list_receipt, f_list_receipt);
+    Application.CreateForm(tf_list_receipt, f_list_receipt);
 
   f_list_receipt.segarkan;
-  f_list_receipt.Show;
+  f_list_receipt.show;
 end;
 
 procedure TF_Utama.DaftarReturn1Click(Sender: TObject);
 begin
   if f_list_return = nil then
-    application.CreateForm(tf_list_return, f_list_return);
+    Application.CreateForm(tf_list_return, f_list_return);
 
   f_list_return.segarkan;
-  f_list_return.Show;
+  f_list_return.show;
 end;
 
 procedure TF_Utama.tc_childChange(Sender: TObject);
 var
-  cHandle: Integer;
-  k: Integer;
+  cHandle: integer;
+  k: integer;
 begin
-  cHandle := Integer(tc_child.Tabs.Objects[tc_child.TabIndex]);
+  cHandle := integer(tc_child.Tabs.Objects[tc_child.TabIndex]);
 
   if tc_child.Tag = -1 then
     Exit;
@@ -498,7 +502,7 @@ begin
   begin
     if MDIChildren[k].Handle = cHandle then
     begin
-      MDIChildren[k].Show;
+      MDIChildren[k].show;
       Break;
     end;
   end;
@@ -506,30 +510,30 @@ end;
 
 procedure TF_Utama.PO1Click(Sender: TObject);
 begin
-//purchase order
+  // purchase order
   if f_purchase = nil then
-    application.CreateForm(tf_purchase, f_purchase);
-  f_purchase.Show;
+    Application.CreateForm(tf_purchase, f_purchase);
+  f_purchase.show;
   f_purchase.bersih;
 end;
 
 procedure TF_Utama.DaftarPO1Click(Sender: TObject);
 begin
-//list PO
+  // list PO
   if f_List_purchase = nil then
-    application.CreateForm(tf_List_purchase, f_List_purchase);
+    Application.CreateForm(tf_List_purchase, f_List_purchase);
 
   f_List_purchase.segarkan;
-  f_List_purchase.Show;
+  f_List_purchase.show;
 end;
 
 procedure TF_Utama.mniDaftarSO1Click(Sender: TObject);
 begin
   if f_list_SO = nil then
-    application.CreateForm(tf_list_SO, f_list_SO);
+    Application.CreateForm(tf_list_SO, f_list_SO);
 
   f_list_SO.segarkan;
-  f_list_SO.Show;
+  f_list_SO.show;
 end;
 
 procedure TF_Utama.Barcode1Click(Sender: TObject);
@@ -541,33 +545,34 @@ end;
 procedure TF_Utama.DaftarRencanaSO1Click(Sender: TObject);
 begin
   if f_list_so_plan = nil then
-    application.CreateForm(Tf_list_so_plan, f_list_so_plan);
+    Application.CreateForm(Tf_list_so_plan, f_list_so_plan);
 
   f_list_so_plan.segarkan;
-  f_list_so_plan.Show;
+  f_list_so_plan.show;
 end;
 
 procedure TF_Utama.mniStockOpnameSO2Click(Sender: TObject);
 begin
-  //Stock Opname
-  application.CreateForm(Tf_stok_opname, f_stok_opname);
-  f_stok_opname.Show;
+  // Stock Opname
+  Application.CreateForm(Tf_stok_opname, f_stok_opname);
+  f_stok_opname.show;
 end;
 
 procedure TF_Utama.cek_update;
 var
   LVersiDB, LVersiAPP: TVersion;
-  LSql :string;
+  LSql: string;
 begin
   LVersiAPP := FVersion;
   LSql := 'SELECT versi_terbaru FROM app_versi WHERE kode="pos_server.exe"';
-  fungsi.SQLExec(dm.Q_Show, LSql, true);
-  LVersiDB := TVersion.Create(dm.Q_Show.FieldByName('versi_terbaru').AsString);
+  fungsi.SQLExec(dm.Q_Show, LSql, True);
+  LVersiDB := TVersion.Create(dm.Q_Show.fieldbyname('versi_terbaru').AsString);
 
   if CompareVersion(LVersiDB, LVersiAPP) = vHigher then
   begin
     ShowMessage('APLIKASI POS SERVER TIDAK DAPAT DIJALANKAN' + #13#10 +
-      'aplikasi terbaru dengan versi : ' + LVersiDB.AsString + #13#10 + 'SUDAH DIRILIS...');
+      'aplikasi terbaru dengan versi : ' + LVersiDB.AsString + #13#10 +
+      'SUDAH DIRILIS...');
 
     Application.Terminate;
   end;
@@ -575,4 +580,3 @@ begin
 end;
 
 end.
-

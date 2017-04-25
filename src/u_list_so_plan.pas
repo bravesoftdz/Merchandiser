@@ -4,14 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, cxStyles, cxGraphics, cxDataStorage,
-  cxEdit, DB, cxDBData, cxCurrencyEdit, sSkinProvider, Buttons,
-  ExtCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
-  sSpeedButton,
-  UFungsi,
-  MyAccess, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  Dialogs, cxStyles, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
+  cxCurrencyEdit, sSkinProvider, Buttons, ExtCtrls, cxGridLevel,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
+  cxControls, cxGridCustomView, cxGrid, sSpeedButton, UFungsi, MyAccess,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
   dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData, MemDS,
   DBAccess;
 
@@ -32,9 +29,9 @@ type
     dsDsList: TDataSource;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo:
-      TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
-      var AHandled: Boolean);
+    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
     procedure segarkan;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -62,7 +59,7 @@ var
   idx: Integer;
 begin
   active := FindControl(msg.ActiveWnd);
-  if not (dm.metu_kabeh) then
+  if not(dm.metu_kabeh) then
   begin
     if Assigned(active) then
     begin
@@ -84,14 +81,14 @@ end;
 
 procedure Tf_list_so_plan.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  action := cafree;
+  Action := cafree;
   f_list_so_plan := nil;
   f_utama.MDIChildDestroyed(Self.Handle);
 end;
 
 procedure Tf_list_so_plan.t_dataCellDblClick(Sender: TcxCustomGridTableView;
-  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift:
-  TShiftState; var AHandled: Boolean);
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
 begin
   Application.CreateForm(Tf_stok_opname, f_stok_opname);
   f_stok_opname.ed_kodeSO.Text := QList.FieldByName('kd_koreksi').AsString;
@@ -105,7 +102,7 @@ end;
 
 procedure Tf_list_so_plan.FormCreate(Sender: TObject);
 begin
-  f_utama.MDIChildCreated(self.Handle);
+  f_utama.MDIChildCreated(Self.Handle);
   segarkan;
 end;
 
@@ -120,4 +117,3 @@ begin
 end;
 
 end.
-

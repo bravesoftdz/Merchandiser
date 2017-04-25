@@ -4,16 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, sSpeedButton,
-  sCurrencyEdit, ExtCtrls,
-  cxCustomData, cxGraphics, cxDataStorage, cxEdit, cxGridLevel,
-  cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGrid, cxCurrencyEdit, UFungsi, ComCtrls,
-  sSkinProvider, cxImageComboBox, cxStyles, sDialogs,
-  DB, cxDBData, cxGridDBTableView,
-  StdCtrls, Mask,
-  MemDS, DBAccess, MyAccess,
-  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
+  Dialogs, Buttons, sSpeedButton, sCurrencyEdit, ExtCtrls, cxCustomData,
+  cxGraphics, cxDataStorage, cxEdit, cxGridLevel, cxClasses, cxControls,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGrid,
+  cxCurrencyEdit, UFungsi, ComCtrls, sSkinProvider, cxImageComboBox, cxStyles,
+  sDialogs, DB, cxDBData, cxGridDBTableView, StdCtrls, Mask, MemDS, DBAccess,
+  MyAccess, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
   dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, Vcl.Samples.Spin,
   cxFilter, cxData, sMaskEdit, sCustomComboEdit, sCurrEdit;
 
@@ -57,7 +53,8 @@ type
     QListData: TMyQuery;
     dsDsListData: TDataSource;
     se_rak: TSpinEdit;
-    procedure ed_codeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ed_codeKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BtnBaruClick(Sender: TObject);
     procedure Sb_cariClick(Sender: TObject);
@@ -70,7 +67,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure ed_codeKeyPress(Sender: TObject; var Key: Char);
-    procedure ed_kodeSOKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ed_kodeSOKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure BtnTambahClick(Sender: TObject);
     procedure segarkan;
     procedure BtnBatalClick(Sender: TObject);
@@ -97,7 +95,7 @@ var
   idx: Integer;
 begin
   active := FindControl(msg.ActiveWnd);
-  if not (dm.metu_kabeh) then
+  if not(dm.metu_kabeh) then
   begin
     if Assigned(active) then
     begin
@@ -109,12 +107,12 @@ begin
   end;
 end;
 
-procedure Tf_stok_opname.ed_codeKeyDown(Sender: TObject; var Key: Word; Shift:
-  TShiftState);
+procedure Tf_stok_opname.ed_codeKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 var
   kd_brg: string;
 begin
-  if key = vk_return then
+  if Key = vk_return then
   begin
     if ed_kodeSO.Text = '' then
     begin
@@ -125,26 +123,26 @@ begin
 
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
     if ed_code.Text = '' then
-      exit;
+      Exit;
 
     fungsi.sqlExec(dm.Q_temp,
       'SELECT kd_barang from tb_barang where ((kd_barang = "' + ed_code.Text +
       '" OR barcode3 = "' + ed_code.Text + '" OR barcode2 = "' + ed_code.Text +
-      '" OR barcode1 = "' + ed_code.Text + '") AND kd_perusahaan="' + dm.kd_perusahaan
-      + '")', true);
+      '" OR barcode1 = "' + ed_code.Text + '") AND kd_perusahaan="' +
+      dm.kd_perusahaan + '")', true);
 
     kd_brg := dm.Q_temp.fieldbyname('kd_barang').AsString;
 
     if dm.Q_temp.RecordCount = 0 then
     begin
-      showmessage('data tidak dapat ditemukan dalam daftar barang...');
+      ShowMessage('data tidak dapat ditemukan dalam daftar barang...');
       ed_code.Clear;
-      exit;
+      Exit;
     end;
 
     dm.db_conn.StartTransaction;
     try
-      fungsi.SQLExec(dm.Q_Exe,
+      fungsi.sqlExec(dm.Q_Exe,
         'INSERT IGNORE INTO tb_koreksi_temp(kd_perusahaan,kd_koreksi, ' +
         'Rak,Shelving,urut,kd_barang,barcode,n_barang,qty_oh,harga_pokok) ' +
         'SELECT kd_perusahaan,' + quotedstr(ed_kodeSO.Text) +
@@ -160,27 +158,27 @@ begin
       on e: exception do
       begin
         dm.db_conn.Rollback;
-        showmessage('proses tambah data gagal '#10#13'' + e.Message);
+        ShowMessage('proses tambah data gagal '#10#13'' + e.Message);
       end;
     end;
   end;
 
-  if key = vk_f2 then
-    sb_cariClick(Sender);
+  if Key = vk_f2 then
+    Sb_cariClick(Sender);
 
-  if key = vk_up then
+  if Key = vk_up then
   begin
     if t_koreksi.DataController.FocusedRowIndex >= 1 then
-      t_koreksi.DataController.FocusedRowIndex := t_koreksi.DataController.FocusedRowIndex
-        - 1;
-    key := VK_NONAME;
+      t_koreksi.DataController.FocusedRowIndex :=
+        t_koreksi.DataController.FocusedRowIndex - 1;
+    Key := VK_NONAME;
   end;
 
-  if key = vk_down then
+  if Key = vk_down then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
-    t_koreksi.DataController.FocusedRowIndex := t_koreksi.DataController.FocusedRowIndex
-      + 1;
+    t_koreksi.DataController.FocusedRowIndex :=
+      t_koreksi.DataController.FocusedRowIndex + 1;
   end;
 
   if Key = vk_delete then
@@ -189,11 +187,12 @@ begin
       QListData.Delete;
 end;
 
-procedure Tf_stok_opname.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure Tf_stok_opname.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_f2 then
+  if Key = vk_f2 then
     ed_code.SetFocus;
-  if key = vk_f5 then
+  if Key = vk_f5 then
     BtnAutoClick(Sender);
 end;
 
@@ -206,48 +205,49 @@ procedure Tf_stok_opname.Sb_cariClick(Sender: TObject);
 begin
   ed_code.SetFocus;
   application.CreateForm(tf_cari, f_cari);
-  with F_cari do
-  try
-    _SQLi := 'select kd_barang, n_barang from tb_barang ' +
-      'where kd_perusahaan="' + dm.kd_perusahaan + '"';
-    tblcap[0] := 'Kode';
-    tblCap[1] := 'Deskripsi';
-    if ShowModal = mrOk then
-    begin
-      ed_code.Text := TblVal[0];
+  with f_cari do
+    try
+      _SQLi := 'select kd_barang, n_barang from tb_barang ' +
+        'where kd_perusahaan="' + dm.kd_perusahaan + '"';
+      tblcap[0] := 'Kode';
+      tblcap[1] := 'Deskripsi';
+      if ShowModal = mrOk then
+      begin
+        ed_code.Text := TblVal[0];
+      end;
+    finally
+      close;
     end;
-  finally
-    close;
-  end;
 end;
 
 procedure Tf_stok_opname.BtnSimpanClick(Sender: TObject);
 begin
-  if BtnKoreksi.Enabled = True then
+  if BtnKoreksi.Enabled = true then
   begin
-    ShowMessage('Tidak Dapat menyimpan, Data SO belum dikoreksi, Koreksi Terlebih Dahulu!!!');
+    ShowMessage
+      ('Tidak Dapat menyimpan, Data SO belum dikoreksi, Koreksi Terlebih Dahulu!!!');
     Exit;
   end;
 
-  if messagedlg('Yakinkah Anda akan Menyimpan Data ini???...', mtconfirmation, [mbyes,
-    mbno], 0) = mryes then
+  if MessageDlg('Yakinkah Anda akan Menyimpan Data ini???...', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes then
   begin
     dm.db_conn.StartTransaction;
     try
-      fungsi.SQLExec(dm.Q_Exe, 'call sp_simpan_SO("' + dm.kd_perusahaan + '","'
+      fungsi.sqlExec(dm.Q_Exe, 'call sp_simpan_SO("' + dm.kd_perusahaan + '","'
         + ed_kodeSO.Text + '","' + dm.kd_pengguna + '")', false);
 
-      showmessage('proses Simpan Stok Opname untuk '#10#13'' + ed_kodeSO.Text +
+      ShowMessage('proses Simpan Stok Opname untuk '#10#13'' + ed_kodeSO.Text +
         ' Telah Sukses...');
 
       dm.db_conn.Commit;
       BtnAutoClick(Self);
     except
-      on E: exception do
+      on e: exception do
       begin
-        dm.db_Conn.Rollback;
-        messagedlg('proses Simpan Stok Opname gagal,ulangi lagi!!! '#10#13'' + e.Message,
-          mterror, [mbOk], 0);
+        dm.db_conn.Rollback;
+        MessageDlg('proses Simpan Stok Opname gagal,ulangi lagi!!! '#10#13'' +
+          e.Message, mterror, [mbOk], 0);
       end;
     end;
   end;
@@ -255,7 +255,7 @@ end;
 
 procedure Tf_stok_opname.BtnCetakClick(Sender: TObject);
 begin
-  fungsi.SQLExec(dm.Q_laporan, 'select * from vw_so_temp where kd_koreksi="' +
+  fungsi.sqlExec(dm.Q_laporan, 'select * from vw_so_temp where kd_koreksi="' +
     ed_kodeSO.Text + '" AND kd_perusahaan = "' + dm.kd_perusahaan + '"', true);
 
   dm.laporan.LoadFromFile(dm.Path + 'laporan\p_persiapan_SO.fr3');
@@ -281,13 +281,13 @@ end;
 
 procedure Tf_stok_opname.BtnAutoClick(Sender: TObject);
 var
-  a: integer;
+  a: Integer;
 begin
-  fungsi.SQLExec(dm.Q_temp,
-    'select IFNULL(MAX(RIGHT(kd_koreksi,4)),0) + 1 AS ahir from tb_koreksi_temp ' +
-    'where kd_perusahaan= "' + dm.kd_perusahaan + '"', true);
+  fungsi.sqlExec(dm.Q_temp,
+    'select IFNULL(MAX(RIGHT(kd_koreksi,4)),0) + 1 AS ahir from tb_koreksi_temp '
+    + 'where kd_perusahaan= "' + dm.kd_perusahaan + '"', true);
 
-  a := dm.Q_temp.FieldbyName('ahir').AsInteger;
+  a := dm.Q_temp.fieldbyname('ahir').AsInteger;
 
   if a < 10 then
     ed_kodeSO.Text := 'SP000' + inttostr(a)
@@ -303,7 +303,7 @@ end;
 
 procedure Tf_stok_opname.FormCreate(Sender: TObject);
 begin
-  f_utama.MDIChildCreated(self.Handle);
+  f_utama.MDIChildCreated(Self.Handle);
 end;
 
 procedure Tf_stok_opname.ed_codeKeyPress(Sender: TObject; var Key: Char);
@@ -311,15 +311,15 @@ var
   kode: string;
   tempat: Integer;
 begin
-  kode := IntToStr(StrToIntDef(ed_code.Text, 0));
+  kode := inttostr(StrToIntDef(ed_code.Text, 0));
 
-  if key = #43 then // tanda + ubah qty real
+  if Key = #43 then // tanda + ubah qty real
   begin
     tempat := t_koreksi.DataController.FocusedRowIndex;
 
-    delete(kode, pos('+', kode), 1);
+    Delete(kode, pos('+', kode), 1);
     ed_code.Clear;
-    key := #0;
+    Key := #0;
 
     if QListData.RecordCount = 0 then
       Exit;
@@ -327,23 +327,23 @@ begin
     if (Length(kode) = 0) then
       Exit;
 
-    if kode <> QListData.FieldByName('qty_real').AsString then
+    if kode <> QListData.fieldbyname('qty_real').AsString then
     begin
       QListData.Edit;
-      QListData.FieldByName('qty_real').AsString := kode;
+      QListData.fieldbyname('qty_real').AsString := kode;
       QListData.Post;
 
       t_koreksi.DataController.FocusedRowIndex := tempat;
-      BtnKoreksi.Enabled := True;
+      BtnKoreksi.Enabled := true;
     end;
 
-    t_koreksi.DataController.FocusedRowIndex := t_koreksi.DataController.FocusedRowIndex
-      + 1;
+    t_koreksi.DataController.FocusedRowIndex :=
+      t_koreksi.DataController.FocusedRowIndex + 1;
   end;
 end;
 
-procedure Tf_stok_opname.ed_kodeSOKeyDown(Sender: TObject; var Key: Word; Shift:
-  TShiftState);
+procedure Tf_stok_opname.ed_kodeSOKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   if (Key = vk_return) then
   begin
@@ -370,43 +370,44 @@ begin
 
   dm.db_conn.StartTransaction;
   try
-    fungsi.SQLExec(dm.Q_Exe, 'call sp_persiapan_SO("' + dm.kd_perusahaan + '","'
+    fungsi.sqlExec(dm.Q_Exe, 'call sp_persiapan_SO("' + dm.kd_perusahaan + '","'
       + ed_kodeSO.Text + '","' + semua + '",' + se_rak.Text + ')', false);
 
     dm.db_conn.Commit;
     segarkan;
-    showmessage('Proses Tambah data Berhasil...');
+    ShowMessage('Proses Tambah data Berhasil...');
   except
     on e: exception do
     begin
       dm.db_conn.Rollback;
-      showmessage('penyimpanan data gagal '#10#13'' + e.Message);
+      ShowMessage('penyimpanan data gagal '#10#13'' + e.Message);
     end;
   end;
 end;
 
 procedure Tf_stok_opname.segarkan;
 begin
-  fungsi.SQLExec(QListData, 'select * from tb_koreksi_temp where kd_koreksi="' +
+  fungsi.sqlExec(QListData, 'select * from tb_koreksi_temp where kd_koreksi="' +
     ed_kodeSO.Text + '" and kd_perusahaan ="' + dm.kd_perusahaan +
     '" ORDER BY Rak, Shelving, urut, kd_barang', true);
   Self.Caption := 'Stock Opname ' + ed_kodeSO.Text;
   f_utama.tc_child.Tabs.Strings[f_utama.tc_child.TabIndex] := Caption;
-  BtnKoreksi.Enabled := True;
+  BtnKoreksi.Enabled := true;
 end;
 
 procedure Tf_stok_opname.BtnBatalClick(Sender: TObject);
 begin
-  if messagedlg('Yakinkah Anda Akan membatalkan '#10#13'' + ed_kodeSO.Text,
-    mtconfirmation, [mbyes, mbno], 0) = mryes then
+  if MessageDlg('Yakinkah Anda Akan membatalkan '#10#13'' + ed_kodeSO.Text,
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dm.db_conn.StartTransaction;
     try
-      fungsi.SQLExec(dm.Q_Exe, 'delete from tb_koreksi_temp where kd_koreksi="'
-        + ed_kodeSO.Text + '" AND kd_perusahaan = "' + dm.kd_perusahaan + '"', false);
+      fungsi.sqlExec(dm.Q_Exe, 'delete from tb_koreksi_temp where kd_koreksi="'
+        + ed_kodeSO.Text + '" AND kd_perusahaan = "' + dm.kd_perusahaan +
+        '"', false);
 
-      showmessage('proses Pembatalan stok Opname untuk '#10#13'' + ed_kodeSO.Text
-        + ' Telah Sukses...');
+      ShowMessage('proses Pembatalan stok Opname untuk '#10#13'' +
+        ed_kodeSO.Text + ' Telah Sukses...');
 
       BtnAutoClick(Self);
 
@@ -415,7 +416,7 @@ begin
       on e: exception do
       begin
         dm.db_conn.Rollback;
-        showmessage('pembatalan SO gagal '#10#13'' + e.Message);
+        ShowMessage('pembatalan SO gagal '#10#13'' + e.Message);
       end;
     end;
   end;
@@ -423,32 +424,31 @@ end;
 
 procedure Tf_stok_opname.BtnKoreksiClick(Sender: TObject);
 var
-  lama, baru: integer;
+  lama, baru: Integer;
 begin
   dm.db_conn.StartTransaction;
   try
     lama := QListData.RecordCount;
 
-    fungsi.SQLExec(dm.Q_Exe, 'call sp_koreksi_data("' + ed_kodeSO.Text + '","' +
+    fungsi.sqlExec(dm.Q_Exe, 'call sp_koreksi_data("' + ed_kodeSO.Text + '","' +
       dm.kd_perusahaan + '")', false);
     dm.db_conn.Commit;
 
     segarkan;
-    BtnKoreksi.Enabled := False;
+    BtnKoreksi.Enabled := false;
 
     baru := QListData.RecordCount;
 
-    showmessage(inttostr(lama - baru) + ' Item Dari ' + inttostr(Lama) +
+    ShowMessage(inttostr(lama - baru) + ' Item Dari ' + inttostr(lama) +
       ' Item '#10#13'Telah Terkoreksi...');
 
   except
     on e: exception do
     begin
       dm.db_conn.Rollback;
-      showmessage('koreksi data gagal '#10#13'' + e.Message);
+      ShowMessage('koreksi data gagal '#10#13'' + e.Message);
     end;
   end;
 end;
 
 end.
-

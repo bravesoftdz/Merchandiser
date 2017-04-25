@@ -2,7 +2,7 @@ object f_List_purchase: Tf_List_purchase
   Left = 192
   Top = 107
   Caption = 'Daftar Purchase Order'
-  ClientHeight = 0
+  ClientHeight = 201
   ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -23,11 +23,12 @@ object f_List_purchase: Tf_List_purchase
     Left = 0
     Top = 0
     Width = 154
-    Height = 0
+    Height = 201
     Align = alClient
     TabOrder = 1
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
+    ExplicitHeight = 0
     object t_data: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       OnCellDblClick = t_dataCellDblClick
@@ -85,10 +86,11 @@ object f_List_purchase: Tf_List_purchase
     Left = -30
     Top = 0
     Width = 150
-    Height = 0
+    Height = 201
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitHeight = 0
     object sb_2: TsSpeedButton
       Left = 0
       Top = 90

@@ -4,13 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, UFungsi,
-  sSkinProvider, cxStyles, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridLevel,
-  cxClasses, cxControls, cxGridCustomView, cxGrid,
-  StdCtrls, cxLookAndFeels, cxLookAndFeelPainters,
-  dxSkinsCore, dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator,
-  Vcl.Samples.Spin, cxCustomData, cxFilter, cxData;
+  Dialogs, Buttons, UFungsi, sSkinProvider, cxStyles, cxGraphics, cxDataStorage,
+  cxEdit, DB, cxDBData, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGridLevel, cxClasses, cxControls, cxGridCustomView,
+  cxGrid, StdCtrls, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, Vcl.Samples.Spin,
+  cxCustomData, cxFilter, cxData;
 
 type
   Tf_planogram = class(TForm)
@@ -92,27 +91,29 @@ end;
 procedure Tf_planogram.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   dm.Q_show.Close;
-  action := cafree;
+  Action := cafree;
 end;
 
 procedure Tf_planogram.b_cetakClick(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan, 'select * from vw_planogram_set where ' +
-    'kd_perusahaan="' + dm.kd_perusahaan + '" ORDER BY no_rak, no_shelving', true);
+    'kd_perusahaan="' + dm.kd_perusahaan +
+    '" ORDER BY no_rak, no_shelving', true);
   dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_planogram.fr3');
   dm.laporan.ShowReport;
 end;
 
-procedure Tf_planogram.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure Tf_planogram.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_escape then
-    close;
+  if Key = vk_escape then
+    Close;
 
-  if key = vk_f3 then
+  if Key = vk_f3 then
     se_rak.SetFocus;
-  if key = vk_f4 then
+  if Key = vk_f4 then
     se_shelving.SetFocus;
-  if key = vk_f5 then
+  if Key = vk_f5 then
     grid_plano.SetFocus;
 end;
 
@@ -126,4 +127,3 @@ begin
 end;
 
 end.
-

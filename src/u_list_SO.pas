@@ -4,15 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, cxStyles, cxGraphics, cxDataStorage,
-  cxEdit, DB, cxDBData, cxCurrencyEdit, sSkinProvider, Buttons,
-  ExtCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid,
-  sSpeedButton, sTooledit, UFungsi,
-  StdCtrls, Mask, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
-  dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData, sMaskEdit,
-  sCustomComboEdit;
+  Dialogs, cxStyles, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
+  cxCurrencyEdit, sSkinProvider, Buttons, ExtCtrls, cxGridLevel,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
+  cxControls, cxGridCustomView, cxGrid, sSpeedButton, sTooledit, UFungsi,
+  StdCtrls, Mask, cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore,
+  dxSkinsDefaultPainters, dxSkinscxPCPainter, cxNavigator, cxCustomData,
+  cxFilter, cxData, sMaskEdit, sCustomComboEdit;
 
 type
   Tf_list_SO = class(TForm)
@@ -35,9 +33,9 @@ type
     de_sampai: TsDateEdit;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo:
-      TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
-      var AHandled: Boolean);
+    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
     procedure segarkan;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -65,7 +63,7 @@ var
   idx: Integer;
 begin
   active := FindControl(msg.ActiveWnd);
-  if not (dm.metu_kabeh) then
+  if not(dm.metu_kabeh) then
   begin
     if Assigned(active) then
     begin
@@ -81,25 +79,27 @@ procedure Tf_list_SO.segarkan;
 begin
   fungsi.SQLExec(dm.Q_List_SO,
     'select * from tb_koreksi_global where kd_perusahaan="' + dm.kd_perusahaan +
-    '" and tgl_koreksi >= ' + quotedstr(FormatDateTime('yyyy-MM-dd', de_mulai.Date))
-    + ' and tgl_koreksi <= ' + quotedstr(FormatDateTime('yyyy-MM-dd', de_sampai.Date))
-    + ' order by tgl_koreksi desc', true);
+    '" and tgl_koreksi >= ' + quotedstr(FormatDateTime('yyyy-MM-dd',
+    de_mulai.Date)) + ' and tgl_koreksi <= ' +
+    quotedstr(FormatDateTime('yyyy-MM-dd', de_sampai.Date)) +
+    ' order by tgl_koreksi desc', true);
 end;
 
 procedure Tf_list_SO.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  action := cafree;
+  Action := cafree;
   f_list_SO := nil;
   f_utama.MDIChildDestroyed(Self.Handle);
 end;
 
 procedure Tf_list_SO.t_dataCellDblClick(Sender: TcxCustomGridTableView;
-  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift:
-  TShiftState; var AHandled: Boolean);
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
 begin
   fungsi.SQLExec(dm.Q_laporan,
-    'select * from vw_cetak_koreksi where kd_perusahaan=' + quotedstr(dm.kd_perusahaan)
-    + ' and kd_koreksi="' + dm.Q_List_SO.fieldbyname('kd_koreksi').AsString + '"', true);
+    'select * from vw_cetak_koreksi where kd_perusahaan=' +
+    quotedstr(dm.kd_perusahaan) + ' and kd_koreksi="' + dm.Q_List_SO.fieldbyname
+    ('kd_koreksi').AsString + '"', true);
   dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_koreksi_rinci.fr3');
   dm.laporan.ShowReport;
 end;
@@ -117,7 +117,7 @@ begin
   de_mulai.Date := EncodeDate(Year, Month, 1);
   de_sampai.Date := Date();
 
-  f_utama.MDIChildCreated(self.Handle);
+  f_utama.MDIChildCreated(Self.Handle);
   segarkan;
 end;
 
@@ -132,4 +132,3 @@ begin
 end;
 
 end.
-

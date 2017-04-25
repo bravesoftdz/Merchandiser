@@ -4,13 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, ComCtrls, ExtCtrls, sSkinProvider,
-  cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxControls, cxGridCustomView, cxClasses,
-  cxGridLevel, cxGrid, UFungsi, cxStyles,
-  sSpeedButton, sTooledit,
-  StdCtrls, Mask, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
+  Dialogs, Buttons, ComCtrls, ExtCtrls, sSkinProvider, cxGraphics,
+  cxDataStorage, cxEdit, DB, cxDBData, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxControls, cxGridCustomView, cxClasses, cxGridLevel,
+  cxGrid, UFungsi, cxStyles, sSpeedButton, sTooledit, StdCtrls, Mask,
+  cxLookAndFeels, cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
   dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData, sMaskEdit,
   sCustomComboEdit;
 
@@ -35,9 +33,9 @@ type
     de_sampai: TsDateEdit;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo:
-      TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
-      var AHandled: Boolean);
+    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
     procedure segarkan;
     procedure FormCreate(Sender: TObject);
     procedure sb_1Click(Sender: TObject);
@@ -64,7 +62,7 @@ var
   idx: Integer;
 begin
   active := FindControl(msg.ActiveWnd);
-  if not (dm.metu_kabeh) then
+  if not(dm.metu_kabeh) then
   begin
     if Assigned(active) then
     begin
@@ -80,21 +78,21 @@ procedure Tf_List_purchase.segarkan;
 begin
   fungsi.SQLExec(dm.q_list_purchase,
     'select * from vw_list_purchase  where kd_perusahaan="' + dm.kd_perusahaan +
-    '" and tgl_purchase >= ' + quotedstr(FormatDateTime('yyyy-MM-dd', de_mulai.Date))
-    + ' and tgl_purchase <= ' + quotedstr(FormatDateTime('yyyy-MM-dd', de_sampai.Date))
-    + '', true);
+    '" and tgl_purchase >= ' + quotedstr(FormatDateTime('yyyy-MM-dd',
+    de_mulai.Date)) + ' and tgl_purchase <= ' +
+    quotedstr(FormatDateTime('yyyy-MM-dd', de_sampai.Date)) + '', true);
 end;
 
 procedure Tf_List_purchase.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   f_utama.MDIChildDestroyed(Self.Handle);
-  action := cafree;
-  f_list_purchase := nil;
+  Action := cafree;
+  f_List_purchase := nil;
 end;
 
 procedure Tf_List_purchase.t_dataCellDblClick(Sender: TcxCustomGridTableView;
-  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift:
-  TShiftState; var AHandled: Boolean);
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
 begin
   if f_purchase <> nil then
     f_purchase.Show
@@ -114,7 +112,7 @@ begin
   de_mulai.Date := EncodeDate(Year, Month, 1);
   de_sampai.Date := Date();
 
-  f_utama.MDIChildCreated(self.Handle);
+  f_utama.MDIChildCreated(Self.Handle);
 end;
 
 procedure Tf_List_purchase.sb_1Click(Sender: TObject);
@@ -128,4 +126,3 @@ begin
 end;
 
 end.
-

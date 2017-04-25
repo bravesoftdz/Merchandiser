@@ -4,14 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, UFungsi, DB,
-  sCustomComboEdit, sCurrEdit, sCurrencyEdit, Buttons, frxClass,
-  frxDBSet, cxStyles,
-  cxGraphics, cxDataStorage, cxEdit, cxDBData, cxGridLevel,
-  cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls,
-  cxCurrencyEdit, sTooledit, ExtCtrls, Menus,
-  StdCtrls, Mask, cxLookAndFeels,
+  Dialogs, UFungsi, DB, sCustomComboEdit, sCurrEdit, sCurrencyEdit, Buttons,
+  frxClass, frxDBSet, cxStyles, cxGraphics, cxDataStorage, cxEdit, cxDBData,
+  cxGridLevel, cxClasses, cxControls, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls, cxCurrencyEdit,
+  sTooledit, ExtCtrls, Menus, StdCtrls, Mask, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
   dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData, sMaskEdit;
 
@@ -48,13 +45,15 @@ type
     edIP: TEdit;
     sLabel3: TLabel;
     procedure FormShow(Sender: TObject);
-    procedure ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure ed_set_RealKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure ed_set_RealKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure b_simpanClick(Sender: TObject);
     procedure b_cetakClick(Sender: TObject);
     procedure b_refreshClick(Sender: TObject);
-    procedure laporanClickObject(view: TfrxView; Button: TMouseButton; Shift:
-      TShiftState; var Modified: Boolean);
+    procedure laporanClickObject(view: TfrxView; Button: TMouseButton;
+      Shift: TShiftState; var Modified: Boolean);
   private
     { Private declarations }
   public
@@ -75,8 +74,8 @@ procedure TF_Setor.FormShow(Sender: TObject);
 begin
 
   fungsi.SQLExec(dm.Q_temp,
-    'select tanggal from tb_login_kasir where kd_perusahaan="' + dm.kd_perusahaan
-    + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
+    'select tanggal from tb_login_kasir where kd_perusahaan="' +
+    dm.kd_perusahaan + '" ' + 'and kd_jaga="' + dm.kd_pengguna +
     '"  and `status` = ''online'' order by `status` ASC limit 1', true);
   if dm.Q_temp.Eof then
     de_trans.Date := Date()
@@ -86,37 +85,40 @@ begin
   b_refreshClick(Self);
 end;
 
-procedure TF_Setor.ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TF_Setor.ed_Kd_kasirKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_return then
+  if Key = vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
     fungsi.SQLExec(dm.Q_temp,
-      'select * from tb_login_kasir inner join tb_user on ' + 'tb_user.kd_user=tb_login_kasir.user where tb_login_kasir.kd_perusahaan="'
-      + dm.kd_perusahaan + '" ' + 'and tb_login_kasir.user="' + ed_kd_kasir.Text
+      'select * from tb_login_kasir inner join tb_user on ' +
+      'tb_user.kd_user=tb_login_kasir.user where tb_login_kasir.kd_perusahaan="'
+      + dm.kd_perusahaan + '" ' + 'and tb_login_kasir.user="' + ed_Kd_kasir.Text
       + '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna +
       '" and status=''online''', true);
     if dm.Q_temp.Eof then
     begin
       showmessage('Id Kasir ini tidak ada dalam daftar kasir yang belum setor');
-      ed_set_real.SetFocus;
-      ed_kd_kasir.SetFocus;
+      ed_set_Real.SetFocus;
+      ed_Kd_kasir.SetFocus;
     end
     else
     begin
-      edNama.Text := dm.Q_temp.fieldbyname('n_user').AsString;
-      edWaktu.Text := dm.Q_temp.fieldbyname('tanggal').AsString;
-      edIP.Text := dm.Q_temp.fieldbyname('komp').AsString;
-      ed_set_real.ReadOnly := false;
-      ed_set_real.SetFocus;
+      edNama.Text := dm.Q_temp.FieldByName('n_user').AsString;
+      edWaktu.Text := dm.Q_temp.FieldByName('tanggal').AsString;
+      edIP.Text := dm.Q_temp.FieldByName('komp').AsString;
+      ed_set_Real.ReadOnly := false;
+      ed_set_Real.SetFocus;
       b_simpan.Enabled := true;
     end;
   end;
 end;
 
-procedure TF_Setor.ed_set_RealKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TF_Setor.ed_set_RealKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_return then
+  if Key = vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
     b_simpan.SetFocus;
@@ -128,13 +130,13 @@ begin
   dm.db_conn.StartTransaction;
   try
     fungsi.SQLExec(dm.Q_exe, 'call sp_setor_kasir("' + dm.kd_perusahaan + '","'
-      + ed_Kd_kasir.Text + '","' + dm.kd_pengguna + '")', False);
+      + ed_Kd_kasir.Text + '","' + dm.kd_pengguna + '")', false);
 
-    fungsi.SQLExec(dm.Q_Exe, 'update tb_login_kasir set jumlah_setor_real="' +
-      ed_set_real.Text +
-      '", tgl_logout=now(),status=''offline'' where kd_perusahaan="' + dm.kd_perusahaan
-      + '" and user="' + ed_kd_kasir.Text + '" and kd_jaga="' + dm.kd_pengguna +
-      '" and status="online"', false);
+    fungsi.SQLExec(dm.Q_exe, 'update tb_login_kasir set jumlah_setor_real="' +
+      ed_set_Real.Text +
+      '", tgl_logout=now(),status=''offline'' where kd_perusahaan="' +
+      dm.kd_perusahaan + '" and user="' + ed_Kd_kasir.Text + '" and kd_jaga="' +
+      dm.kd_pengguna + '" and status="online"', false);
 
     dm.db_conn.Commit;
     showmessage('penyimpanan data sukses');
@@ -151,9 +153,11 @@ end;
 procedure TF_Setor.b_cetakClick(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan,
-    'select * from tb_login_kasir inner join tb_user on ' + 'tb_user.kd_user=tb_login_kasir.`user` '
-    + 'where status=''offline'' and tanggal >= "' + formatdatetime('yyyy-MM-dd hh:mm:ss',
-    de_trans.Date) + '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna +
+    'select * from tb_login_kasir inner join tb_user on ' +
+    'tb_user.kd_user=tb_login_kasir.`user` ' +
+    'where status=''offline'' and tanggal >= "' +
+    formatdatetime('yyyy-MM-dd hh:mm:ss', de_trans.Date) +
+    '" and tb_login_kasir.kd_jaga="' + dm.kd_pengguna +
     '" and tb_login_kasir.kd_perusahaan="' + dm.kd_perusahaan + '"', true);
   laporan.LoadFromFile(dm.Path + 'laporan\p_setor_kasir.fr3');
   laporan.ShowReport;
@@ -161,10 +165,10 @@ end;
 
 procedure TF_Setor.b_refreshClick(Sender: TObject);
 begin
-  ed_kd_kasir.Clear;
-  ed_set_real.Clear;
-  ed_set_real.ReadOnly := true;
-  B_simpan.Enabled := false;
+  ed_Kd_kasir.Clear;
+  ed_set_Real.Clear;
+  ed_set_Real.ReadOnly := true;
+  b_simpan.Enabled := false;
 
   fungsi.SQLExec(dm.Q_show, 'SELECT * FROM tb_login_kasir INNER JOIN tb_user ' +
     'ON tb_user.kd_user = tb_login_kasir.`user` WHERE ' + 'tanggal >= "' +
@@ -176,16 +180,16 @@ begin
   if dm.Q_show.Eof then
   begin
     de_trans.SetFocus;
-    ed_Kd_kasir.Enabled := False;
-    ed_set_Real.Enabled := False;
-    b_cetak.Enabled := False;
+    ed_Kd_kasir.Enabled := false;
+    ed_set_Real.Enabled := false;
+    b_cetak.Enabled := false;
   end
   else
   begin
-    b_cetak.Enabled := True;
-    ed_Kd_kasir.Enabled := True;
-    ed_set_Real.Enabled := True;
-    ed_kd_kasir.SetFocus;
+    b_cetak.Enabled := true;
+    ed_Kd_kasir.Enabled := true;
+    ed_set_Real.Enabled := true;
+    ed_Kd_kasir.SetFocus;
   end;
 end;
 
@@ -201,16 +205,15 @@ begin
     LLogin := Copy(LView, Pos(':', LView) + 2, Length(LView));
 
     LSql := Format('SELECT * FROM tb_login_kasir lk INNER JOIN tb_user us ' +
-      'ON us.kd_user = lk.user WHERE lk.kd_perusahaan="%s" AND lk.user="%s" '+
+      'ON us.kd_user = lk.user WHERE lk.kd_perusahaan="%s" AND lk.user="%s" ' +
       'AND lk.kd_jaga="%s" and tanggal = "%s"', [dm.kd_perusahaan, LKasir,
       dm.kd_pengguna, LLogin]);
 
     fungsi.SQLExec(dm.Q_temp, LSql, true);
 
-    r_detail_setor.LoadFromFile(dm.Path + 'laporan\p_setor_kasir_detail.fr3');
-    r_detail_setor.ShowReport;
+    R_detail_setor.LoadFromFile(dm.Path + 'laporan\p_setor_kasir_detail.fr3');
+    R_detail_setor.ShowReport;
   end;
 end;
 
 end.
-

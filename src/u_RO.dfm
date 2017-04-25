@@ -289,10 +289,10 @@ object f_RO: Tf_RO
       Align = alTop
       TabOrder = 0
       object sLabel5: TLabel
-        Left = 391
+        Left = 392
         Top = 1
         Width = 230
-        Height = 61
+        Height = 60
         Align = alRight
         Alignment = taRightJustify
         Caption = 'RECEIPT'
@@ -303,8 +303,6 @@ object f_RO: Tf_RO
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 393
-        ExplicitHeight = 60
       end
       object sLabel1: TLabel
         Left = 312

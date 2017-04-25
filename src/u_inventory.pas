@@ -4,10 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, DB, DBGrids, Buttons,
-  sSkinProvider, ExtCtrls,
-
-  UFungsi, DBCtrls, frxClass, frxDBSet, StdCtrls, Grids;
+  Dialogs, ComCtrls, DB, DBGrids, Buttons, sSkinProvider, ExtCtrls, UFungsi,
+  DBCtrls, frxClass, frxDBSet, StdCtrls, Grids;
 
 type
   NewControl = class(TControl);
@@ -153,7 +151,7 @@ begin
     db_barang.DataSource.DataSet.MoveBy(-count);
   end
   else
-    NewControl(DB_barang).WndProc(Message);
+    NewControl(db_barang).WndProc(Message);
 end;
 
 procedure TF_Inventory.ubah_detail;
@@ -178,47 +176,49 @@ begin
 
   fungsi.SQLExec(dm.Q_temp,
     'SELECT tb_golongan.N_golbrg AS N_golbrg, tb_merk.N_merk AS N_merk, ' +
-    'tb_jenis.N_Jenis AS N_Jenis, tb_kategori.n_kategori AS n_kategori, tb_jenis.Kd_Jenis, ' +
-    'tb_barang.kd_barang FROM ((((((tb_barang)) LEFT JOIN tb_jenis ON ((tb_jenis.Kd_Jenis = tb_barang.kd_jenis))) ' +
-    'LEFT JOIN tb_kategori ON ((tb_kategori.tag = tb_barang.kd_kategori))) LEFT JOIN tb_merk ON ((tb_merk.kd_merk = tb_barang.kd_merk))) ' +
-    'LEFT JOIN tb_golongan ON (((tb_golongan.kd_golbrg = tb_barang.kd_golbrg) AND (tb_golongan.kd_jenis = tb_jenis.Kd_Jenis)))) ' +
-    'where kd_barang="' + ed_pid.Text + '"', true);
+    'tb_jenis.N_Jenis AS N_Jenis, tb_kategori.n_kategori AS n_kategori, tb_jenis.Kd_Jenis, '
+    + 'tb_barang.kd_barang FROM ((((((tb_barang)) LEFT JOIN tb_jenis ON ((tb_jenis.Kd_Jenis = tb_barang.kd_jenis))) '
+    + 'LEFT JOIN tb_kategori ON ((tb_kategori.tag = tb_barang.kd_kategori))) LEFT JOIN tb_merk ON ((tb_merk.kd_merk = tb_barang.kd_merk))) '
+    + 'LEFT JOIN tb_golongan ON (((tb_golongan.kd_golbrg = tb_barang.kd_golbrg) AND (tb_golongan.kd_jenis = tb_jenis.Kd_Jenis)))) '
+    + 'where kd_barang="' + ed_pid.Text + '"', true);
 
-  ed_jenis.Text := dm.Q_temp.fieldbyname('n_jenis').AsString;
-  ed_golongan.Text := dm.Q_temp.fieldbyname('n_golbrg').AsString;
-  ed_merk.Text := dm.Q_temp.fieldbyname('n_merk').AsString;
-  ed_kategori.Text := dm.Q_temp.fieldbyname('n_kategori').AsString;
+  Ed_Jenis.Text := dm.Q_temp.FieldByName('n_jenis').AsString;
+  Ed_golongan.Text := dm.Q_temp.FieldByName('n_golbrg').AsString;
+  Ed_Merk.Text := dm.Q_temp.FieldByName('n_merk').AsString;
+  Ed_Kategori.Text := dm.Q_temp.FieldByName('n_kategori').AsString;
 
-  fungsi.SQLExec(dm.Q_temp, 'select * from tb_satuan where kd_satuan="' + dm.Q_show.fieldbyname
-    ('kd_sat1').AsString + '"', true);
-  ed_sat1.Text := dm.Q_temp.fieldbyname('n_satuan').AsString;
-  fungsi.SQLExec(dm.Q_temp, 'select * from tb_satuan where kd_satuan="' + dm.Q_show.fieldbyname
-    ('kd_sat2').AsString + '"', true);
-  ed_sat2.Text := dm.Q_temp.fieldbyname('n_satuan').AsString;
-  fungsi.SQLExec(dm.Q_temp, 'select * from tb_satuan where kd_satuan="' + dm.Q_show.fieldbyname
-    ('kd_sat3').AsString + '"', true);
-  ed_sat3.Text := dm.Q_temp.fieldbyname('n_satuan').AsString;
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_satuan where kd_satuan="' +
+    dm.Q_show.FieldByName('kd_sat1').AsString + '"', true);
+  ed_sat1.Text := dm.Q_temp.FieldByName('n_satuan').AsString;
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_satuan where kd_satuan="' +
+    dm.Q_show.FieldByName('kd_sat2').AsString + '"', true);
+  ed_sat2.Text := dm.Q_temp.FieldByName('n_satuan').AsString;
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_satuan where kd_satuan="' +
+    dm.Q_show.FieldByName('kd_sat3').AsString + '"', true);
+  ed_sat3.Text := dm.Q_temp.FieldByName('n_satuan').AsString;
 
   fungsi.SQLExec(dm.Q_temp,
-    'select max(beli.tgl) as tgl_beli_ahir, max(jual.tgl) ' + 'as tgl_jual_ahir, max(kosong.tgl) as tgl_kosong_ahir from tb_mutasi beli, tb_mutasi jual, tb_mutasi kosong '
+    'select max(beli.tgl) as tgl_beli_ahir, max(jual.tgl) ' +
+    'as tgl_jual_ahir, max(kosong.tgl) as tgl_kosong_ahir from tb_mutasi beli, tb_mutasi jual, tb_mutasi kosong '
     + 'where beli.kd_barang = "' + ed_pid.Text + '" and beli.stok_receipt > 0 '
     + 'and jual.kd_barang = "' + ed_pid.Text + '" and jual.stok_sales > 0   ' +
-    'and kosong.kd_barang = "' + ed_pid.Text + '" and kosong.stok_ahir <= 0 ', True);
+    'and kosong.kd_barang = "' + ed_pid.Text +
+    '" and kosong.stok_ahir <= 0 ', true);
 
   ed_trans_ah.Text := dm.Q_temp.FieldByName('tgl_jual_ahir').AsString;
   ed_kirim_ah.Text := dm.Q_temp.FieldByName('tgl_beli_ahir').AsString;
   ed_kosong_ah.Text := dm.Q_temp.FieldByName('tgl_kosong_ahir').AsString;
 
-  fungsi.SQLExec(dm.Q_temp, 'select * from tb_planogram where kd_barang="' + dm.Q_show.fieldbyname
-    ('kd_barang').AsString + '"', true);
-  ed_rak.Text := dm.Q_temp.fieldbyname('no_rak').AsString;
-  ed_shelving.Text := dm.Q_temp.fieldbyname('no_shelving').AsString;
-  ed_urut.Text := dm.Q_temp.fieldbyname('no_urut').AsString;
-  ed_min_display.Text := dm.Q_temp.fieldbyname('min_display').AsString;
-  ed_ld.Text := dm.Q_temp.fieldbyname('kapasitas').AsString;
-  ed_kk.Text := dm.Q_temp.fieldbyname('kk').AsString;
-  ed_ab.Text := dm.Q_temp.fieldbyname('ab').AsString;
-  ed_db.Text := dm.Q_temp.fieldbyname('db').AsString;
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_planogram where kd_barang="' +
+    dm.Q_show.FieldByName('kd_barang').AsString + '"', true);
+  Ed_rak.Text := dm.Q_temp.FieldByName('no_rak').AsString;
+  Ed_shelving.Text := dm.Q_temp.FieldByName('no_shelving').AsString;
+  Ed_urut.Text := dm.Q_temp.FieldByName('no_urut').AsString;
+  Ed_min_display.Text := dm.Q_temp.FieldByName('min_display').AsString;
+  ed_LD.Text := dm.Q_temp.FieldByName('kapasitas').AsString;
+  ed_KK.Text := dm.Q_temp.FieldByName('kk').AsString;
+  ed_AB.Text := dm.Q_temp.FieldByName('ab').AsString;
+  ed_DB.Text := dm.Q_temp.FieldByName('db').AsString;
 
 end;
 
@@ -227,7 +227,7 @@ begin
   pc_inventory.ActivePage := ts_jelajah;
   fungsi.SQLExec(dm.Q_show, 'select * from tb_barang where kd_perusahaan=' +
     quotedstr(dm.kd_perusahaan) + '', true);
-  l_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
+  L_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
 end;
 
 procedure TF_Inventory.Ed_CariChange(Sender: TObject);
@@ -235,52 +235,53 @@ begin
   if rb_plu.Checked and rb_like.Checked then
   begin
     fungsi.SQLExec(dm.Q_show, 'select * from tb_barang where kd_barang like "%'
-      + ed_cari.Text + '%" or n_barang like "%' + ed_cari.Text +
+      + Ed_Cari.Text + '%" or n_barang like "%' + Ed_Cari.Text +
       '%" order by kd_barang and kd_perusahaan=' + quotedstr(dm.kd_perusahaan) +
       '', true);
 
-    l_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
+    L_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
   end;
 end;
 
 procedure TF_Inventory.rb_pluClick(Sender: TObject);
 begin
-  b_cari.Visible := not (rb_plu.Checked);
+  B_Cari.Visible := not(rb_plu.Checked);
   rb_like.Enabled := rb_plu.Checked;
-  rb_sama.Enabled := not (rb_plu.Checked);
-  rb_tdk_sama.Enabled := not (rb_plu.Checked);
-  rb_lebih.Enabled := not (rb_plu.Checked);
-  rb_kurang.Enabled := not (rb_plu.Checked);
-  rb_lebih_sama.Enabled := not (rb_plu.Checked);
-  rb_kurang_sama.Enabled := not (rb_plu.Checked);
-  ed_cari.Text := '';
+  rb_sama.Enabled := not(rb_plu.Checked);
+  rb_tdk_sama.Enabled := not(rb_plu.Checked);
+  rb_lebih.Enabled := not(rb_plu.Checked);
+  rb_kurang.Enabled := not(rb_plu.Checked);
+  rb_lebih_sama.Enabled := not(rb_plu.Checked);
+  rb_kurang_sama.Enabled := not(rb_plu.Checked);
+  Ed_Cari.Text := '';
 
-  rb_minS.Visible := not (rb_plu.Checked);
-  rb_minO.Visible := not (rb_plu.Checked);
-  rb_maxS.Visible := not (rb_plu.Checked);
+  rb_minS.Visible := not(rb_plu.Checked);
+  rb_minO.Visible := not(rb_plu.Checked);
+  rb_maxS.Visible := not(rb_plu.Checked);
 
-  if not (rb_plu.Checked) then
+  if not(rb_plu.Checked) then
   begin
 
-    fungsi.SQLExec(dm.Q_show, 'select * from tb_barang order by kd_barang', true);
+    fungsi.SQLExec(dm.Q_show,
+      'select * from tb_barang order by kd_barang', true);
 
-    l_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
+    L_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
 
-    ed_cari.Left := 208;
-    ed_cari.Width := 40;
-    ud_cari.Associate := ed_cari;
+    Ed_Cari.Left := 208;
+    Ed_Cari.Width := 40;
+    ud_cari.Associate := Ed_Cari;
     ud_cari.Visible := true;
     ud_cari.Width := 40;
     rb_sama.Checked := true;
   end
   else
   begin
-    ed_cari.Left := 8;
-    ed_cari.Width := 281;
+    Ed_Cari.Left := 8;
+    Ed_Cari.Width := 281;
     rb_like.Checked := true;
     ud_cari.Visible := false;
     ud_cari.Associate := ed_temp;
-    ed_cari.SetFocus;
+    Ed_Cari.SetFocus;
   end;
 
 end;
@@ -309,21 +310,21 @@ begin
   if rb_kurang_sama.Checked = true then
     kondisi := '<=';
 
-  fungsi.SQLExec(dm.Q_show, 'select * from tb_barang where kd_perusahaan="' + dm.kd_perusahaan
-    + '" and ' + kategori + ' ' + kondisi + ' ' + ed_cari.Text +
-    ' order by kd_barang', true);
+  fungsi.SQLExec(dm.Q_show, 'select * from tb_barang where kd_perusahaan="' +
+    dm.kd_perusahaan + '" and ' + kategori + ' ' + kondisi + ' ' + Ed_Cari.Text
+    + ' order by kd_barang', true);
 
-  l_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
+  L_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
 end;
 
 procedure TF_Inventory.db_barangTitleClick(Column: TColumn);
 begin
-//dm.Q_show.SortFieldNames:=column.FieldName;
+  // dm.Q_show.SortFieldNames:=column.FieldName;
 end;
 
 procedure TF_Inventory.FormCreate(Sender: TObject);
 begin
-  DB_barang.WindowProc := DBGridScroll;
+  db_barang.WindowProc := DBGridScroll;
 end;
 
 procedure TF_Inventory.rb_minSClick(Sender: TObject);
@@ -360,7 +361,7 @@ begin
   fungsi.SQLExec(dm.Q_show, 'select * from tb_barang where ' + kategori + ' ' +
     kondisi + ' ' + gol + ' order by kd_barang', true);
 
-  l_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
+  L_hasil.Caption := 'Ada ' + inttostr(dm.Q_show.RecordCount) + ' Item';
 end;
 
 procedure TF_Inventory.ts_detailClickBtn(Sender: TObject);
@@ -370,16 +371,16 @@ end;
 
 procedure TF_Inventory.ts_mutasiClickBtn(Sender: TObject);
 begin
-  ed_pid.Text := dm.Q_show.fieldbyname('kd_barang').AsString;
-  fungsi.SQLExec(dm.Q_temp, 'select * from tb_mutasi WHERE kd_perusahaan="' + dm.kd_perusahaan
-    + '" and MONTH(tb_mutasi.tgl)=MONTH(NOW()) and kd_barang="' + ed_pid.Text +
-    '"', true);
+  ed_pid.Text := dm.Q_show.FieldByName('kd_barang').AsString;
+  fungsi.SQLExec(dm.Q_temp, 'select * from tb_mutasi WHERE kd_perusahaan="' +
+    dm.kd_perusahaan + '" and MONTH(tb_mutasi.tgl)=MONTH(NOW()) and kd_barang="'
+    + ed_pid.Text + '"', true);
   dm.Q_temp.RecNo := dm.Q_temp.RecordCount;
 end;
 
 procedure TF_Inventory.pc_inventoryChange(Sender: TObject);
 begin
-  ed_pid.Text := dm.Q_show.fieldbyname('kd_barang').AsString;
+  ed_pid.Text := dm.Q_show.FieldByName('kd_barang').AsString;
   if pc_inventory.ActivePage = ts_detail then
   begin
     ubah_detail;
@@ -407,4 +408,3 @@ begin
 end;
 
 end.
-

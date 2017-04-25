@@ -5,10 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, sSkinProvider,
-  Buttons, ExtCtrls, cxGridLevel,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
-  cxControls, cxGridCustomView, cxGrid, UFungsi, cxCurrencyEdit, cxStyles,
-  cxCalendar, StdCtrls, cxLookAndFeels,
+  Buttons, ExtCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxClasses, cxControls, cxGridCustomView, cxGrid, UFungsi,
+  cxCurrencyEdit, cxStyles, cxCalendar, StdCtrls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters,
   dxSkinscxPCPainter, cxNavigator, cxCustomData, cxFilter, cxData;
 
@@ -31,9 +30,9 @@ type
     t_dataColumn4: TcxGridDBColumn;
     t_dataColumn5: TcxGridDBColumn;
     procedure WMMDIACTIVATE(var msg: TWMMDIACTIVATE); message WM_MDIACTIVATE;
-    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo:
-      TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState;
-      var AHandled: Boolean);
+    procedure t_dataCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
     procedure segarkan;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure sBitBtn2Click(Sender: TObject);
@@ -61,7 +60,7 @@ var
   idx: Integer;
 begin
   active := FindControl(msg.ActiveWnd);
-  if not (dm.metu_kabeh) then
+  if not(dm.metu_kabeh) then
   begin
     if Assigned(active) then
     begin
@@ -76,27 +75,28 @@ end;
 procedure Tf_list_receipt.segarkan;
 begin
   fungsi.SQLExec(dm.q_list_receipt,
-    'select * from vw_list_receipt where kd_perusahaan="' + dm.kd_perusahaan + '"', true);
+    'select * from vw_list_receipt where kd_perusahaan="' + dm.kd_perusahaan +
+    '"', true);
 end;
 
 procedure Tf_list_receipt.t_dataCellDblClick(Sender: TcxCustomGridTableView;
-  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift:
-  TShiftState; var AHandled: Boolean);
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+  AShift: TShiftState; var AHandled: Boolean);
 begin
   if f_ro <> nil then
-    f_RO.Show
+    f_ro.Show
   else
   begin
-    application.CreateForm(tf_RO, f_RO);
-    f_RO.Show;
+    application.CreateForm(tf_RO, f_ro);
+    f_ro.Show;
   end;
-  f_RO.tampil_data;
+  f_ro.tampil_data;
 end;
 
 procedure Tf_list_receipt.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   f_utama.MDIChildDestroyed(Self.Handle);
-  action := cafree;
+  Action := cafree;
   f_list_receipt := nil;
 end;
 
@@ -112,8 +112,7 @@ end;
 
 procedure Tf_list_receipt.FormCreate(Sender: TObject);
 begin
-  f_utama.MDIChildCreated(self.Handle);
+  f_utama.MDIChildCreated(Self.Handle);
 end;
 
 end.
-

@@ -4,12 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ComCtrls, Buttons, DBCtrls,
-  ExtCtrls,
-  UFungsi, cxStyles,
-  cxGraphics, cxDataStorage, cxEdit, DB, cxDBData,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxClasses, cxControls, cxGridCustomView, cxGrid, StdCtrls;
+  Dialogs, Menus, ComCtrls, Buttons, DBCtrls, ExtCtrls, UFungsi, cxStyles,
+  cxGraphics, cxDataStorage, cxEdit, DB, cxDBData, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxClasses, cxControls, cxGridCustomView,
+  cxGrid, StdCtrls;
 
 type
   TF_toko = class(TForm)
@@ -26,7 +24,7 @@ type
     procedure cb_periodeChange(Sender: TObject);
     procedure cekPeriode;
   private
-    bulan, tahun, periode : string;
+    bulan, tahun, periode: string;
     { Private declarations }
   public
     { Public declarations }
@@ -56,7 +54,8 @@ procedure TF_toko.btnMutasiClick(Sender: TObject);
 begin
   fungsi.SQLExec(dm.Q_laporan,
     'select * from tb_mutasi_bulan where MONTH(tgl)="' + bulan +
-    '" and YEAR(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan + '"', true);
+    '" and YEAR(tgl)="' + tahun + '" and kd_perusahaan="' + dm.kd_perusahaan +
+    '"', true);
   if TButton(Sender).Name = 'btnMutasi' then
     dm.laporan.LoadFromFile(dm.Path + 'laporan\gp_mutasi_global_stok.fr3')
   else
@@ -78,8 +77,8 @@ var
   x: Integer;
 begin
   fungsi.SQLExec(dm.Q_temp, 'SELECT LEFT(tb_mutasi_bulan.tgl,7) as periode, ' +
-    'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "' +
-    dm.kd_perusahaan + '" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
+    'left(date(now()),7) as sekarang FROM tb_mutasi_bulan where kd_perusahaan = "'
+    + dm.kd_perusahaan + '" GROUP BY LEFT(tb_mutasi_bulan.tgl,7)', true);
 
   for x := 1 to dm.Q_temp.RecordCount do
   begin
@@ -104,4 +103,3 @@ begin
 end;
 
 end.
-

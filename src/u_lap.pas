@@ -4,10 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, sTooledit,
-  UFungsi, ComCtrls,
-  sSkinProvider, Buttons, sSpeedButton, Menus, sCurrEdit, sCurrencyEdit,
-  Mask, sMaskEdit, sCustomComboEdit;
+  Dialogs, StdCtrls, sTooledit, UFungsi, ComCtrls, sSkinProvider, Buttons,
+  sSpeedButton, Menus, sCurrEdit, sCurrencyEdit, Mask, sMaskEdit,
+  sCustomComboEdit;
 
 type
   Tf_lap = class(TForm)
@@ -36,8 +35,10 @@ type
     l_1: TLabel;
     edRak: TsCurrencyEdit;
     procedure b_previewClick(Sender: TObject);
-    procedure ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure lv_dataKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ed_cariKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure lv_dataKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure cb_karepClick(Sender: TObject);
     procedure de_sampaiChange(Sender: TObject);
     procedure sb_cariClick(Sender: TObject);
@@ -72,13 +73,13 @@ begin
       '" and kd_barang in(' + lb_data.Items.CommaText + ') and kd_macam_harga="'
       + cb_macam.Text + '"', true);
   end
-  else if rbHarga.Checked = True then
+  else if rbHarga.Checked = true then
   begin
     fungsi.SQLExec(dm.Q_laporan,
       'select * from vw_planogram where kd_perusahaan="' + dm.kd_perusahaan +
       '" and date(update_pada)>="' + formatdatetime('yyyy-MM-dd', de_mulai.Date)
-      + '" and date(update_pada)<="' + formatdatetime('yyyy-MM-dd', de_sampai.Date)
-      + '" and kd_macam_harga="' + cb_macam.Text + '"', true);
+      + '" and date(update_pada)<="' + formatdatetime('yyyy-MM-dd',
+      de_sampai.Date) + '" and kd_macam_harga="' + cb_macam.Text + '"', true);
   end
   else
   begin
@@ -91,17 +92,18 @@ begin
   dm.laporan.ShowReport;
 end;
 
-procedure Tf_lap.ed_cariKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure Tf_lap.ed_cariKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 var
   ItemBaru: TListItem;
 begin
-  if key = vk_f2 then
+  if Key = vk_f2 then
     sb_cariClick(Sender);
 
-  if key = vk_return then
+  if Key = vk_return then
   begin
     PeekMessage(Mgs, 0, WM_CHAR, WM_CHAR, PM_REMOVE);
-    cb_karep.Checked := True;
+    cb_karep.Checked := true;
     fungsi.SQLExec(dm.Q_temp, 'select * from vw_planogram where kd_perusahaan="'
       + dm.kd_perusahaan + '" and (kd_barang="' + ed_cari.Text +
       '" or barcode3="' + ed_cari.Text + '") ', true);
@@ -124,9 +126,10 @@ begin
   end;
 end;
 
-procedure Tf_lap.lv_dataKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure Tf_lap.lv_dataKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  if key = vk_delete then
+  if Key = vk_delete then
   begin
     lb_data.Items.Delete(lv_data.ItemIndex);
     lv_data.DeleteSelected;
@@ -135,8 +138,8 @@ end;
 
 procedure Tf_lap.cb_karepClick(Sender: TObject);
 begin
-  gb_tgl.Enabled := not (cb_karep.Checked);
-  gb_Rak.Enabled := not (cb_karep.Checked);
+  gb_tgl.Enabled := not(cb_karep.Checked);
+  gb_Rak.Enabled := not(cb_karep.Checked);
 end;
 
 procedure Tf_lap.de_sampaiChange(Sender: TObject);
@@ -149,19 +152,19 @@ procedure Tf_lap.sb_cariClick(Sender: TObject);
 begin
   ed_cari.SetFocus;
   application.CreateForm(tf_cari, f_cari);
-  with F_cari do
-  try
-    _SQLi := 'select kd_barang, n_barang from tb_barang ' +
-      'where kd_perusahaan="' + dm.kd_perusahaan + '"';
-    tblcap[0] := 'Kode';
-    tblCap[1] := 'Deskripsi';
-    if ShowModal = mrOk then
-    begin
-      Self.ed_cari.Text := TblVal[0];
+  with f_cari do
+    try
+      _SQLi := 'select kd_barang, n_barang from tb_barang ' +
+        'where kd_perusahaan="' + dm.kd_perusahaan + '"';
+      tblcap[0] := 'Kode';
+      tblcap[1] := 'Deskripsi';
+      if ShowModal = mrOk then
+      begin
+        Self.ed_cari.Text := TblVal[0];
+      end;
+    finally
+      close;
     end;
-  finally
-    close;
-  end;
 end;
 
 procedure Tf_lap.BukaDataBarang1Click(Sender: TObject);
@@ -185,11 +188,10 @@ procedure Tf_lap.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   if lv_data.Items.Count > 0 then
   begin
-    ShowMessage('hapus dulu seluruh data,,,');
+    showmessage('hapus dulu seluruh data,,,');
     CanClose := False;
   end;
 
 end;
 
 end.
-
