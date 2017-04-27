@@ -5,9 +5,9 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>pos_server.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -34,6 +34,12 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -45,13 +51,19 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <VerInfo_Release>25</VerInfo_Release>
+        <VerInfo_Release>27</VerInfo_Release>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_MinorVer>4</VerInfo_MinorVer>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_MajorVer>17</VerInfo_MajorVer>
-        <VerInfo_Keys>CompanyName=Ngalah Developer;FileDescription=$(MSBuildProjectName);FileVersion=17.4.25.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Gain Profit;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Gain-Profit;FileDescription=$(MSBuildProjectName);FileVersion=17.4.27.0;InternalName=Merchandiser;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.ngadep.gainprofit-posserver;ProductName=Gain Profit;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
@@ -73,6 +85,11 @@
         <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=Gain-Profit;FileDescription=$(MSBuildProjectName);FileVersion=17.4.27.0;InternalName=Merchandiser;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.ngadep.gainprofit-posserver;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;dxmdsRS24;dxSkinBlueprintRS24;DBXInterBaseDriver;dxPSDBTeeChartRS24;vclactnband;dxSpreadSheetRS24;vclFireDAC;tethering;dxSkinVisualStudio2013BlueRS24;FireDACADSDriver;dxFireDACServerModeRS24;dxSkinMetropolisRS24;dxSkinMoneyTwinsRS24;dxSkinOffice2007BlackRS24;dxPSTeeChartRS24;dxPScxPCProdRS24;vcltouch;vcldb;bindcompfmx;dxSkinXmas2008BlueRS24;Intraweb;inetdb;dxSkinOffice2016ColorfulRS24;dxSkinOffice2010BlackRS24;dxADOServerModeRS24;FmxTeeUI;dxGDIPlusRS24;FireDACIBDriver;fmx;fmxdae;dxSkinSpringTimeRS24;vclib;dxSkinLondonLiquidSkyRS24;dxSkinLilianRS24;dxSkinValentineRS24;dxSkinWhiteprintRS24;AbbreviaVCLD;dbexpress;IndyCore;dxSkiniMaginaryRS24;vclx;dxSkinOffice2016DarkRS24;dsnap;dxSkinOffice2007PinkRS24;dxPSdxSpreadSheetLnkRS24;cxDataRS24;FireDACCommon;dxSkinDevExpressDarkStyleRS24;RESTBackendComponents;VCLRESTComponents;dxSkinDevExpressStyleRS24;soapserver;dxSkinOffice2013LightGrayRS24;cxExportRS24;dxOfficeCoreRS24;dxSkinVisualStudio2013LightRS24;vclie;dxSkinMetropolisDarkRS24;bindengine;DBXMySQLDriver;CloudService;FireDACMySQLDriver;dxPScxCommonRS24;FireDACCommonODBC;FireDACCommonDriver;dxSkinBlackRS24;dxSkinSharpRS24;inet;dxPSLnksRS24;bindcompdbx;IndyIPCommon;dxSkinCoffeeRS24;dxSkinVS2010RS24;vcl;IndyIPServer;dxSkinSharpPlusRS24;dxCoreRS24;IndySystem;dxThemeRS24;dxSkinOffice2013DarkGrayRS24;dsnapcon;dxSkinOffice2007GreenRS24;FireDACMSAccDriver;fmxFireDAC;vclimg;TeeDB;FireDAC;dxPScxGridLnkRS24;dxSkinDarkSideRS24;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;dxSkinOffice2010BlueRS24;dxSkinOffice2013WhiteRS24;dxPSdxLCLnkRS24;FMXTee;dxServerModeRS24;dxPScxExtCommonRS24;soaprtl;DbxCommonDriver;ibxpress;Tee;xmlrtl;soapmidas;ibxbindings;fmxobj;vclwinx;dxSkinMcSkinRS24;rtl;dxLayoutControlRS24;DbxClientDriver;dxSkinOffice2007BlueRS24;dxPSCoreRS24;CustomIPTransport;vcldsnap;dxSkinBlueRS24;dxSkinGlassOceansRS24;cxLibraryRS24;dxSkinStardustRS24;dxSkinSummer2008RS24;dxSkinCaramelRS24;bindcomp;appanalytics;dxSkinsCoreRS24;dxDBXServerModeRS24;dxSkinDarkRoomRS24;dxSkinFoggyRS24;IndyIPClient;dxSkinHighContrastRS24;dxSkinOffice2010SilverRS24;bindcompvcl;cxGridRS24;dxSkinTheAsphaltWorldRS24;TeeUI;cxPageControlRS24;cxEditorsRS24;dxSkinSevenClassicRS24;dbxcds;VclSmp;adortl;dxSkinSilverRS24;dxSkinVisualStudio2013DarkRS24;dxComnRS24;dxSkinPumpkinRS24;dxSkinscxPCPainterRS24;dxSpreadSheetReportDesignerRS24;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;dxSkinOffice2007SilverRS24;dxSkinSevenRS24;dxSkinLiquidSkyRS24;dxHttpIndyRequestRS24;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
@@ -89,6 +106,13 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <VerInfo_Keys>CompanyName=Gain-Profit;FileDescription=$(MSBuildProjectName);FileVersion=17.4.25.0;InternalName=Merchandiser;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Release>25</VerInfo_Release>
+        <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -99,6 +123,12 @@
         <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <Icon_MainIcon>..\img\Icon.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=Gain-Profit;FileDescription=$(MSBuildProjectName);FileVersion=17.4.27.0;InternalName=Merchandiser;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -640,7 +670,7 @@
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
+                <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
