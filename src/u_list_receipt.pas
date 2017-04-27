@@ -83,14 +83,9 @@ procedure Tf_list_receipt.t_dataCellDblClick(Sender: TcxCustomGridTableView;
   ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
   AShift: TShiftState; var AHandled: Boolean);
 begin
-  if f_ro <> nil then
-    f_ro.Show
-  else
-  begin
-    application.CreateForm(tf_RO, f_ro);
-    f_ro.Show;
-  end;
+  application.CreateForm(tf_RO, f_ro);
   f_ro.tampil_data;
+  f_ro.Show;
 end;
 
 procedure Tf_list_receipt.FormClose(Sender: TObject; var Action: TCloseAction);

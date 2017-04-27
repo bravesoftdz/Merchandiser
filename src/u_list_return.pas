@@ -88,14 +88,9 @@ procedure Tf_list_return.t_dataCellDblClick(Sender: TcxCustomGridTableView;
   ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
   AShift: TShiftState; var AHandled: Boolean);
 begin
-  if f_return <> nil then
-    f_return.Show
-  else
-  begin
-    application.CreateForm(tf_return, f_return);
-    f_return.Show;
-  end;
+  application.CreateForm(tf_return, f_return);
   f_return.tampil_data;
+  f_return.Show;
 end;
 
 procedure Tf_list_return.sBitBtn2Click(Sender: TObject);
