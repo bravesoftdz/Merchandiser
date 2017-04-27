@@ -213,10 +213,10 @@ begin
 
   if sb.Panels[8].text = 'PUSAT' then
   begin
-    laporanpo.Enabled := False;
-    LaporanTerimaBarang1.Enabled := False;
-    LaporanReturnBarang1.Enabled := False;
-    ExportImportData1.Enabled := False;
+    laporanpo.Visible := False;
+    LaporanTerimaBarang1.Visible := False;
+    LaporanReturnBarang1.Visible := False;
+    ExportImportData1.Visible := False;
   end;
 
   dm.OnServer := dm.Q_temp.fieldbyname('onserver').AsBoolean;
