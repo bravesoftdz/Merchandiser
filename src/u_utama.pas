@@ -219,9 +219,12 @@ begin
     ExportImportData1.Enabled := False;
   end;
 
-  if dm.Q_temp.fieldbyname('onserver').AsString = 'Y' then
+  dm.OnServer := dm.Q_temp.fieldbyname('onserver').AsBoolean;
+  if dm.OnServer then
   begin
-    ExportImportData1.Enabled := False;
+    ExportImportData1.Visible := False;
+    ReceiptOrderRO1.Visible:= False;
+    Return1.Visible:= False;
   end;
 
   panel_auto_width;
