@@ -121,6 +121,7 @@ var
 begin
   ed_supplier.Text := dm.Q_list_receipt.fieldbyname('kd_suplier').AsString;
   ed_no_faktur.Text := dm.Q_list_receipt.fieldbyname('kd_receipt').AsString;
+  Self.Caption := Format('RO(%s)', [ed_no_faktur.Text]);
   no_faktur := dm.Q_list_receipt.fieldbyname('kd_receipt').AsString;
   ed_tgl.Text := formatdatetime('dd/MM/yyyy',
     dm.Q_list_receipt.fieldbyname('tgl_receipt').AsDateTime);
@@ -350,6 +351,8 @@ end;
 procedure Tf_RO.FormCreate(Sender: TObject);
 begin
   f_utama.MDIChildCreated(Self.Handle);
+  b_new.Enabled := not dm.OnServer;
+  b_load.Enabled := not dm.OnServer;
 end;
 
 end.

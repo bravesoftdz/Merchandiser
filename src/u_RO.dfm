@@ -1,7 +1,7 @@
 object f_RO: Tf_RO
   Left = 4
   Top = 161
-  Caption = 'Receip Order (Penerimaan Barang)'
+  Caption = 'RO'
   ClientHeight = 411
   ClientWidth = 774
   Color = clBtnFace
@@ -289,10 +289,10 @@ object f_RO: Tf_RO
       Align = alTop
       TabOrder = 0
       object sLabel5: TLabel
-        Left = 392
+        Left = 391
         Top = 1
         Width = 230
-        Height = 60
+        Height = 61
         Align = alRight
         Alignment = taRightJustify
         Caption = 'RECEIPT'
@@ -303,6 +303,8 @@ object f_RO: Tf_RO
         Font.Name = 'ARIAL'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 393
+        ExplicitHeight = 60
       end
       object sLabel1: TLabel
         Left = 312

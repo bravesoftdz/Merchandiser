@@ -123,6 +123,7 @@ var
 begin
   ed_supplier.Text := dm.Q_list_return.fieldbyname('kd_suplier').AsString;
   ed_no_faktur.Text := dm.Q_list_return.fieldbyname('kd_return').AsString;
+  Self.Caption := Format('Return(%s)', [ed_no_faktur.Text]);
   ed_fak_receipt.Text := dm.Q_list_return.fieldbyname('faktur_receipt')
     .AsString;
   no_faktur := dm.Q_list_return.fieldbyname('kd_return').AsString;
@@ -359,6 +360,8 @@ end;
 procedure Tf_return.FormCreate(Sender: TObject);
 begin
   f_utama.MDIChildCreated(Self.Handle);
+  b_new.Enabled := not dm.OnServer;
+  b_load.Enabled := not dm.OnServer;
 end;
 
 end.
