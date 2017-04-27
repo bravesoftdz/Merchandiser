@@ -290,7 +290,7 @@ end;
 procedure Tf_purchase.b_simpanClick(Sender: TObject);
 var
   x: Integer;
-  isi_sql, kd_faktur: string;
+  isi_sql, kd_faktur, LSQL: string;
 begin
   if (ed_supplier.Text = '') or (ed_no_faktur.Text = '') then
   begin
@@ -314,30 +314,27 @@ begin
 
   for x := 0 to TableView.DataController.RecordCount - 1 do
   begin
-    isi_sql := isi_sql + '("' + dm.kd_perusahaan + '","' + ed_no_faktur.Text +
-      '","' + formatdatetime('yyyy-MM-dd', ed_tgl.Date) + '","' +
-      TableView.DataController.GetDisplayText(x, 0) + '","' +
-      TableView.DataController.GetDisplayText(x, 1) + '","' +
-      floattostr(TableView.DataController.GetValue(x, 2)) + '","' +
-      floattostr(TableView.DataController.GetValue(x, 4)) + '","' +
-      TableView.DataController.GetDisplayText(x, 5) + '",date(now())),';
+    isi_sql := isi_sql + Format('("%s", "%s", "%s", "%s", "%d", "%g", "%s", CURDATE()), ',
+      [dm.kd_perusahaan, ed_no_faktur.Text, TableView.DataController.GetDisplayText(x, 0),
+      TableView.DataController.GetDisplayText(x, 1),Integer(TableView.DataController.GetValue(x, 2)),
+      Currency(TableView.DataController.GetValue(x, 4)), TableView.DataController.GetDisplayText(x, 5)]);
   end;
-  delete(isi_sql, length(isi_sql), 1);
+  SetLength(isi_sql, length(isi_sql) - 2);
 
   dm.db_conn.StartTransaction;
   try
-    fungsi.SQLExec(dm.Q_exe,
-      'insert into tb_purchase_global(kd_perusahaan,kd_purchase,tgl_purchase,' +
-      'kd_suplier,nilai_faktur,pengguna,simpan_pada) values ("' +
-      dm.kd_perusahaan + '","' + ed_no_faktur.Text + '","' +
-      formatdatetime('yyyy-MM-dd', ed_tgl.Date) + '","' + ed_supplier.Text +
-      '","' + ed_nilai_faktur.Text + '","' + dm.kd_pengguna +
-      '",now())', false);
+    LSQL := Format('INSERT INTO tb_purchase_global(kd_perusahaan,kd_purchase,tgl_purchase,' +
+      'kd_suplier,nilai_faktur,pengguna,simpan_pada) VALUES ("%s", "%s", "%s", "%s", "%g", "%s", NOW())',
+      [dm.kd_perusahaan, ed_no_faktur.Text, MyDate(ed_tgl.Date), ed_supplier.Text,
+      ed_nilai_faktur.Value, dm.kd_pengguna]);
 
-    fungsi.SQLExec(dm.Q_exe,
-      'insert into tb_purchase_rinci(kd_perusahaan,kd_purchase,tgl_purchase,' +
-      'kd_barang,n_barang,qty_purchase,harga_pokok,barcode,tgl_simpan) values  '
-      + isi_sql, false);
+    fungsi.SQLExec(dm.Q_exe, LSQL, false);
+
+    LSQL := Format('INSERT INTO tb_purchase_rinci(kd_perusahaan,kd_purchase, ' +
+      'kd_barang,n_barang,qty_purchase,harga_pokok,barcode,tgl_simpan) VALUES %s',
+      [isi_sql]);
+
+    fungsi.SQLExec(dm.Q_exe, LSQL, false);
 
     dm.db_conn.Commit;
 
