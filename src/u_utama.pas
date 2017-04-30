@@ -376,13 +376,8 @@ begin
   FVersion := TAppVersion.Create(Application.ExeName);
   cek_update;
 
-{$IFDEF VER150}
-  DecimalSeparator := '.';
-  ThousandSeparator := ',';
-{$ELSE}
   FormatSettings.DecimalSeparator := '.';
   FormatSettings.ThousandSeparator := ',';
-{$ENDIF}
   dm.sm.Active := True;
 
   sb.Panels[5].text := dm.kd_perusahaan;
